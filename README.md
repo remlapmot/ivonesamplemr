@@ -1,6 +1,6 @@
 # onesamplemr Stata package
 
-Useful functions for one sample Mendelian randomization / instrumental variable 
+Stata package of useful programs for one sample Mendelian randomization / instrumental variable 
 analyses, including implementations of:
 
 * list of methods
