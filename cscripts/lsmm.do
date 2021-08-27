@@ -43,6 +43,7 @@ local exog `s(exog)'
 local inst `s(inst)'
 local 0 `s(zero)'
 
+syntax [if] [in] [, Level(cilevel) am(varlist numeric)]
 
 
 marksample touse
