@@ -43,12 +43,7 @@ local exog `s(exog)'
 local inst `s(inst)'
 local 0 `s(zero)'
 
-di "`lhs'"
-di "`endog'"
-di "`exog'"
-di "`inst'"
 
-exit
 
 marksample touse
 markout `touse' `lhs' `exog' `inst' `endog'
