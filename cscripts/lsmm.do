@@ -55,10 +55,10 @@ local p1 "invlogit({xb:} + {b0})"
 local d1 "-1*`p1'*(1 - `p1')"
 local p2 "invlogit({xb:} + {b0} - x*{psi})"
 local d2 "`p2'*(1 - `p2')"
-gmm (y - invlogit({xb:x z1 z2 z3 xz1 xz2 xz3} + {b0})) ///
+gmm (y - invlogit({xb:`am'} + {b0})) ///
 	(invlogit({xb:} + {b0} - x*{psi}) - {ey0}), ///
-	instruments(1:x z1 z2 z3 xz1 xz2 xz3) ///
-	instruments(2:z1 z2 z3) ///
+	instruments(1:`endog' `am') ///
+	instruments(2:`inst') ///
 	winitial(unadjusted, independent) from(from) ///
 	deriv(1/xb = `d1') ///
 	deriv(1/b0 = `d1') ///
