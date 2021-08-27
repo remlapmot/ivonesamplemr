@@ -60,11 +60,11 @@ gmm (y - invlogit({xb:x z1 z2 z3 xz1 xz2 xz3} + {b0})) ///
 	instruments(1:x z1 z2 z3 xz1 xz2 xz3) ///
 	instruments(2:z1 z2 z3) ///
 	winitial(unadjusted, independent) from(from) ///
-	deriv(1/xb = ‘d1’) ///
-	deriv(1/b0 = ‘d1’) ///
-	deriv(2/xb = ‘d2’) ///
-	deriv(2/b0 = ‘d2’) ///
-	deriv(2/psi = -1*x*‘d2’) ///
+	deriv(1/xb = `d1') ///
+	deriv(1/b0 = `d1') ///
+	deriv(2/xb = `d2') ///
+	deriv(2/b0 = `d2') ///
+	deriv(2/psi = -1*x*`d2') ///
 	deriv(2/ey0 = -1)
 
 end
