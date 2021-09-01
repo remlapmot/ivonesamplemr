@@ -70,21 +70,25 @@ if "`from'" == "" {
 	mat `from' = (`from', `s2b')
 }
 
+// lsmm fit
 local p1 "invlogit({xb:} + {b0})"
 local d1 "-1*`p1'*(1 - `p1')"
-local p2 "invlogit({xb:} + {b0} - x*{psi})"
+local p2 "invlogit({xb:} + {b0} - {cmxb:})"
 local d2 "`p2'*(1 - `p2')"
-gmm (y - invlogit({xb:`am'} + {b0})) ///
-	(invlogit({xb:} + {b0} - x*{psi}) - {ey0}), ///
-	instruments(1:`endog' `am') ///
-	instruments(2:`inst') ///
-	winitial(unadjusted, independent) from(from) ///
+
+gmm (`lhs' - invlogit({xb:`amxb'} + {b0})) ///
+	(invlogit({xb:} + {b0} - {cmxb:`endog' `exog'}) - {ey0}) ///
+	`if'`in', ///
+	instruments(1:`amxb') ///
+	instruments(2:`inst' `exog') ///
+	winitial(unadjusted, independent) from(`from') ///
 	deriv(1/xb = `d1') ///
 	deriv(1/b0 = `d1') ///
 	deriv(2/xb = `d2') ///
 	deriv(2/b0 = `d2') ///
-	deriv(2/psi = -1*x*`d2') ///
-	deriv(2/ey0 = -1)
+	deriv(2/cmxb = -1*`d2') ///
+	deriv(2/ey0 = -1) ///
+	`options'
 
 end
 
