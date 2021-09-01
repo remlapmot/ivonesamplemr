@@ -1,8 +1,10 @@
 v 3
 d onesamplemr
 d Author: Tom Palmer
-d Distribution-Date: 20210826
+d Distribution-Date: 20210901
 f lsmm.ado
 f lsmm.sthlp
+f msmm.ado
+f msmm.sthlp
 f onesamplemr.sthlp
 e
