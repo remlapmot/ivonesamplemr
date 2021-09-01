@@ -10,7 +10,8 @@ log using master.log, text replace name(master)
 cscript master
 
 local cscripts ///
-	lsmm
+	lsmm ///
+	msmm
 
 foreach dofile of local cscripts {
     log using `dofile'.log, text replace name(`dofile')
