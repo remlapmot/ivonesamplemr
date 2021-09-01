@@ -6,6 +6,7 @@ if _caller() >= 11 {
 }
 version 10
 
+local replay = replay()
 
 if replay() {
     if `"`e(cmd)'"' != "lsmm" { 
@@ -15,7 +16,7 @@ if replay() {
         error 190 
     }
     else {
-        Display `0'
+        Display , lhs(`e(lhs)') endog(`e(endog)') exog(`e(exog)') inst(`e(inst)') replay(`replay')
     }
     exit
 }
@@ -87,6 +88,20 @@ gmm (`lhs' - invlogit({xb:`amxb'} + {b0})) ///
 	deriv(2/cmxb = -1*`d2') ///
 	deriv(2/ey0 = -1) ///
 	`options'
+
+program Display, rclass
+version 10
+syntax [anything] [, Level(cilevel) lhs(varname) endog(varlist) exog(varlist) inst(varlist) replay(integer 0)]
+
+if `replay' == 1 {
+	display
+	_coef_table , level(`level')
+}
+else {
+	qui _coef_table , level(`level') // to return r(table)
+}
+
+return add
 
 foreach var of varlist `endog' `exog' {
 	di _n as txt "Causal odds ratio for: `var'"
