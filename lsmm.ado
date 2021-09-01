@@ -47,14 +47,14 @@ if "`amxb'" == "" {
 if "`from'" == "" {
 	// logistic regression for association model starting values
 	tempname from
-	qui logit `lhs' `amxb'
+	qui logit `lhs' `amxb' `if'`in'
 	mat `from' = e(b)
 	
 	// tsri fit for causal model starting initial values
 	tempvar s1res
 	qui regress `endog' `inst' `exog' `if'`in'
 	qui predict `s1res' `if'`in'
-	qui logit `lhs' `endog' `exog' `s1res'
+	qui logit `lhs' `endog' `exog' `s1res' `if'`in'
 	tempname s2b
 	mat `s2b' = e(b)
 	local lengths2b = colsof(`s2b')
