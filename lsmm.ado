@@ -21,13 +21,6 @@ if replay() {
     exit
 }
 
-Estimate `0'
-ereturn local cmdline `"lsmm `0'"'
-
-program Estimate, eclass
-
-version 10
-
 _iv_parse `0'
 local lhs `s(lhs)'
 local endog `s(endog)'
@@ -35,7 +28,7 @@ local exog `s(exog)'
 local inst `s(inst)'
 local 0 `s(zero)'
 
-syntax [if] [in] [, Level(cilevel) AMxb(varlist numeric) FROM(string) *]
+Estimate , lhs(`lhs') endog(`endog') exog(`exog') inst(`inst')
 ereturn local cmd "lsmm"
 ereturn local cmdline `"lsmm `0'"'
 ereturn local lhs `lhs'
@@ -43,6 +36,14 @@ ereturn local endog `endog'
 ereturn local exog `exog'
 ereturn local inst `inst'
 end
+
+
+program Estimate, eclass
+
+version 10
+
+syntax [if] [in] [, Level(cilevel) AMxb(varlist numeric) FROM(string) ///
+	lhs(varname) endog(varlist) exog(varlist) inst(varlist) *]
 
 marksample touse
 markout `touse' `lhs' `exog' `inst' `endog'
@@ -88,6 +89,9 @@ gmm (`lhs' - invlogit({xb:`amxb'} + {b0})) ///
 	deriv(2/cmxb = -1*`d2') ///
 	deriv(2/ey0 = -1) ///
 	`options'
+
+end
+
 
 program Display, rclass
 version 10
