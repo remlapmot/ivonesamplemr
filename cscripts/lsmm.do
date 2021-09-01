@@ -30,6 +30,10 @@ lsmm
 
 // ereturn list
 eret list
+
+// r(table)
+mat list r(table)
+
 // multiple instruments
 discard
 lsmm y w (x = z1 z2 z3)
