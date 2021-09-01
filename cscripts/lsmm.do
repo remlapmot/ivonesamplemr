@@ -3,6 +3,7 @@
 
 cscript lsmm adofiles lsmm
 
+// simulate data
 clear
 set obs 2500
 set seed 12345
@@ -15,11 +16,15 @@ gen x = z1 + z2 + z3 + w + u + rnormal()
 gen logitpy = -2 + x + w + u
 gen py = invlogit(logitpy)
 gen y = rbinomial(1, py)
+gen x1 = x
+gen x2 = rnormal()
+
+// tests
+
+lsmm y w (x = z1)
 
 lsmm y w (x = z1 z2 z3)
 
-gen x1 = x
-gen x2 = rnormal()
 lsmm y w (x1 x2 = z1 z2 z3)
 
 mat start = J(1,9,1)
@@ -30,6 +35,7 @@ lsmm y w (x = z1 z2 z3), from(start)
 lsmm y (x = z1 z2 z3) if _n <= 100
 lsmm y (x = z1 z2 z3) in 1/100
 
+// check `options'
 lsmm y (x = z1 z2 z3) if _n <= 100, nolog
 
 
