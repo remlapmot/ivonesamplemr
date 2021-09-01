@@ -29,6 +29,8 @@ local inst `s(inst)'
 local 0 `s(zero)'
 
 Estimate , lhs(`lhs') endog(`endog') exog(`exog') inst(`inst')
+Display , level(`level') lhs(`lhs') endog(`endog') exog(`exog') inst(`inst')
+
 ereturn local cmd "lsmm"
 ereturn local cmdline `"lsmm `0'"'
 ereturn local lhs `lhs'
