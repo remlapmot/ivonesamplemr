@@ -22,7 +22,6 @@ if replay() {
 
 Estimate `0'
 ereturn local cmdline `"lsmm `0'"'
-end
 
 program Estimate, eclass
 
@@ -36,6 +35,13 @@ local inst `s(inst)'
 local 0 `s(zero)'
 
 syntax [if] [in] [, Level(cilevel) AMxb(varlist numeric) FROM(string) *]
+ereturn local cmd "lsmm"
+ereturn local cmdline `"lsmm `0'"'
+ereturn local lhs `lhs'
+ereturn local endog `endog'
+ereturn local exog `exog'
+ereturn local inst `inst'
+end
 
 marksample touse
 markout `touse' `lhs' `exog' `inst' `endog'
