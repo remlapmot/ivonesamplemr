@@ -82,4 +82,9 @@ gmm (`lhs' - invlogit({xb:`amxb'} + {b0})) ///
 	deriv(2/ey0 = -1) ///
 	`options'
 
+foreach var of varlist `endog' `exog' {
+	di _n as txt "Causal odds ratio for: `var'"
+	lincom /cmxb_`var', eform
+}
+
 end
