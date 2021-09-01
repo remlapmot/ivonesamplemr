@@ -48,6 +48,9 @@ syntax [if] [in] [, Level(cilevel) AMxb(varlist numeric) FROM(string) *]
 marksample touse
 markout `touse' `lhs' `exog' `inst' `endog'
 
+if "`amxb'" == "" {
+	local amxb "`endog' `inst' `exog'"
+}
 
 
 local p1 "invlogit({xb:} + {b0})"
