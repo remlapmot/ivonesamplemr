@@ -63,7 +63,7 @@ assert abs(_b[/cmxb_x] - 1.21) < 1e-2
 // check `options'
 discard
 lsmm y (x = z1 z2 z3) if _n <= 100, nolog
-
+assert abs(_b[/cmxb_x] - 1.21) < 1e-2
 
 // amxb test
 discard
