@@ -4,6 +4,7 @@ Stata package of useful programs for one sample Mendelian randomization / instru
 analyses, including implementations of:
 
 * logistic structural mean model (`lsmm` command)
+* multiplicative structural mean model (`msmm` command)
 
 ## Installation
 
