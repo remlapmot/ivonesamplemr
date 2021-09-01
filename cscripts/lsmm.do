@@ -43,8 +43,7 @@ local exog `s(exog)'
 local inst `s(inst)'
 local 0 `s(zero)'
 
-syntax [if] [in] [, Level(cilevel) am(varlist numeric)]
-
+syntax [if] [in] [, Level(cilevel) AMxb(varlist numeric) FROM(string) *]
 
 marksample touse
 markout `touse' `lhs' `exog' `inst' `endog'
