@@ -3,7 +3,7 @@
 Stata package of useful programs for one sample Mendelian randomization / instrumental variable 
 analyses, including implementations of:
 
-* list of methods
+* logistic structural mean model (`lsmm` command)
 
 Install the package within Stata using
 ``` stata
