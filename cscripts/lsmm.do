@@ -25,6 +25,9 @@ discard
 lsmm y w (x = z1)
 assert abs(_b[/cmxb_x] - 1) < 1e-2
 
+// estimates replay
+lsmm
+
 // multiple instruments
 discard
 lsmm y w (x = z1 z2 z3)
