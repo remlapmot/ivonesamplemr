@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
       name:  master
-       log:  C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\cscripts\master.
-> log
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\master.lo
+> g
   log type:  text
- opened on:   1 Sep 2021, 10:46:17
+ opened on:   1 Sep 2021, 17:17:36
 
 . 
 . cscript master
@@ -20,14 +20,11 @@
   3.     do `dofile'
   4.     log close `dofile'
   5. }
-(note: file C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\cscripts\lsmm.log
->  not found)
 -------------------------------------------------------------------------------
       name:  lsmm
-       log:  C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\cscripts\lsmm.lo
-> g
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\lsmm.log
   log type:  text
- opened on:   1 Sep 2021, 10:46:17
+ opened on:   1 Sep 2021, 17:17:36
 
 . // lsmm cscript
 . // 2021-08-27
@@ -36,7 +33,7 @@
 ---------------------------------------------------------------------BEGIN lsmm
 
 -> which lsmm, usesysdir
-C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\lsmm.ado
+C:\Users\tom\Documents\GitHub\onesamplemr-stata\lsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
@@ -133,6 +130,133 @@ Causal odds ratio for: w
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - 1) < 1e-2
+
+. 
+. // estimates replay
+. lsmm
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.142773   .0515592    22.16   0.000     1.041719    1.243827
+      /xb_z1 |   -.125428   .1051645    -1.19   0.233    -.3315465    .0806906
+       /xb_w |   .6714291   .0708208     9.48   0.000      .532623    .8102353
+         /b0 |  -2.181456   .1134677   -19.23   0.000    -2.403849   -1.959063
+     /cmxb_x |   1.009534   .1131745     8.92   0.000     .7877157    1.231352
+     /cmxb_w |   .8040886   .1199973     6.70   0.000     .5688983    1.039279
+        /ey0 |   .1218896   .0252702     4.82   0.000     .0723609    .1714182
+------------------------------------------------------------------------------
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.744321   .3105872     8.92   0.000     2.198369    3.425857
+------------------------------------------------------------------------------
+
+Causal odds ratio for: w
+
+ ( 1)  [cmxb_w]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.234659   .2681529     6.70   0.000      1.76632    2.827177
+------------------------------------------------------------------------------
+
+. 
+. // ereturn list
+. eret list
+
+scalars:
+         e(k_eq_model) =  0
+              e(k_aux) =  7
+               e(k_eq) =  7
+          e(n_moments) =  7
+                  e(k) =  7
+               e(n_eq) =  2
+               e(type) =  1
+         e(has_xtinst) =  0
+          e(converged) =  1
+                e(k_2) =  7
+                e(k_1) =  4
+               e(J_df) =  0
+                  e(J) =  4.46658764385e-27
+                  e(Q) =  1.78663505754e-30
+                  e(N) =  2500
+               e(rank) =  7
+
+macros:
+               e(inst) : "z1"
+               e(exog) : "w"
+              e(endog) : "x"
+                e(lhs) : "y"
+            e(cmdline) : "lsmm "
+                e(cmd) : "lsmm"
+          e(estat_cmd) : "gmm_estat"
+            e(predict) : "gmm_p"
+       e(marginsnotok) : "Residuals SCores"
+          e(marginsok) : "xb"
+        e(marginsprop) : "allcons nochainrule"
+            e(eqnames) : "1 2"
+          e(technique) : "gn"
+              e(winit) : "Unadjusted"
+          e(estimator) : "twostep"
+            e(wmatrix) : "robust"
+                e(vce) : "robust"
+            e(vcetype) : "Robust"
+             e(params) : "xb_x xb_z1 xb_w b0 cmxb_x cmxb_w ey0"
+             e(inst_2) : "z1 w _cons"
+           e(params_2) : "b0 cmxb_x cmxb_w ey0"
+             e(sexp_2) : "invlogit(({xb_x}*x+{xb_z1}*z1+{xb_w}*w)+{b0}-({cm.."
+             e(inst_1) : "x z1 w _cons"
+           e(params_1) : "xb_x xb_z1 xb_w b0"
+             e(sexp_1) : "y-invlogit(({xb_x}*x+{xb_z1}*z1+{xb_w}*w)+{b0})"
+         e(properties) : "b V"
+
+matrices:
+                  e(b) :  1 x 7
+                  e(V) :  7 x 7
+               e(init) :  1 x 7
+       e(V_modelbased) :  7 x 7
+                  e(S) :  7 x 7
+                  e(W) :  7 x 7
+
+functions:
+             e(sample)   
+
+. 
+. // r(table)
+. mat list r(table)
+
+r(table)[9,7]
+              xb_x:      xb_z1:       xb_w:         b0:     cmxb_x:     cmxb_w:
+             _cons       _cons       _cons       _cons       _cons       _cons
+     b   1.1427731  -.12542797   .67142912  -2.1814559   1.0095337   .80408856
+    se   .05155918   .10516447   .07082077   .11346774    .1131745   .11999725
+     z     22.1643  -1.1926838   9.4806809   -19.22534   8.9201512   6.7008913
+pvalue   7.59e-109   .23299322   2.526e-21   2.271e-82   4.657e-19   2.072e-11
+    ll    1.041719  -.33154655   .53262296  -2.4038486   .78771574   .56889827
+    ul   1.2438272   .08069061   .81023528  -1.9590633   1.2313516   1.0392789
+    df           .           .           .           .           .           .
+  crit    1.959964    1.959964    1.959964    1.959964    1.959964    1.959964
+ eform           0           0           0           0           0           0
+
+               ey0:
+             _cons
+     b   .12188959
+    se   .02527018
+     z   4.8234546
+pvalue   1.411e-06
+    ll   .07236094
+    ul   .17141824
+    df           .
+  crit    1.959964
+ eform           0
 
 . 
 . // multiple instruments
@@ -367,19 +491,23 @@ Causal odds ratio for: w
 . lsmm y (x = z1 z2 z3) if _n <= 100
 
 Step 1
-Iteration 0:   GMM criterion Q(b) =  3.4184793  
-Iteration 1:   GMM criterion Q(b) =   .0113906  
-Iteration 2:   GMM criterion Q(b) =  .00143363  
-Iteration 3:   GMM criterion Q(b) =  .00065349  
-Iteration 4:   GMM criterion Q(b) =  .00065106  
-Iteration 5:   GMM criterion Q(b) =  .00065102  
+Iteration 0:   GMM criterion Q(b) =  3.4736517  
+Iteration 1:   GMM criterion Q(b) =  .00097509  
+Iteration 2:   GMM criterion Q(b) =  .00088146  
+Iteration 3:   GMM criterion Q(b) =  .00087123  
+Iteration 4:   GMM criterion Q(b) =  .00086286  
+Iteration 5:   GMM criterion Q(b) =  .00082886  
+Iteration 6:   GMM criterion Q(b) =  .00073266  
+Iteration 7:   GMM criterion Q(b) =  .00065377  
+Iteration 8:   GMM criterion Q(b) =  .00065103  
+Iteration 9:   GMM criterion Q(b) =  .00065102  
 
 Step 2
-Iteration 0:   GMM criterion Q(b) =  .01490071  
-Iteration 1:   GMM criterion Q(b) =  .01342655  
-Iteration 2:   GMM criterion Q(b) =  .01339371  
-Iteration 3:   GMM criterion Q(b) =   .0133935  
-Iteration 4:   GMM criterion Q(b) =  .01339349  
+Iteration 0:   GMM criterion Q(b) =  .01490482  
+Iteration 1:   GMM criterion Q(b) =  .01342902  
+Iteration 2:   GMM criterion Q(b) =   .0133964  
+Iteration 3:   GMM criterion Q(b) =  .01339618  
+Iteration 4:   GMM criterion Q(b) =  .01339618  
 
 GMM estimation 
 
@@ -392,13 +520,13 @@ GMM weight matrix:     Robust
              |               Robust
              |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-       /xb_x |   1.763671   .3324051     5.31   0.000     1.112169    2.415173
-      /xb_z1 |  -.4448154   .3623729    -1.23   0.220    -1.155053    .2654225
-      /xb_z2 |  -.8002481   .4165349    -1.92   0.055    -1.616641    .0161453
-      /xb_z3 |  -.4429103   .3975389    -1.11   0.265    -1.222072    .3362517
-         /b0 |  -1.863241   .7113658    -2.62   0.009    -3.257492   -.4689895
-     /cmxb_x |   1.206089    .338906     3.56   0.000     .5418455    1.870333
-        /ey0 |   .1536568   .1011143     1.52   0.129    -.0445236    .3518372
+       /xb_x |   1.763694   .3324165     5.31   0.000      1.11217    2.415218
+      /xb_z1 |  -.4448383   .3623707    -1.23   0.220    -1.155072    .2653952
+      /xb_z2 |  -.8001791   .4165426    -1.92   0.055    -1.616588    .0162294
+      /xb_z3 |  -.4429923   .3975396    -1.11   0.265    -1.222156     .336171
+         /b0 |  -1.863253   .7113749    -2.62   0.009    -3.257522   -.4689836
+     /cmxb_x |   1.206102   .3389122     3.56   0.000     .5418467    1.870358
+        /ey0 |   .1536548   .1011149     1.52   0.129    -.0445268    .3518364
 ------------------------------------------------------------------------------
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
@@ -410,7 +538,7 @@ Causal odds ratio for: x
 ------------------------------------------------------------------------------
              |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         (1) |   3.340395    1.13208     3.56   0.000     1.719177    6.490456
+         (1) |    3.34044   1.132116     3.56   0.000     1.719179    6.490621
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - 1.21) < 1e-2
@@ -421,19 +549,23 @@ Causal odds ratio for: x
 . lsmm y (x = z1 z2 z3) in 1/100
 
 Step 1
-Iteration 0:   GMM criterion Q(b) =  3.4184793  
-Iteration 1:   GMM criterion Q(b) =   .0113906  
-Iteration 2:   GMM criterion Q(b) =  .00143363  
-Iteration 3:   GMM criterion Q(b) =  .00065349  
-Iteration 4:   GMM criterion Q(b) =  .00065106  
-Iteration 5:   GMM criterion Q(b) =  .00065102  
+Iteration 0:   GMM criterion Q(b) =  3.4736517  
+Iteration 1:   GMM criterion Q(b) =  .00097509  
+Iteration 2:   GMM criterion Q(b) =  .00088146  
+Iteration 3:   GMM criterion Q(b) =  .00087123  
+Iteration 4:   GMM criterion Q(b) =  .00086286  
+Iteration 5:   GMM criterion Q(b) =  .00082886  
+Iteration 6:   GMM criterion Q(b) =  .00073266  
+Iteration 7:   GMM criterion Q(b) =  .00065377  
+Iteration 8:   GMM criterion Q(b) =  .00065103  
+Iteration 9:   GMM criterion Q(b) =  .00065102  
 
 Step 2
-Iteration 0:   GMM criterion Q(b) =  .01490071  
-Iteration 1:   GMM criterion Q(b) =  .01342655  
-Iteration 2:   GMM criterion Q(b) =  .01339371  
-Iteration 3:   GMM criterion Q(b) =   .0133935  
-Iteration 4:   GMM criterion Q(b) =  .01339349  
+Iteration 0:   GMM criterion Q(b) =  .01490482  
+Iteration 1:   GMM criterion Q(b) =  .01342902  
+Iteration 2:   GMM criterion Q(b) =   .0133964  
+Iteration 3:   GMM criterion Q(b) =  .01339618  
+Iteration 4:   GMM criterion Q(b) =  .01339618  
 
 GMM estimation 
 
@@ -446,13 +578,13 @@ GMM weight matrix:     Robust
              |               Robust
              |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-       /xb_x |   1.763671   .3324051     5.31   0.000     1.112169    2.415173
-      /xb_z1 |  -.4448154   .3623729    -1.23   0.220    -1.155053    .2654225
-      /xb_z2 |  -.8002481   .4165349    -1.92   0.055    -1.616641    .0161453
-      /xb_z3 |  -.4429103   .3975389    -1.11   0.265    -1.222072    .3362517
-         /b0 |  -1.863241   .7113658    -2.62   0.009    -3.257492   -.4689895
-     /cmxb_x |   1.206089    .338906     3.56   0.000     .5418455    1.870333
-        /ey0 |   .1536568   .1011143     1.52   0.129    -.0445236    .3518372
+       /xb_x |   1.763694   .3324165     5.31   0.000      1.11217    2.415218
+      /xb_z1 |  -.4448383   .3623707    -1.23   0.220    -1.155072    .2653952
+      /xb_z2 |  -.8001791   .4165426    -1.92   0.055    -1.616588    .0162294
+      /xb_z3 |  -.4429923   .3975396    -1.11   0.265    -1.222156     .336171
+         /b0 |  -1.863253   .7113749    -2.62   0.009    -3.257522   -.4689836
+     /cmxb_x |   1.206102   .3389122     3.56   0.000     .5418467    1.870358
+        /ey0 |   .1536548   .1011149     1.52   0.129    -.0445268    .3518364
 ------------------------------------------------------------------------------
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
@@ -464,7 +596,7 @@ Causal odds ratio for: x
 ------------------------------------------------------------------------------
              |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         (1) |   3.340395    1.13208     3.56   0.000     1.719177    6.490456
+         (1) |    3.34044   1.132116     3.56   0.000     1.719179    6.490621
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - 1.21) < 1e-2
@@ -475,7 +607,7 @@ Causal odds ratio for: x
 
 . lsmm y (x = z1 z2 z3) if _n <= 100, nolog
 
-Final GMM criterion Q(b) =  .0133935
+Final GMM criterion Q(b) =  .0133962
 
 GMM estimation 
 
@@ -488,13 +620,13 @@ GMM weight matrix:     Robust
              |               Robust
              |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-       /xb_x |   1.763671   .3324051     5.31   0.000     1.112169    2.415173
-      /xb_z1 |  -.4448154   .3623729    -1.23   0.220    -1.155053    .2654225
-      /xb_z2 |  -.8002481   .4165349    -1.92   0.055    -1.616641    .0161453
-      /xb_z3 |  -.4429103   .3975389    -1.11   0.265    -1.222072    .3362517
-         /b0 |  -1.863241   .7113658    -2.62   0.009    -3.257492   -.4689895
-     /cmxb_x |   1.206089    .338906     3.56   0.000     .5418455    1.870333
-        /ey0 |   .1536568   .1011143     1.52   0.129    -.0445236    .3518372
+       /xb_x |   1.763694   .3324165     5.31   0.000      1.11217    2.415218
+      /xb_z1 |  -.4448383   .3623707    -1.23   0.220    -1.155072    .2653952
+      /xb_z2 |  -.8001791   .4165426    -1.92   0.055    -1.616588    .0162294
+      /xb_z3 |  -.4429923   .3975396    -1.11   0.265    -1.222156     .336171
+         /b0 |  -1.863253   .7113749    -2.62   0.009    -3.257522   -.4689836
+     /cmxb_x |   1.206102   .3389122     3.56   0.000     .5418467    1.870358
+        /ey0 |   .1536548   .1011149     1.52   0.129    -.0445268    .3518364
 ------------------------------------------------------------------------------
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
@@ -506,10 +638,11 @@ Causal odds ratio for: x
 ------------------------------------------------------------------------------
              |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         (1) |   3.340395    1.13208     3.56   0.000     1.719177    6.490456
+         (1) |    3.34044   1.132116     3.56   0.000     1.719179    6.490621
 ------------------------------------------------------------------------------
 
-. 
+. assert abs(_b[/cmxb_x] - 1.21) < 1e-2
+
 . 
 . // amxb test
 . discard
@@ -628,19 +761,15 @@ Causal odds ratio for: w
 . 
 end of do-file
       name:  lsmm
-       log:  C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\cscripts\lsmm.lo
-> g
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\lsmm.log
   log type:  text
- closed on:   1 Sep 2021, 10:46:25
+ closed on:   1 Sep 2021, 17:17:43
 -------------------------------------------------------------------------------
-(note: file C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\cscripts\msmm.log
->  not found)
 -------------------------------------------------------------------------------
       name:  msmm
-       log:  C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\cscripts\msmm.lo
-> g
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\msmm.log
   log type:  text
- opened on:   1 Sep 2021, 10:46:25
+ opened on:   1 Sep 2021, 17:17:43
 
 . // msmm cscript
 . // 2021-09-01
@@ -649,7 +778,7 @@ end of do-file
 ---------------------------------------------------------------------BEGIN msmm
 
 -> which msmm, usesysdir
-C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\msmm.ado
+C:\Users\tom\Documents\GitHub\onesamplemr-stata\msmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
@@ -864,17 +993,16 @@ Instruments:   cbd ptn worker weekend pt
 . 
 end of do-file
       name:  msmm
-       log:  C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\cscripts\msmm.lo
-> g
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\msmm.log
   log type:  text
- closed on:   1 Sep 2021, 10:46:27
+ closed on:   1 Sep 2021, 17:17:46
 -------------------------------------------------------------------------------
 
 . 
 . log close _all
       name:  master
-       log:  C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\cscripts\master.
-> log
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\master.lo
+> g
   log type:  text
- closed on:   1 Sep 2021, 10:46:27
+ closed on:   1 Sep 2021, 17:17:46
 -------------------------------------------------------------------------------

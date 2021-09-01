@@ -1,9 +1,8 @@
 -------------------------------------------------------------------------------
       name:  msmm
-       log:  C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\cscripts\msmm.lo
-> g
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\msmm.log
   log type:  text
- opened on:   1 Sep 2021, 10:46:25
+ opened on:   1 Sep 2021, 17:17:43
 
 . // msmm cscript
 . // 2021-09-01
@@ -12,7 +11,7 @@
 ---------------------------------------------------------------------BEGIN msmm
 
 -> which msmm, usesysdir
-C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\msmm.ado
+C:\Users\tom\Documents\GitHub\onesamplemr-stata\msmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
@@ -227,8 +226,7 @@ Instruments:   cbd ptn worker weekend pt
 . 
 end of do-file
       name:  msmm
-       log:  C:\Users\eptmp\Documents\GitHub\onesamplemr-stata\cscripts\msmm.lo
-> g
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\msmm.log
   log type:  text
- closed on:   1 Sep 2021, 10:46:27
+ closed on:   1 Sep 2021, 17:17:46
 -------------------------------------------------------------------------------
