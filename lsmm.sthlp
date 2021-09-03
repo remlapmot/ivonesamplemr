@@ -264,4 +264,4 @@ comparison of methods. Statistics in Medicine, 1999, 18, 20, 2693-2708.
 {marker author}
 {title:Author}
 
-INCLUDE help author
+INCLUDE help onesamplemr-author

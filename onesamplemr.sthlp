@@ -31,4 +31,4 @@ There is a website showing the examples from the helpfiles here: {browse "https:
 
 {title:Author}{marker author}
 
-INCLUDE help author
+INCLUDE help onesamplemr-author
