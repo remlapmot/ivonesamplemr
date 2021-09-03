@@ -1,5 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 # Linguist settings for Languages stats
+*.ihlp linguist-language=Stata
 *.toc linguist-language=Stata
 *.pkg linguist-language=Stata
