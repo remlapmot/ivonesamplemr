@@ -16,9 +16,9 @@
 {title:Commands}{marker commands}
 
 {synoptset 14 tabbed}{...}
-{synopt :{opt {help lsmm}:}}Fits the (double) logistic structural mean model, i.e. estimates a causal odds ratio for a binary outcome
 
 {synopt :{opt {help msmm}:}}Fits the multiplicative structural mean model, i.e. estimates a causal risk ratio for a binary outcome
+{synopt :{opt {help lsmm}:}}Fits the (double) logistic structural mean model, i.e. estimates a causal odds ratio for a binary outcome.
 
 {marker description}{...}
 {title:Description}
