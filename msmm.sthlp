@@ -136,40 +136,40 @@ the output and in the ereturn scalars.
 {marker examples}{...}
 {title:Examples}
 
-{pstd}Using the data provided by {help mregger##do:Do et al. (2013)} recreate 
-{help mregger##mrmedian:Bowden et al. (2016)}, Table 4, 
-LDL-c "All genetic variants" estimates.{p_end}
+{pstd}Simulate binary outcome data; y outcome, x exposure, w covariate, z* instrumental variables (genotypes).{p_end}
 
-{pstd}Setup{p_end}
-{phang2}{cmd:.} {stata "use https://raw.github.com/remlapmot/mrrobust/master/dodata, clear"}{p_end}
+{phang2}{cmd:.} {stata "drop _all"}{p_end}
+{phang2}{cmd:.} {stata "set obs 2500"}{p_end}
+{phang2}{cmd:.} {stata "set seed 12345"}{p_end}
+{phang2}{cmd:.} {stata "gen z1 = rbinomial(2, .2)"}{p_end}
+{phang2}{cmd:.} {stata "gen z2 = rbinomial(2, .3)"}{p_end}
+{phang2}{cmd:.} {stata "gen z3 = rbinomial(2, .4)"}{p_end}
+{phang2}{cmd:.} {stata "gen u = rnormal()"}{p_end}
+{phang2}{cmd:.} {stata "gen w = rnormal()"}{p_end}
+{phang2}{cmd:.} {stata "gen x = z1 + z2 + z3 + w + u + rnormal()"}{p_end}
+{phang2}{cmd:.} {stata "gen logitpy = -2 + x + w + u"}{p_end}
+{phang2}{cmd:.} {stata "gen py = invlogit(logitpy)"}{p_end}
+{phang2}{cmd:.} {stata "gen y = rbinomial(1, py)"}{p_end}
+{phang2}{cmd:.} {stata "gen x1 = x"}{p_end}
+{phang2}{cmd:.} {stata "gen x2 = rnormal()"}{p_end}
 
-{pstd}Select observations ({it:p}-value with exposure < 10^-8){p_end}
-{phang2}{cmd:.} {stata "gen byte sel1 = (ldlcp2 < 1e-8)"}{p_end}
+{pstd}Fit the model with a single instrumental variable.{p_end}
 
-{pstd}IVW (with fixed effect standard errors){p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, ivw fe"}{p_end}
+{phang2}{cmd:.} {stata "msmm y (x = z1)"}{p_end}
 
-{pstd}MR-Egger (with SEs using an unconstrained residual variance){p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1"}{p_end}
+{pstd}Fit the model with multiple instruments.{p_end}
 
-{pstd}MR-Egger reporting {it:I^2_GX} statistic and heterogeneity Q-test{p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, gxse(ldlcse) heterogi"}{p_end}
+{phang2}{cmd:.} {stata "msmm y (x = z1 z2 z3)"}{p_end}
 
-{pstd}MR-Egger using a t-distribution for inference & CI limits{p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, tdist"}{p_end}
+{pstd}Fit the model with multiple exposures, and instruments, and adjusting for w.{p_end}
 
-{pstd}MR-Egger using the radial formulation{p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, radial"}{p_end}
-
-{pstd}MR-Egger using the radial formulation and reporting heterogeneity Q-test{p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, radial heterogi"}{p_end}
-
+{phang2}{cmd:.} {stata "msmm y w (x1 x2 = z1 z2 z3)"}{p_end}
 
 {marker results}{...}
 {title:Stored results}
 
 {pstd}
-{cmd:mregger} stores the following in {cmd:e()}:
+{cmd:msmm} stores the following in {cmd:e()}:
 
 {synoptset 20 tabbed}{...}
 {p2col 5 20 24 2: Scalars}{p_end}
@@ -201,7 +201,7 @@ If {opt unwi2gx} is specified {cmd:mregger} additionally returns{p_end}
 {synopt:{cmd:e(QGXunw)}}Unweighted Q_GX statistic{p_end}
 
 {pstd}
-{cmd:mregger} stores the following in {cmd:r()}:
+{cmd:msmm} stores the following in {cmd:r()}:
 
 {synoptset 20 tabbed}{...}
 {p2col 5 20 24 2: Matrices}{p_end}
@@ -217,63 +217,6 @@ Mendelian randomization with invalid instruments: effect estimation and bias
 detection through Egger regression. International Journal of Epidemiology, 
 2015, 44, 2, 512-525. 
 {browse "http://dx.doi.org/10.1093/ije/dyv080":DOI}
-{p_end}
-
-{marker mrmedian}{...}
-{phang}
-Bowden J, Davey Smith G, Haycock PC, Burgess S. Consistent estimation 
-in Mendelian randomization with some invalid instruments using a weighted 
-median estimator. Genetic Epidemiology, 2016, 40, 4, 304-314. 
-{browse "http://dx.doi.org/10.1002/gepi.21965":DOI}
-
-{marker i2gx}{...}
-{phang}
-Bowden J, Del Greco F, Minelli C, Davey Smith G, Sheehan NA, Thompson JR. 
-Assessing the suitability of summary data for two-sample Mendelian 
-randomization analyses using MR-Egger regression: the role of the I-squared 
-statistic. International Journal of Epidemiology, 2016, 45, 6, 1961-1974. 
-{browse "http://dx.doi.org/10.1093/ije/dyw220":DOI}
-
-{marker radial}{...}
-{phang}
-Bowden J, Spiller W, Del-Greco F, Sheehan NA, Thompson JR, Minelli C, Davey Smith G. 
-Improving the visualisation, interpretation and analysis of two-sample summary 
-data Mendelian randomization via the radial plot and radial regression. 
-International Journal of Epidemiology, 2018, 47, 4, 1264-1278. {browse "https://doi.org/10.1093/ije/dyy101":DOI}
-
-{marker robust}{...}
-{phang}
-Burgess S, Bowden J, Dudbridge F, Thompson SG. Robust instrumental 
-variable methods using candidate instruments with application to Mendelian 
-randomization. arXiv:1606.03729v1, 2016. 
-{browse "https://arxiv.org/abs/1606.03729":Link}
-
-{marker ivw}{...}
-{phang}
-Burgess S, Butterworth A, Thompson S. Mendelian randomization analysis with 
-multiple genetic variants using summarized data. Genetic Epidemiology, 2013, 37, 7, 658–665. 
-{browse "https://dx.doi.org/10.1002%2Fgepi.21758": DOI}
-
-{marker delgreco}{...}
-{phang}
-Del Greco F M, Minelli C, Sheehan NA, Thompson JR. Detecting pleiotropy in 
-Mendelian randomization studies with summary data and a continuous outcome. 
-Statistics in Medicine, 2015, 34, 21, 2926-2940. 
-{browse "https://onlinelibrary.wiley.com/doi/full/10.1002/sim.6522":DOI}
-{p_end}
-
-{marker do}{...}
-{phang}
-Do R et al. Common variants associated with plasma triglycerides and risk
- for coronary artery disease. Nature Genetics, 2013, 45, 1345–1352. DOI: 
-{browse "http://dx.doi.org/10.1038/ng.2795":DOI}
-{p_end}
-
-{marker thompson}{...}
-{phang}
-Thompson SG, Sharp SJ. Explaining heterogeneity in meta-analysis: a 
-comparison of methods. Statistics in Medicine, 1999, 18, 20, 2693-2708. 
-{browse "http://dx.doi.org/10.1002/(SICI)1097-0258(19991030)18:20<2693::AID-SIM235>3.0.CO;2-V":DOI}
 {p_end}
 
 {marker author}
