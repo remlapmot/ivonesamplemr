@@ -11,7 +11,7 @@
 {title:Title}
 
 {p 5}
-{bf:mregger} {hline 2} (double) Logistic structural mean model
+{bf:lsmm} {hline 2} (double) Logistic structural mean model
 {p_end}
 
 {marker syntax}{...}
