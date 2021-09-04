@@ -10,7 +10,14 @@ analyses, including implementations of:
 
 Install the onesamplemr package within Stata using
 ``` stata
+net install github, from("https://haghish.github.io/github/")
+github install remlapmot/onesamplemr-stata, package(onesamplemr)
+```
+
+Or use the following code
+```
 net install onesamplemr, from("https://raw.github.com/remlapmot/onesample-mr/master/") replace
+do https://raw.github.com/remlapmot/onesample-mr/master/dependency.do
 ```
 
 To check for an update to the package run within Stata
