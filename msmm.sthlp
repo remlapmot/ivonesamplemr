@@ -11,7 +11,7 @@
 {title:Title}
 
 {p 5}
-{bf:mregger} {hline 2} Multiplicative structural mean model
+{bf:msmm} {hline 2} Multiplicative structural mean model
 {p_end}
 
 {marker syntax}{...}
