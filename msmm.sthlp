@@ -1,6 +1,8 @@
 {smcl}
 {* *! version 0.1.0  03sep2021 Tom Palmer}{...}
 {vieweralsosee "onesamplemr" "help onesamplemr"}{...}
+{vieweralsosee "ivpoisson" "help ivpoisson"}{...}
+{vieweralsosee "ivpois" "help ivpois"}{...}
 {viewerjumpto "Syntax" "msmm##syntax"}{...}
 {viewerjumpto "Description" "msmm##description"}{...}
 {viewerjumpto "Options" "msmm##options"}{...}
