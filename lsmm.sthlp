@@ -17,9 +17,22 @@
 {marker syntax}{...}
 {title:Syntax}
 
-{p 8 16 2}
-{opt lsmm} {var:_gd} {var:_gp} [{it:aweight}] {ifin} 
+{p 8 14 2}
+{cmd:lsmm} {depvar} [{it:{help varlist:varlist1}}]
+{cmd:(}{it:{help varlist:varlist2}} {cmd:=}
+        {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
+[{it:{help ivregress##weight:weight}}]
 [{cmd:,} {it:options}]
+
+{phang}
+{it:varlist1} is the list of exogenous variables.{p_end}
+
+{phang}
+{it:varlist2} is the list of endogenous variables.{p_end}
+
+{phang}
+{it:varlist_iv} is the list of exogenous variables used with {it:varlist1}
+   as instruments for {it:varlist2}.
 
 {synoptset 20 tabbed}{...}
 {synopthdr}
