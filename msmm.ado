@@ -1,9 +1,20 @@
 *! 1.0.0 Tom Palmer 01sep2021
 program msmm, eclass
 
-syntax [anything] [, *]
+local cmdline `0'
 
-ivpoisson gmm `0', multiplicative `options'
+tokenize `"`0'"', parse(",")
+local cmdbeforeopts `1'
+
+syntax [anything] [, noIRR LOG *]
+
+if "`irr'" == "" local irr "irr"
+else local irr ""
+
+if "`log'" == "" local nolog "nolog"
+else local nolog ""
+
+ivpoisson gmm `cmdbeforeopts', multiplicative `nolog' `irr' `options'
 
 end
 exit
