@@ -23,7 +23,7 @@
 {cmd:msmm} {depvar} [{it:{help varlist:varlist1}}]
 {cmd:(}{it:{help varlist:varlist2}} {cmd:=}
         {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
-[{it:{help ivregress##weight:weight}}]
+[{it:{help ivpoisson##weight:weight}}]
 [{cmd:,} {it:ivpoisson_options}]
 
 {phang}
