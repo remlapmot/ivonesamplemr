@@ -29,3 +29,8 @@ Uninstall the package within Stata using
 ``` stata
 ado uninstall onesamplemr
 ```
+
+And then launch the package helpfile with
+``` stata
+help onesamplemr
+```
