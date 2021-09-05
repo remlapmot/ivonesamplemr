@@ -29,9 +29,6 @@
 {pstd}
 {cmd:onesamplemr} is a suite of programs implementing various instrumental variable estimators for individual level data. 
 
-{pstd}
-There is a website showing the examples from the helpfiles here: {browse "https://remlapmot.github.io/onesamplemr-stata/"}{p_end}
-
 {title:Author}{marker author}
 
 INCLUDE help onesamplemr-author
