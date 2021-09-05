@@ -1,5 +1,6 @@
 {smcl}
 {* *! version 0.1.0 Tom Palmer 03sep2021}{...}
+{vieweralsosee "asmm" "help asmm"}{...}
 {vieweralsosee "lsmm" "help lsmm"}{...}
 {vieweralsosee "msmm" "help msmm"}{...}
 {viewerjumpto "Commands" "onesamplemr##commands"}{...}
