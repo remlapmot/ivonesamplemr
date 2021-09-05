@@ -12,7 +12,7 @@
 {bf:onesamplemr} {hline 2} commands for one-sample Mendelian randomization / instrumental variable analyses.
 
 {phang}
-{browse "https://github.com/remlapmot/onesamplemr-stata/"}{p_end}
+{browse "https://github.com/remlapmot/onesamplemr-stata#readme"}{p_end}
 
 {title:Commands}{marker commands}
 
