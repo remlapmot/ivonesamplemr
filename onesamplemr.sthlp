@@ -17,11 +17,11 @@
 {title:Commands}{marker commands}
 
 {synoptset 14 tabbed}{...}
-{synopt :{opt {help asmm}:}}Is a helpfile that links to {help ivregress} and {help ivreg2} which as linear IV estimators fits the additive structural mean model, i.e. estimates a causal risk difference for a binary outcome.
+{synopt :{opt {help asmm}:}}Is a helpfile that links to {help ivregress} and {help ivreg2} which as linear IV estimators fit the additive structural mean model (ASMM), i.e. estimates a causal risk difference for a binary outcome.
 
-{synopt :{opt {help lsmm}:}}Fits the (double) logistic structural mean model, i.e. estimates a causal odds ratio for a binary outcome.
+{synopt :{opt {help lsmm}:}}Fits the (double) logistic structural mean model (LSMM), i.e. estimates a causal odds ratio for a binary outcome.
 
-{synopt :{opt {help msmm}:}}Fits the multiplicative structural mean model, i.e. estimates a causal risk ratio for a binary outcome.
+{synopt :{opt {help msmm}:}}Fits the multiplicative structural mean model (MSMM), i.e. estimates a causal risk ratio for a binary outcome.
 
 {marker description}{...}
 {title:Description}
