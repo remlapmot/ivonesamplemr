@@ -21,7 +21,7 @@
 {cmd:lsmm} {depvar} [{it:{help varlist:varlist1}}]
 {cmd:(}{it:{help varlist:varlist2}} {cmd:=}
         {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
-[{it:{help ivregress##weight:weight}}]
+[{it:{help gmm##weight:weight}}]
 [{cmd:,} {it:options}]
 
 {phang}
@@ -37,40 +37,21 @@
 {synoptset 20 tabbed}{...}
 {synopthdr}
 {synoptline}
-{synopt:{opt fe:}}Fixed effect standard errors (default is multiplicative)
+{synopt:{opt am:xb(lc:varlist)}}The linear predictor for the association model, by default the instruments and exogenous variables are included
 {p_end}
-{synopt:{opt gxse(varname)}}variable of genotype-phenotype (SNP-exposure) SEs{p_end}
-{synopt:{opt het:erogi}}Display heterogeneity/pleiotropy 
-statistics{p_end}
-{synopt:{opt ivw:}}Inverse-variance weighted estimator (default is MR-Egger)
-{p_end}
+{synopt:{opt from(matrix)}}initial values for the parameter estimates for both association and causal models{p_end}
 {synopt:{opt l:evel(#)}}set confidence level; default is {cmd:level(95)}{p_end}
-{synopt:{opt noresc:ale}}Do not rescale residual variance to be 1 (if less than 1){p_end}
-{synopt:{opt oldnames}}Revert to using longer outcome name in b and V ereturned matrices{p_end}
-{synopt:{opt penw:eighted}}Use penalized weights{p_end}
-{synopt:{opt rad:ial}}Use radial formulations of the models{p_end}
-{synopt:{opt tdist:}}Use t-distribution for Wald test and CI limits{p_end}
-{synopt:{opt unwi2gx:}}Additionally report unweighted Q_GX and I^2_GX statistics{p_end}
+{synopt:{opt gmm_options}}Options passed to {help gmm}
+{p_end}
 
 {marker description}{...}
 {title:Description}
 
 {pstd}
-{cmd:mregger} performs inverse-variance weighted (IVW; {help mregger##ivw:Burgess et al., 2013}) and Mendelian 
-randomization Egger (MR-Egger) regression ({help mregger##bowden:Bowden et al., 2015}) using summary level data 
-(i.e. using genotype-disease [SNP-outcome] and genotype-phenotype [SNP-exposure] association estimates 
-and their standard errors).
+{cmd:lsmm} implements the double logistic structural mean model (LSMM) of Vansteelandt and Goetghebeur (2003) which is a generalisation of the LSMM of Robins (1989).
 
-{pstd}
-{var:_gd} variable containing the genotype-disease (SNP-outcome) association estimates.
+{pstd}{cmd:lsmm} is implemented using a call to {help gmm}.
 
-{pstd}
-{var:_gp} variable containing the genotype-phenotype (SNP-exposure) association estimates.
-
-{pstd}
-For the analytic weights you need to specify the inverse of the 
-genotype-disease (SNP-outcome) standard errors squared, i.e. aw=1/(gdse^2).
- 
 {marker options}{...}
 {title:Options}
 
@@ -100,36 +81,7 @@ For the IVW model this is the Cochran Q-statistic, and for the MR-Egger model th
 Ruecker's Q-statistic. The corresponding I-squared statistic and its 95% CI is also reported.
  
 {phang}
-{opt ivw} specifies inverse-variance weighted (IVW) model ({help mregger##ivw:Burgess et al., 2013}), 
-the default is MR-Egger.
-
-{phang}
 {opt level(#)}; see {helpb estimation options##level():[R] estimation options}.
-
-{phang}
-{opt noresc:ale} specifies that the residual variance is not set to 1 (if 
-it is found to be less than 1). {help mregger##mrmedian:Bowden et al. (2016)} 
-rescale the residual variance to be 1 if it is found to be less than 1.
-
-{phang}
-{opt oldnames} revert to using the longer outcome variable name in the b and V ereturned matrices.
-
-{phang}
-{opt penw:eighted} specifies using penalized weights as described in 
-{help mregger##robust:Burgess et al. (2016)}.
-
-{phang}
-{opt rad:ial} specifies the radial formulation of the IVW and MR-Egger models 
-({help mregger##radial:Bowden et al., 2017)}. 
-Note there is only a difference for the MR-Egger model.
- 
-{phang}
-{opt tdist} specifies using the t-distribution, instead of the normal 
-distribution, for calculating the Wald test and the confidence interval limits.
-
-{phang}
-{opt unwi2gx} specifies the unweighted Q_GX and I^2_GX statistics to be additionally displayed in 
-the output and in the ereturn scalars.
 
 {marker examples}{...}
 {title:Examples}
@@ -180,23 +132,13 @@ option){p_end}
 
 {synoptset 20 tabbed}{...}
 {p2col 5 20 24 2: Macros}{p_end}
-{synopt:{cmd:e(cmd)}}{cmd:mregger}{p_end}
+{synopt:{cmd:e(cmd)}}{cmd:lsmm}{p_end}
 {synopt:{cmd:e(cmdline)}}command as typed{p_end}
 
 {synoptset 20 tabbed}{...}
 {p2col 5 20 24 2: Matrices}{p_end}
 {synopt:{cmd:e(b)}}coefficient vector{p_end}
 {synopt:{cmd:e(V)}}variance-covariance matrix of the estimates{p_end}
-
-{pstd}
-If {opt heterogi} is specified {cmd:mregger} 
-additionally returns the r-class results of {cmd:heterogi} in the e-class 
-results.
-
-{pstd}
-If {opt unwi2gx} is specified {cmd:mregger} additionally returns{p_end}
-{synopt:{cmd:e(I2GXunw)}}Unweighted I^2_GX statistic{p_end}
-{synopt:{cmd:e(QGXunw)}}Unweighted Q_GX statistic{p_end}
 
 {pstd}
 {cmd:lsmm} stores the following in {cmd:r()}:
