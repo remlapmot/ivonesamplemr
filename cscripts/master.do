@@ -13,7 +13,8 @@ local cscripts ///
 	lsmm ///
 	msmm ///
     tsps ///
-    tsri
+    tsri ///
+    helpfiles
 
 foreach dofile of local cscripts {
     log using `dofile'.log, text replace name(`dofile')
