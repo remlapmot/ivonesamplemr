@@ -51,7 +51,7 @@
 {title:Options}
 
 {phang}
-Please see {help help gmm##options}
+Please see {help gmm##options}
 
 {marker examples}{...}
 {title:Examples}
