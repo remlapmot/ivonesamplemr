@@ -11,7 +11,9 @@ cscript master
 
 local cscripts ///
 	lsmm ///
-	msmm
+	msmm ///
+    tsps ///
+    tsri
 
 foreach dofile of local cscripts {
     log using `dofile'.log, text replace name(`dofile')
