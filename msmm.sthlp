@@ -41,7 +41,7 @@
 {synoptline}
 {synopt:{opt noirr:}}Do not display exponentiated estimates{p_end}
 {synopt:{opt log:}}Show the GMM iteration log{p_end}
-{synopt:{opt ivpoisson_options:}}{help help ivpoisson##optionstbl}{p_end}
+{synopt:{opt ivpoisson_options:}}{help ivpoisson##optionstbl}{p_end}
 
 {marker description}{...}
 {title:Description}
@@ -53,7 +53,7 @@
 {title:Options}
 
 {phang}
-Please see {help help ivpoisson##options}
+Please see {help ivpoisson##options}
 
 {marker examples}{...}
 {title:Examples}
