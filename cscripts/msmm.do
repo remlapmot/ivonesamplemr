@@ -29,6 +29,8 @@ msmm y (x = z1 z2 z3)
 assert abs(_b[x] - .297) < 1e-3
 ivpoisson, irr
 
+estat overid
+
 // ivpoisson helpfile
 webuse trip, clear
 
