@@ -39,6 +39,8 @@ discard
 lsmm y w (x = z1 z2 z3)
 assert abs(_b[/cmxb_x] - .89) < 1e-2
 
+estat overid
+
 // multiple endog variables
 discard
 lsmm y w (x1 x2 = z1 z2 z3)
