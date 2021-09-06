@@ -18,7 +18,7 @@
 {title:Syntax}
 
 {p 8 14 2}
-{cmd:msmm} {depvar} [{it:{help varlist:varlist1}}]
+{cmd:tsps} {depvar} [{it:{help varlist:varlist1}}]
 {cmd:(}{it:{help varlist:varlist2}} {cmd:=}
         {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
 [{it:{help gmm##weight:weight}}]
