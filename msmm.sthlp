@@ -39,8 +39,7 @@
 {synoptset 20 tabbed}{...}
 {synopthdr}
 {synoptline}
-{synopt:{opt ivpoisson_options:}}{help help ivpoisson##optionstbl}
-{p_end}
+{synopt:{opt ivpoisson_options:}}{help help ivpoisson##optionstbl}{p_end}
 
 {marker description}{...}
 {title:Description}
