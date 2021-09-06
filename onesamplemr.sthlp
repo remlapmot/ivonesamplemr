@@ -3,6 +3,7 @@
 {vieweralsosee "asmm" "help asmm"}{...}
 {vieweralsosee "lsmm" "help lsmm"}{...}
 {vieweralsosee "msmm" "help msmm"}{...}
+{vieweralsosee "tsps" "help tsps"}{...}
 {viewerjumpto "Commands" "onesamplemr##commands"}{...}
 {viewerjumpto "Description" "onesamplemr##description"}{...}
 {viewerjumpto "Author" "onesamplemr##author"}{...}
@@ -22,6 +23,8 @@
 {synopt :{opt {help lsmm}:}}Fits the (double) logistic structural mean model (LSMM), i.e. estimates a causal odds ratio for a binary outcome.
 
 {synopt :{opt {help msmm}:}}Fits the multiplicative structural mean model (MSMM), i.e. estimates a causal risk ratio for a binary outcome.
+
+{synopt :{opt {help tsps}:}}Fits two-stage predictor substitution (TSPS) estimators.
 
 {marker description}{...}
 {title:Description}
