@@ -24,7 +24,7 @@
 {cmd:(}{it:{help varlist:varlist2}} {cmd:=}
         {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
 [{it:{help ivpoisson##weight:weight}}]
-[{cmd:,} {it:ivpoisson_options}]
+[{cmd:,} {it:log} {it:noirr} {it:ivpoisson_options}]
 
 {phang}
 {it:varlist1} is the list of exogenous variables.{p_end}
@@ -39,6 +39,8 @@
 {synoptset 20 tabbed}{...}
 {synopthdr}
 {synoptline}
+{synopt:{opt noirr:}}Do not display exponentiated estimates{p_end}
+{synopt:{opt log:}}Show the GMM iteration log{p_end}
 {synopt:{opt ivpoisson_options:}}{help help ivpoisson##optionstbl}{p_end}
 
 {marker description}{...}
