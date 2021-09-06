@@ -1,30 +1,28 @@
 {smcl}
 {* *! version 0.1.0  03sep2021 Tom Palmer}{...}
 {vieweralsosee "onesamplemr" "help onesamplemr"}{...}
-{vieweralsosee "ivpoisson" "help ivpoisson"}{...}
-{vieweralsosee "ivpois" "help ivpois"}{...}
-{viewerjumpto "Syntax" "msmm##syntax"}{...}
-{viewerjumpto "Description" "msmm##description"}{...}
-{viewerjumpto "Options" "msmm##options"}{...}
-{viewerjumpto "Examples" "msmm##examples"}{...}
-{viewerjumpto "Stored results" "msmm##results"}{...}
-{viewerjumpto "References" "msmm##references"}{...}
-{viewerjumpto "Author" "msmm##author"}{...}
+{viewerjumpto "Syntax" "tsri##syntax"}{...}
+{viewerjumpto "Description" "tsri##description"}{...}
+{viewerjumpto "Options" "tsri##options"}{...}
+{viewerjumpto "Examples" "tsri##examples"}{...}
+{viewerjumpto "Stored results" "tsri##results"}{...}
+{viewerjumpto "References" "tsri##references"}{...}
+{viewerjumpto "Author" "tsri##author"}{...}
 {title:Title}
 
 {p 5}
-{bf:msmm} {hline 2} Multiplicative structural mean model
+{bf:tsri} {hline 2} Two-stage residual inclusion estimators
 {p_end}
 
 {marker syntax}{...}
 {title:Syntax}
 
 {p 8 14 2}
-{cmd:msmm} {depvar} [{it:{help varlist:varlist1}}]
+{cmd:tsri} {depvar} [{it:{help varlist:varlist1}}]
 {cmd:(}{it:{help varlist:varlist2}} {cmd:=}
         {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
-[{it:{help ivpoisson##weight:weight}}]
-[{cmd:,} {it:log} {it:noirr} {it:ivpoisson_options}]
+[{it:{help gmm##weight:weight}}]
+[{cmd:,} {it:log} {it:noirr} {it:gmm_options}]
 
 {phang}
 {it:varlist1} is the list of exogenous variables.{p_end}
@@ -41,7 +39,7 @@
 {synoptline}
 {synopt:{opt noirr:}}Do not display exponentiated estimates{p_end}
 {synopt:{opt log:}}Show the GMM iteration log{p_end}
-{synopt:{opt ivpoisson_options:}}{help help ivpoisson##optionstbl}{p_end}
+{synopt:{opt gmm_options:}}{help gmm##options}{p_end}
 
 {marker description}{...}
 {title:Description}
@@ -53,7 +51,7 @@
 {title:Options}
 
 {phang}
-Please see {help help ivpoisson##options}
+Please see {help help gmm##options}
 
 {marker examples}{...}
 {title:Examples}
