@@ -16,12 +16,14 @@ if replay() {
         error 190 
     }
     else {
-        Display , lhs(`e(lhs)') endog(`e(endog)') exog(`e(exog)') inst(`e(inst)') replay(`replay')
+        Display , lhs(`e(lhs)') endog(`e(endog)') exog(`e(exog)') inst(`e(inst)') replay(`replay') ///
+			link(`e(link)')
     }
     exit
 }
 
 Estimate `0'
+local link `e(link)'
 
 _iv_parse `0'
 local lhs `s(lhs)'
@@ -30,7 +32,7 @@ local exog `s(exog)'
 local inst `s(inst)'
 local 0 `s(zero)'
 
-Display , level(`level') lhs(`lhs') endog(`endog') exog(`exog') inst(`inst')
+Display , level(`level') lhs(`lhs') endog(`endog') exog(`exog') inst(`inst') link(`link')
 
 ereturn local cmd "tsri"
 ereturn local cmdline `"tsri `0'"'
@@ -38,6 +40,10 @@ ereturn local lhs `lhs'
 ereturn local endog `endog'
 ereturn local exog `exog'
 ereturn local inst `inst'
+ereturn local link `link'
+end
+
+
 program Estimate, eclass
 
 version 10
