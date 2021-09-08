@@ -9,6 +9,12 @@ analyses, including implementations of:
 * two-stage predictor substitution estimators: `tsps` command
 * two-stage residual inclusion estimators: `tsri` command
 
+Note the `tsps` and `tsri` commands implement the following link functions: 
+
+* identity - for a binary outcome this estimates a causal risk difference 
+* log (additive and multiplicative) - for a binary outcome this estimates a causal risk ratio
+* logit - for a binary outcome this estimates a causal odds ratio
+
 ## Installation
 
 Install the onesamplemr package within Stata using
