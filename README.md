@@ -3,6 +3,7 @@
 Stata package of useful programs for one sample Mendelian randomization / instrumental variable 
 analyses, including implementations of:
 
+* additive structural mean model: See `help asmm`
 * logistic structural mean model: `lsmm` command
 * multiplicative structural mean model: `msmm` command
 
