@@ -30,7 +30,6 @@ local lhs `s(lhs)'
 local endog `s(endog)'
 local exog `s(exog)'
 local inst `s(inst)'
-local 0 `s(zero)'
 
 Display , level(`level') lhs(`lhs') endog(`endog') exog(`exog') inst(`inst') link(`link')
 
