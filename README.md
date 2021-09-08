@@ -24,7 +24,7 @@ github install remlapmot/onesamplemr-stata, package(onesamplemr)
 ```
 
 Or use the following code
-```
+``` stata
 net install onesamplemr, from("https://raw.github.com/remlapmot/onesample-mr/main/") replace
 do https://raw.github.com/remlapmot/onesample-mr/main/dependency.do
 ```
