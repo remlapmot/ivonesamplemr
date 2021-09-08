@@ -108,4 +108,34 @@ if "`link'" == "logit" {
 }
 
 ereturn local link `link'
+
+end
+
+
+program Display, rclass
+version 10
+syntax [anything] [, Level(cilevel) ///
+	lhs(varname) endog(varlist) exog(varlist) inst(varlist) ///
+	replay(integer 0) Link(string)]
+
+if `replay' == 1 {
+	display
+	_coef_table , level(`level')
+}
+else {
+	qui _coef_table , level(`level') // to return r(table)
+}
+
+return add
+
+if "`link'" == "identity" local parameter "Causal risk difference"
+if inlist("`link'", "logadd", "logmult") local parameter "Causal risk ratio"
+if "`link'" == "logit" local parameter "Causal odds ratio"
+
+
+foreach par in b1 b2 {
+	di _n as txt "`parameter' for: `par'"
+	lincom /`par', eform
+}
+
 end
