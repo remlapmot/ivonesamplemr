@@ -6,6 +6,8 @@ analyses, including implementations of:
 * additive structural mean model: See `help asmm`
 * logistic structural mean model: `lsmm` command
 * multiplicative structural mean model: `msmm` command
+* two-stage predictor substitution estimators: `tsps` command
+* two-stage residual inclusion estimators: `tsri` command
 
 ## Installation
 
