@@ -165,7 +165,7 @@ if "`link'" == "logit" {
 			instruments(2:`endog' `stage1res' `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
-			`options'
+			`options' nolog
 	}
 }
 
