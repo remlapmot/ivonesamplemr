@@ -9,7 +9,7 @@ version 10
 local replay = replay()
 
 if replay() {
-    if `"`e(cmd)'"' != "lsmm" { 
+    if `"`e(cmd)'"' != "tsri" { 
         error 301
     }
     else if _by() { 
