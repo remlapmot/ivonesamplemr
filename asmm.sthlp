@@ -55,13 +55,15 @@ For a binary outcome the ASMM estimates a causal risk difference.
 {marker references}{...}
 {title:References}
 
-{marker bowden}{...}
+{marker clarke}{...}
 {phang}
-Bowden J, Davey Smith G, Burgess S. 
-Mendelian randomization with invalid instruments: effect estimation and bias 
-detection through Egger regression. International Journal of Epidemiology, 
-2015, 44, 2, 512-525. 
-{browse "http://dx.doi.org/10.1093/ije/dyv080":DOI}
+Clarke PS, Palmer TM, Windmeijer F. Estimating structural mean models with multiple instrumental variables using the Generalised Method of Moments. Statistical Science, 2015, 30, 1, 96-117. 
+{browse "https://doi.org/10.1214/14-STS503":DOI}
+{p_end}
+
+{marker robins}{...}
+{phang}
+Robins JM. The analysis of randomised and nonrandomised AIDS treatment trials using a new approach to causal inference in longitudinal studies. In Health Service Research Methodology: A Focus on AIDS (L. Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public Health Service, National Center for Health Services Research, Washington, DC.
 {p_end}
 
 {marker author}
