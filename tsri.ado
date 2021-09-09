@@ -54,7 +54,7 @@ local exog `s(exog)'
 local inst `s(inst)'
 local 0 `s(zero)'
 
-syntax [if] [in] [, Level(cilevel) s1xb(varlist numeric) Link(string) FROM(string) *]
+syntax [if] [in] [, Level(cilevel) s1xb(varlist numeric) Link(string) FROM(string) estonly *]
 
 marksample touse
 markout `touse' `lhs' `exog' `inst' `endog'
@@ -99,17 +99,19 @@ if "`link'" == "logit" {
 	mat `stage2b' = e(b)
 	mat `from' = (`stage1b', `stage2b')
 
-	if "`exog'" != "" {
-		local s2exogexpr "+ {s2exogxb:`exog'}"
-	}
+	if "`estonly'" == "" {
+		if "`exog'" != "" {
+			local s2exogexpr "+ {s2exogxb:`exog'}"
+		}
 
-	gmm (`endog' - ({s1xb:`inst' `exog'}) - {a0}) ///
+		gmm (`endog' - ({s1xb:`inst' `exog'}) - {a0}) ///
+			instruments(1:`inst' `exog') ///
+			instruments(2:`endog' `stage1res' `exog') ///
+			winitial(unadjusted, independent) ///
+			from(`from') ///
+			`options'
+	}
 		(`lhs' - invlogit({b1}*`endog' + {b2}*(`endog' - ({s1xb:}) - {a0}) `s2exogexpr' + {b0})), ///
-		instruments(1:`inst' `exog') ///
-		instruments(2:`endog' `stage1res' `exog') ///
-		winitial(unadjusted, independent) ///
-		from(`from') ///
-		`options'
 }
 
 ereturn local link `link'
