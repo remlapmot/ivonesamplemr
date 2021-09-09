@@ -128,7 +128,7 @@ syntax [anything] [, Level(cilevel) ///
 	lhs(varname) endog(varlist) exog(varlist) inst(varlist) ///
 	replay(integer 0) Link(string) estonly]
 
-if `replay' == 1 {
+if `replay' == 1 | "`estonly'" != "" {
 	display
 	_coef_table , level(`level')
 }
