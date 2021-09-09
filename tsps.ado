@@ -201,7 +201,7 @@ if inlist("`link'", "logadd", "logmult") local parameter "Causal risk ratio"
 if "`link'" == "logit" local parameter "Causal odds ratio"
 
 if "`estonly'" == "" {
-	foreach par in b1 b2 {
+	foreach par in b1 {
 		di _n as txt "`parameter' for: `par'"
 		lincom /`par' `eformopt'
 	}
