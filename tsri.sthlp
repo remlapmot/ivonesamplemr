@@ -106,6 +106,14 @@ Please see {help gmm##results}{p_end}
 {marker references}{...}
 {title:References}
 
+{marker bowden}{...}
+{phang}
+Bowden J, Vansteelandt S. 
+Mendelian randomization analysis of case-control data using structural mean models. 
+Statistics in Medicine, 2011, 30, 6, 678-694. 
+{browse "https://doi.org/10.1002/sim.4138":DOI}
+{p_end}
+
 {marker terza}{...}
 {phang}
 Terza JV, Basu A, Rathouz PJ. 2008. 
