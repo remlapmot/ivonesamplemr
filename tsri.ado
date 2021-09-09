@@ -78,9 +78,7 @@ tempname stage1b stage2b from
 qui regress `endog' `inst' `exog' `if'`in'
 mat `stage1b' = e(b)
 tempvar stage1res
-predict `stage1res' `if'`in', residuals
- 
-
+qui predict `stage1res' `if'`in', residuals
 
 if "`link'" == "identity" {
 
