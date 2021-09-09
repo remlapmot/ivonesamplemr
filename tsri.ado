@@ -126,7 +126,25 @@ if "`link'" == "logadd" {
 }
 
 if "`link'" == "logmult" {
+	// fit stage 2 gamma regression to obtain initial values
+	qui glm `lhs' `endog' `stage1res' `exog' `if'`in', family(gamma) link(log)
+	mat `stage2b' = e(b)
+	mat `from' = (`stage1b', `stage2b')
 
+	if "`estonly'" == "" {
+		if "`exog'" != "" {
+			local s2exogexpr "+ {s2exogxb:`exog'}"
+		}
+
+		gmm (`endog' - ({s1xb:`inst' `exog'}) - {a0}) ///
+			(`lhs' * exp(-1 * ({b1}*`endog' + {b2}*(`endog' - ({s1xb:}) - {a0}) `s2exogexpr' + {b0}))) ///
+			`if'`in', ///
+			instruments(1:`inst' `exog') ///
+			instruments(2:`endog' `stage1res' `exog') ///
+			winitial(unadjusted, independent) ///
+			from(`from') ///
+			`options' nolog
+	}
 }
 
 if "`link'" == "logit" {
