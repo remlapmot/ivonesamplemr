@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  lsmm
-       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\lsmm.log
+       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/lsmm.log
   log type:  text
- opened on:   9 Sep 2021, 14:53:49
+ opened on:   9 Sep 2021, 19:07:48
 
 . // lsmm cscript
 . // 2021-08-27
@@ -11,7 +11,7 @@
 ---------------------------------------------------------------------BEGIN lsmm
 
 -> which lsmm, usesysdir
-C:\Users\tom\Documents\GitHub\onesamplemr-stata\lsmm.ado
+/Users/tom/Documents/GitHub/onesamplemr-stata/lsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
@@ -61,7 +61,7 @@ Iteration 4:   GMM criterion Q(b) =  3.633e-22
 
 Step 2
 Iteration 0:   GMM criterion Q(b) =  6.278e-19  
-Iteration 1:   GMM criterion Q(b) =  1.787e-30  
+Iteration 1:   GMM criterion Q(b) =  1.777e-30  
 
 note: model is exactly identified
 
@@ -163,8 +163,8 @@ scalars:
                 e(k_2) =  7
                 e(k_1) =  4
                e(J_df) =  0
-                  e(J) =  4.46658764385e-27
-                  e(Q) =  1.78663505754e-30
+                  e(J) =  4.44363770968e-27
+                  e(Q) =  1.77745508387e-30
                   e(N) =  2500
                e(rank) =  7
 
@@ -742,7 +742,7 @@ Causal odds ratio for: w
 . 
 end of do-file
       name:  lsmm
-       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\lsmm.log
+       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/lsmm.log
   log type:  text
- closed on:   9 Sep 2021, 14:53:56
+ closed on:   9 Sep 2021, 19:07:50
 -------------------------------------------------------------------------------

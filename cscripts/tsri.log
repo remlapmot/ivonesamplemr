@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  tsri
-       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\tsri.log
+       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/tsri.log
   log type:  text
- opened on:   9 Sep 2021, 14:53:59
+ opened on:   9 Sep 2021, 19:07:54
 
 . // tsri cscript
 . // 2021-09-06
@@ -11,7 +11,7 @@
 ---------------------------------------------------------------------BEGIN tsri
 
 -> which tsri, usesysdir
-C:\Users\tom\Documents\GitHub\onesamplemr-stata\tsri.ado
+/Users/tom/Documents/GitHub/onesamplemr-stata/tsri.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
@@ -309,7 +309,7 @@ Causal risk difference for: b2
 . cap noi {
 . tsri y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  4.02e-33
+Final GMM criterion Q(b) =  6.95e-33
 
 note: model is exactly identified
 
@@ -562,24 +562,108 @@ numerical derivatives are approximate
 flat or discontinuous region encountered
 numerical derivatives are approximate
 flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
 
-Final GMM criterion Q(b) =  4.68e-33
-could not calculate numerical derivatives -- discontinuous region with missing
-values encountered
-r(459);
+Final GMM criterion Q(b) =  3.58e-33
+convergence not achieved
+    The Gauss-Newton stopping criterion has been met but missing standard
+    errors indicate some of the parameters are not identified.
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .4135643          .        .       .            .           .
+         /b2 |   .3386225          .        .       .            .           .
+         /b0 |   34.85623          .        .       .            .           .
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x __000004 _cons
+Warning: convergence not achieved
+
+Causal risk ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.512198          .        .       .            .           .
+------------------------------------------------------------------------------
+
+Causal risk ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.403014          .        .       .            .           .
+------------------------------------------------------------------------------
 . tsri
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .4135643          .        .       .            .           .
+         /b2 |   .3386225          .        .       .            .           .
+         /b0 |   34.85623          .        .       .            .           .
+------------------------------------------------------------------------------
+
+Causal risk ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.512198          .        .       .            .           .
+------------------------------------------------------------------------------
+
+Causal risk ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.403014          .        .       .            .           .
+------------------------------------------------------------------------------
 . 
 . tsri y (x = z1 z2 z3) if _n <= 250, link(logmult)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Hessian is not positive semidefinite
+r(430);
 . 
 . tsri y w (x = z1 z2 z3), link(logmult)
 . 
@@ -725,7 +809,7 @@ Causal odds ratio for: b2
 . 
 . tsri y w (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  3.20e-33
+Final GMM criterion Q(b) =  3.21e-33
 
 note: model is exactly identified
 
@@ -804,7 +888,7 @@ invalid syntax
 . 
 end of do-file
       name:  tsri
-       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\tsri.log
+       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/tsri.log
   log type:  text
- closed on:   9 Sep 2021, 14:54:08
+ closed on:   9 Sep 2021, 19:08:00
 -------------------------------------------------------------------------------

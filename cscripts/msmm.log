@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  msmm
-       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\msmm.log
+       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/msmm.log
   log type:  text
- opened on:   9 Sep 2021, 14:53:56
+ opened on:   9 Sep 2021, 19:07:50
 
 . // msmm cscript
 . // 2021-09-01
@@ -11,7 +11,7 @@
 ---------------------------------------------------------------------BEGIN msmm
 
 -> which msmm, usesysdir
-C:\Users\tom\Documents\GitHub\onesamplemr-stata\msmm.ado
+/Users/tom/Documents/GitHub/onesamplemr-stata/msmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
@@ -50,7 +50,7 @@ number of observations (_N) was 0, now 2,500
 . 
 . msmm y (x = z1)
 
-Final GMM criterion Q(b) =  5.63e-33
+Final GMM criterion Q(b) =  5.69e-33
 
 note: model is exactly identified
 
@@ -163,7 +163,7 @@ Iteration 3:   GMM criterion Q(b) =  3.685e-16
 
 Step 2
 Iteration 0:   GMM criterion Q(b) =  2.287e-16  
-Iteration 1:   GMM criterion Q(b) =  1.268e-31  
+Iteration 1:   GMM criterion Q(b) =  1.267e-31  
 
 note: model is exactly identified
 
@@ -217,7 +217,7 @@ Instruments:   cbd ptn worker weekend pt
 . 
 end of do-file
       name:  msmm
-       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\msmm.log
+       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/msmm.log
   log type:  text
- closed on:   9 Sep 2021, 14:53:59
+ closed on:   9 Sep 2021, 19:07:52
 -------------------------------------------------------------------------------

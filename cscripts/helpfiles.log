@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\helpfiles
-> .log
+       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/helpfiles.l
+> og
   log type:  text
- opened on:   9 Sep 2021, 14:54:08
+ opened on:   9 Sep 2021, 19:08:00
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -341,10 +341,10 @@ Syntax
 
 Description
 
-    msmm implements the multiplicative structural mean model (MSMM) of Robins
-    (1989) as a wrapper to ivpoisson with the multiplicative option.
-    ivpoisson performs generalized method of moments (GMM) estimation of the
-    relevant moment condition using gmm.
+    tsps implements two-stage predictor substitution (TSPS) estimators with
+    several link functions (identity, log-additive, log-multiplicative,
+    logit). It is implemented using generalized method of moments (GMM)
+    estimation by passing the relevant moment condition to the gmm command.
 
 Options
 
@@ -372,20 +372,31 @@ Examples
 
     Fit the model with a single instrumental variable.
 
-        . msmm y (x = z1)
+        . tsps y (x = z1)
 
     Fit the model with multiple instruments.
 
-        . msmm y (x = z1 z2 z3)
+        . tsps y (x = z1 z2 z3)
 
-    Fit the model with multiple exposures, and instruments, and adjusting for
-    w.
+    Fit the model with multiple instruments, and adjusting for w.
 
-        . msmm y w (x1 x2 = z1 z2 z3)
+        . tsps y w (x = z1 z2 z3)
+
+    Using the log additive link function.
+
+        . tsps y (x = z1 z2 z3), link(logadd)
+
+    Using the log multiplicative link function.
+
+        . tsps y (x = z1 z2 z3), link(logmult)
+
+    Using the logit link function.
+
+        . tsps y (x = z1 z2 z3), link(logit)
 
 Stored results
 
-    Please see ivpoisson##results
+    Please see gmm##results
 
 References
 
@@ -422,10 +433,10 @@ Syntax
 
 Description
 
-    msmm implements the multiplicative structural mean model (MSMM) of Robins
-    (1989) as a wrapper to ivpoisson with the multiplicative option.
-    ivpoisson performs generalized method of moments (GMM) estimation of the
-    relevant moment condition using gmm.
+    tsri implements two-stage residual inclusion (TSRI) estimators with
+    several link functions (identity, log-additive, log-multiplicative,
+    logit).  It is implemented using generalized method of moments (GMM)
+    estimation by passing the relevant moment condition to the gmm command.
 
 Options
 
@@ -453,20 +464,31 @@ Examples
 
     Fit the model with a single instrumental variable.
 
-        . msmm y (x = z1)
+        . tsri y (x = z1)
 
     Fit the model with multiple instruments.
 
-        . msmm y (x = z1 z2 z3)
+        . tsri y (x = z1 z2 z3)
 
-    Fit the model with multiple exposures, and instruments, and adjusting for
-    w.
+    Fit the model with multiple instruments, and adjusting for w.
 
-        . msmm y w (x1 x2 = z1 z2 z3)
+        . tsri y w (x = z1 z2 z3)
+
+    Using the log additive link function.
+
+        . tsri y (x = z1 z2 z3), link(logadd)
+
+    Using the log multiplicative link function.
+
+        . tsri y (x = z1 z2 z3), link(logmult)
+
+    Using the logit link function.
+
+        . tsri y (x = z1 z2 z3), link(logit)
 
 Stored results
 
-    Please see ivpoisson##results
+    Please see gmm##results
 
 References
 
@@ -483,8 +505,8 @@ INCLUDE help onesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\helpfiles
-> .log
+       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/helpfiles.l
+> og
   log type:  text
- closed on:   9 Sep 2021, 14:54:08
+ closed on:   9 Sep 2021, 19:08:00
 -------------------------------------------------------------------------------
