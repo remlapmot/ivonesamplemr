@@ -1,0 +1,490 @@
+-------------------------------------------------------------------------------
+      name:  helpfiles
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\helpfiles
+> .log
+  log type:  text
+ opened on:   9 Sep 2021, 14:54:08
+
+. // render the helpfiles in the Results window, to check they are approx ok
+. // 2021-09-06
+. 
+. local helpfiles ///
+> onesamplemr ///
+> asmm ///
+> lsmm ///
+> msmm ///
+> tsps ///
+> tsri
+
+. 
+. foreach helpfile of local helpfiles {
+  2.         type ../`helpfile'.sthlp
+  3. }
+Title
+
+    onesamplemr -- commands for one-sample Mendelian randomization /
+        instrumental variable analyses.
+
+    https://github.com/remlapmot/onesamplemr-stata#readme
+
+Commands
+
+      asmm          Is a helpfile that links to ivregress and ivreg2 which as
+                      linear IV estimators fit the additive structural mean
+                      model (ASMM), i.e. estimates a causal risk difference
+                      for a binary outcome.
+
+      lsmm          Fits the (double) logistic structural mean model (LSMM),
+                      i.e. estimates a causal odds ratio for a binary
+                      outcome.
+
+      msmm          Fits the multiplicative structural mean model (MSMM),
+                      i.e. estimates a causal risk ratio for a binary
+                      outcome.
+
+      tsps          Fits two-stage predictor substitution (TSPS) estimators.
+
+      tsri          Fits two-stage residual inclusion (TSRI) estimators.
+
+Description
+
+    onesamplemr is a suite of programs implementing various instrumental
+    variable estimators for individual level data.
+
+Author
+
+INCLUDE help onesamplemr-author
+Title
+
+     asmm -- Additive structural mean model
+
+Description
+
+    asmm is not a command but this helpfile is to say the additive structural
+    mean model (ASMM) is simply fit with a linear IV estimator available in 
+    ivregress and ivreg2.
+
+Examples
+
+    Using the data provided by Do et al. (2013) recreate Bowden et al.
+    (2016), Table 4, LDL-c "All genetic variants" estimates.
+
+    Setup
+        . use https://raw.github.com/remlapmot/mrrobust/master/dodata, clear
+
+    Select observations (p-value with exposure < 10^-8)
+        . gen byte sel1 = (ldlcp2 < 1e-8)
+
+    IVW (with fixed effect standard errors)
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, ivw fe
+
+    MR-Egger (with SEs using an unconstrained residual variance)
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1
+
+    MR-Egger reporting I^2_GX statistic and heterogeneity Q-test
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, gxse(ldlcse)
+            heterogi
+
+    MR-Egger using a t-distribution for inference & CI limits
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, tdist
+
+    MR-Egger using the radial formulation
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, radial
+
+    MR-Egger using the radial formulation and reporting heterogeneity Q-test
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, radial
+            heterogi
+
+References
+
+    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
+        instruments: effect estimation and bias detection through Egger
+        regression. International Journal of Epidemiology, 2015, 44, 2,
+        512-525.  DOI
+
+
+Author
+
+INCLUDE help onesamplemr-author
+Title
+
+     lsmm -- (double) Logistic structural mean model
+
+Syntax
+
+        lsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
+              options]
+
+    varlist1 is the list of exogenous variables.
+
+    varlist2 is the list of endogenous variables.
+
+    varlist_iv is the list of exogenous variables used with varlist1 as
+        instruments for varlist2.
+
+    options               Description
+    -------------------------------------------------------------------------
+      amxb(lc:varlist)    The linear predictor for the association model, by
+                            default the instruments and exogenous variables
+                            are included
+      from(matrix)        initial values for the parameter estimates for both
+                            association and causal models
+      level(#)            set confidence level; default is level(95)
+      gmm_options         Options passed to gmm
+
+Description
+
+    lsmm implements the double logistic structural mean model (LSMM) of
+    Vansteelandt and Goetghebeur (2003) which is a generalisation of the LSMM
+    of Robins (1989).
+
+    lsmm is implemented using a call to gmm.
+
+Options
+
+    fe specifies fixed effect standard errors (i.e. variance of residuals
+        constrained to 1 as in fixed effect meta-analysis models). The
+        default is to use multiplicative standard errors (i.e. variance of
+        residuals unconstrained as in standard linear regression), see
+        Thompson and Sharp (1999) for further details.  We recommend
+        specifying this option when using an allelic score as the
+        instrumental variable.
+
+    gxse(varname) specifies the variable containing the genotype-phenotype
+        (SNP-exposure) association standard errors. These are required for
+        calculating the I^2_GX statistic (Bowden et al., 2016). An I^2_GX
+        statistic of 90% means that the likely bias due measurement error in
+        the MR-Egger slope estimate is around 10%. If I^2_GX values are less
+        than 90% estimates should be treated with caution.
+
+    heterogi displays heterogeneity/pleiotropy statistics. In the
+        heterogeneity output the model based Q-statistic is reported by
+        multiplying the variance of the residuals by the degrees of freedom
+        (Del Greco et al., 2015).  For the IVW model this is the Cochran
+        Q-statistic, and for the MR-Egger model this is the Ruecker's
+        Q-statistic. The corresponding I-squared statistic and its 95% CI is
+        also reported.
+
+    level(#); see [R] estimation options.
+
+Examples
+
+    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    instrumental variables (genotypes).
+
+        . drop _all
+        . set obs 2500
+        . set seed 12345
+        . gen z1 = rbinomial(2, .2)
+        . gen z2 = rbinomial(2, .3)
+        . gen z3 = rbinomial(2, .4)
+        . gen u = rnormal()
+        . gen w = rnormal()
+        . gen x = z1 + z2 + z3 + w + u + rnormal()
+        . gen logitpy = -2 + x + w + u
+        . gen py = invlogit(logitpy)
+        . gen y = rbinomial(1, py)
+        . gen x1 = x
+        . gen x2 = rnormal()
+
+    Fit the model with a single instrumental variable.
+
+        . lsmm y (x = z1)
+
+    Fit the model with multiple instruments.
+
+        . lsmm y (x = z1 z2 z3)
+
+    Fit the model with multiple exposures, and instruments, and adjusting for
+    w.
+
+        . lsmm y w (x1 x2 = z1 z2 z3)
+
+Stored results
+
+    lsmm stores the following in e():
+
+    Scalars        
+      e(df_r)             residual degrees of freedom (with tdist option)
+      e(k)                number of instruments
+      e(I2GX)             I^2_GX (with gxse() option)
+      e(QGX)              Q_GX (with gxse() option)
+      e(phi)              Scale parameter (root mean squared error)
+
+    Macros         
+      e(cmd)              lsmm
+      e(cmdline)          command as typed
+
+    Matrices       
+      e(b)                coefficient vector
+      e(V)                variance-covariance matrix of the estimates
+
+    lsmm stores the following in r():
+
+    Matrices       
+      r(table)            Coefficient table with rownames: b, se, z, pvalue,
+                            ll, ul, df, crit, eform
+
+References
+
+    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
+        instruments: effect estimation and bias detection through Egger
+        regression. International Journal of Epidemiology, 2015, 44, 2,
+        512-525.  DOI
+
+
+Author
+
+INCLUDE help onesamplemr-author
+Title
+
+     msmm -- Multiplicative structural mean model
+
+Syntax
+
+        msmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
+              log noirr ivpoisson_options]
+
+    varlist1 is the list of exogenous variables.
+
+    varlist2 is the list of endogenous variables.
+
+    varlist_iv is the list of exogenous variables used with varlist1 as
+        instruments for varlist2.
+
+    options               Description
+    -------------------------------------------------------------------------
+      noirr               Do not display exponentiated estimates
+      log                 Show the GMM iteration log
+      ivpoisson_options   ivpoisson##optionstbl
+
+Description
+
+    msmm implements the multiplicative structural mean model (MSMM) of Robins
+    (1989) as a wrapper to ivpoisson with the multiplicative option.
+    ivpoisson performs generalized method of moments (GMM) estimation of the
+    relevant moment condition using gmm.
+
+Options
+
+    Please see ivpoisson##options
+
+Examples
+
+    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    instrumental variables (genotypes).
+
+        . drop _all
+        . set obs 2500
+        . set seed 12345
+        . gen z1 = rbinomial(2, .2)
+        . gen z2 = rbinomial(2, .3)
+        . gen z3 = rbinomial(2, .4)
+        . gen u = rnormal()
+        . gen w = rnormal()
+        . gen x = z1 + z2 + z3 + w + u + rnormal()
+        . gen logitpy = -2 + x + w + u
+        . gen py = invlogit(logitpy)
+        . gen y = rbinomial(1, py)
+        . gen x1 = x
+        . gen x2 = rnormal()
+
+    Fit the model with a single instrumental variable.
+
+        . msmm y (x = z1)
+
+    Fit the model with multiple instruments.
+
+        . msmm y (x = z1 z2 z3)
+
+    Fit the model with multiple exposures, and instruments, and adjusting for
+    w.
+
+        . msmm y w (x1 x2 = z1 z2 z3)
+
+Stored results
+
+    Please see ivpoisson##results
+
+References
+
+    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
+        instruments: effect estimation and bias detection through Egger
+        regression. International Journal of Epidemiology, 2015, 44, 2,
+        512-525.  DOI
+
+
+Author
+
+INCLUDE help onesamplemr-author
+Title
+
+     tsps -- Two-stage predictor substitution estimators
+
+Syntax
+
+        tsps depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
+              log noirr gmm_options]
+
+    varlist1 is the list of exogenous variables.
+
+    varlist2 is the list of endogenous variables.
+
+    varlist_iv is the list of exogenous variables used with varlist1 as
+        instruments for varlist2.
+
+    options               Description
+    -------------------------------------------------------------------------
+      noirr               Do not display exponentiated estimates
+      log                 Show the GMM iteration log
+      gmm_options         gmm##options
+
+Description
+
+    msmm implements the multiplicative structural mean model (MSMM) of Robins
+    (1989) as a wrapper to ivpoisson with the multiplicative option.
+    ivpoisson performs generalized method of moments (GMM) estimation of the
+    relevant moment condition using gmm.
+
+Options
+
+    Please see gmm##options
+
+Examples
+
+    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    instrumental variables (genotypes).
+
+        . drop _all
+        . set obs 2500
+        . set seed 12345
+        . gen z1 = rbinomial(2, .2)
+        . gen z2 = rbinomial(2, .3)
+        . gen z3 = rbinomial(2, .4)
+        . gen u = rnormal()
+        . gen w = rnormal()
+        . gen x = z1 + z2 + z3 + w + u + rnormal()
+        . gen logitpy = -2 + x + w + u
+        . gen py = invlogit(logitpy)
+        . gen y = rbinomial(1, py)
+        . gen x1 = x
+        . gen x2 = rnormal()
+
+    Fit the model with a single instrumental variable.
+
+        . msmm y (x = z1)
+
+    Fit the model with multiple instruments.
+
+        . msmm y (x = z1 z2 z3)
+
+    Fit the model with multiple exposures, and instruments, and adjusting for
+    w.
+
+        . msmm y w (x1 x2 = z1 z2 z3)
+
+Stored results
+
+    Please see ivpoisson##results
+
+References
+
+    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
+        instruments: effect estimation and bias detection through Egger
+        regression. International Journal of Epidemiology, 2015, 44, 2,
+        512-525.  DOI
+
+
+Author
+
+INCLUDE help onesamplemr-author
+Title
+
+     tsri -- Two-stage residual inclusion estimators
+
+Syntax
+
+        tsri depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
+              log noirr gmm_options]
+
+    varlist1 is the list of exogenous variables.
+
+    varlist2 is the list of endogenous variables.
+
+    varlist_iv is the list of exogenous variables used with varlist1 as
+        instruments for varlist2.
+
+    options               Description
+    -------------------------------------------------------------------------
+      noirr               Do not display exponentiated estimates
+      log                 Show the GMM iteration log
+      gmm_options         gmm##options
+
+Description
+
+    msmm implements the multiplicative structural mean model (MSMM) of Robins
+    (1989) as a wrapper to ivpoisson with the multiplicative option.
+    ivpoisson performs generalized method of moments (GMM) estimation of the
+    relevant moment condition using gmm.
+
+Options
+
+    Please see gmm##options
+
+Examples
+
+    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    instrumental variables (genotypes).
+
+        . drop _all
+        . set obs 2500
+        . set seed 12345
+        . gen z1 = rbinomial(2, .2)
+        . gen z2 = rbinomial(2, .3)
+        . gen z3 = rbinomial(2, .4)
+        . gen u = rnormal()
+        . gen w = rnormal()
+        . gen x = z1 + z2 + z3 + w + u + rnormal()
+        . gen logitpy = -2 + x + w + u
+        . gen py = invlogit(logitpy)
+        . gen y = rbinomial(1, py)
+        . gen x1 = x
+        . gen x2 = rnormal()
+
+    Fit the model with a single instrumental variable.
+
+        . msmm y (x = z1)
+
+    Fit the model with multiple instruments.
+
+        . msmm y (x = z1 z2 z3)
+
+    Fit the model with multiple exposures, and instruments, and adjusting for
+    w.
+
+        . msmm y w (x1 x2 = z1 z2 z3)
+
+Stored results
+
+    Please see ivpoisson##results
+
+References
+
+    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
+        instruments: effect estimation and bias detection through Egger
+        regression. International Journal of Epidemiology, 2015, 44, 2,
+        512-525.  DOI
+
+
+Author
+
+INCLUDE help onesamplemr-author
+
+. 
+end of do-file
+      name:  helpfiles
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\helpfiles
+> .log
+  log type:  text
+ closed on:   9 Sep 2021, 14:54:08
+-------------------------------------------------------------------------------

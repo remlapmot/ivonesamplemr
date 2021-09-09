@@ -3,7 +3,7 @@
        log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\master.lo
 > g
   log type:  text
- opened on:   1 Sep 2021, 17:17:36
+ opened on:   9 Sep 2021, 14:53:49
 
 . 
 . cscript master
@@ -12,7 +12,10 @@
 . 
 . local cscripts ///
 >         lsmm ///
->         msmm
+>         msmm ///
+>     tsps ///
+>     tsri ///
+>     helpfiles
 
 . 
 . foreach dofile of local cscripts {
@@ -24,7 +27,7 @@
       name:  lsmm
        log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\lsmm.log
   log type:  text
- opened on:   1 Sep 2021, 17:17:36
+ opened on:   9 Sep 2021, 14:53:49
 
 . // lsmm cscript
 . // 2021-08-27
@@ -195,7 +198,7 @@ macros:
                e(exog) : "w"
               e(endog) : "x"
                 e(lhs) : "y"
-            e(cmdline) : "lsmm "
+            e(cmdline) : "lsmm y w (x = z1)"
                 e(cmd) : "lsmm"
           e(estat_cmd) : "gmm_estat"
             e(predict) : "gmm_p"
@@ -323,6 +326,9 @@ Causal odds ratio for: w
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - .89) < 1e-2
+
+. 
+. cap noi estat overid
 
 . 
 . // multiple endog variables
@@ -763,13 +769,13 @@ end of do-file
       name:  lsmm
        log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\lsmm.log
   log type:  text
- closed on:   1 Sep 2021, 17:17:43
+ closed on:   9 Sep 2021, 14:53:56
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  msmm
        log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\msmm.log
   log type:  text
- opened on:   1 Sep 2021, 17:17:43
+ opened on:   9 Sep 2021, 14:53:56
 
 . // msmm cscript
 . // 2021-09-01
@@ -817,16 +823,7 @@ number of observations (_N) was 0, now 2,500
 . 
 . msmm y (x = z1)
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  .27142542  
-Iteration 1:   GMM criterion Q(b) =  .00620742  
-Iteration 2:   GMM criterion Q(b) =  .00001533  
-Iteration 3:   GMM criterion Q(b) =  1.029e-10  
-Iteration 4:   GMM criterion Q(b) =  7.198e-21  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  4.233e-21  
-Iteration 1:   GMM criterion Q(b) =  5.626e-33  
+Final GMM criterion Q(b) =  5.63e-33
 
 note: model is exactly identified
 
@@ -839,11 +836,12 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+           y |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-           x |   .3279258   .0579665     5.66   0.000     .2143137     .441538
-       _cons |  -1.638841   .1479915   -11.07   0.000    -1.928899   -1.348783
+           x |   1.388086   .0804624     5.66   0.000     1.239011    1.555097
+       _cons |   .1942051   .0287407   -11.07   0.000     .1453081    .2595561
 ------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
 Instrumented:  x
 Instruments:   z1
 
@@ -872,16 +870,7 @@ Instruments:   z1
 . 
 . msmm y (x = z1 z2 z3)
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  .27965686  
-Iteration 1:   GMM criterion Q(b) =  .00905558  
-Iteration 2:   GMM criterion Q(b) =  .00057708  
-Iteration 3:   GMM criterion Q(b) =  .00055215  
-Iteration 4:   GMM criterion Q(b) =  .00055215  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  .00046448  
-Iteration 1:   GMM criterion Q(b) =  .00046447  
+Final GMM criterion Q(b) =  .0004645
 
 Exponential mean model with endogenous regressors
 
@@ -892,11 +881,12 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+           y |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-           x |   .2972268   .0327294     9.08   0.000     .2330783    .3613753
-       _cons |  -1.563223   .0929526   -16.82   0.000    -1.745406   -1.381039
+           x |   1.346121   .0440578     9.08   0.000      1.26248    1.435302
+       _cons |     .20946   .0194699   -16.82   0.000      .174574    .2513173
 ------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
 Instrumented:  x
 Instruments:   z1 z2 z3
 
@@ -921,6 +911,13 @@ GMM weight matrix:     Robust
 Note: _cons estimates baseline incidence rate.
 Instrumented:  x
 Instruments:   z1 z2 z3
+
+. 
+. estat overid
+
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 1.16116 (p = 0.5596)
 
 . 
 . // ivpoisson helpfile
@@ -995,7 +992,1336 @@ end of do-file
       name:  msmm
        log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\msmm.log
   log type:  text
- closed on:   1 Sep 2021, 17:17:46
+ closed on:   9 Sep 2021, 14:53:59
+-------------------------------------------------------------------------------
+(note: file C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\tsps.log n
+> ot found)
+-------------------------------------------------------------------------------
+      name:  tsps
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\tsps.log
+  log type:  text
+ opened on:   9 Sep 2021, 14:53:59
+
+. // tsps cscript
+. // 2021-09-06
+. 
+. cscript tsps adofiles tsps
+---------------------------------------------------------------------BEGIN tsps
+
+-> which tsps, usesysdir
+C:\Users\tom\Documents\GitHub\onesamplemr-stata\tsps.ado
+*! 1.0.0 Tom Palmer 05sep2021
+
+. 
+end of do-file
+      name:  tsps
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\tsps.log
+  log type:  text
+ closed on:   9 Sep 2021, 14:53:59
+-------------------------------------------------------------------------------
+(note: file C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\tsri.log n
+> ot found)
+-------------------------------------------------------------------------------
+      name:  tsri
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\tsri.log
+  log type:  text
+ opened on:   9 Sep 2021, 14:53:59
+
+. // tsri cscript
+. // 2021-09-06
+. 
+. cscript tsri adofiles tsri
+---------------------------------------------------------------------BEGIN tsri
+
+-> which tsri, usesysdir
+C:\Users\tom\Documents\GitHub\onesamplemr-stata\tsri.ado
+*! 1.0.0 Tom Palmer 05sep2021
+
+. 
+. // simulate data
+. clear
+
+. set obs 2500
+number of observations (_N) was 0, now 2,500
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen w = rnormal()
+
+. gen x = z1 + z2 + z3 + w + u + rnormal()
+
+. gen logitpy = -2 + x + w + u
+
+. gen py = invlogit(logitpy)
+
+. gen y = rbinomial(1, py)
+
+. gen x1 = x
+
+. gen x2 = rnormal()
+
+. 
+. // tests
+. 
+. // identity link
+. 
+. tsri y (x = z1 z2 z3)
+
+Final GMM criterion Q(b) =  3.73e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+         /b2 |   .0740544    .009023     8.21   0.000     .0563696    .0917393
+         /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x __000004 _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+------------------------------------------------------------------------------
+
+Causal risk difference for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
+------------------------------------------------------------------------------
+
+. tsri
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+         /b2 |   .0740544    .009023     8.21   0.000     .0563696    .0917393
+         /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
+------------------------------------------------------------------------------
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+------------------------------------------------------------------------------
+
+Causal risk difference for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
+------------------------------------------------------------------------------
+
+. 
+. tsri y (x = z1 z2 z3) if _n <= 50
+
+Final GMM criterion Q(b) =  1.81e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =         50
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   1.060589   .3962486     2.68   0.007     .2839558    1.837222
+    /s1xb_z2 |   1.148148   .3925519     2.92   0.003     .3787603    1.917535
+    /s1xb_z3 |   1.403546   .3177779     4.42   0.000      .780713    2.026379
+         /a0 |  -.5013724   .3595452    -1.39   0.163    -1.206068    .2033233
+         /b1 |      .1713   .0290798     5.89   0.000     .1143046    .2282954
+         /b2 |   .0036814    .039025     0.09   0.925    -.0728061    .0801689
+         /b0 |   .2434077   .0653369     3.73   0.000     .1153498    .3714656
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x __000004 _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |      .1713   .0290798     5.89   0.000     .1143046    .2282954
+------------------------------------------------------------------------------
+
+Causal risk difference for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0036814    .039025     0.09   0.925    -.0728061    .0801689
+------------------------------------------------------------------------------
+
+. 
+. tsri y (x = z1 z2 z3), link(identity)
+
+Final GMM criterion Q(b) =  3.73e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+         /b2 |   .0740544    .009023     8.21   0.000     .0563696    .0917393
+         /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x __000004 _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+------------------------------------------------------------------------------
+
+Causal risk difference for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
+------------------------------------------------------------------------------
+
+. 
+. tsri y w (x = z1 z2 z3), link(identity)
+
+Final GMM criterion Q(b) =  4.63e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   9
+Number of moments    =   9
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9882395   .0505573    19.55   0.000     .8891491     1.08733
+    /s1xb_z2 |   .9152859   .0431149    21.23   0.000     .8307823    .9997895
+    /s1xb_z3 |    .954388   .0404106    23.62   0.000     .8751847    1.033591
+     /s1xb_w |   .9801363    .027334    35.86   0.000     .9265627     1.03371
+         /a0 |   .0734396   .0541988     1.36   0.175    -.0327882    .1796673
+         /b1 |   .1052528   .0073427    14.33   0.000     .0908613    .1196442
+         /b2 |   .0545595   .0092853     5.88   0.000     .0363606    .0727584
+ /s2exogxb_w |   .1160821   .0105911    10.96   0.000     .0953239    .1368403
+         /b0 |   .2867508   .0150764    19.02   0.000     .2572016       .3163
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 w _cons
+Instruments for equation 2: x __000004 w _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .1052528   .0073427    14.33   0.000     .0908613    .1196442
+------------------------------------------------------------------------------
+
+Causal risk difference for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0545595   .0092853     5.88   0.000     .0363606    .0727584
+------------------------------------------------------------------------------
+
+. 
+. tsri y (x = z1 z2 z3), estonly
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .1070019   .0072277    14.80   0.000      .092829    .1211749
+    __000004 |   .0740544   .0084664     8.75   0.000     .0574525    .0906564
+       _cons |   .2879917   .0151852    18.97   0.000     .2582148    .3177685
+------------------------------------------------------------------------------
+
+. tsri
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .1070019   .0072277    14.80   0.000      .092829    .1211749
+    __000004 |   .0740544   .0084664     8.75   0.000     .0574525    .0906564
+       _cons |   .2879917   .0151852    18.97   0.000     .2582148    .3177685
+------------------------------------------------------------------------------
+
+. 
+. // logadd link
+. 
+. cap noi {
+. tsri y (x = z1 z2 z3), link(logadd)
+
+Final GMM criterion Q(b) =  4.02e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |    .204947   .0167534    12.23   0.000     .1721109    .2377831
+         /b2 |   .1651491   .0197853     8.35   0.000     .1263706    .2039275
+         /b0 |  -1.326536   .0446685   -29.70   0.000    -1.414084   -1.238987
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x __000004 _cons
+
+Causal risk ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |    1.22746   .0205641    12.23   0.000      1.18781    1.268434
+------------------------------------------------------------------------------
+
+Causal risk ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.179569   .0233381     8.35   0.000     1.134703    1.226209
+------------------------------------------------------------------------------
+. tsri
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |    .204947   .0167534    12.23   0.000     .1721109    .2377831
+         /b2 |   .1651491   .0197853     8.35   0.000     .1263706    .2039275
+         /b0 |  -1.326536   .0446685   -29.70   0.000    -1.414084   -1.238987
+------------------------------------------------------------------------------
+
+Causal risk ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |    1.22746   .0205641    12.23   0.000      1.18781    1.268434
+------------------------------------------------------------------------------
+
+Causal risk ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.179569   .0233381     8.35   0.000     1.134703    1.226209
+------------------------------------------------------------------------------
+. 
+. tsri y (x = z1 z2 z3) if _n <= 200, link(logadd)
+
+Final GMM criterion Q(b) =  8.12e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =        200
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |    .960665   .1863621     5.15   0.000      .595402    1.325928
+    /s1xb_z2 |   1.017943   .1993872     5.11   0.000     .6271518    1.408735
+    /s1xb_z3 |   1.105939   .1977604     5.59   0.000     .7183356    1.493542
+         /a0 |  -.1036275   .2498245    -0.41   0.678    -.5932745    .3860195
+         /b1 |   .2241425   .0467658     4.79   0.000     .1324832    .3158019
+         /b2 |   .1423872   .0539735     2.64   0.008      .036601    .2481733
+         /b0 |  -1.260957   .1392786    -9.05   0.000    -1.533938    -.987976
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x __000004 _cons
+
+Causal risk ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.251249   .0585157     4.79   0.000      1.14166    1.371359
+------------------------------------------------------------------------------
+
+Causal risk ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.153023   .0622327     2.64   0.008     1.037279    1.281682
+------------------------------------------------------------------------------
+. 
+. tsri y w (x = z1 z2 z3), link(logadd)
+
+Final GMM criterion Q(b) =  3.27e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   9
+Number of moments    =   9
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9882395   .0505573    19.55   0.000     .8891491     1.08733
+    /s1xb_z2 |   .9152859   .0431149    21.23   0.000     .8307823    .9997895
+    /s1xb_z3 |    .954388   .0404106    23.62   0.000     .8751847    1.033591
+     /s1xb_w |   .9801363    .027334    35.86   0.000     .9265627     1.03371
+         /a0 |   .0734396   .0541988     1.36   0.175    -.0327882    .1796673
+         /b1 |   .2005151   .0166767    12.02   0.000     .1678294    .2332007
+         /b2 |   .1272374   .0204528     6.22   0.000     .0871507    .1673241
+ /s2exogxb_w |   .2483674   .0243529    10.20   0.000     .2006365    .2960982
+         /b0 |  -1.332769   .0428083   -31.13   0.000    -1.416671   -1.248866
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 w _cons
+Instruments for equation 2: x __000004 w _cons
+
+Causal risk ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.222032   .0203794    12.02   0.000     1.182735    1.262635
+------------------------------------------------------------------------------
+
+Causal risk ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.135687    .023228     6.22   0.000     1.091061    1.182137
+------------------------------------------------------------------------------
+. 
+. tsri y (x = z1 z2 z3), link(logadd) estonly
+
+------------------------------------------------------------------------------
+             |                 OIM
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |    .204947   .0264587     7.75   0.000      .153089     .256805
+    __000004 |   .1651491   .0316964     5.21   0.000     .1030253    .2272729
+       _cons |  -1.326536   .0639398   -20.75   0.000    -1.451855   -1.201216
+------------------------------------------------------------------------------
+. tsri
+
+------------------------------------------------------------------------------
+             |                 OIM
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |    .204947   .0264587     7.75   0.000      .153089     .256805
+    __000004 |   .1651491   .0316964     5.21   0.000     .1030253    .2272729
+       _cons |  -1.326536   .0639398   -20.75   0.000    -1.451855   -1.201216
+------------------------------------------------------------------------------
+. }
+
+. 
+. // logmult link
+. 
+. cap noi {
+. tsri y (x = z1 z2 z3), link(logmult)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+
+Final GMM criterion Q(b) =  4.68e-33
+could not calculate numerical derivatives -- discontinuous region with missing
+values encountered
+r(459);
+. tsri
+. 
+. tsri y (x = z1 z2 z3) if _n <= 250, link(logmult)
+. 
+. tsri y w (x = z1 z2 z3), link(logmult)
+. 
+. tsri y (x = z1 z2 z3), link(logmult) estonly
+. tsri
+. }
+
+. 
+. // logit link
+. 
+. tsri y (x = z1 z2 z3), link(logit)
+
+Final GMM criterion Q(b) =  3.97e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .8518266   .0648163    13.14   0.000      .724789    .9788641
+         /b2 |   .5726491   .0694512     8.25   0.000     .4365273    .7087709
+         /b0 |  -1.675875    .133441   -12.56   0.000    -1.937415   -1.414336
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x __000004 _cons
+
+Causal odds ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.343924   .1519244    13.14   0.000     2.064296    2.661431
+------------------------------------------------------------------------------
+
+Causal odds ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.772958    .123134     8.25   0.000     1.547325    2.031493
+------------------------------------------------------------------------------
+
+. tsri
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .8518266   .0648163    13.14   0.000      .724789    .9788641
+         /b2 |   .5726491   .0694512     8.25   0.000     .4365273    .7087709
+         /b0 |  -1.675875    .133441   -12.56   0.000    -1.937415   -1.414336
+------------------------------------------------------------------------------
+
+Causal odds ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.343924   .1519244    13.14   0.000     2.064296    2.661431
+------------------------------------------------------------------------------
+
+Causal odds ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.772958    .123134     8.25   0.000     1.547325    2.031493
+------------------------------------------------------------------------------
+
+. 
+. tsri y (x = z1 z2 z3) if _n <= 100, link(logit)
+
+Final GMM criterion Q(b) =  1.04e-32
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =        100
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |    .820003   .3089263     2.65   0.008     .2145185    1.425487
+    /s1xb_z2 |    1.41933   .3008394     4.72   0.000     .8296958    2.008964
+    /s1xb_z3 |    .920567   .3021418     3.05   0.002       .32838    1.512754
+         /a0 |  -.3875989   .3651993    -1.06   0.289    -1.103376    .3281786
+         /b1 |   1.078734   .3247226     3.32   0.001     .4422894    1.715178
+         /b2 |   .6217428   .3530592     1.76   0.078    -.0702404    1.313726
+         /b0 |  -1.790935   .6476516    -2.77   0.006    -3.060309   -.5215611
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x __000004 _cons
+
+Causal odds ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.940954   .9549941     3.32   0.001     1.556266    5.557667
+------------------------------------------------------------------------------
+
+Causal odds ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.862171   .6574564     1.76   0.078     .9321697    3.720009
+------------------------------------------------------------------------------
+
+. 
+. tsri y w (x = z1 z2 z3), link(logit)
+
+Final GMM criterion Q(b) =  3.20e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   9
+Number of moments    =   9
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9882395   .0505573    19.55   0.000     .8891491     1.08733
+    /s1xb_z2 |   .9152859   .0431149    21.23   0.000     .8307823    .9997895
+    /s1xb_z3 |    .954388   .0404106    23.62   0.000     .8751847    1.033591
+     /s1xb_w |   .9801363    .027334    35.86   0.000     .9265627     1.03371
+         /a0 |   .0734396   .0541988     1.36   0.175    -.0327882    .1796673
+         /b1 |   .8813906   .0655926    13.44   0.000     .7528315     1.00995
+         /b2 |   .4189215   .0731088     5.73   0.000      .275631    .5622121
+ /s2exogxb_w |   .9615452   .0879674    10.93   0.000     .7891322    1.133958
+         /b0 |  -1.771829   .1332013   -13.30   0.000    -2.032899    -1.51076
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 w _cons
+Instruments for equation 2: x __000004 w _cons
+
+Causal odds ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.414255   .1583572    13.44   0.000     2.123003    2.745463
+------------------------------------------------------------------------------
+
+Causal odds ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.520321   .1111488     5.73   0.000     1.317362    1.754549
+------------------------------------------------------------------------------
+
+. 
+. tsri y (x = z1 z2 z3), link(logit) estonly
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .8518266   .0605198    14.08   0.000       .73321    .9704431
+    __000004 |   .5726491    .064993     8.81   0.000     .4452651    .7000331
+       _cons |  -1.675875   .1247896   -13.43   0.000    -1.920458   -1.431292
+------------------------------------------------------------------------------
+
+. tsri
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .8518266   .0605198    14.08   0.000       .73321    .9704431
+    __000004 |   .5726491    .064993     8.81   0.000     .4452651    .7000331
+       _cons |  -1.675875   .1247896   -13.43   0.000    -1.920458   -1.431292
+------------------------------------------------------------------------------
+
+. 
+. // check errors
+. 
+. rcof "noi tsri y w (x1 x2 = z1 z2 z3)" == 198
+Currently, only 1 endogenous variable is allowed
+invalid syntax
+
+. 
+end of do-file
+      name:  tsri
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\tsri.log
+  log type:  text
+ closed on:   9 Sep 2021, 14:54:08
+-------------------------------------------------------------------------------
+(note: file C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\helpfiles.
+> log not found)
+-------------------------------------------------------------------------------
+      name:  helpfiles
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\helpfiles
+> .log
+  log type:  text
+ opened on:   9 Sep 2021, 14:54:08
+
+. // render the helpfiles in the Results window, to check they are approx ok
+. // 2021-09-06
+. 
+. local helpfiles ///
+> onesamplemr ///
+> asmm ///
+> lsmm ///
+> msmm ///
+> tsps ///
+> tsri
+
+. 
+. foreach helpfile of local helpfiles {
+  2.         type ../`helpfile'.sthlp
+  3. }
+Title
+
+    onesamplemr -- commands for one-sample Mendelian randomization /
+        instrumental variable analyses.
+
+    https://github.com/remlapmot/onesamplemr-stata#readme
+
+Commands
+
+      asmm          Is a helpfile that links to ivregress and ivreg2 which as
+                      linear IV estimators fit the additive structural mean
+                      model (ASMM), i.e. estimates a causal risk difference
+                      for a binary outcome.
+
+      lsmm          Fits the (double) logistic structural mean model (LSMM),
+                      i.e. estimates a causal odds ratio for a binary
+                      outcome.
+
+      msmm          Fits the multiplicative structural mean model (MSMM),
+                      i.e. estimates a causal risk ratio for a binary
+                      outcome.
+
+      tsps          Fits two-stage predictor substitution (TSPS) estimators.
+
+      tsri          Fits two-stage residual inclusion (TSRI) estimators.
+
+Description
+
+    onesamplemr is a suite of programs implementing various instrumental
+    variable estimators for individual level data.
+
+Author
+
+INCLUDE help onesamplemr-author
+Title
+
+     asmm -- Additive structural mean model
+
+Description
+
+    asmm is not a command but this helpfile is to say the additive structural
+    mean model (ASMM) is simply fit with a linear IV estimator available in 
+    ivregress and ivreg2.
+
+Examples
+
+    Using the data provided by Do et al. (2013) recreate Bowden et al.
+    (2016), Table 4, LDL-c "All genetic variants" estimates.
+
+    Setup
+        . use https://raw.github.com/remlapmot/mrrobust/master/dodata, clear
+
+    Select observations (p-value with exposure < 10^-8)
+        . gen byte sel1 = (ldlcp2 < 1e-8)
+
+    IVW (with fixed effect standard errors)
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, ivw fe
+
+    MR-Egger (with SEs using an unconstrained residual variance)
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1
+
+    MR-Egger reporting I^2_GX statistic and heterogeneity Q-test
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, gxse(ldlcse)
+            heterogi
+
+    MR-Egger using a t-distribution for inference & CI limits
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, tdist
+
+    MR-Egger using the radial formulation
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, radial
+
+    MR-Egger using the radial formulation and reporting heterogeneity Q-test
+        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, radial
+            heterogi
+
+References
+
+    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
+        instruments: effect estimation and bias detection through Egger
+        regression. International Journal of Epidemiology, 2015, 44, 2,
+        512-525.  DOI
+
+
+Author
+
+INCLUDE help onesamplemr-author
+Title
+
+     lsmm -- (double) Logistic structural mean model
+
+Syntax
+
+        lsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
+              options]
+
+    varlist1 is the list of exogenous variables.
+
+    varlist2 is the list of endogenous variables.
+
+    varlist_iv is the list of exogenous variables used with varlist1 as
+        instruments for varlist2.
+
+    options               Description
+    -------------------------------------------------------------------------
+      amxb(lc:varlist)    The linear predictor for the association model, by
+                            default the instruments and exogenous variables
+                            are included
+      from(matrix)        initial values for the parameter estimates for both
+                            association and causal models
+      level(#)            set confidence level; default is level(95)
+      gmm_options         Options passed to gmm
+
+Description
+
+    lsmm implements the double logistic structural mean model (LSMM) of
+    Vansteelandt and Goetghebeur (2003) which is a generalisation of the LSMM
+    of Robins (1989).
+
+    lsmm is implemented using a call to gmm.
+
+Options
+
+    fe specifies fixed effect standard errors (i.e. variance of residuals
+        constrained to 1 as in fixed effect meta-analysis models). The
+        default is to use multiplicative standard errors (i.e. variance of
+        residuals unconstrained as in standard linear regression), see
+        Thompson and Sharp (1999) for further details.  We recommend
+        specifying this option when using an allelic score as the
+        instrumental variable.
+
+    gxse(varname) specifies the variable containing the genotype-phenotype
+        (SNP-exposure) association standard errors. These are required for
+        calculating the I^2_GX statistic (Bowden et al., 2016). An I^2_GX
+        statistic of 90% means that the likely bias due measurement error in
+        the MR-Egger slope estimate is around 10%. If I^2_GX values are less
+        than 90% estimates should be treated with caution.
+
+    heterogi displays heterogeneity/pleiotropy statistics. In the
+        heterogeneity output the model based Q-statistic is reported by
+        multiplying the variance of the residuals by the degrees of freedom
+        (Del Greco et al., 2015).  For the IVW model this is the Cochran
+        Q-statistic, and for the MR-Egger model this is the Ruecker's
+        Q-statistic. The corresponding I-squared statistic and its 95% CI is
+        also reported.
+
+    level(#); see [R] estimation options.
+
+Examples
+
+    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    instrumental variables (genotypes).
+
+        . drop _all
+        . set obs 2500
+        . set seed 12345
+        . gen z1 = rbinomial(2, .2)
+        . gen z2 = rbinomial(2, .3)
+        . gen z3 = rbinomial(2, .4)
+        . gen u = rnormal()
+        . gen w = rnormal()
+        . gen x = z1 + z2 + z3 + w + u + rnormal()
+        . gen logitpy = -2 + x + w + u
+        . gen py = invlogit(logitpy)
+        . gen y = rbinomial(1, py)
+        . gen x1 = x
+        . gen x2 = rnormal()
+
+    Fit the model with a single instrumental variable.
+
+        . lsmm y (x = z1)
+
+    Fit the model with multiple instruments.
+
+        . lsmm y (x = z1 z2 z3)
+
+    Fit the model with multiple exposures, and instruments, and adjusting for
+    w.
+
+        . lsmm y w (x1 x2 = z1 z2 z3)
+
+Stored results
+
+    lsmm stores the following in e():
+
+    Scalars        
+      e(df_r)             residual degrees of freedom (with tdist option)
+      e(k)                number of instruments
+      e(I2GX)             I^2_GX (with gxse() option)
+      e(QGX)              Q_GX (with gxse() option)
+      e(phi)              Scale parameter (root mean squared error)
+
+    Macros         
+      e(cmd)              lsmm
+      e(cmdline)          command as typed
+
+    Matrices       
+      e(b)                coefficient vector
+      e(V)                variance-covariance matrix of the estimates
+
+    lsmm stores the following in r():
+
+    Matrices       
+      r(table)            Coefficient table with rownames: b, se, z, pvalue,
+                            ll, ul, df, crit, eform
+
+References
+
+    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
+        instruments: effect estimation and bias detection through Egger
+        regression. International Journal of Epidemiology, 2015, 44, 2,
+        512-525.  DOI
+
+
+Author
+
+INCLUDE help onesamplemr-author
+Title
+
+     msmm -- Multiplicative structural mean model
+
+Syntax
+
+        msmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
+              log noirr ivpoisson_options]
+
+    varlist1 is the list of exogenous variables.
+
+    varlist2 is the list of endogenous variables.
+
+    varlist_iv is the list of exogenous variables used with varlist1 as
+        instruments for varlist2.
+
+    options               Description
+    -------------------------------------------------------------------------
+      noirr               Do not display exponentiated estimates
+      log                 Show the GMM iteration log
+      ivpoisson_options   ivpoisson##optionstbl
+
+Description
+
+    msmm implements the multiplicative structural mean model (MSMM) of Robins
+    (1989) as a wrapper to ivpoisson with the multiplicative option.
+    ivpoisson performs generalized method of moments (GMM) estimation of the
+    relevant moment condition using gmm.
+
+Options
+
+    Please see ivpoisson##options
+
+Examples
+
+    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    instrumental variables (genotypes).
+
+        . drop _all
+        . set obs 2500
+        . set seed 12345
+        . gen z1 = rbinomial(2, .2)
+        . gen z2 = rbinomial(2, .3)
+        . gen z3 = rbinomial(2, .4)
+        . gen u = rnormal()
+        . gen w = rnormal()
+        . gen x = z1 + z2 + z3 + w + u + rnormal()
+        . gen logitpy = -2 + x + w + u
+        . gen py = invlogit(logitpy)
+        . gen y = rbinomial(1, py)
+        . gen x1 = x
+        . gen x2 = rnormal()
+
+    Fit the model with a single instrumental variable.
+
+        . msmm y (x = z1)
+
+    Fit the model with multiple instruments.
+
+        . msmm y (x = z1 z2 z3)
+
+    Fit the model with multiple exposures, and instruments, and adjusting for
+    w.
+
+        . msmm y w (x1 x2 = z1 z2 z3)
+
+Stored results
+
+    Please see ivpoisson##results
+
+References
+
+    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
+        instruments: effect estimation and bias detection through Egger
+        regression. International Journal of Epidemiology, 2015, 44, 2,
+        512-525.  DOI
+
+
+Author
+
+INCLUDE help onesamplemr-author
+Title
+
+     tsps -- Two-stage predictor substitution estimators
+
+Syntax
+
+        tsps depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
+              log noirr gmm_options]
+
+    varlist1 is the list of exogenous variables.
+
+    varlist2 is the list of endogenous variables.
+
+    varlist_iv is the list of exogenous variables used with varlist1 as
+        instruments for varlist2.
+
+    options               Description
+    -------------------------------------------------------------------------
+      noirr               Do not display exponentiated estimates
+      log                 Show the GMM iteration log
+      gmm_options         gmm##options
+
+Description
+
+    msmm implements the multiplicative structural mean model (MSMM) of Robins
+    (1989) as a wrapper to ivpoisson with the multiplicative option.
+    ivpoisson performs generalized method of moments (GMM) estimation of the
+    relevant moment condition using gmm.
+
+Options
+
+    Please see gmm##options
+
+Examples
+
+    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    instrumental variables (genotypes).
+
+        . drop _all
+        . set obs 2500
+        . set seed 12345
+        . gen z1 = rbinomial(2, .2)
+        . gen z2 = rbinomial(2, .3)
+        . gen z3 = rbinomial(2, .4)
+        . gen u = rnormal()
+        . gen w = rnormal()
+        . gen x = z1 + z2 + z3 + w + u + rnormal()
+        . gen logitpy = -2 + x + w + u
+        . gen py = invlogit(logitpy)
+        . gen y = rbinomial(1, py)
+        . gen x1 = x
+        . gen x2 = rnormal()
+
+    Fit the model with a single instrumental variable.
+
+        . msmm y (x = z1)
+
+    Fit the model with multiple instruments.
+
+        . msmm y (x = z1 z2 z3)
+
+    Fit the model with multiple exposures, and instruments, and adjusting for
+    w.
+
+        . msmm y w (x1 x2 = z1 z2 z3)
+
+Stored results
+
+    Please see ivpoisson##results
+
+References
+
+    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
+        instruments: effect estimation and bias detection through Egger
+        regression. International Journal of Epidemiology, 2015, 44, 2,
+        512-525.  DOI
+
+
+Author
+
+INCLUDE help onesamplemr-author
+Title
+
+     tsri -- Two-stage residual inclusion estimators
+
+Syntax
+
+        tsri depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
+              log noirr gmm_options]
+
+    varlist1 is the list of exogenous variables.
+
+    varlist2 is the list of endogenous variables.
+
+    varlist_iv is the list of exogenous variables used with varlist1 as
+        instruments for varlist2.
+
+    options               Description
+    -------------------------------------------------------------------------
+      noirr               Do not display exponentiated estimates
+      log                 Show the GMM iteration log
+      gmm_options         gmm##options
+
+Description
+
+    msmm implements the multiplicative structural mean model (MSMM) of Robins
+    (1989) as a wrapper to ivpoisson with the multiplicative option.
+    ivpoisson performs generalized method of moments (GMM) estimation of the
+    relevant moment condition using gmm.
+
+Options
+
+    Please see gmm##options
+
+Examples
+
+    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    instrumental variables (genotypes).
+
+        . drop _all
+        . set obs 2500
+        . set seed 12345
+        . gen z1 = rbinomial(2, .2)
+        . gen z2 = rbinomial(2, .3)
+        . gen z3 = rbinomial(2, .4)
+        . gen u = rnormal()
+        . gen w = rnormal()
+        . gen x = z1 + z2 + z3 + w + u + rnormal()
+        . gen logitpy = -2 + x + w + u
+        . gen py = invlogit(logitpy)
+        . gen y = rbinomial(1, py)
+        . gen x1 = x
+        . gen x2 = rnormal()
+
+    Fit the model with a single instrumental variable.
+
+        . msmm y (x = z1)
+
+    Fit the model with multiple instruments.
+
+        . msmm y (x = z1 z2 z3)
+
+    Fit the model with multiple exposures, and instruments, and adjusting for
+    w.
+
+        . msmm y w (x1 x2 = z1 z2 z3)
+
+Stored results
+
+    Please see ivpoisson##results
+
+References
+
+    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
+        instruments: effect estimation and bias detection through Egger
+        regression. International Journal of Epidemiology, 2015, 44, 2,
+        512-525.  DOI
+
+
+Author
+
+INCLUDE help onesamplemr-author
+
+. 
+end of do-file
+      name:  helpfiles
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\helpfiles
+> .log
+  log type:  text
+ closed on:   9 Sep 2021, 14:54:08
 -------------------------------------------------------------------------------
 
 . 
@@ -1004,5 +2330,5 @@ end of do-file
        log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\master.lo
 > g
   log type:  text
- closed on:   1 Sep 2021, 17:17:46
+ closed on:   9 Sep 2021, 14:54:08
 -------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
       name:  lsmm
        log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\lsmm.log
   log type:  text
- opened on:   1 Sep 2021, 17:17:36
+ opened on:   9 Sep 2021, 14:53:49
 
 . // lsmm cscript
 . // 2021-08-27
@@ -173,7 +173,7 @@ macros:
                e(exog) : "w"
               e(endog) : "x"
                 e(lhs) : "y"
-            e(cmdline) : "lsmm "
+            e(cmdline) : "lsmm y w (x = z1)"
                 e(cmd) : "lsmm"
           e(estat_cmd) : "gmm_estat"
             e(predict) : "gmm_p"
@@ -301,6 +301,9 @@ Causal odds ratio for: w
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - .89) < 1e-2
+
+. 
+. cap noi estat overid
 
 . 
 . // multiple endog variables
@@ -741,5 +744,5 @@ end of do-file
       name:  lsmm
        log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\lsmm.log
   log type:  text
- closed on:   1 Sep 2021, 17:17:43
+ closed on:   9 Sep 2021, 14:53:56
 -------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
       name:  msmm
        log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\msmm.log
   log type:  text
- opened on:   1 Sep 2021, 17:17:43
+ opened on:   9 Sep 2021, 14:53:56
 
 . // msmm cscript
 . // 2021-09-01
@@ -50,16 +50,7 @@ number of observations (_N) was 0, now 2,500
 . 
 . msmm y (x = z1)
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  .27142542  
-Iteration 1:   GMM criterion Q(b) =  .00620742  
-Iteration 2:   GMM criterion Q(b) =  .00001533  
-Iteration 3:   GMM criterion Q(b) =  1.029e-10  
-Iteration 4:   GMM criterion Q(b) =  7.198e-21  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  4.233e-21  
-Iteration 1:   GMM criterion Q(b) =  5.626e-33  
+Final GMM criterion Q(b) =  5.63e-33
 
 note: model is exactly identified
 
@@ -72,11 +63,12 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+           y |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-           x |   .3279258   .0579665     5.66   0.000     .2143137     .441538
-       _cons |  -1.638841   .1479915   -11.07   0.000    -1.928899   -1.348783
+           x |   1.388086   .0804624     5.66   0.000     1.239011    1.555097
+       _cons |   .1942051   .0287407   -11.07   0.000     .1453081    .2595561
 ------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
 Instrumented:  x
 Instruments:   z1
 
@@ -105,16 +97,7 @@ Instruments:   z1
 . 
 . msmm y (x = z1 z2 z3)
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  .27965686  
-Iteration 1:   GMM criterion Q(b) =  .00905558  
-Iteration 2:   GMM criterion Q(b) =  .00057708  
-Iteration 3:   GMM criterion Q(b) =  .00055215  
-Iteration 4:   GMM criterion Q(b) =  .00055215  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  .00046448  
-Iteration 1:   GMM criterion Q(b) =  .00046447  
+Final GMM criterion Q(b) =  .0004645
 
 Exponential mean model with endogenous regressors
 
@@ -125,11 +108,12 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+           y |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-           x |   .2972268   .0327294     9.08   0.000     .2330783    .3613753
-       _cons |  -1.563223   .0929526   -16.82   0.000    -1.745406   -1.381039
+           x |   1.346121   .0440578     9.08   0.000      1.26248    1.435302
+       _cons |     .20946   .0194699   -16.82   0.000      .174574    .2513173
 ------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
 Instrumented:  x
 Instruments:   z1 z2 z3
 
@@ -154,6 +138,13 @@ GMM weight matrix:     Robust
 Note: _cons estimates baseline incidence rate.
 Instrumented:  x
 Instruments:   z1 z2 z3
+
+. 
+. estat overid
+
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 1.16116 (p = 0.5596)
 
 . 
 . // ivpoisson helpfile
@@ -228,5 +219,5 @@ end of do-file
       name:  msmm
        log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\msmm.log
   log type:  text
- closed on:   1 Sep 2021, 17:17:46
+ closed on:   9 Sep 2021, 14:53:59
 -------------------------------------------------------------------------------

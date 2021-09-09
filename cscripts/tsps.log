@@ -1,0 +1,23 @@
+-------------------------------------------------------------------------------
+      name:  tsps
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\tsps.log
+  log type:  text
+ opened on:   9 Sep 2021, 14:53:59
+
+. // tsps cscript
+. // 2021-09-06
+. 
+. cscript tsps adofiles tsps
+---------------------------------------------------------------------BEGIN tsps
+
+-> which tsps, usesysdir
+C:\Users\tom\Documents\GitHub\onesamplemr-stata\tsps.ado
+*! 1.0.0 Tom Palmer 05sep2021
+
+. 
+end of do-file
+      name:  tsps
+       log:  C:\Users\tom\Documents\GitHub\onesamplemr-stata\cscripts\tsps.log
+  log type:  text
+ closed on:   9 Sep 2021, 14:53:59
+-------------------------------------------------------------------------------
