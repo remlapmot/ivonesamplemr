@@ -189,7 +189,7 @@ else {
 	qui _coef_table , level(`level') // to return r(table)
 }
 
-return add
+return add // to return r(table)
 
 if "`link'" == "identity" local parameter "Causal risk difference"
 if inlist("`link'", "logadd", "logmult") local parameter "Causal risk ratio"
