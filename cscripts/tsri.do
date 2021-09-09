@@ -21,18 +21,60 @@ gen x2 = rnormal()
 
 // tests
 
-discard
+// identity link
+
 tsri y (x = z1 z2 z3)
+tsri
+
+tsri y (x = z1 z2 z3) if _n <= 50
 
 tsri y (x = z1 z2 z3), link(identity)
 
+tsri y w (x = z1 z2 z3), link(identity)
+
+tsri y (x = z1 z2 z3), estonly
+tsri
+
+// logadd link
+
+cap noi {
 tsri y (x = z1 z2 z3), link(logadd)
+tsri
 
+tsri y (x = z1 z2 z3) if _n <= 200, link(logadd)
+
+tsri y w (x = z1 z2 z3), link(logadd)
+
+tsri y (x = z1 z2 z3), link(logadd) estonly
+tsri
+}
+
+// logmult link
+
+cap noi {
 tsri y (x = z1 z2 z3), link(logmult)
+tsri
 
-discard
+tsri y (x = z1 z2 z3) if _n <= 250, link(logmult)
+
+tsri y w (x = z1 z2 z3), link(logmult)
+
+tsri y (x = z1 z2 z3), link(logmult) estonly
+tsri
+}
+
+// logit link
+
 tsri y (x = z1 z2 z3), link(logit)
+tsri
 
-tsri y w (x = z1 z2 z3)
+tsri y (x = z1 z2 z3) if _n <= 100, link(logit)
 
-cap noi tsri y w (x1 x2 = z1 z2 z3)
+tsri y w (x = z1 z2 z3), link(logit)
+
+tsri y (x = z1 z2 z3), link(logit) estonly
+tsri
+
+// check errors
+
+rcof "noi tsri y w (x1 x2 = z1 z2 z3)" == 198
