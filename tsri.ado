@@ -191,14 +191,20 @@ else {
 
 return add // to return r(table)
 
-if "`link'" == "identity" local parameter "Causal risk difference"
+local eformopt ", eform"
+
+if "`link'" == "identity" {
+	local parameter "Causal risk difference"
+	local eformopt ""
+}
 if inlist("`link'", "logadd", "logmult") local parameter "Causal risk ratio"
 if "`link'" == "logit" local parameter "Causal odds ratio"
 
-
-foreach par in b1 b2 {
-	di _n as txt "`parameter' for: `par'"
-	lincom /`par', eform
+if "`estonly'" == "" {
+	foreach par in b1 b2 {
+		di _n as txt "`parameter' for: `par'"
+		lincom /`par' `eformopt'
+	}
 }
 
 end
