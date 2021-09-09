@@ -74,7 +74,7 @@ if `endogcount' != 1 {
 
 // stage 1
 tempname stage1b stage2b from
-qui regress `endog' `inst' `exog'
+qui regress `endog' `inst' `exog' `if'`in'
 mat `stage1b' = e(b)
 tempvar stage1res
 predict `stage1res' `if'`in', residuals
@@ -95,7 +95,7 @@ if "`link'" == "logmult" {
 
 if "`link'" == "logit" {
 	// fit stage 2 logistic regression to obtain initial values
-	qui logit `lhs' `endog' `stage1res' `exog'
+	qui logit `lhs' `endog' `stage1res' `exog' `if'`in'
 	mat `stage2b' = e(b)
 	mat `from' = (`stage1b', `stage2b')
 
