@@ -106,13 +106,13 @@ Please see {help gmm##results}{p_end}
 {marker references}{...}
 {title:References}
 
-{marker bowden}{...}
+{marker terza}{...}
 {phang}
-Bowden J, Davey Smith G, Burgess S. 
-Mendelian randomization with invalid instruments: effect estimation and bias 
-detection through Egger regression. International Journal of Epidemiology, 
-2015, 44, 2, 512-525. 
-{browse "http://dx.doi.org/10.1093/ije/dyv080":DOI}
+Terza JV, Basu A, Rathouz PJ. 2008. 
+Two-stage residual inclusion estimation: 
+Addressing endogeneity in health econometric modeling. 
+Journal of Health Economics 27: 531–543.
+{browse "https://doi.org/10.1016/j.jhealeco.2007.09.009":DOI}
 {p_end}
 
 {marker author}
