@@ -16,38 +16,41 @@
 {title:Description}
 
 {pstd}
-{cmd:asmm} is not a command but this helpfile is to say the additive structural mean model (ASMM) is simply fit with a linear IV estimator available in {help ivregress} and {help ivreg2}. 
+{cmd:asmm} is not a command. This helpfile is to note that the additive structural mean model (ASMM) is simply fit with a linear IV estimator available in {help ivregress} or {help ivreg2} or even implemented yourself with {help gmm}.
+
+For a binary outcome the ASMM estimates a causal risk difference.
 
 {marker examples}{...}
 {title:Examples}
 
-{pstd}Using the data provided by {help mregger##do:Do et al. (2013)} recreate 
-{help mregger##mrmedian:Bowden et al. (2016)}, Table 4, 
-LDL-c "All genetic variants" estimates.{p_end}
+{pstd}Simulate binary outcome data; y outcome, x exposure, w covariate, z* instrumental variables (genotypes).{p_end}
 
-{pstd}Setup{p_end}
-{phang2}{cmd:.} {stata "use https://raw.github.com/remlapmot/mrrobust/master/dodata, clear"}{p_end}
+{phang2}{cmd:.} {stata "drop _all"}{p_end}
+{phang2}{cmd:.} {stata "set obs 2500"}{p_end}
+{phang2}{cmd:.} {stata "set seed 12345"}{p_end}
+{phang2}{cmd:.} {stata "gen z1 = rbinomial(2, .2)"}{p_end}
+{phang2}{cmd:.} {stata "gen z2 = rbinomial(2, .3)"}{p_end}
+{phang2}{cmd:.} {stata "gen z3 = rbinomial(2, .4)"}{p_end}
+{phang2}{cmd:.} {stata "gen u = rnormal()"}{p_end}
+{phang2}{cmd:.} {stata "gen w = rnormal()"}{p_end}
+{phang2}{cmd:.} {stata "gen x = z1 + z2 + z3 + w + u + rnormal()"}{p_end}
+{phang2}{cmd:.} {stata "gen logitpy = -2 + x + w + u"}{p_end}
+{phang2}{cmd:.} {stata "gen py = invlogit(logitpy)"}{p_end}
+{phang2}{cmd:.} {stata "gen y = rbinomial(1, py)"}{p_end}
+{phang2}{cmd:.} {stata "gen x1 = x"}{p_end}
+{phang2}{cmd:.} {stata "gen x2 = rnormal()"}{p_end}
 
-{pstd}Select observations ({it:p}-value with exposure < 10^-8){p_end}
-{phang2}{cmd:.} {stata "gen byte sel1 = (ldlcp2 < 1e-8)"}{p_end}
+{pstd}Fit the model with a single instrumental variable.{p_end}
 
-{pstd}IVW (with fixed effect standard errors){p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, ivw fe"}{p_end}
+{phang2}{cmd:.} {stata "ivregress 2sls y (x = z1)"}{p_end}
 
-{pstd}MR-Egger (with SEs using an unconstrained residual variance){p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1"}{p_end}
+{pstd}Fit the model with multiple instruments.{p_end}
 
-{pstd}MR-Egger reporting {it:I^2_GX} statistic and heterogeneity Q-test{p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, gxse(ldlcse) heterogi"}{p_end}
+{phang2}{cmd:.} {stata "ivregress 2sls y (x = z1 z2 z3)"}{p_end}
 
-{pstd}MR-Egger using a t-distribution for inference & CI limits{p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, tdist"}{p_end}
+{pstd}Fit the model with multiple exposures, and instruments, and adjusting for w.{p_end}
 
-{pstd}MR-Egger using the radial formulation{p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, radial"}{p_end}
-
-{pstd}MR-Egger using the radial formulation and reporting heterogeneity Q-test{p_end}
-{phang2}{cmd:.} {stata "mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, radial heterogi"}{p_end}
+{phang2}{cmd:.} {stata "ivregress 2sls y w (x1 x2 = z1 z2 z3)"}{p_end}
 
 {marker references}{...}
 {title:References}
