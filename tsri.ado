@@ -17,13 +17,14 @@ if replay() {
     }
     else {
         Display , lhs(`e(lhs)') endog(`e(endog)') exog(`e(exog)') inst(`e(inst)') replay(`replay') ///
-			link(`e(link)')
+			link(`e(link)') `e(estonly)'
     }
     exit
 }
 
 Estimate `0'
 local link `e(link)'
+local estonly `e(estonly)'
 
 _iv_parse `0'
 local lhs `s(lhs)'
@@ -31,7 +32,7 @@ local endog `s(endog)'
 local exog `s(exog)'
 local inst `s(inst)'
 
-Display , level(`level') lhs(`lhs') endog(`endog') exog(`exog') inst(`inst') link(`link')
+Display , level(`level') lhs(`lhs') endog(`endog') exog(`exog') inst(`inst') link(`link') `estonly'
 
 ereturn local cmd "tsri"
 ereturn local cmdline `"tsri `0'"'
@@ -116,6 +117,7 @@ if "`link'" == "logit" {
 }
 
 ereturn local link `link'
+ereturn local estonly `estonly'
 
 end
 
@@ -124,7 +126,7 @@ program Display, rclass
 version 10
 syntax [anything] [, Level(cilevel) ///
 	lhs(varname) endog(varlist) exog(varlist) inst(varlist) ///
-	replay(integer 0) Link(string)]
+	replay(integer 0) Link(string) estonly]
 
 if `replay' == 1 {
 	display
