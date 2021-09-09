@@ -150,13 +150,12 @@ option){p_end}
 {marker references}{...}
 {title:References}
 
-{marker bowden}{...}
+{marker vansteelandt}{...}
 {phang}
-Bowden J, Davey Smith G, Burgess S. 
-Mendelian randomization with invalid instruments: effect estimation and bias 
-detection through Egger regression. International Journal of Epidemiology, 
-2015, 44, 2, 512-525. 
-{browse "http://dx.doi.org/10.1093/ije/dyv080":DOI}
+Vansteelandt S, Goetghebeur E. 
+Causal inference with generalized structural mean models. 
+2003, 65, 4, 817-835. 
+{browse "https://doi.org/10.1046/j.1369-7412.2003.00417.x":DOI}
 {p_end}
 
 {marker author}
