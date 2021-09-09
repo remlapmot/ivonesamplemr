@@ -45,7 +45,7 @@
 {title:Description}
 
 {pstd}
-{cmd:msmm} implements the multiplicative structural mean model (MSMM) of Robins (1989) as a wrapper to {help ivpoisson} with the {cmd:multiplicative} option. {cmd:ivpoisson} performs generalized method of moments (GMM) estimation of the relevant moment condition using {help gmm}.
+{cmd:tsri} implements two-stage residual inclusion (TSRI) estimators with several link functions (identity, log-additive, log-multiplicative, logit).  It is implemented using generalized method of moments (GMM) estimation by passing the relevant moment condition to the {help gmm} command.
  
 {marker options}{...}
 {title:Options}
