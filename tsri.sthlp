@@ -75,21 +75,33 @@ Please see {help gmm##options}
 
 {pstd}Fit the model with a single instrumental variable.{p_end}
 
-{phang2}{cmd:.} {stata "msmm y (x = z1)"}{p_end}
+{phang2}{cmd:.} {stata "tsri y (x = z1)"}{p_end}
 
 {pstd}Fit the model with multiple instruments.{p_end}
 
-{phang2}{cmd:.} {stata "msmm y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "tsri y (x = z1 z2 z3)"}{p_end}
 
-{pstd}Fit the model with multiple exposures, and instruments, and adjusting for w.{p_end}
+{pstd}Fit the model with multiple instruments, and adjusting for w.{p_end}
 
-{phang2}{cmd:.} {stata "msmm y w (x1 x2 = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "tsri y w (x = z1 z2 z3)"}{p_end}
+
+{pstd}Using the log additive link function.{p_end}
+
+{phang2}{cmd:.} {stata "tsri y (x = z1 z2 z3), link(logadd)"}{p_end}
+
+{pstd}Using the log multiplicative link function.{p_end}
+
+{phang2}{cmd:.} {stata "tsri y (x = z1 z2 z3), link(logmult)"}{p_end}
+
+{pstd}Using the logit link function.{p_end}
+
+{phang2}{cmd:.} {stata "tsri y (x = z1 z2 z3), link(logit)"}{p_end}
 
 {marker results}{...}
 {title:Stored results}
 
 {pstd}
-Please see {help ivpoisson##results}{p_end}
+Please see {help gmm##results}{p_end}
 
 {marker references}{...}
 {title:References}
