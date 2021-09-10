@@ -1,7 +1,6 @@
-# onesamplemr Stata package
+# ivonesamplemr Stata package
 
-Stata package of useful programs for one sample Mendelian randomization / instrumental variable 
-analyses, including implementations of:
+Stata package of useful programs for one sample Mendelian randomization (MR) / instrumental variable (IV) analyses, including implementations of:
 
 * additive structural mean model: See `help ivasmm`
 * logistic structural mean model: `ivlsmm` command
@@ -20,13 +19,13 @@ The `ivtsps` and `ivtsri` commands implement the following link functions:
 Install the onesamplemr package within Stata using
 ``` stata
 net install github, from("https://haghish.github.io/github/")
-github install remlapmot/onesamplemr-stata, package(onesamplemr)
+github install remlapmot/ivonesamplemr
 ```
 
 Or use the following code
 ``` stata
-net install onesamplemr, from("https://raw.github.com/remlapmot/onesample-mr/main/") replace
-do https://raw.github.com/remlapmot/onesample-mr/main/dependency.do
+net install onesamplemr, from("https://raw.github.com/remlapmot/ivonesamplemr/main/") replace
+do https://raw.github.com/remlapmot/ivonesamplemr/main/dependency.do
 ```
 
 To check for an update to the package run within Stata
