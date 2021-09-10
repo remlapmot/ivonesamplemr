@@ -25,7 +25,7 @@ github install remlapmot/ivonesamplemr
 Or use the following code
 ``` stata
 net install ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesamplemr/main/") replace
-do https://raw.github.com/remlapmot/ivonesamplemr/main/dependency.do
+do "https://raw.github.com/remlapmot/ivonesamplemr/main/dependency.do"
 ```
 
 To check for an update to the package run within Stata
