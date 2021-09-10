@@ -124,10 +124,10 @@ International Journal of Epidemiology, 2008, 37, 5, 1161-1168.
 
 {marker terza}{...}
 {phang}
-Terza JV, Basu A, Rathouz PJ. 2008. 
+Terza JV, Basu A, Rathouz PJ. 
 Two-stage residual inclusion estimation: 
 Addressing endogeneity in health econometric modeling. 
-Journal of Health Economics 27: 531–543.
+Journal of Health Economics. 2008, 27, 3, 531–543.
 {browse "https://doi.org/10.1016/j.jhealeco.2007.09.009":DOI}
 {p_end}
 
