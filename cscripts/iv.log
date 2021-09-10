@@ -1,0 +1,203 @@
+-------------------------------------------------------------------------------
+      name:  iv
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+  log type:  text
+ opened on:  10 Sep 2021, 21:35:49
+
+. // ivlsmm cscript
+. // 2021-08-27
+. 
+. cscript iv adofiles iv
+-----------------------------------------------------------------------BEGIN iv
+
+-> which iv, usesysdir
+/Users/tom/Documents/GitHub/ivonesamplemr/iv.ado
+*! version 0.1.0 10sep2021 Tom Palmer
+
+. 
+. // simulate data
+. clear
+
+. set obs 2500
+number of observations (_N) was 0, now 2,500
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen w = rnormal()
+
+. gen x = z1 + z2 + z3 + w + u + rnormal()
+
+. gen logitpy = -2 + x + w + u
+
+. gen py = invlogit(logitpy)
+
+. gen y = rbinomial(1, py)
+
+. gen x1 = x
+
+. gen x2 = rnormal()
+
+. 
+. // tests
+. 
+. iv lsmm y (x = z1)
+
+Final GMM criterion Q(b) =  1.36e-31
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   5
+Number of moments    =   5
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.238333   .0496761    24.93   0.000     1.140969    1.335696
+      /xb_z1 |  -.2808945   .1005886    -2.79   0.005    -.4780446   -.0837444
+         /b0 |  -2.259775   .1086805   -20.79   0.000    -2.472785   -2.046765
+     /cmxb_x |   .9460553   .1080615     8.75   0.000     .7342587    1.157852
+        /ey0 |    .150554   .0332163     4.53   0.000     .0854512    .2156567
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 _cons
+Instruments for equation 2: z1 _cons
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |    2.57553   .2783156     8.75   0.000     2.083937    3.183089
+------------------------------------------------------------------------------
+
+. 
+. iv msmm y (x = z1 z2 z3)
+
+Final GMM criterion Q(b) =  .0004645
+
+Exponential mean model with endogenous regressors
+
+Number of parameters =   2                         Number of obs  =      2,500
+Number of moments    =   4
+Initial weight matrix: Unadjusted
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   1.346121   .0440578     9.08   0.000      1.26248    1.435302
+       _cons |     .20946   .0194699   -16.82   0.000      .174574    .2513173
+------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
+Instrumented:  x
+Instruments:   z1 z2 z3
+
+. 
+. iv tsps y (x = z1 z2 z3)
+
+Final GMM criterion Q(b) =  7.16e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   6
+Number of moments    =   6
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+         /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: __000004 _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+------------------------------------------------------------------------------
+
+. 
+. iv tsri y (x = z1 z2 z3), link(logit)
+
+Final GMM criterion Q(b) =  3.97e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .8518266   .0648163    13.14   0.000      .724789    .9788641
+         /b2 |   .5726491   .0694512     8.25   0.000     .4365273    .7087709
+         /b0 |  -1.675875    .133441   -12.56   0.000    -1.937415   -1.414336
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x __000004 _cons
+
+Causal odds ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.343924   .1519244    13.14   0.000     2.064296    2.661431
+------------------------------------------------------------------------------
+
+Causal odds ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.772958    .123134     8.25   0.000     1.547325    2.031493
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+      name:  iv
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+  log type:  text
+ closed on:  10 Sep 2021, 21:35:50
+-------------------------------------------------------------------------------
