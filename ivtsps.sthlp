@@ -1,24 +1,24 @@
 {smcl}
 {* *! version 0.1.0  03sep2021 Tom Palmer}{...}
-{vieweralsosee "onesamplemr" "help onesamplemr"}{...}
-{viewerjumpto "Syntax" "tsps##syntax"}{...}
-{viewerjumpto "Description" "tsps##description"}{...}
-{viewerjumpto "Options" "tsps##options"}{...}
-{viewerjumpto "Examples" "tsps##examples"}{...}
-{viewerjumpto "Stored results" "tsps##results"}{...}
-{viewerjumpto "References" "tsps##references"}{...}
-{viewerjumpto "Author" "tsps##author"}{...}
+{vieweralsosee "onesamplemr" "help ivonesamplemr"}{...}
+{viewerjumpto "Syntax" "ivtsps##syntax"}{...}
+{viewerjumpto "Description" "ivtsps##description"}{...}
+{viewerjumpto "Options" "ivtsps##options"}{...}
+{viewerjumpto "Examples" "ivtsps##examples"}{...}
+{viewerjumpto "Stored results" "ivtsps##results"}{...}
+{viewerjumpto "References" "ivtsps##references"}{...}
+{viewerjumpto "Author" "ivtsps##author"}{...}
 {title:Title}
 
 {p 5}
-{bf:tsps} {hline 2} Two-stage predictor substitution estimators
+{bf:ivtsps} {hline 2} Two-stage predictor substitution estimators
 {p_end}
 
 {marker syntax}{...}
 {title:Syntax}
 
 {p 8 14 2}
-{cmd:tsps} {depvar} [{it:{help varlist:varlist1}}]
+{cmd:ivtsps} {depvar} [{it:{help varlist:varlist1}}]
 {cmd:(}{it:{help varlist:varlist2}} {cmd:=}
         {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
 [{it:{help gmm##weight:weight}}]
@@ -45,7 +45,7 @@
 {title:Description}
 
 {pstd}
-{cmd:tsps} implements two-stage predictor substitution (TSPS) estimators with several link functions (identity, log-additive, log-multiplicative, logit). It is implemented using generalized method of moments (GMM) estimation by passing the relevant moment condition to the {help gmm} command.
+{cmd:ivtsps} implements two-stage predictor substitution (TSPS) estimators with several link functions (identity, log-additive, log-multiplicative, logit). It is implemented using generalized method of moments (GMM) estimation by passing the relevant moment condition to the {help gmm} command.
  
 {marker options}{...}
 {title:Options}
@@ -75,27 +75,27 @@ Please see {help gmm##options}
 
 {pstd}Fit the model with a single instrumental variable.{p_end}
 
-{phang2}{cmd:.} {stata "tsps y (x = z1)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsps y (x = z1)"}{p_end}
 
 {pstd}Fit the model with multiple instruments.{p_end}
 
-{phang2}{cmd:.} {stata "tsps y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsps y (x = z1 z2 z3)"}{p_end}
 
 {pstd}Fit the model with multiple instruments, and adjusting for w.{p_end}
 
-{phang2}{cmd:.} {stata "tsps y w (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsps y w (x = z1 z2 z3)"}{p_end}
 
 {pstd}Using the log additive link function.{p_end}
 
-{phang2}{cmd:.} {stata "tsps y (x = z1 z2 z3), link(logadd)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsps y (x = z1 z2 z3), link(logadd)"}{p_end}
 
 {pstd}Using the log multiplicative link function.{p_end}
 
-{phang2}{cmd:.} {stata "tsps y (x = z1 z2 z3), link(logmult)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsps y (x = z1 z2 z3), link(logmult)"}{p_end}
 
 {pstd}Using the logit link function.{p_end}
 
-{phang2}{cmd:.} {stata "tsps y (x = z1 z2 z3), link(logit)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsps y (x = z1 z2 z3), link(logit)"}{p_end}
 
 {marker results}{...}
 {title:Stored results}
@@ -118,4 +118,4 @@ Journal of Health Economics 27: 531–543.
 {marker author}
 {title:Author}
 
-INCLUDE help onesamplemr-author
+INCLUDE help ivonesamplemr-author
