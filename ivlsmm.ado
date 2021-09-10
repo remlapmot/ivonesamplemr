@@ -1,5 +1,5 @@
 *! 1.0.0 Tom Palmer 01sep2021
-program lsmm, eclass
+program ivlsmm, eclass
 
 if _caller() >= 11 {
     local vv : di "version " string(_caller()) ":"
@@ -9,7 +9,7 @@ version 10
 local replay = replay()
 
 if replay() {
-    if `"`e(cmd)'"' != "lsmm" { 
+    if `"`e(cmd)'"' != "ivlsmm" { 
         error 301
     }
     else if _by() { 
@@ -31,8 +31,8 @@ local inst `s(inst)'
 
 Display , level(`level') lhs(`lhs') endog(`endog') exog(`exog') inst(`inst')
 
-ereturn local cmd "lsmm"
-ereturn local cmdline `"lsmm `0'"'
+ereturn local cmd "ivlsmm"
+ereturn local cmdline `"ivlsmm `0'"'
 ereturn local lhs `lhs'
 ereturn local endog `endog'
 ereturn local exog `exog'
