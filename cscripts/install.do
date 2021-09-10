@@ -3,18 +3,18 @@
 
 ** net install
 
-cap noi ado uninstall onesamplemr
+cap noi ado uninstall ivonesamplemr
 
-net desc onesamplemr, from("https://raw.github.com/remlapmot/onesamplemr-stata/main/")
+net desc ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesamplemr/main/")
 
-net install onesamplemr, from("https://raw.github.com/remlapmot/onesample-mr/main/") replace
-do https://raw.github.com/remlapmot/onesample-mr/main/dependency.do
+net install ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesamplemr/main/") replace
+do https://raw.github.com/remlapmot/ivonesamplemr/main/dependency.do
 
 ** github package
 
-cap noi ado uninstall onesamplemr
+cap noi ado uninstall ivonesamplemr
 
 net install github, from("https://haghish.github.io/github/")
-github install remlapmot/onesamplemr-stata, package(onesamplemr)
+github install remlapmot/ivonesamplemr
 
-cap noi ado uninstall onesamplemr
+cap noi ado uninstall ivonesamplemr
