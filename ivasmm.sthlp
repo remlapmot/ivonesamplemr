@@ -1,22 +1,22 @@
 {smcl}
 {* *! version 0.1.0  03sep2021 Tom Palmer}{...}
-{vieweralsosee "onesamplemr" "help onesamplemr"}{...}
+{vieweralsosee "onesamplemr" "help ivonesamplemr"}{...}
 {vieweralsosee "ivregress" "help ivregress"}{...}
 {vieweralsosee "ivreg2" "help ivreg2"}{...}
-{viewerjumpto "Description" "asmm##description"}{...}
-{viewerjumpto "Description" "asmm##examples"}{...}
-{viewerjumpto "Author" "asmm##author"}{...}
+{viewerjumpto "Description" "ivasmm##description"}{...}
+{viewerjumpto "Description" "ivasmm##examples"}{...}
+{viewerjumpto "Author" "ivasmm##author"}{...}
 {title:Title}
 
 {p 5}
-{bf:asmm} {hline 2} Additive structural mean model
+{bf:ivasmm} {hline 2} Additive structural mean model
 {p_end}
 
 {marker description}{...}
 {title:Description}
 
 {pstd}
-{cmd:asmm} is not a command. This helpfile is to note that the additive structural mean model (ASMM) is simply fit with a linear IV estimator available in {help ivregress} or {help ivreg2} or even implemented yourself with {help gmm}.
+{cmd:ivasmm} is not a command. This helpfile is to note that the additive structural mean model (ASMM) is simply fit with a linear IV estimator available in {help ivregress} or {help ivreg2} or even implemented yourself with {help gmm}.
 
 For a binary outcome the ASMM estimates a causal risk difference.
 
@@ -69,4 +69,4 @@ Robins JM. The analysis of randomised and nonrandomised AIDS treatment trials us
 {marker author}
 {title:Author}
 
-INCLUDE help onesamplemr-author
+INCLUDE help ivonesamplemr-author
