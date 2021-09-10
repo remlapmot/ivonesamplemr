@@ -114,6 +114,14 @@ Statistics in Medicine, 2011, 30, 6, 678-694.
 {browse "https://doi.org/10.1002/sim.4138":DOI}
 {p_end}
 
+{marker palmer}{...}
+{phang}
+Palmer T, Thompson JR, Tobin MD, Sheehan NA, Burton PR. 
+Adjusting for bias and unmeasured confounding in Mendelian randomization studies with binary responses. 
+International Journal of Epidemiology, 2008, 37, 5, 1161-1168. 
+{browse "https://doi.org/10.1093/ije/dyn080":DOI}
+{p_end}
+
 {marker terza}{...}
 {phang}
 Terza JV, Basu A, Rathouz PJ. 2008. 
