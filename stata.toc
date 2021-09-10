@@ -1,3 +1,2 @@
 v 3
-d Stata package for one-sample Mendelian randomization / instrumental variable analyses
-p onesamplemr
+p onesamplemrp ivonesamplemr
