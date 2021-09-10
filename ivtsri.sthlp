@@ -1,24 +1,24 @@
 {smcl}
 {* *! version 0.1.0  03sep2021 Tom Palmer}{...}
-{vieweralsosee "onesamplemr" "help onesamplemr"}{...}
-{viewerjumpto "Syntax" "tsri##syntax"}{...}
-{viewerjumpto "Description" "tsri##description"}{...}
-{viewerjumpto "Options" "tsri##options"}{...}
-{viewerjumpto "Examples" "tsri##examples"}{...}
-{viewerjumpto "Stored results" "tsri##results"}{...}
-{viewerjumpto "References" "tsri##references"}{...}
-{viewerjumpto "Author" "tsri##author"}{...}
+{vieweralsosee "onesamplemr" "help ivonesamplemr"}{...}
+{viewerjumpto "Syntax" "ivtsri##syntax"}{...}
+{viewerjumpto "Description" "ivtsri##description"}{...}
+{viewerjumpto "Options" "ivtsri##options"}{...}
+{viewerjumpto "Examples" "ivtsri##examples"}{...}
+{viewerjumpto "Stored results" "ivtsri##results"}{...}
+{viewerjumpto "References" "ivtsri##references"}{...}
+{viewerjumpto "Author" "ivtsri##author"}{...}
 {title:Title}
 
 {p 5}
-{bf:tsri} {hline 2} Two-stage residual inclusion estimators
+{bf:ivtsri} {hline 2} Two-stage residual inclusion estimators
 {p_end}
 
 {marker syntax}{...}
 {title:Syntax}
 
 {p 8 14 2}
-{cmd:tsri} {depvar} [{it:{help varlist:varlist1}}]
+{cmd:ivtsri} {depvar} [{it:{help varlist:varlist1}}]
 {cmd:(}{it:{help varlist:varlist2}} {cmd:=}
         {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
 [{it:{help gmm##weight:weight}}]
@@ -45,7 +45,7 @@
 {title:Description}
 
 {pstd}
-{cmd:tsri} implements two-stage residual inclusion (TSRI) estimators with several link functions (identity, log-additive, log-multiplicative, logit).  It is implemented using generalized method of moments (GMM) estimation by passing the relevant moment condition to the {help gmm} command.
+{cmd:ivtsri} implements two-stage residual inclusion (TSRI) estimators with several link functions (identity, log-additive, log-multiplicative, logit). It is implemented using generalized method of moments (GMM) estimation by passing the relevant moment condition to the {help gmm} command.
  
 {marker options}{...}
 {title:Options}
@@ -75,27 +75,27 @@ Please see {help gmm##options}
 
 {pstd}Fit the model with a single instrumental variable.{p_end}
 
-{phang2}{cmd:.} {stata "tsri y (x = z1)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsri y (x = z1)"}{p_end}
 
 {pstd}Fit the model with multiple instruments.{p_end}
 
-{phang2}{cmd:.} {stata "tsri y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsri y (x = z1 z2 z3)"}{p_end}
 
 {pstd}Fit the model with multiple instruments, and adjusting for w.{p_end}
 
-{phang2}{cmd:.} {stata "tsri y w (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsri y w (x = z1 z2 z3)"}{p_end}
 
 {pstd}Using the log additive link function.{p_end}
 
-{phang2}{cmd:.} {stata "tsri y (x = z1 z2 z3), link(logadd)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsri y (x = z1 z2 z3), link(logadd)"}{p_end}
 
 {pstd}Using the log multiplicative link function.{p_end}
 
-{phang2}{cmd:.} {stata "tsri y (x = z1 z2 z3), link(logmult)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsri y (x = z1 z2 z3), link(logmult)"}{p_end}
 
 {pstd}Using the logit link function.{p_end}
 
-{phang2}{cmd:.} {stata "tsri y (x = z1 z2 z3), link(logit)"}{p_end}
+{phang2}{cmd:.} {stata "ivtsri y (x = z1 z2 z3), link(logit)"}{p_end}
 
 {marker results}{...}
 {title:Stored results}
@@ -134,4 +134,4 @@ Journal of Health Economics. 2008, 27, 3, 531–543.
 {marker author}
 {title:Author}
 
-INCLUDE help onesamplemr-author
+INCLUDE help ivonesamplemr-author
