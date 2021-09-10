@@ -3,13 +3,13 @@
 Stata package of useful programs for one sample Mendelian randomization / instrumental variable 
 analyses, including implementations of:
 
-* additive structural mean model: See `help asmm`
-* logistic structural mean model: `lsmm` command
-* multiplicative structural mean model: `msmm` command
-* two-stage predictor substitution estimators: `tsps` command
-* two-stage residual inclusion estimators: `tsri` command
+* additive structural mean model: See `help ivasmm`
+* logistic structural mean model: `ivlsmm` command
+* multiplicative structural mean model: `ivmsmm` command
+* two-stage predictor substitution estimators: `ivtsps` command
+* two-stage residual inclusion estimators: `ivtsri` command
 
-Note the `tsps` and `tsri` commands implement the following link functions: 
+The `ivtsps` and `ivtsri` commands implement the following link functions: 
 
 * identity - for a binary outcome this estimates a causal risk difference 
 * log (additive and multiplicative) - for a binary outcome this estimates a causal risk ratio
@@ -31,15 +31,15 @@ do https://raw.github.com/remlapmot/onesample-mr/main/dependency.do
 
 To check for an update to the package run within Stata
 ``` stata
-adoupdate onesamplemr, update
+adoupdate ivonesamplemr, update
 ```
 
 Uninstall the package within Stata using
 ``` stata
-ado uninstall onesamplemr
+ado uninstall ivonesamplemr
 ```
 
-And then launch the package helpfile with
+And then launch the main package helpfile with
 ``` stata
-help onesamplemr
+help ivonesamplemr
 ```
