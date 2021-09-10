@@ -96,6 +96,7 @@ gmm (`lhs' - invlogit({xb:`amxb'} + {b0})) ///
 	deriv(2/b0 = `d2') ///
 	deriv(2/cmxb = -1*`d2') ///
 	deriv(2/ey0 = -1) ///
+	nolog ///
 	`options'
 
 end
