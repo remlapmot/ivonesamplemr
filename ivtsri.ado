@@ -1,5 +1,5 @@
 *! 1.0.0 Tom Palmer 05sep2021
-program tsri, eclass
+program ivtsri, eclass
 
 if _caller() >= 11 {
     local vv : di "version " string(_caller()) ":"
@@ -9,7 +9,7 @@ version 10
 local replay = replay()
 
 if replay() {
-    if `"`e(cmd)'"' != "tsri" { 
+    if `"`e(cmd)'"' != "ivtsri" { 
         error 301
     }
     else if _by() { 
@@ -34,8 +34,8 @@ local inst `s(inst)'
 
 Display , level(`level') lhs(`lhs') endog(`endog') exog(`exog') inst(`inst') link(`link') `estonly'
 
-ereturn local cmd "tsri"
-ereturn local cmdline `"tsri `0'"'
+ereturn local cmd "ivtsri"
+ereturn local cmdline `"ivtsri `0'"'
 ereturn local lhs `lhs'
 ereturn local endog `endog'
 ereturn local exog `exog'
