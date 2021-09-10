@@ -1,5 +1,5 @@
 *! 1.0.0 Tom Palmer 01sep2021
-program msmm, eclass
+program ivmsmm, eclass
 
 local cmdline `0'
 
