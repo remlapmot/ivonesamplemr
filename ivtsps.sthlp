@@ -1,6 +1,6 @@
 {smcl}
 {* *! version 0.1.0  03sep2021 Tom Palmer}{...}
-{vieweralsosee "onesamplemr" "help ivonesamplemr"}{...}
+{vieweralsosee "ivonesamplemr" "help ivonesamplemr"}{...}
 {viewerjumpto "Syntax" "ivtsps##syntax"}{...}
 {viewerjumpto "Description" "ivtsps##description"}{...}
 {viewerjumpto "Options" "ivtsps##options"}{...}
