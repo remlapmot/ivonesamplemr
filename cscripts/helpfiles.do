@@ -2,12 +2,12 @@
 // 2021-09-06
 
 local helpfiles ///
-onesamplemr ///
-asmm ///
-lsmm ///
-msmm ///
-tsps ///
-tsri
+ivonesamplemr ///
+ivasmm ///
+ivlsmm ///
+ivmsmm ///
+ivtsps ///
+ivtsri
 
 foreach helpfile of local helpfiles {
 	type ../`helpfile'.sthlp
