@@ -12,6 +12,7 @@ cscript master
 cap noi ado describe ivonesamplemr
 
 local cscripts ///
+    iv ///
 	ivlsmm ///
 	ivmsmm ///
     ivtsps ///
