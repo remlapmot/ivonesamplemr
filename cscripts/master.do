@@ -10,10 +10,10 @@ log using master.log, text replace name(master)
 cscript master
 
 local cscripts ///
-	lsmm ///
-	msmm ///
-    tsps ///
-    tsri ///
+	ivlsmm ///
+	ivmsmm ///
+    ivtsps ///
+    ivtsri ///
     helpfiles
 
 foreach dofile of local cscripts {
