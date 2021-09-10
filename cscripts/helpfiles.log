@@ -3,18 +3,18 @@
        log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/helpfiles.l
 > og
   log type:  text
- opened on:   9 Sep 2021, 19:08:00
+ opened on:  10 Sep 2021, 08:20:00
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
 . 
 . local helpfiles ///
-> onesamplemr ///
-> asmm ///
-> lsmm ///
-> msmm ///
-> tsps ///
-> tsri
+> ivonesamplemr ///
+> ivasmm ///
+> ivlsmm ///
+> ivmsmm ///
+> ivtsps ///
+> ivtsri
 
 . 
 . foreach helpfile of local helpfiles {
@@ -22,98 +22,109 @@
   3. }
 Title
 
-    onesamplemr -- commands for one-sample Mendelian randomization /
-        instrumental variable analyses.
+    ivonesamplemr -- commands for one-sample Mendelian randomization (MR) /
+        instrumental variable (IV) analyses.
 
     https://github.com/remlapmot/onesamplemr-stata#readme
 
 Commands
 
-      asmm          Is a helpfile that links to ivregress and ivreg2 which as
-                      linear IV estimators fit the additive structural mean
-                      model (ASMM), i.e. estimates a causal risk difference
-                      for a binary outcome.
+      ivasmm        Is simply a helpfile linking to ivregress and ivreg2,
+                      which as linear IV estimators fit the additive
+                      structural mean model (ASMM), i.e. estimates a causal
+                      risk difference for a binary outcome.
 
-      lsmm          Fits the (double) logistic structural mean model (LSMM),
+      ivlsmm        Fits the (double) logistic structural mean model (LSMM),
                       i.e. estimates a causal odds ratio for a binary
                       outcome.
 
-      msmm          Fits the multiplicative structural mean model (MSMM),
+      ivmsmm        Fits the multiplicative structural mean model (MSMM),
                       i.e. estimates a causal risk ratio for a binary
                       outcome.
 
-      tsps          Fits two-stage predictor substitution (TSPS) estimators.
+      ivtsps        Fits two-stage predictor substitution (TSPS) estimators.
 
-      tsri          Fits two-stage residual inclusion (TSRI) estimators.
+      ivtsri        Fits two-stage residual inclusion (TSRI) estimators.
 
 Description
 
-    onesamplemr is a suite of programs implementing various instrumental
-    variable estimators for individual level data.
+    ivonesamplemr is a suite of programs implementing various instrumental
+    variable (IV) estimators for individual level (a.k.a. one-sample) data.
+    These are useful for Mendelian randomization (MR) analyses.
 
 Author
 
-INCLUDE help onesamplemr-author
+INCLUDE help ivonesamplemr-author
 Title
 
-     asmm -- Additive structural mean model
+     ivasmm -- Additive structural mean model
 
 Description
 
-    asmm is not a command but this helpfile is to say the additive structural
-    mean model (ASMM) is simply fit with a linear IV estimator available in 
-    ivregress and ivreg2.
+    ivasmm is not a command. This helpfile is to note that the additive
+    structural mean model (ASMM) is simply fit with a linear IV estimator
+    available in ivregress or ivreg2 or even implemented yourself with gmm.
+
+For a binary outcome the ASMM estimates a causal risk difference.
 
 Examples
 
-    Using the data provided by Do et al. (2013) recreate Bowden et al.
-    (2016), Table 4, LDL-c "All genetic variants" estimates.
+    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    instrumental variables (genotypes).
 
-    Setup
-        . use https://raw.github.com/remlapmot/mrrobust/master/dodata, clear
+        . drop _all
+        . set obs 2500
+        . set seed 12345
+        . gen z1 = rbinomial(2, .2)
+        . gen z2 = rbinomial(2, .3)
+        . gen z3 = rbinomial(2, .4)
+        . gen u = rnormal()
+        . gen w = rnormal()
+        . gen x = z1 + z2 + z3 + w + u + rnormal()
+        . gen logitpy = -2 + x + w + u
+        . gen py = invlogit(logitpy)
+        . gen y = rbinomial(1, py)
+        . gen x1 = x
+        . gen x2 = rnormal()
 
-    Select observations (p-value with exposure < 10^-8)
-        . gen byte sel1 = (ldlcp2 < 1e-8)
+    Fit the model with a single instrumental variable.
 
-    IVW (with fixed effect standard errors)
-        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, ivw fe
+        . ivregress 2sls y (x = z1)
 
-    MR-Egger (with SEs using an unconstrained residual variance)
-        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1
+    Fit the model with multiple instruments.
 
-    MR-Egger reporting I^2_GX statistic and heterogeneity Q-test
-        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, gxse(ldlcse)
-            heterogi
+        . ivregress 2sls y (x = z1 z2 z3)
 
-    MR-Egger using a t-distribution for inference & CI limits
-        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, tdist
+    Fit the model with multiple exposures, and instruments, and adjusting for
+    w.
 
-    MR-Egger using the radial formulation
-        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, radial
-
-    MR-Egger using the radial formulation and reporting heterogeneity Q-test
-        . mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, radial
-            heterogi
+        . ivregress 2sls y w (x1 x2 = z1 z2 z3)
 
 References
 
-    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
-        instruments: effect estimation and bias detection through Egger
-        regression. International Journal of Epidemiology, 2015, 44, 2,
-        512-525.  DOI
+    Clarke PS, Palmer TM, Windmeijer F. Estimating structural mean models
+        with multiple instrumental variables using the Generalised Method of
+        Moments. Statistical Science, 2015, 30, 1, 96-117.  DOI
+
+    Robins JM. The analysis of randomised and nonrandomised AIDS treatment
+        trials using a new approach to causal inference in longitudinal
+        studies. In Health Service Research Methodology: A Focus on AIDS (L.
+        Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public
+        Health Service, National Center for Health Services Research,
+        Washington, DC.
 
 
 Author
 
-INCLUDE help onesamplemr-author
+INCLUDE help ivonesamplemr-author
 Title
 
-     lsmm -- (double) Logistic structural mean model
+     ivlsmm -- (double) Logistic structural mean model
 
 Syntax
 
-        lsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
-              options]
+        ivlsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
+              [, options]
 
     varlist1 is the list of exogenous variables.
 
@@ -134,36 +145,13 @@ Syntax
 
 Description
 
-    lsmm implements the double logistic structural mean model (LSMM) of
+    ivlsmm implements the double logistic structural mean model (LSMM) of
     Vansteelandt and Goetghebeur (2003) which is a generalisation of the LSMM
     of Robins (1989).
 
-    lsmm is implemented using a call to gmm.
+    ivlsmm is implemented using a call to gmm.
 
 Options
-
-    fe specifies fixed effect standard errors (i.e. variance of residuals
-        constrained to 1 as in fixed effect meta-analysis models). The
-        default is to use multiplicative standard errors (i.e. variance of
-        residuals unconstrained as in standard linear regression), see
-        Thompson and Sharp (1999) for further details.  We recommend
-        specifying this option when using an allelic score as the
-        instrumental variable.
-
-    gxse(varname) specifies the variable containing the genotype-phenotype
-        (SNP-exposure) association standard errors. These are required for
-        calculating the I^2_GX statistic (Bowden et al., 2016). An I^2_GX
-        statistic of 90% means that the likely bias due measurement error in
-        the MR-Egger slope estimate is around 10%. If I^2_GX values are less
-        than 90% estimates should be treated with caution.
-
-    heterogi displays heterogeneity/pleiotropy statistics. In the
-        heterogeneity output the model based Q-statistic is reported by
-        multiplying the variance of the residuals by the degrees of freedom
-        (Del Greco et al., 2015).  For the IVW model this is the Cochran
-        Q-statistic, and for the MR-Egger model this is the Ruecker's
-        Q-statistic. The corresponding I-squared statistic and its 95% CI is
-        also reported.
 
     level(#); see [R] estimation options.
 
@@ -189,20 +177,20 @@ Examples
 
     Fit the model with a single instrumental variable.
 
-        . lsmm y (x = z1)
+        . ivlsmm y (x = z1)
 
     Fit the model with multiple instruments.
 
-        . lsmm y (x = z1 z2 z3)
+        . ivlsmm y (x = z1 z2 z3)
 
     Fit the model with multiple exposures, and instruments, and adjusting for
     w.
 
-        . lsmm y w (x1 x2 = z1 z2 z3)
+        . ivlsmm y w (x1 x2 = z1 z2 z3)
 
 Stored results
 
-    lsmm stores the following in e():
+    ivlsmm stores the following in e():
 
     Scalars        
       e(df_r)             residual degrees of freedom (with tdist option)
@@ -219,7 +207,7 @@ Stored results
       e(b)                coefficient vector
       e(V)                variance-covariance matrix of the estimates
 
-    lsmm stores the following in r():
+    ivlsmm stores the following in r():
 
     Matrices       
       r(table)            Coefficient table with rownames: b, se, z, pvalue,
@@ -227,23 +215,32 @@ Stored results
 
 References
 
-    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
-        instruments: effect estimation and bias detection through Egger
-        regression. International Journal of Epidemiology, 2015, 44, 2,
-        512-525.  DOI
+    Clarke PS, Palmer TM, Windmeijer F. Estimating structural mean models
+        with multiple instrumental variables using the Generalised Method of
+        Moments. Statistical Science, 2015, 30, 1, 96-117.  DOI
+
+    Robins JM. The analysis of randomised and nonrandomised AIDS treatment
+        trials using a new approach to causal inference in longitudinal
+        studies. In Health Service Research Methodology: A Focus on AIDS (L.
+        Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public
+        Health Service, National Center for Health Services Research,
+        Washington, DC.
+
+    Vansteelandt S, Goetghebeur E.  Causal inference with generalized
+        structural mean models.  2003, 65, 4, 817-835.  DOI
 
 
 Author
 
-INCLUDE help onesamplemr-author
+INCLUDE help ivonesamplemr-author
 Title
 
-     msmm -- Multiplicative structural mean model
+     ivmsmm -- Multiplicative structural mean model
 
 Syntax
 
-        msmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
-              log noirr ivpoisson_options]
+        ivmsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
+              [, log noirr ivpoisson_options]
 
     varlist1 is the list of exogenous variables.
 
@@ -260,8 +257,8 @@ Syntax
 
 Description
 
-    msmm implements the multiplicative structural mean model (MSMM) of Robins
-    (1989) as a wrapper to ivpoisson with the multiplicative option.
+    ivmsmm implements the multiplicative structural mean model (MSMM) of
+    Robins (1989) as a wrapper to ivpoisson with the multiplicative option.
     ivpoisson performs generalized method of moments (GMM) estimation of the
     relevant moment condition using gmm.
 
@@ -291,16 +288,16 @@ Examples
 
     Fit the model with a single instrumental variable.
 
-        . msmm y (x = z1)
+        . ivmsmm y (x = z1)
 
     Fit the model with multiple instruments.
 
-        . msmm y (x = z1 z2 z3)
+        . ivmsmm y (x = z1 z2 z3)
 
     Fit the model with multiple exposures, and instruments, and adjusting for
     w.
 
-        . msmm y w (x1 x2 = z1 z2 z3)
+        . ivmsmm y w (x1 x2 = z1 z2 z3)
 
 Stored results
 
@@ -308,23 +305,52 @@ Stored results
 
 References
 
-    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
-        instruments: effect estimation and bias detection through Egger
-        regression. International Journal of Epidemiology, 2015, 44, 2,
-        512-525.  DOI
+    Cameron AC, Trivedi PK. Regression analysis of count data. 2nd ed. 2013.
+        New York, Cambridge University Press.
+
+    Clarke PS, Palmer TM, Windmeijer F. Estimating structural mean models
+        with multiple instrumental variables using the Generalised Method of
+        Moments. Statistical Science, 2015, 30, 1, 96-117.  DOI
+
+    Hernán and Robins. Instruments for causal inference: An Epidemiologist's
+        dream? Epidemiology, 2006, 17, 360-372.  DOI
+
+    Mullahy J. Instrumental-variable estimation of count data models:
+        applications to models of cigarette smoking and behavior. The Review
+        of Economics and Statistics. 1997, 79, 4, 586-593.  DOI
+
+    Nichols A. ivpois: Stata module for IV/GMM Poisson regression. 2007. URL
+
+    Robins JM. The analysis of randomised and nonrandomised AIDS treatment
+        trials using a new approach to causal inference in longitudinal
+        studies. In Health Service Research Methodology: A Focus on AIDS (L.
+        Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public
+        Health Service, National Center for Health Services Research,
+        Washington, DC.
+
+    StataCorp. Stata Base Reference Manual. Release 13. ivpoisson - Poisson
+        model with continuous endogenous covariates. 2013.  URL
+
+    Windmeijer FAG, Santos Silva JMC. Endogeneity in Count Data Models: An
+        Application to Demand for Health Care. Journal of Applied
+        Econometrics. 1997, 12, 3, 281-294.  DOI
+
+    Windmeijer, F. ExpEnd, A Gauss programme for non-linear GMM estimation of
+        EXPonential models with ENDogenous regressors for cross section and
+        panel data. CEMMAP working paper CWP14/02. 2002.  URL
 
 
 Author
 
-INCLUDE help onesamplemr-author
+INCLUDE help ivonesamplemr-author
 Title
 
-     tsps -- Two-stage predictor substitution estimators
+     ivtsps -- Two-stage predictor substitution estimators
 
 Syntax
 
-        tsps depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
-              log noirr gmm_options]
+        ivtsps depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
+              [, log noirr gmm_options]
 
     varlist1 is the list of exogenous variables.
 
@@ -341,7 +367,7 @@ Syntax
 
 Description
 
-    tsps implements two-stage predictor substitution (TSPS) estimators with
+    ivtsps implements two-stage predictor substitution (TSPS) estimators with
     several link functions (identity, log-additive, log-multiplicative,
     logit). It is implemented using generalized method of moments (GMM)
     estimation by passing the relevant moment condition to the gmm command.
@@ -372,27 +398,27 @@ Examples
 
     Fit the model with a single instrumental variable.
 
-        . tsps y (x = z1)
+        . ivtsps y (x = z1)
 
     Fit the model with multiple instruments.
 
-        . tsps y (x = z1 z2 z3)
+        . ivtsps y (x = z1 z2 z3)
 
     Fit the model with multiple instruments, and adjusting for w.
 
-        . tsps y w (x = z1 z2 z3)
+        . ivtsps y w (x = z1 z2 z3)
 
     Using the log additive link function.
 
-        . tsps y (x = z1 z2 z3), link(logadd)
+        . ivtsps y (x = z1 z2 z3), link(logadd)
 
     Using the log multiplicative link function.
 
-        . tsps y (x = z1 z2 z3), link(logmult)
+        . ivtsps y (x = z1 z2 z3), link(logmult)
 
     Using the logit link function.
 
-        . tsps y (x = z1 z2 z3), link(logit)
+        . ivtsps y (x = z1 z2 z3), link(logit)
 
 Stored results
 
@@ -400,23 +426,22 @@ Stored results
 
 References
 
-    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
-        instruments: effect estimation and bias detection through Egger
-        regression. International Journal of Epidemiology, 2015, 44, 2,
-        512-525.  DOI
+    Terza JV, Basu A, Rathouz PJ. 2008.  Two-stage residual inclusion
+        estimation:  Addressing endogeneity in health econometric modeling.
+        Journal of Health Economics 27: 531–543.  DOI
 
 
 Author
 
-INCLUDE help onesamplemr-author
+INCLUDE help ivonesamplemr-author
 Title
 
-     tsri -- Two-stage residual inclusion estimators
+     ivtsri -- Two-stage residual inclusion estimators
 
 Syntax
 
-        tsri depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight] [,
-              log noirr gmm_options]
+        ivtsri depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
+              [, log noirr gmm_options]
 
     varlist1 is the list of exogenous variables.
 
@@ -433,9 +458,9 @@ Syntax
 
 Description
 
-    tsri implements two-stage residual inclusion (TSRI) estimators with
+    ivtsri implements two-stage residual inclusion (TSRI) estimators with
     several link functions (identity, log-additive, log-multiplicative,
-    logit).  It is implemented using generalized method of moments (GMM)
+    logit). It is implemented using generalized method of moments (GMM)
     estimation by passing the relevant moment condition to the gmm command.
 
 Options
@@ -464,27 +489,27 @@ Examples
 
     Fit the model with a single instrumental variable.
 
-        . tsri y (x = z1)
+        . ivtsri y (x = z1)
 
     Fit the model with multiple instruments.
 
-        . tsri y (x = z1 z2 z3)
+        . ivtsri y (x = z1 z2 z3)
 
     Fit the model with multiple instruments, and adjusting for w.
 
-        . tsri y w (x = z1 z2 z3)
+        . ivtsri y w (x = z1 z2 z3)
 
     Using the log additive link function.
 
-        . tsri y (x = z1 z2 z3), link(logadd)
+        . ivtsri y (x = z1 z2 z3), link(logadd)
 
     Using the log multiplicative link function.
 
-        . tsri y (x = z1 z2 z3), link(logmult)
+        . ivtsri y (x = z1 z2 z3), link(logmult)
 
     Using the logit link function.
 
-        . tsri y (x = z1 z2 z3), link(logit)
+        . ivtsri y (x = z1 z2 z3), link(logit)
 
 Stored results
 
@@ -492,15 +517,23 @@ Stored results
 
 References
 
-    Bowden J, Davey Smith G, Burgess S.  Mendelian randomization with invalid
-        instruments: effect estimation and bias detection through Egger
-        regression. International Journal of Epidemiology, 2015, 44, 2,
-        512-525.  DOI
+    Bowden J, Vansteelandt S.  Mendelian randomization analysis of
+        case-control data using structural mean models.  Statistics in
+        Medicine, 2011, 30, 6, 678-694.  DOI
+
+    Palmer T, Thompson JR, Tobin MD, Sheehan NA, Burton PR.  Adjusting for
+        bias and unmeasured confounding in Mendelian randomization studies
+        with binary responses.  International Journal of Epidemiology, 2008,
+        37, 5, 1161-1168.  DOI
+
+    Terza JV, Basu A, Rathouz PJ.  Two-stage residual inclusion estimation:
+        Addressing endogeneity in health econometric modeling.  Journal of
+        Health Economics. 2008, 27, 3, 531–543.  DOI
 
 
 Author
 
-INCLUDE help onesamplemr-author
+INCLUDE help ivonesamplemr-author
 
 . 
 end of do-file
@@ -508,5 +541,5 @@ end of do-file
        log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/helpfiles.l
 > og
   log type:  text
- closed on:   9 Sep 2021, 19:08:00
+ closed on:  10 Sep 2021, 08:20:00
 -------------------------------------------------------------------------------

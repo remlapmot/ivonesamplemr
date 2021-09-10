@@ -1,0 +1,748 @@
+-------------------------------------------------------------------------------
+      name:  ivlsmm
+       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/ivlsmm.log
+  log type:  text
+ opened on:  10 Sep 2021, 08:19:48
+
+. // ivlsmm cscript
+. // 2021-08-27
+. 
+. cscript ivlsmm adofiles ivlsmm
+-------------------------------------------------------------------BEGIN ivlsmm
+
+-> which ivlsmm, usesysdir
+/Users/tom/Documents/GitHub/onesamplemr-stata/ivlsmm.ado
+*! 1.0.0 Tom Palmer 01sep2021
+
+. 
+. // simulate data
+. clear
+
+. set obs 2500
+number of observations (_N) was 0, now 2,500
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen w = rnormal()
+
+. gen x = z1 + z2 + z3 + w + u + rnormal()
+
+. gen logitpy = -2 + x + w + u
+
+. gen py = invlogit(logitpy)
+
+. gen y = rbinomial(1, py)
+
+. gen x1 = x
+
+. gen x2 = rnormal()
+
+. 
+. // tests
+. 
+. discard
+
+. ivlsmm y w (x = z1)
+
+Step 1
+Iteration 0:   GMM criterion Q(b) =  4.3536049  
+Iteration 1:   GMM criterion Q(b) =  .00009037  
+Iteration 2:   GMM criterion Q(b) =  2.749e-07  
+Iteration 3:   GMM criterion Q(b) =  2.243e-12  
+Iteration 4:   GMM criterion Q(b) =  3.633e-22  
+
+Step 2
+Iteration 0:   GMM criterion Q(b) =  6.278e-19  
+Iteration 1:   GMM criterion Q(b) =  1.777e-30  
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.142773   .0515592    22.16   0.000     1.041719    1.243827
+      /xb_z1 |   -.125428   .1051645    -1.19   0.233    -.3315465    .0806906
+       /xb_w |   .6714291   .0708208     9.48   0.000      .532623    .8102353
+         /b0 |  -2.181456   .1134677   -19.23   0.000    -2.403849   -1.959063
+     /cmxb_x |   1.009534   .1131745     8.92   0.000     .7877157    1.231352
+     /cmxb_w |   .8040886   .1199973     6.70   0.000     .5688983    1.039279
+        /ey0 |   .1218896   .0252702     4.82   0.000     .0723609    .1714182
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 w _cons
+Instruments for equation 2: z1 w _cons
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.744321   .3105872     8.92   0.000     2.198369    3.425857
+------------------------------------------------------------------------------
+
+Causal odds ratio for: w
+
+ ( 1)  [cmxb_w]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.234659   .2681529     6.70   0.000      1.76632    2.827177
+------------------------------------------------------------------------------
+
+. assert abs(_b[/cmxb_x] - 1) < 1e-2
+
+. 
+. // estimates replay
+. ivlsmm
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.142773   .0515592    22.16   0.000     1.041719    1.243827
+      /xb_z1 |   -.125428   .1051645    -1.19   0.233    -.3315465    .0806906
+       /xb_w |   .6714291   .0708208     9.48   0.000      .532623    .8102353
+         /b0 |  -2.181456   .1134677   -19.23   0.000    -2.403849   -1.959063
+     /cmxb_x |   1.009534   .1131745     8.92   0.000     .7877157    1.231352
+     /cmxb_w |   .8040886   .1199973     6.70   0.000     .5688983    1.039279
+        /ey0 |   .1218896   .0252702     4.82   0.000     .0723609    .1714182
+------------------------------------------------------------------------------
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.744321   .3105872     8.92   0.000     2.198369    3.425857
+------------------------------------------------------------------------------
+
+Causal odds ratio for: w
+
+ ( 1)  [cmxb_w]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.234659   .2681529     6.70   0.000      1.76632    2.827177
+------------------------------------------------------------------------------
+
+. 
+. // ereturn list
+. eret list
+
+scalars:
+         e(k_eq_model) =  0
+              e(k_aux) =  7
+               e(k_eq) =  7
+          e(n_moments) =  7
+                  e(k) =  7
+               e(n_eq) =  2
+               e(type) =  1
+         e(has_xtinst) =  0
+          e(converged) =  1
+                e(k_2) =  7
+                e(k_1) =  4
+               e(J_df) =  0
+                  e(J) =  4.44363770968e-27
+                  e(Q) =  1.77745508387e-30
+                  e(N) =  2500
+               e(rank) =  7
+
+macros:
+               e(inst) : "z1"
+               e(exog) : "w"
+              e(endog) : "x"
+                e(lhs) : "y"
+            e(cmdline) : "ivlsmm y w (x = z1)"
+                e(cmd) : "ivlsmm"
+          e(estat_cmd) : "gmm_estat"
+            e(predict) : "gmm_p"
+       e(marginsnotok) : "Residuals SCores"
+          e(marginsok) : "xb"
+        e(marginsprop) : "allcons nochainrule"
+            e(eqnames) : "1 2"
+          e(technique) : "gn"
+              e(winit) : "Unadjusted"
+          e(estimator) : "twostep"
+            e(wmatrix) : "robust"
+                e(vce) : "robust"
+            e(vcetype) : "Robust"
+             e(params) : "xb_x xb_z1 xb_w b0 cmxb_x cmxb_w ey0"
+             e(inst_2) : "z1 w _cons"
+           e(params_2) : "b0 cmxb_x cmxb_w ey0"
+             e(sexp_2) : "invlogit(({xb_x}*x+{xb_z1}*z1+{xb_w}*w)+{b0}-({cm.."
+             e(inst_1) : "x z1 w _cons"
+           e(params_1) : "xb_x xb_z1 xb_w b0"
+             e(sexp_1) : "y-invlogit(({xb_x}*x+{xb_z1}*z1+{xb_w}*w)+{b0})"
+         e(properties) : "b V"
+
+matrices:
+                  e(b) :  1 x 7
+                  e(V) :  7 x 7
+               e(init) :  1 x 7
+       e(V_modelbased) :  7 x 7
+                  e(S) :  7 x 7
+                  e(W) :  7 x 7
+
+functions:
+             e(sample)   
+
+. 
+. // r(table)
+. mat list r(table)
+
+r(table)[9,7]
+              xb_x:      xb_z1:       xb_w:         b0:     cmxb_x:     cmxb_w:
+             _cons       _cons       _cons       _cons       _cons       _cons
+     b   1.1427731  -.12542797   .67142912  -2.1814559   1.0095337   .80408856
+    se   .05155918   .10516447   .07082077   .11346774    .1131745   .11999725
+     z     22.1643  -1.1926838   9.4806809   -19.22534   8.9201512   6.7008913
+pvalue   7.59e-109   .23299322   2.526e-21   2.271e-82   4.657e-19   2.072e-11
+    ll    1.041719  -.33154655   .53262296  -2.4038486   .78771574   .56889827
+    ul   1.2438272   .08069061   .81023528  -1.9590633   1.2313516   1.0392789
+    df           .           .           .           .           .           .
+  crit    1.959964    1.959964    1.959964    1.959964    1.959964    1.959964
+ eform           0           0           0           0           0           0
+
+               ey0:
+             _cons
+     b   .12188959
+    se   .02527018
+     z   4.8234546
+pvalue   1.411e-06
+    ll   .07236094
+    ul   .17141824
+    df           .
+  crit    1.959964
+ eform           0
+
+. 
+. // multiple instruments
+. discard
+
+. ivlsmm y w (x = z1 z2 z3)
+
+Step 1
+Iteration 0:   GMM criterion Q(b) =  3.4458699  
+Iteration 1:   GMM criterion Q(b) =  .01528448  
+Iteration 2:   GMM criterion Q(b) =  .00016703  
+Iteration 3:   GMM criterion Q(b) =  .00006823  
+Iteration 4:   GMM criterion Q(b) =   .0000681  
+Iteration 5:   GMM criterion Q(b) =   .0000681  
+
+Step 2
+Iteration 0:   GMM criterion Q(b) =  .00620406  
+Iteration 1:   GMM criterion Q(b) =  .00108233  
+Iteration 2:   GMM criterion Q(b) =  .00107814  
+Iteration 3:   GMM criterion Q(b) =  .00107813  
+
+GMM estimation 
+
+Number of parameters =   9
+Number of moments    =  11
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.299434   .0604193    21.51   0.000     1.181014    1.417854
+      /xb_z1 |  -.4095171   .0757369    -5.41   0.000    -.5579587   -.2610756
+      /xb_z2 |  -.3847453   .0666832    -5.77   0.000    -.5154419   -.2540487
+      /xb_z3 |  -.3958253   .0694519    -5.70   0.000    -.5319485   -.2597022
+       /xb_w |   .5482842   .0729194     7.52   0.000     .4053647    .6912036
+         /b0 |  -1.806069   .1288229   -14.02   0.000    -2.058557   -1.553581
+     /cmxb_x |   .8858407   .0654348    13.54   0.000     .7575907    1.014091
+     /cmxb_w |   .9554105   .0876054    10.91   0.000      .783707    1.127114
+        /ey0 |   .1581863   .0197955     7.99   0.000     .1193879    .1969848
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 z2 z3 w _cons
+Instruments for equation 2: z1 z2 z3 w _cons
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.425022    .158681    13.54   0.000     2.133131    2.756855
+------------------------------------------------------------------------------
+
+Causal odds ratio for: w
+
+ ( 1)  [cmxb_w]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.599738   .2277511    10.91   0.000     2.189574    3.086735
+------------------------------------------------------------------------------
+
+. assert abs(_b[/cmxb_x] - .89) < 1e-2
+
+. 
+. cap noi estat overid
+
+. 
+. // multiple endog variables
+. discard
+
+. ivlsmm y w (x1 x2 = z1 z2 z3)
+
+Step 1
+Iteration 0:   GMM criterion Q(b) =  3.4547736  
+Iteration 1:   GMM criterion Q(b) =  .01338884  
+Iteration 2:   GMM criterion Q(b) =  .00068443  
+Iteration 3:   GMM criterion Q(b) =  .00006497  
+Iteration 4:   GMM criterion Q(b) =  .00006291  
+Iteration 5:   GMM criterion Q(b) =  .00006224  
+Iteration 6:   GMM criterion Q(b) =  .00006095  
+Iteration 7:   GMM criterion Q(b) =  .00006094  
+
+Step 2
+Iteration 0:   GMM criterion Q(b) =  .00247664  
+Iteration 1:   GMM criterion Q(b) =  .00084473  
+Iteration 2:   GMM criterion Q(b) =  .00083737  
+Iteration 3:   GMM criterion Q(b) =  .00083327  
+Iteration 4:   GMM criterion Q(b) =  .00083325  
+
+GMM estimation 
+
+Number of parameters =  11
+Number of moments    =  12
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      /xb_x1 |   1.301441   .0607291    21.43   0.000     1.182414    1.420468
+      /xb_x2 |  -.0553908   .0569069    -0.97   0.330    -.1669262    .0561447
+      /xb_z1 |  -.4028659   .0787291    -5.12   0.000    -.5571722   -.2485596
+      /xb_z2 |  -.4199986   .0896648    -4.68   0.000    -.5957384   -.2442588
+      /xb_z3 |  -.3700852   .0886886    -4.17   0.000    -.5439117   -.1962587
+       /xb_w |   .5490761   .0728846     7.53   0.000     .4062249    .6919274
+         /b0 |  -1.809935   .1289064   -14.04   0.000    -2.062587   -1.557284
+    /cmxb_x1 |   .8629792   .0843771    10.23   0.000     .6976032    1.028355
+    /cmxb_x2 |  -.8157772   1.427452    -0.57   0.568    -3.613532    1.981977
+     /cmxb_w |   .9755589    .098335     9.92   0.000     .7828259    1.168292
+        /ey0 |   .1863564   .0900914     2.07   0.039     .0097805    .3629324
+------------------------------------------------------------------------------
+Instruments for equation 1: x1 x2 z1 z2 z3 w _cons
+Instruments for equation 2: z1 z2 z3 w _cons
+
+Causal odds ratio for: x1
+
+ ( 1)  [cmxb_x1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.370212   .1999915    10.23   0.000     2.008932    2.796463
+------------------------------------------------------------------------------
+
+Causal odds ratio for: x2
+
+ ( 1)  [cmxb_x2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .4422954   .6313555    -0.57   0.568     .0269565    7.257078
+------------------------------------------------------------------------------
+
+Causal odds ratio for: w
+
+ ( 1)  [cmxb_w]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.652649   .2608483     9.92   0.000     2.187646    3.216494
+------------------------------------------------------------------------------
+
+. assert abs(_b[/cmxb_x1] - .86) < 1e-2
+
+. assert abs(_b[/cmxb_x2] - -.82) < 1e-2
+
+. 
+. mat start = J(1,9,1)
+
+. mat list start
+
+start[1,9]
+    c1  c2  c3  c4  c5  c6  c7  c8  c9
+r1   1   1   1   1   1   1   1   1   1
+
+. discard
+
+. ivlsmm y w (x = z1 z2 z3), from(start)
+
+Step 1
+Iteration 0:   GMM criterion Q(b) =  .22344217  
+Iteration 1:   GMM criterion Q(b) =  .15345393  
+Iteration 2:   GMM criterion Q(b) =  .14213718  
+Iteration 3:   GMM criterion Q(b) =  .01752196  
+Iteration 4:   GMM criterion Q(b) =  .01293482  
+Iteration 5:   GMM criterion Q(b) =  .00623838  
+Iteration 6:   GMM criterion Q(b) =  .00406975  
+Iteration 7:   GMM criterion Q(b) =  .00007463  
+Iteration 8:   GMM criterion Q(b) =   .0000681  
+Iteration 9:   GMM criterion Q(b) =   .0000681  
+
+Step 2
+Iteration 0:   GMM criterion Q(b) =  .00620474  
+Iteration 1:   GMM criterion Q(b) =  .00108234  
+Iteration 2:   GMM criterion Q(b) =  .00107815  
+Iteration 3:   GMM criterion Q(b) =  .00107814  
+
+GMM estimation 
+
+Number of parameters =   9
+Number of moments    =  11
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.299434   .0604193    21.51   0.000     1.181015    1.417854
+      /xb_z1 |  -.4095179   .0757368    -5.41   0.000    -.5579593   -.2610764
+      /xb_z2 |   -.384745   .0666832    -5.77   0.000    -.5154416   -.2540483
+      /xb_z3 |  -.3958253   .0694519    -5.70   0.000    -.5319485   -.2597021
+       /xb_w |   .5482841   .0729194     7.52   0.000     .4053646    .6912035
+         /b0 |  -1.806069   .1288229   -14.02   0.000    -2.058557   -1.553581
+     /cmxb_x |   .8858406   .0654348    13.54   0.000     .7575907    1.014091
+     /cmxb_w |   .9554105   .0876054    10.91   0.000      .783707    1.127114
+        /ey0 |   .1581864   .0197955     7.99   0.000     .1193879    .1969848
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 z2 z3 w _cons
+Instruments for equation 2: z1 z2 z3 w _cons
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.425022   .1586809    13.54   0.000     2.133131    2.756855
+------------------------------------------------------------------------------
+
+Causal odds ratio for: w
+
+ ( 1)  [cmxb_w]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.599737   .2277511    10.91   0.000     2.189574    3.086735
+------------------------------------------------------------------------------
+
+. assert abs(_b[/cmxb_x] - .89) < 1e-2
+
+. 
+. // check if in working
+. discard
+
+. ivlsmm y (x = z1 z2 z3) if _n <= 100
+
+Step 1
+Iteration 0:   GMM criterion Q(b) =  3.4736517  
+Iteration 1:   GMM criterion Q(b) =  .00097509  
+Iteration 2:   GMM criterion Q(b) =  .00088146  
+Iteration 3:   GMM criterion Q(b) =  .00087123  
+Iteration 4:   GMM criterion Q(b) =  .00086286  
+Iteration 5:   GMM criterion Q(b) =  .00082886  
+Iteration 6:   GMM criterion Q(b) =  .00073266  
+Iteration 7:   GMM criterion Q(b) =  .00065377  
+Iteration 8:   GMM criterion Q(b) =  .00065103  
+Iteration 9:   GMM criterion Q(b) =  .00065102  
+
+Step 2
+Iteration 0:   GMM criterion Q(b) =  .01490482  
+Iteration 1:   GMM criterion Q(b) =  .01342902  
+Iteration 2:   GMM criterion Q(b) =   .0133964  
+Iteration 3:   GMM criterion Q(b) =  .01339618  
+Iteration 4:   GMM criterion Q(b) =  .01339618  
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   9
+Initial weight matrix: Unadjusted                 Number of obs   =        100
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.763694   .3324165     5.31   0.000      1.11217    2.415218
+      /xb_z1 |  -.4448383   .3623707    -1.23   0.220    -1.155072    .2653952
+      /xb_z2 |  -.8001791   .4165426    -1.92   0.055    -1.616588    .0162294
+      /xb_z3 |  -.4429923   .3975396    -1.11   0.265    -1.222156     .336171
+         /b0 |  -1.863253   .7113749    -2.62   0.009    -3.257522   -.4689836
+     /cmxb_x |   1.206102   .3389122     3.56   0.000     .5418467    1.870358
+        /ey0 |   .1536548   .1011149     1.52   0.129    -.0445268    .3518364
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 z2 z3 _cons
+Instruments for equation 2: z1 z2 z3 _cons
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |    3.34044   1.132116     3.56   0.000     1.719179    6.490621
+------------------------------------------------------------------------------
+
+. assert abs(_b[/cmxb_x] - 1.21) < 1e-2
+
+. 
+. discard
+
+. ivlsmm y (x = z1 z2 z3) in 1/100
+
+Step 1
+Iteration 0:   GMM criterion Q(b) =  3.4736517  
+Iteration 1:   GMM criterion Q(b) =  .00097509  
+Iteration 2:   GMM criterion Q(b) =  .00088146  
+Iteration 3:   GMM criterion Q(b) =  .00087123  
+Iteration 4:   GMM criterion Q(b) =  .00086286  
+Iteration 5:   GMM criterion Q(b) =  .00082886  
+Iteration 6:   GMM criterion Q(b) =  .00073266  
+Iteration 7:   GMM criterion Q(b) =  .00065377  
+Iteration 8:   GMM criterion Q(b) =  .00065103  
+Iteration 9:   GMM criterion Q(b) =  .00065102  
+
+Step 2
+Iteration 0:   GMM criterion Q(b) =  .01490482  
+Iteration 1:   GMM criterion Q(b) =  .01342902  
+Iteration 2:   GMM criterion Q(b) =   .0133964  
+Iteration 3:   GMM criterion Q(b) =  .01339618  
+Iteration 4:   GMM criterion Q(b) =  .01339618  
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   9
+Initial weight matrix: Unadjusted                 Number of obs   =        100
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.763694   .3324165     5.31   0.000      1.11217    2.415218
+      /xb_z1 |  -.4448383   .3623707    -1.23   0.220    -1.155072    .2653952
+      /xb_z2 |  -.8001791   .4165426    -1.92   0.055    -1.616588    .0162294
+      /xb_z3 |  -.4429923   .3975396    -1.11   0.265    -1.222156     .336171
+         /b0 |  -1.863253   .7113749    -2.62   0.009    -3.257522   -.4689836
+     /cmxb_x |   1.206102   .3389122     3.56   0.000     .5418467    1.870358
+        /ey0 |   .1536548   .1011149     1.52   0.129    -.0445268    .3518364
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 z2 z3 _cons
+Instruments for equation 2: z1 z2 z3 _cons
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |    3.34044   1.132116     3.56   0.000     1.719179    6.490621
+------------------------------------------------------------------------------
+
+. assert abs(_b[/cmxb_x] - 1.21) < 1e-2
+
+. 
+. // check `options'
+. discard
+
+. ivlsmm y (x = z1 z2 z3) if _n <= 100, nolog
+
+Final GMM criterion Q(b) =  .0133962
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   9
+Initial weight matrix: Unadjusted                 Number of obs   =        100
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.763694   .3324165     5.31   0.000      1.11217    2.415218
+      /xb_z1 |  -.4448383   .3623707    -1.23   0.220    -1.155072    .2653952
+      /xb_z2 |  -.8001791   .4165426    -1.92   0.055    -1.616588    .0162294
+      /xb_z3 |  -.4429923   .3975396    -1.11   0.265    -1.222156     .336171
+         /b0 |  -1.863253   .7113749    -2.62   0.009    -3.257522   -.4689836
+     /cmxb_x |   1.206102   .3389122     3.56   0.000     .5418467    1.870358
+        /ey0 |   .1536548   .1011149     1.52   0.129    -.0445268    .3518364
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 z2 z3 _cons
+Instruments for equation 2: z1 z2 z3 _cons
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |    3.34044   1.132116     3.56   0.000     1.719179    6.490621
+------------------------------------------------------------------------------
+
+. assert abs(_b[/cmxb_x] - 1.21) < 1e-2
+
+. 
+. // amxb test
+. discard
+
+. ivlsmm y w (x = z1 z2 z3), amxb(x z1 z2 z3) nolog
+
+Final GMM criterion Q(b) =  .0009336
+
+GMM estimation 
+
+Number of parameters =   8
+Number of moments    =  10
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.423979   .0577045    24.68   0.000     1.310881    1.537078
+      /xb_z1 |  -.5711436   .0740573    -7.71   0.000    -.7162932   -.4259939
+      /xb_z2 |  -.5337384   .0647331    -8.25   0.000     -.660613   -.4068639
+      /xb_z3 |  -.5494056   .0667925    -8.23   0.000    -.6803164   -.4184948
+         /b0 |  -1.728888   .1250831   -13.82   0.000    -1.974046   -1.483729
+     /cmxb_x |   .8497166   .0638232    13.31   0.000     .7246254    .9748078
+     /cmxb_w |   .5655056   .0700267     8.08   0.000     .4282559    .7027553
+        /ey0 |   .1814932   .0210319     8.63   0.000     .1402713     .222715
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 z2 z3 _cons
+Instruments for equation 2: z1 z2 z3 w _cons
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.338984   .1492814    13.31   0.000     2.063958    2.650658
+------------------------------------------------------------------------------
+
+Causal odds ratio for: w
+
+ ( 1)  [cmxb_w]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.760338   .1232706     8.08   0.000     1.534579    2.019309
+------------------------------------------------------------------------------
+
+. assert abs(_b[/cmxb_x] - .85) < 1e-2
+
+. 
+. discard
+
+. gen xz1 = x*z1
+
+. gen xz2 = x*z2
+
+. gen xz3 = x*z3
+
+. ivlsmm y w (x = z1 z2 z3), amxb(x w z1 z2 z3 xz1 xz2 xz3) nolog
+
+Final GMM criterion Q(b) =   .001119
+
+GMM estimation 
+
+Number of parameters =  12
+Number of moments    =  14
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.352266   .1085224    12.46   0.000     1.139566    1.564966
+       /xb_w |   .5585769   .0733551     7.61   0.000     .4148035    .7023502
+      /xb_z1 |  -.3413226   .2099725    -1.63   0.104    -.7528612    .0702159
+      /xb_z2 |  -.7431018   .1930832    -3.85   0.000    -1.121538   -.3646657
+      /xb_z3 |  -.0862605   .1682969    -0.51   0.608    -.4161165    .2435954
+     /xb_xz1 |  -.0264955   .0747982    -0.35   0.723    -.1730972    .1201063
+     /xb_xz2 |   .1348796   .0731238     1.84   0.065    -.0084403    .2781996
+     /xb_xz3 |  -.1321727   .0698304    -1.89   0.058    -.2690379    .0046924
+         /b0 |  -1.889602   .2086502    -9.06   0.000    -2.298549   -1.480655
+     /cmxb_x |   .8970595   .0718033    12.49   0.000     .7563277    1.037791
+     /cmxb_w |   .9628362   .0932364    10.33   0.000     .7800962    1.145576
+        /ey0 |   .1573063   .0205315     7.66   0.000     .1170652    .1975473
+------------------------------------------------------------------------------
+Instruments for equation 1: x w z1 z2 z3 xz1 xz2 xz3 _cons
+Instruments for equation 2: z1 z2 z3 w _cons
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.452381    .176089    12.49   0.000     2.130438    2.822975
+------------------------------------------------------------------------------
+
+Causal odds ratio for: w
+
+ ( 1)  [cmxb_w]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.619114   .2441969    10.33   0.000     2.181682    3.144253
+------------------------------------------------------------------------------
+
+. assert abs(_b[/cmxb_x] - .90) < 1e-2
+
+. 
+end of do-file
+      name:  ivlsmm
+       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/ivlsmm.log
+  log type:  text
+ closed on:  10 Sep 2021, 08:19:50
+-------------------------------------------------------------------------------
