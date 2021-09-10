@@ -14,7 +14,7 @@
 {bf:ivonesamplemr} {hline 2} commands for one-sample Mendelian randomization (MR) / instrumental variable (IV) analyses.
 
 {phang}
-{browse "https://github.com/remlapmot/onesamplemr-stata#readme"}{p_end}
+{browse "https://github.com/remlapmot/ivonesamplemr#readme"}{p_end}
 
 {title:Commands}{marker commands}
 
