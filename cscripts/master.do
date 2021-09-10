@@ -9,6 +9,8 @@ log using master.log, text replace name(master)
 
 cscript master
 
+cap noi ado describe ivonesamplemr
+
 local cscripts ///
 	ivlsmm ///
 	ivmsmm ///
