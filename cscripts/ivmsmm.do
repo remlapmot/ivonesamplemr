@@ -1,7 +1,7 @@
-// msmm cscript
+// ivmsmm cscript
 // 2021-09-01
 
-cscript msmm adofiles msmm
+cscript ivmsmm adofiles ivmsmm
 
 // simulate data
 clear
@@ -21,11 +21,11 @@ gen x2 = rnormal()
 
 // tests
 
-msmm y (x = z1)
+ivmsmm y (x = z1)
 assert abs(_b[x] - .328) < 1e-3
 ivpoisson, irr
 
-msmm y (x = z1 z2 z3)
+ivmsmm y (x = z1 z2 z3)
 assert abs(_b[x] - .297) < 1e-3
 ivpoisson, irr
 
@@ -38,3 +38,6 @@ webuse trip, clear
 ivpoisson gmm trips cbd ptn worker weekend (tcost=pt), multiplicative
 assert abs(_b[tcost] - .035) < 1e-3
 ivpoisson, irr
+
+ivmsmm trips cbd ptn worker weekend (tcost=pt)
+assert abs(_b[tcost] - .035) < 1e-3
