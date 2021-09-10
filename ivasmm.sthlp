@@ -1,6 +1,6 @@
 {smcl}
 {* *! version 0.1.0  03sep2021 Tom Palmer}{...}
-{vieweralsosee "onesamplemr" "help ivonesamplemr"}{...}
+{vieweralsosee "ivonesamplemr" "help ivonesamplemr"}{...}
 {vieweralsosee "ivregress" "help ivregress"}{...}
 {vieweralsosee "ivreg2" "help ivreg2"}{...}
 {viewerjumpto "Description" "ivasmm##description"}{...}
