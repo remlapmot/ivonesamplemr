@@ -56,7 +56,7 @@ assert abs(b[1,1] - scalar(bx1)) < 1e-2
 
 // logadd link
 
-ivpoisson gmm y (x = z1 z2 z3), add
+ivpoisson gmm y (x = z1 z2 z3), add nolog
 scalar lrr1 = _b[x]
 scalar selrr1 = _se[x]
 ivtsps y (x = z1 z2 z3), link(logadd)
@@ -64,14 +64,14 @@ ivtsps
 assert abs(_b[b1:_cons] - scalar(lrr1)) < 1e-2
 assert abs(_se[b1:_cons] - scalar(selrr1)) < 1e-2
 
-ivpoisson gmm y (x = z1 z2 z3) if _n <= 200, add
+ivpoisson gmm y (x = z1 z2 z3) if _n <= 200, add nolog
 scalar lrr2 = _b[x]
 scalar selrr2 = _se[x]
 ivtsps y (x = z1 z2 z3) if _n <= 200, link(logadd)
 assert abs(_b[b1:_cons] - scalar(lrr2)) < 1e-2
 assert abs(_se[b1:_cons] - scalar(selrr2)) < 1e-2
 
-ivpoisson gmm y w (x = z1 z2 z3), add
+ivpoisson gmm y w (x = z1 z2 z3), add nolog
 scalar lrr3 = _b[x]
 scalar selrr3 = _se[x]
 ivtsps y w (x = z1 z2 z3), link(logadd)
@@ -88,7 +88,7 @@ assert abs(b[1,1] - scalar(lrr1)) < 1e-2
 cap noi drop pred
 regress x z1 z2 z3
 predict pred
-glm y pred, family(gamma) link(log)
+glm y pred, family(gamma) link(log) nolog
 scalar lmrr1 = _b[pred]
 scalar selmrr1 = _se[pred]
 ivtsps y (x = z1 z2 z3), link(logmult)
@@ -99,7 +99,7 @@ assert abs(_se[b1:_cons] - scalar(selmrr1)) < 1e-2
 cap noi drop pred
 regress x z1 z2 z3 if _n <= 250
 predict pred if _n <= 250
-glm y pred if _n <= 250, family(gamma) link(log)
+glm y pred if _n <= 250, family(gamma) link(log) nolog
 scalar lmrr2 = _b[pred]
 scalar selmrr2 = _se[pred]
 ivtsps y (x = z1 z2 z3) if _n <= 250, link(logmult)
@@ -109,7 +109,7 @@ assert abs(_se[b1:_cons] - scalar(selmrr2)) < 2e-2
 cap noi drop pred
 regress x z1 z2 z3 w
 predict pred
-glm y pred w, family(gamma) link(log)
+glm y pred w, family(gamma) link(log) nolog
 scalar lmrr3 = _b[pred]
 scalar selmrr3 = _se[pred]
 ivtsps y w (x = z1 z2 z3), link(logmult)
@@ -126,7 +126,7 @@ assert abs(b[1,1] - scalar(lmrr1)) < 1e-2
 cap noi drop pred
 regress x z1 z2 z3
 predict pred
-logit y pred
+logit y pred, nolog
 scalar lor1 = _b[pred]
 scalar selor1 = _se[pred]
 ivtsps y (x = z1 z2 z3), link(logit)
@@ -137,7 +137,7 @@ assert abs(_se[b1:_cons] - scalar(selor1)) < 1e-2
 cap noi drop pred
 regress x z1 z2 z3 if _n <= 100
 predict pred if _n <= 100
-logit y pred if _n <= 100
+logit y pred if _n <= 100, nolog
 scalar lor2 = _b[pred]
 scalar selor2 = _se[pred]
 ivtsps y (x = z1 z2 z3) if _n <= 100, link(logit)
@@ -147,7 +147,7 @@ assert abs(_se[b1:_cons] - scalar(selor2)) < 1e-1
 cap noi drop pred
 regress x w z1 z2 z3
 predict pred
-logit y w pred
+logit y w pred, nolog
 scalar lor3 = _b[pred]
 scalar selor3 = _se[pred]
 ivtsps y w (x = z1 z2 z3), link(logit)
