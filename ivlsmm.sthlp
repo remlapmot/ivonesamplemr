@@ -94,26 +94,7 @@
 {title:Stored results}
 
 {pstd}
-{cmd:ivlsmm} stores the following in {cmd:e()}:
-
-{synoptset 20 tabbed}{...}
-{p2col 5 20 24 2: Scalars}{p_end}
-{synopt:{cmd:e(df_r)}}residual degrees of freedom (with {cmd:tdist} 
-option){p_end}
-{synopt:{cmd:e(k)}}number of instruments{p_end}
-{synopt:{cmd:e(I2GX)}}I^2_GX (with {cmd:gxse()} option){p_end}
-{synopt:{cmd:e(QGX)}}Q_GX (with {cmd:gxse()} option){p_end}
-{synopt:{cmd:e(phi)}}Scale parameter (root mean squared error){p_end}
-
-{synoptset 20 tabbed}{...}
-{p2col 5 20 24 2: Macros}{p_end}
-{synopt:{cmd:e(cmd)}}{cmd:lsmm}{p_end}
-{synopt:{cmd:e(cmdline)}}command as typed{p_end}
-
-{synoptset 20 tabbed}{...}
-{p2col 5 20 24 2: Matrices}{p_end}
-{synopt:{cmd:e(b)}}coefficient vector{p_end}
-{synopt:{cmd:e(V)}}variance-covariance matrix of the estimates{p_end}
+To see the results {cmd:ivlsmm} stores in {cmd:e()} issue {cmd:ereturn list} after running the command.
 
 {pstd}
 {cmd:ivlsmm} stores the following in {cmd:r()}:
