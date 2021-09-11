@@ -136,8 +136,8 @@ if "`link'" == "logmult" {
 			local s2exogexpr "+ {s2exogxb:`exog'}"
 		}
 
-		gmm (`endog' - ({s1xb:`inst' `exog'}) - {a0}) ///
-			(`lhs' * exp(-1 * ({b1}*`endog' + {b2}*(`endog' - ({s1xb:}) - {a0}) `s2exogexpr' + {b0}))) ///
+		gmm (`endog' - ({s1xb:`inst' `exog'} + {a0})) ///
+			(`lhs' * exp(-1 * ({b1}*`endog' + {b2}*(`endog' - ({s1xb:} + {a0})) `s2exogexpr' + {b0})) - 1) ///
 			`if'`in', ///
 			instruments(1:`inst' `exog') ///
 			instruments(2:`endog' `stage1res' `exog') ///
