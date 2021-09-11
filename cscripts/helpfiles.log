@@ -1,9 +1,8 @@
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/helpfiles.l
-> og
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  10 Sep 2021, 08:20:00
+ opened on:  11 Sep 2021, 16:21:12
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -25,7 +24,7 @@ Title
     ivonesamplemr -- commands for one-sample Mendelian randomization (MR) /
         instrumental variable (IV) analyses.
 
-    https://github.com/remlapmot/onesamplemr-stata#readme
+    https://github.com/remlapmot/ivonesamplemr#readme
 
 Commands
 
@@ -45,6 +44,9 @@ Commands
       ivtsps        Fits two-stage predictor substitution (TSPS) estimators.
 
       ivtsri        Fits two-stage residual inclusion (TSRI) estimators.
+
+      iv            Allows the use of the iv prefix, so call the commands as
+                      e.g. iv lsmm ... instead of ivlsmm.
 
 Description
 
@@ -538,8 +540,7 @@ INCLUDE help ivonesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/helpfiles.l
-> og
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  10 Sep 2021, 08:20:00
+ closed on:  11 Sep 2021, 16:21:12
 -------------------------------------------------------------------------------

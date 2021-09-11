@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  10 Sep 2021, 08:19:50
+ opened on:  11 Sep 2021, 16:21:03
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -11,7 +11,7 @@
 -------------------------------------------------------------------BEGIN ivmsmm
 
 -> which ivmsmm, usesysdir
-/Users/tom/Documents/GitHub/onesamplemr-stata/ivmsmm.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivmsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
@@ -118,6 +118,12 @@ Instrumented:  x
 Instruments:   z1 z2 z3
 
 . assert abs(_b[x] - .297) < 1e-3
+
+. cap noi estat overid
+
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 1.16116 (p = 0.5596)
 
 . ivpoisson, irr
 
@@ -248,7 +254,7 @@ Instruments:   cbd ptn worker weekend pt
 . 
 end of do-file
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  10 Sep 2021, 08:19:52
+ closed on:  11 Sep 2021, 16:21:05
 -------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  11 Sep 2021, 15:25:38
+ opened on:  11 Sep 2021, 16:21:08
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -818,7 +818,6 @@ Causal risk ratio for: b2
 . 
 . // logmult link
 . 
-. cap noi {
 . ivpoisson cfunction y (x = z1 z2 z3), nolog
 
 Final GMM criterion Q(b) =  4.91e-20
@@ -850,62 +849,16 @@ x            |
 ------------------------------------------------------------------------------
 Instrumented:  x
 Instruments:   z1 z2 z3
-. scalar lmrr1 = _b[x]
-. scalar selmrr1 = _se[x]
-. ivtsri y (x = z1 z2 z3), link(logmult)
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
 
-Final GMM criterion Q(b) =  3.58e-33
-convergence not achieved
-    The Gauss-Newton stopping criterion has been met but missing standard
-    errors indicate some of the parameters are not identified.
+. scalar lmrr1 = _b[x]
+
+. scalar selmrr1 = _se[x]
+
+. ivtsri y (x = z1 z2 z3), link(logmult)
+
+Final GMM criterion Q(b) =  1.32e-32
+
+note: model is exactly identified
 
 GMM estimation 
 
@@ -922,13 +875,12 @@ GMM weight matrix:     Robust
     /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
     /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
          /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
-         /b1 |   .4135643          .        .       .            .           .
-         /b2 |   .3386225          .        .       .            .           .
-         /b0 |   34.85623          .        .       .            .           .
+         /b1 |   .4135643   .0456204     9.07   0.000     .3241499    .5029786
+         /b2 |   .3079002   .0455426     6.76   0.000     .2186384    .3971621
+         /b0 |  -1.914564   .1100322   -17.40   0.000    -2.130223   -1.698905
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x __000004 _cons
-Warning: convergence not achieved
 
 Causal risk ratio for: b1
 
@@ -937,7 +889,7 @@ Causal risk ratio for: b1
 ------------------------------------------------------------------------------
              |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         (1) |   1.512198          .        .       .            .           .
+         (1) |   1.512198   .0689871     9.07   0.000     1.382855     1.65364
 ------------------------------------------------------------------------------
 
 Causal risk ratio for: b2
@@ -947,8 +899,9 @@ Causal risk ratio for: b2
 ------------------------------------------------------------------------------
              |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         (1) |   1.403014          .        .       .            .           .
+         (1) |   1.360565   .0619637     6.76   0.000     1.244381    1.487597
 ------------------------------------------------------------------------------
+
 . ivtsri
 
 ------------------------------------------------------------------------------
@@ -959,9 +912,9 @@ Causal risk ratio for: b2
     /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
     /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
          /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
-         /b1 |   .4135643          .        .       .            .           .
-         /b2 |   .3386225          .        .       .            .           .
-         /b0 |   34.85623          .        .       .            .           .
+         /b1 |   .4135643   .0456204     9.07   0.000     .3241499    .5029786
+         /b2 |   .3079002   .0455426     6.76   0.000     .2186384    .3971621
+         /b0 |  -1.914564   .1100322   -17.40   0.000    -2.130223   -1.698905
 ------------------------------------------------------------------------------
 
 Causal risk ratio for: b1
@@ -971,7 +924,7 @@ Causal risk ratio for: b1
 ------------------------------------------------------------------------------
              |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         (1) |   1.512198          .        .       .            .           .
+         (1) |   1.512198   .0689871     9.07   0.000     1.382855     1.65364
 ------------------------------------------------------------------------------
 
 Causal risk ratio for: b2
@@ -981,32 +934,221 @@ Causal risk ratio for: b2
 ------------------------------------------------------------------------------
              |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         (1) |   1.403014          .        .       .            .           .
+         (1) |   1.360565   .0619637     6.76   0.000     1.244381    1.487597
 ------------------------------------------------------------------------------
+
 . assert abs(_b[b1:_cons] - scalar(lmrr1)) < 1e-2
+
 . assert abs(_se[b1:_cons] - scalar(selmrr1)) < 1e-2
-assertion is false
-r(9);
+
 . 
 . ivpoisson cfunction y (x = z1 z2 z3) if _n <= 250, nolog
+
+Final GMM criterion Q(b) =  1.57e-21
+
+note: model is exactly identified
+
+Exponential mean model with endogenous regressors
+
+Number of parameters =   7                         Number of obs  =        250
+Number of moments    =   7
+Initial weight matrix: Unadjusted
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+y            |
+           x |   .4199621   .1143385     3.67   0.000     .1958627    .6440615
+       _cons |  -1.764816   .2759322    -6.40   0.000    -2.305633   -1.223999
+-------------+----------------------------------------------------------------
+x            |
+          z1 |   .9174599   .1730034     5.30   0.000     .5783795     1.25654
+          z2 |   1.066763   .1765785     6.04   0.000     .7206756    1.412851
+          z3 |   .9295532   .1660914     5.60   0.000     .6040201    1.255086
+       _cons |   .0817864   .2035786     0.40   0.688    -.3172202    .4807931
+-------------+----------------------------------------------------------------
+        /c_x |   .1639146   .1218836     1.34   0.179    -.0749729    .4028022
+------------------------------------------------------------------------------
+Instrumented:  x
+Instruments:   z1 z2 z3
+
 . scalar lmrr2 = _b[x]
+
 . scalar selmrr2 = _se[x]
+
 . ivtsri y (x = z1 z2 z3) if _n <= 250, link(logmult)
+
+Final GMM criterion Q(b) =  3.34e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =        250
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9174599   .1730034     5.30   0.000     .5783795     1.25654
+    /s1xb_z2 |   1.066763   .1765785     6.04   0.000     .7206756    1.412851
+    /s1xb_z3 |   .9295532   .1660914     5.60   0.000     .6040201    1.255086
+         /a0 |   .0817864   .2035786     0.40   0.688    -.3172202    .4807931
+         /b1 |   .4199621   .1143385     3.67   0.000     .1958627    .6440615
+         /b2 |   .1639146   .1218836     1.34   0.179     -.074973    .4028022
+         /b0 |  -1.764816   .2759322    -6.40   0.000    -2.305633   -1.223999
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x __000004 _cons
+
+Causal risk ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.521904   .1740122     3.67   0.000      1.21636    1.904199
+------------------------------------------------------------------------------
+
+Causal risk ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.178114   .1435928     1.34   0.179     .9277686    1.496011
+------------------------------------------------------------------------------
+
 . assert abs(_b[b1:_cons] - scalar(lmrr2)) < 1e-2
+
 . assert abs(_se[b1:_cons] - scalar(selmrr2)) < 1e-2
+
 . 
-. ivpoisson cfunction y (x = z1 z2 z3), nolog
+. ivpoisson cfunction y w (x = z1 z2 z3), nolog
+
+Final GMM criterion Q(b) =  6.86e-20
+
+note: model is exactly identified
+
+Exponential mean model with endogenous regressors
+
+Number of parameters =   9                         Number of obs  =      2,500
+Number of moments    =   9
+Initial weight matrix: Unadjusted
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+y            |
+           w |   .5565686   .0578091     9.63   0.000     .4432648    .6698724
+           x |   .4399661   .0476861     9.23   0.000     .3465031    .5334291
+       _cons |  -2.019925   .1126677   -17.93   0.000    -2.240749     -1.7991
+-------------+----------------------------------------------------------------
+x            |
+           w |   .9801363    .027334    35.86   0.000     .9265627     1.03371
+          z1 |   .9882395   .0505573    19.55   0.000     .8891491     1.08733
+          z2 |   .9152859   .0431149    21.23   0.000     .8307823    .9997895
+          z3 |    .954388   .0404106    23.62   0.000     .8751847    1.033591
+       _cons |   .0734396   .0541988     1.36   0.175    -.0327882    .1796673
+-------------+----------------------------------------------------------------
+        /c_x |   .2131522   .0477597     4.46   0.000     .1195449    .3067596
+------------------------------------------------------------------------------
+Instrumented:  x
+Instruments:   w z1 z2 z3
+
 . scalar lmrr3 = _b[x]
+
 . scalar selmrr3 = _se[x]
+
 . ivtsri y w (x = z1 z2 z3), link(logmult)
+
+Final GMM criterion Q(b) =  4.68e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   9
+Number of moments    =   9
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9882395   .0505573    19.55   0.000     .8891491     1.08733
+    /s1xb_z2 |   .9152859   .0431149    21.23   0.000     .8307823    .9997895
+    /s1xb_z3 |    .954388   .0404106    23.62   0.000     .8751847    1.033591
+     /s1xb_w |   .9801363    .027334    35.86   0.000     .9265627     1.03371
+         /a0 |   .0734396   .0541988     1.36   0.175    -.0327882    .1796673
+         /b1 |   .4399661   .0476861     9.23   0.000     .3465031    .5334291
+         /b2 |   .2131522   .0477597     4.46   0.000     .1195449    .3067596
+ /s2exogxb_w |   .5565686   .0578091     9.63   0.000     .4432648    .6698724
+         /b0 |  -2.019925   .1126677   -17.93   0.000    -2.240749     -1.7991
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 w _cons
+Instruments for equation 2: x __000004 w _cons
+
+Causal risk ratio for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.552655     .07404     9.23   0.000     1.414114    1.704768
+------------------------------------------------------------------------------
+
+Causal risk ratio for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.237573   .0591062     4.46   0.000     1.126984    1.359014
+------------------------------------------------------------------------------
+
 . assert abs(_b[b1:_cons] - scalar(lmrr3)) < 1e-2
+
 . assert abs(_se[b1:_cons] - scalar(selmrr3)) < 1e-2
+
 . 
 . ivtsri y (x = z1 z2 z3), link(logmult) estonly
+
+------------------------------------------------------------------------------
+             |                 OIM
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .4135643   .0394492    10.48   0.000     .3362452    .4908833
+    __000004 |   .3079002   .0450075     6.84   0.000     .2196871    .3961134
+       _cons |  -1.914564   .0820983   -23.32   0.000    -2.075473   -1.753654
+------------------------------------------------------------------------------
+
 . ivtsri
+
+------------------------------------------------------------------------------
+             |                 OIM
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .4135643   .0394492    10.48   0.000     .3362452    .4908833
+    __000004 |   .3079002   .0450075     6.84   0.000     .2196871    .3961134
+       _cons |  -1.914564   .0820983   -23.32   0.000    -2.075473   -1.753654
+------------------------------------------------------------------------------
+
 . mat b = e(b)
+
 . assert abs(b[1,1] - scalar(lmrr1)) < 1e-2
-. }
 
 . 
 . // logit link
@@ -1387,5 +1529,5 @@ end of do-file
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  11 Sep 2021, 15:25:44
+ closed on:  11 Sep 2021, 16:21:12
 -------------------------------------------------------------------------------

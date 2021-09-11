@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/ivlsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  10 Sep 2021, 08:19:48
+ opened on:  11 Sep 2021, 16:21:01
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -11,7 +11,7 @@
 -------------------------------------------------------------------BEGIN ivlsmm
 
 -> which ivlsmm, usesysdir
-/Users/tom/Documents/GitHub/onesamplemr-stata/ivlsmm.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivlsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
@@ -52,16 +52,7 @@ number of observations (_N) was 0, now 2,500
 
 . ivlsmm y w (x = z1)
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  4.3536049  
-Iteration 1:   GMM criterion Q(b) =  .00009037  
-Iteration 2:   GMM criterion Q(b) =  2.749e-07  
-Iteration 3:   GMM criterion Q(b) =  2.243e-12  
-Iteration 4:   GMM criterion Q(b) =  3.633e-22  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  6.278e-19  
-Iteration 1:   GMM criterion Q(b) =  1.777e-30  
+Final GMM criterion Q(b) =  1.78e-30
 
 note: model is exactly identified
 
@@ -242,19 +233,7 @@ pvalue   1.411e-06
 
 . ivlsmm y w (x = z1 z2 z3)
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  3.4458699  
-Iteration 1:   GMM criterion Q(b) =  .01528448  
-Iteration 2:   GMM criterion Q(b) =  .00016703  
-Iteration 3:   GMM criterion Q(b) =  .00006823  
-Iteration 4:   GMM criterion Q(b) =   .0000681  
-Iteration 5:   GMM criterion Q(b) =   .0000681  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  .00620406  
-Iteration 1:   GMM criterion Q(b) =  .00108233  
-Iteration 2:   GMM criterion Q(b) =  .00107814  
-Iteration 3:   GMM criterion Q(b) =  .00107813  
+Final GMM criterion Q(b) =  .0010781
 
 GMM estimation 
 
@@ -311,22 +290,7 @@ Causal odds ratio for: w
 
 . ivlsmm y w (x1 x2 = z1 z2 z3)
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  3.4547736  
-Iteration 1:   GMM criterion Q(b) =  .01338884  
-Iteration 2:   GMM criterion Q(b) =  .00068443  
-Iteration 3:   GMM criterion Q(b) =  .00006497  
-Iteration 4:   GMM criterion Q(b) =  .00006291  
-Iteration 5:   GMM criterion Q(b) =  .00006224  
-Iteration 6:   GMM criterion Q(b) =  .00006095  
-Iteration 7:   GMM criterion Q(b) =  .00006094  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  .00247664  
-Iteration 1:   GMM criterion Q(b) =  .00084473  
-Iteration 2:   GMM criterion Q(b) =  .00083737  
-Iteration 3:   GMM criterion Q(b) =  .00083327  
-Iteration 4:   GMM criterion Q(b) =  .00083325  
+Final GMM criterion Q(b) =  .0008332
 
 GMM estimation 
 
@@ -401,23 +365,7 @@ r1   1   1   1   1   1   1   1   1   1
 
 . ivlsmm y w (x = z1 z2 z3), from(start)
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  .22344217  
-Iteration 1:   GMM criterion Q(b) =  .15345393  
-Iteration 2:   GMM criterion Q(b) =  .14213718  
-Iteration 3:   GMM criterion Q(b) =  .01752196  
-Iteration 4:   GMM criterion Q(b) =  .01293482  
-Iteration 5:   GMM criterion Q(b) =  .00623838  
-Iteration 6:   GMM criterion Q(b) =  .00406975  
-Iteration 7:   GMM criterion Q(b) =  .00007463  
-Iteration 8:   GMM criterion Q(b) =   .0000681  
-Iteration 9:   GMM criterion Q(b) =   .0000681  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  .00620474  
-Iteration 1:   GMM criterion Q(b) =  .00108234  
-Iteration 2:   GMM criterion Q(b) =  .00107815  
-Iteration 3:   GMM criterion Q(b) =  .00107814  
+Final GMM criterion Q(b) =  .0010781
 
 GMM estimation 
 
@@ -471,24 +419,7 @@ Causal odds ratio for: w
 
 . ivlsmm y (x = z1 z2 z3) if _n <= 100
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  3.4736517  
-Iteration 1:   GMM criterion Q(b) =  .00097509  
-Iteration 2:   GMM criterion Q(b) =  .00088146  
-Iteration 3:   GMM criterion Q(b) =  .00087123  
-Iteration 4:   GMM criterion Q(b) =  .00086286  
-Iteration 5:   GMM criterion Q(b) =  .00082886  
-Iteration 6:   GMM criterion Q(b) =  .00073266  
-Iteration 7:   GMM criterion Q(b) =  .00065377  
-Iteration 8:   GMM criterion Q(b) =  .00065103  
-Iteration 9:   GMM criterion Q(b) =  .00065102  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  .01490482  
-Iteration 1:   GMM criterion Q(b) =  .01342902  
-Iteration 2:   GMM criterion Q(b) =   .0133964  
-Iteration 3:   GMM criterion Q(b) =  .01339618  
-Iteration 4:   GMM criterion Q(b) =  .01339618  
+Final GMM criterion Q(b) =  .0133962
 
 GMM estimation 
 
@@ -529,24 +460,7 @@ Causal odds ratio for: x
 
 . ivlsmm y (x = z1 z2 z3) in 1/100
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  3.4736517  
-Iteration 1:   GMM criterion Q(b) =  .00097509  
-Iteration 2:   GMM criterion Q(b) =  .00088146  
-Iteration 3:   GMM criterion Q(b) =  .00087123  
-Iteration 4:   GMM criterion Q(b) =  .00086286  
-Iteration 5:   GMM criterion Q(b) =  .00082886  
-Iteration 6:   GMM criterion Q(b) =  .00073266  
-Iteration 7:   GMM criterion Q(b) =  .00065377  
-Iteration 8:   GMM criterion Q(b) =  .00065103  
-Iteration 9:   GMM criterion Q(b) =  .00065102  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  .01490482  
-Iteration 1:   GMM criterion Q(b) =  .01342902  
-Iteration 2:   GMM criterion Q(b) =   .0133964  
-Iteration 3:   GMM criterion Q(b) =  .01339618  
-Iteration 4:   GMM criterion Q(b) =  .01339618  
+Final GMM criterion Q(b) =  .0133962
 
 GMM estimation 
 
@@ -742,7 +656,7 @@ Causal odds ratio for: w
 . 
 end of do-file
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/ivlsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  10 Sep 2021, 08:19:50
+ closed on:  11 Sep 2021, 16:21:03
 -------------------------------------------------------------------------------
