@@ -23,17 +23,39 @@ gen x2 = rnormal()
 
 // identity link
 
+ivregress gmm y (x = z1 z2 z3)
+scalar bx1 = _b[x]
+scalar sx1 = _se[x]
+estat endog
+scalar endogteststat = r(C)
 ivtsri y (x = z1 z2 z3)
 ivtsri
+assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
+assert abs((_b[b2:_cons] / _se[b2:_cons])^2 - scalar(endogteststat)) < 1e0
 
+ivregress gmm y (x = z1 z2 z3) if _n <= 50
+scalar bx2 = _b[x]
+scalar sx2 = _se[x]
 ivtsri y (x = z1 z2 z3) if _n <= 50
+assert abs(_b[b1:_cons] - scalar(bx2)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(sx2)) < 1e-3
 
 ivtsri y (x = z1 z2 z3), link(identity)
+assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
 
+ivregress gmm y w (x = z1 z2 z3)
+scalar bx3 = _b[x]
+scalar sx3 = _se[x]
 ivtsri y w (x = z1 z2 z3), link(identity)
+assert abs(_b[b1:_cons] - scalar(bx3)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(sx3)) < 1e-3
 
 ivtsri y (x = z1 z2 z3), estonly
 ivtsri
+mat b = e(b)
+assert abs(b[1,1] - scalar(bx1)) < 1e-2
 
 // logadd link
 
