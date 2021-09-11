@@ -39,8 +39,6 @@ discard
 ivlsmm y w (x = z1 z2 z3)
 assert abs(_b[/cmxb_x] - .89) < 1e-2
 
-cap noi estat overid
-
 // multiple endog variables
 discard
 ivlsmm y w (x1 x2 = z1 z2 z3)
@@ -78,3 +76,9 @@ gen xz2 = x*z2
 gen xz3 = x*z3
 ivlsmm y w (x = z1 z2 z3), amxb(x w z1 z2 z3 xz1 xz2 xz3)
 assert abs(_b[/cmxb_x] - .90) < 1e-2
+
+// overid test
+ivlsmm y (x = z1 z2 z3)
+assert abs(e(J) - 1.882) < 1e-3
+assert e(J_df) == 2
+assert abs(e(J_p) - .39) < 1e-2
