@@ -165,3 +165,35 @@ assert abs(b[1,1] - scalar(lor1)) < 1e-2
 // check errors
 
 rcof "noi ivtsri y w (x1 x2 = z1 z2 z3)" == 198
+
+// residuals varname test
+
+cap noi drop residuals
+regress x z1 z2 z3
+predict residuals, residuals
+regress y x residuals
+scalar bx4 = _b[x]
+scalar sx4 = _se[x]
+scalar bxr = _b[residuals]
+scalar sxr = _se[residuals]
+replace residuals = _n in 1/3
+list residuals in 1/5
+ivtsri y (x = z1 z2 z3)
+assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
+assert abs(_b[b2:_cons] - scalar(bxr)) < 1e-2
+list residuals in 1/5
+
+cap noi drop residuals
+regress x z1 z2 z3 in 101/200
+predict residuals in 101/200, residuals
+regress y x residuals in 101/200
+scalar bx4 = _b[x]
+scalar sx4 = _se[x]
+scalar bxr = _b[residuals]
+scalar sxr = _se[residuals]
+replace residuals = _n in 1/3
+list residuals in 1/5
+ivtsri y (x = z1 z2 z3) in 101/200
+assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
+assert abs(_b[b2:_cons] - scalar(bxr)) < 1e-2
+list residuals in 1/5
