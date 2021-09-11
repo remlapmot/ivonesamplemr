@@ -43,14 +43,17 @@ For a binary outcome the ASMM estimates a causal risk difference.
 {pstd}Fit the model with a single instrumental variable.{p_end}
 
 {phang2}{cmd:.} {stata "ivregress 2sls y (x = z1)"}{p_end}
+{phang2}{cmd:.} {stata "ivreg2 y (x = z1)"}{p_end}
 
 {pstd}Fit the model with multiple instruments.{p_end}
 
 {phang2}{cmd:.} {stata "ivregress 2sls y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivreg2 y (x = z1 z2 z3)"}{p_end}
 
 {pstd}Fit the model with multiple exposures, and instruments, and adjusting for w.{p_end}
 
 {phang2}{cmd:.} {stata "ivregress 2sls y w (x1 x2 = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivreg2 y w (x1 x2 = z1 z2 z3)"}{p_end}
 
 {marker references}{...}
 {title:References}
