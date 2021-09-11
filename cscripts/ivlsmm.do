@@ -64,17 +64,17 @@ assert abs(_b[/cmxb_x] - 1.21) < 1e-2
 
 // check `options'
 discard
-ivlsmm y (x = z1 z2 z3) if _n <= 100, nolog
+ivlsmm y (x = z1 z2 z3) if _n <= 100
 assert abs(_b[/cmxb_x] - 1.21) < 1e-2
 
 // amxb test
 discard
-ivlsmm y w (x = z1 z2 z3), amxb(x z1 z2 z3) nolog
+ivlsmm y w (x = z1 z2 z3), amxb(x z1 z2 z3)
 assert abs(_b[/cmxb_x] - .85) < 1e-2
 
 discard
 gen xz1 = x*z1
 gen xz2 = x*z2
 gen xz3 = x*z3
-ivlsmm y w (x = z1 z2 z3), amxb(x w z1 z2 z3 xz1 xz2 xz3) nolog
+ivlsmm y w (x = z1 z2 z3), amxb(x w z1 z2 z3 xz1 xz2 xz3)
 assert abs(_b[/cmxb_x] - .90) < 1e-2
