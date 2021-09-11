@@ -56,17 +56,32 @@ assert abs(b[1,1] - scalar(bx1)) < 1e-2
 
 // logadd link
 
-cap noi {
+ivpoisson gmm y (x = z1 z2 z3), add
+scalar lrr1 = _b[x]
+scalar selrr1 = _se[x]
 ivtsps y (x = z1 z2 z3), link(logadd)
 ivtsps
+assert abs(_b[b1:_cons] - scalar(lrr1)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selrr1)) < 1e-2
 
+ivpoisson gmm y (x = z1 z2 z3) if _n <= 200, add
+scalar lrr2 = _b[x]
+scalar selrr2 = _se[x]
 ivtsps y (x = z1 z2 z3) if _n <= 200, link(logadd)
+assert abs(_b[b1:_cons] - scalar(lrr2)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selrr2)) < 1e-2
 
+ivpoisson gmm y w (x = z1 z2 z3), add
+scalar lrr3 = _b[x]
+scalar selrr3 = _se[x]
 ivtsps y w (x = z1 z2 z3), link(logadd)
+assert abs(_b[b1:_cons] - scalar(lrr3)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selrr3)) < 1e-2
 
 ivtsps y (x = z1 z2 z3), link(logadd) estonly
 ivtsps
-}
+mat b = e(b)
+assert abs(b[1,1] - scalar(lrr1)) < 1e-2
 
 // logmult link
 
