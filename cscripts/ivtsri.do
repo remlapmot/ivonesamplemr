@@ -132,15 +132,41 @@ assert abs(b[1,1] - scalar(lmrr1)) < 1e-2
 
 // logit link
 
+cap noi drop res
+regress x z1 z2 z3
+predict double res, res
+logit y x res
+scalar lor1 = _b[x]
+scalar selor1 = _se[x]
 ivtsri y (x = z1 z2 z3), link(logit)
 ivtsri
+assert abs(_b[b1:_cons] - scalar(lor1)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selor1)) < 1e-2
 
+cap noi drop res
+regress x z1 z2 z3 if _n <= 100
+predict double res if _n <= 100, res
+logit y x res if _n <= 100
+scalar lor2 = _b[x]
+scalar selor2 = _se[x]
 ivtsri y (x = z1 z2 z3) if _n <= 100, link(logit)
+assert abs(_b[b1:_cons] - scalar(lor2)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selor2)) < 5e-2
 
+cap noi drop res
+regress x z1 z2 z3 w
+predict double res, res
+logit y x res w
+scalar lor3 = _b[x]
+scalar selor3 = _se[x]
 ivtsri y w (x = z1 z2 z3), link(logit)
+assert abs(_b[b1:_cons] - scalar(lor3)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selor3)) < 1e-2
 
 ivtsri y (x = z1 z2 z3), link(logit) estonly
 ivtsri
+mat b = e(b)
+assert abs(b[1,1] - scalar(lor1)) < 1e-2
 
 // check errors
 
