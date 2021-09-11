@@ -98,7 +98,7 @@ if "`link'" == "identity" {
 			instruments(2:`endog' `stage1res' `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
-			`options' nolog
+			`options' nolog onestep
 	}
 }
 
@@ -121,7 +121,7 @@ if "`link'" == "logadd" {
 			instruments(2:`endog' `stage1res' `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
-			`options' nolog
+			`options' nolog onestep
 	}
 }
 
@@ -143,7 +143,7 @@ if "`link'" == "logmult" {
 			instruments(2:`endog' `stage1res' `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
-			`options' nolog
+			`options' nolog onestep
 	}
 }
 
@@ -165,7 +165,7 @@ if "`link'" == "logit" {
 			instruments(2:`endog' `stage1res' `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
-			`options' nolog
+			`options' nolog onestep
 	}
 }
 
