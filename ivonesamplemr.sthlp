@@ -30,7 +30,7 @@
 
 {synopt :{opt {help ivtsri}:}}Fits two-stage residual inclusion (TSRI) estimators.
 
-{synopt :{opt {help iv}:}}Allows the use of the {cmd:iv} prefix, so call the commands as e.g. {cmd:iv lsmm ...} instead of {cmd:ivlsmm}.
+{synopt :{opt {help iv}:}}Allows the use of the {cmd:iv} prefix, hence {cmd:ivlsmm} can instead be called as {cmd:iv lsmm ...}.
 
 {marker description}{...}
 {title:Description}
