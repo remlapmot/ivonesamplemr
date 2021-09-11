@@ -82,10 +82,12 @@ Please see {help ivpoisson##options}
 {pstd}Fit the model with multiple instruments.{p_end}
 
 {phang2}{cmd:.} {stata "ivmsmm y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "estat overid"}{p_end}
 
 {pstd}Fit the model with multiple exposures, and instruments, and adjusting for w.{p_end}
 
 {phang2}{cmd:.} {stata "ivmsmm y w (x1 x2 = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "estat overid"}{p_end}
 
 {marker results}{...}
 {title:Stored results}
