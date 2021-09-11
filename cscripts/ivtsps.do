@@ -23,17 +23,36 @@ gen x2 = rnormal()
 
 // identity link
 
+ivregress gmm y (x = z1 z2 z3)
+scalar bx1 = _b[x]
+scalar sx1 = _se[x]
 ivtsps y (x = z1 z2 z3)
 ivtsps
+assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
 
+ivregress gmm y (x = z1 z2 z3) if _n <= 50
+scalar bx2 = _b[x]
+scalar sx2 = _se[x]
 ivtsps y (x = z1 z2 z3) if _n <= 50
+assert abs(_b[b1:_cons] - scalar(bx2)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(sx2)) < 1e-3
 
 ivtsps y (x = z1 z2 z3), link(identity)
+assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
 
+ivregress gmm y w (x = z1 z2 z3)
+scalar bx3 = _b[x]
+scalar sx3 = _se[x]
 ivtsps y w (x = z1 z2 z3), link(identity)
+assert abs(_b[b1:_cons] - scalar(bx3)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(sx3)) < 1e-3
 
 ivtsps y (x = z1 z2 z3), estonly
 ivtsps
+mat b = e(b)
+assert abs(b[1,1] - scalar(bx1)) < 1e-2
 
 // logadd link
 
