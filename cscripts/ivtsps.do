@@ -85,17 +85,41 @@ assert abs(b[1,1] - scalar(lrr1)) < 1e-2
 
 // logmult link
 
-cap noi {
+cap noi drop pred
+regress x z1 z2 z3
+predict pred
+glm y pred, family(gamma) link(log)
+scalar lmrr1 = _b[pred]
+scalar selmrr1 = _se[pred]
 ivtsps y (x = z1 z2 z3), link(logmult)
 ivtsps
+assert abs(_b[b1:_cons] - scalar(lmrr1)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selmrr1)) < 1e-2
 
+cap noi drop pred
+regress x z1 z2 z3 if _n <= 250
+predict pred if _n <= 250
+glm y pred if _n <= 250, family(gamma) link(log)
+scalar lmrr2 = _b[pred]
+scalar selmrr2 = _se[pred]
 ivtsps y (x = z1 z2 z3) if _n <= 250, link(logmult)
+assert abs(_b[b1:_cons] - scalar(lmrr2)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selmrr2)) < 2e-2
 
+cap noi drop pred
+regress x z1 z2 z3 w
+predict pred
+glm y pred w, family(gamma) link(log)
+scalar lmrr3 = _b[pred]
+scalar selmrr3 = _se[pred]
 ivtsps y w (x = z1 z2 z3), link(logmult)
+assert abs(_b[b1:_cons] - scalar(lmrr3)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selmrr3)) < 1e-2
 
 ivtsps y (x = z1 z2 z3), link(logmult) estonly
 ivtsps
-}
+mat b = e(b)
+assert abs(b[1,1] - scalar(lmrr1)) < 1e-2
 
 // logit link
 
