@@ -127,7 +127,7 @@ if "`link'" == "logadd" {
 
 if "`link'" == "logmult" {
 	// fit stage 2 gamma regression to obtain initial values
-	qui glm `lhs' `endog' `stage1res' `exog' `if'`in', family(gamma) link(log)
+	qui glm `lhs' `pred' `exog' `if'`in', family(gamma) link(log)
 	mat `stage2b' = e(b)
 	mat `from' = (`stage1b', `stage2b')
 
