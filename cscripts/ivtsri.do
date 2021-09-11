@@ -63,17 +63,41 @@ assert abs(b[1,1] - scalar(bx1)) < 1e-2
 
 // logadd link
 
-cap noi {
+cap noi drop res
+regress x z1 z2 z3
+predict double res, res
+poisson y x res
+scalar larr1 = _b[x]
+scalar selarr1 = _se[x]
 ivtsri y (x = z1 z2 z3), link(logadd)
 ivtsri
+assert abs(_b[b1:_cons] - scalar(larr1)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selarr1)) < 1e-2
 
+cap noi drop res
+regress x z1 z2 z3 if _n <= 200
+predict double res if _n <= 200, res
+poisson y x res if _n <= 200
+scalar larr2 = _b[x]
+scalar selarr2 = _se[x]
 ivtsri y (x = z1 z2 z3) if _n <= 200, link(logadd)
+assert abs(_b[b1:_cons] - scalar(larr2)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selarr2)) < 1e-1
 
+cap noi drop res
+regress x z1 z2 z3 w
+predict double res, res
+poisson y x res w
+scalar larr3 = _b[x]
+scalar selarr3 = _se[x]
 ivtsri y w (x = z1 z2 z3), link(logadd)
+assert abs(_b[b1:_cons] - scalar(larr3)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selarr3)) < 5e-2
 
 ivtsri y (x = z1 z2 z3), link(logadd) estonly
 ivtsri
-}
+mat b = e(b)
+assert abs(b[1,1] - scalar(larr1)) < 1e-2
 
 // logmult link
 
