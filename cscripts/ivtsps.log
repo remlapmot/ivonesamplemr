@@ -2,7 +2,7 @@
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:05
+ opened on:  11 Sep 2021, 17:43:48
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -74,7 +74,7 @@ Instruments:   z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  7.16e-33
+Final GMM criterion Q(b) =  7.34e-33
 
 note: model is exactly identified
 
@@ -83,7 +83,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -162,7 +161,7 @@ Instruments:   z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3) if _n <= 50
 
-Final GMM criterion Q(b) =  1.76e-33
+Final GMM criterion Q(b) =  2.31e-33
 
 note: model is exactly identified
 
@@ -171,7 +170,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =         50
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -204,7 +202,7 @@ Causal risk difference for: b1
 . 
 . ivtsps y (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  7.16e-33
+Final GMM criterion Q(b) =  7.34e-33
 
 note: model is exactly identified
 
@@ -213,7 +211,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -269,7 +266,7 @@ Instruments:   w z1 z2 z3
 
 . ivtsps y w (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  3.04e-33
+Final GMM criterion Q(b) =  1.30e-32
 
 note: model is exactly identified
 
@@ -278,7 +275,6 @@ GMM estimation
 Number of parameters =   8
 Number of moments    =   8
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -372,7 +368,7 @@ Instruments:   z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  6.23e-33
+Final GMM criterion Q(b) =  7.54e-33
 
 note: model is exactly identified
 
@@ -381,7 +377,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -473,7 +468,7 @@ Instruments:   z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3) if _n <= 200, link(logadd)
 
-Final GMM criterion Q(b) =  7.98e-33
+Final GMM criterion Q(b) =  1.08e-32
 
 note: model is exactly identified
 
@@ -482,7 +477,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =        200
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -551,7 +545,7 @@ Instruments:   w z1 z2 z3
 
 . ivtsps y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  5.04e-33
+Final GMM criterion Q(b) =  1.85e-32
 
 note: model is exactly identified
 
@@ -560,7 +554,6 @@ GMM estimation
 Number of parameters =   8
 Number of moments    =   8
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -678,7 +671,7 @@ Log likelihood   = -615.5005255                   BIC             =  -18652.47
 
 . ivtsps y (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  3.30e-33
+Final GMM criterion Q(b) =  6.77e-33
 
 note: model is exactly identified
 
@@ -687,7 +680,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -800,7 +792,7 @@ Log likelihood   =  -77.5394559                   BIC             =  -1291.307
 
 . ivtsps y (x = z1 z2 z3) if _n <= 250, link(logmult)
 
-Final GMM criterion Q(b) =  4.60e-33
+Final GMM criterion Q(b) =  2.06e-32
 
 note: model is exactly identified
 
@@ -809,7 +801,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =        250
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -899,7 +890,7 @@ Log likelihood   = -230.6801555                   BIC             =  -18246.18
 
 . ivtsps y w (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  4.99e-33
+Final GMM criterion Q(b) =  1.89e-32
 
 note: model is exactly identified
 
@@ -908,7 +899,6 @@ GMM estimation
 Number of parameters =   8
 Number of moments    =   8
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1016,7 +1006,7 @@ Log likelihood = -1667.8059                     Pseudo R2         =     0.0368
 
 . ivtsps y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  3.41e-33
+Final GMM criterion Q(b) =  6.99e-33
 
 note: model is exactly identified
 
@@ -1025,7 +1015,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1129,7 +1118,7 @@ Log likelihood = -65.239727                     Pseudo R2         =     0.0585
 
 . ivtsps y (x = z1 z2 z3) if _n <= 100, link(logit)
 
-Final GMM criterion Q(b) =  2.11e-32
+Final GMM criterion Q(b) =  2.67e-32
 
 note: model is exactly identified
 
@@ -1138,7 +1127,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =        100
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1219,7 +1207,7 @@ Log likelihood = -1378.1819                     Pseudo R2         =     0.2040
 
 . ivtsps y w (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  2.67e-33
+Final GMM criterion Q(b) =  1.57e-32
 
 note: model is exactly identified
 
@@ -1228,7 +1216,6 @@ GMM estimation
 Number of parameters =   8
 Number of moments    =   8
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1295,5 +1282,5 @@ end of do-file
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:08
+ closed on:  11 Sep 2021, 17:43:50
 -------------------------------------------------------------------------------
