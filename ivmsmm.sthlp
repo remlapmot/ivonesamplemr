@@ -93,6 +93,13 @@ Please see {help ivpoisson##options}
 {phang2}{cmd:.} {stata "ivmsmm y w (x1 x2 = z1 z2 z3)"}{p_end}
 {phang2}{cmd:.} {stata "estat overid"}{p_end}
 
+{pstd}Comparison with {cmd:ivpois} (specify {cmd:onestep} option to {cmd:ivmsmm}/{cmd:ivpoisson} for equivalence).{p_end}
+
+{phang2}{cmd:.} {stata "ivpois y, endog(x) exog(z1) eform(RR)"}{p_end}
+{phang2}{cmd:.} {stata "ivpois y, endog(x) exog(z1 z2 z3) eform(RR)"}{p_end}
+{phang2}{cmd:.} {stata "ivpois y w, endog(x) exog(z1 z2 z3) eform(RR)"}{p_end}
+{phang2}{cmd:.} {stata "ivpois y w, endog(x1 x2) exog(z1 z2 z3) eform(RR)"}{p_end}
+
 {marker results}{...}
 {title:Stored results}
 
