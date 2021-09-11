@@ -99,15 +99,41 @@ ivtsps
 
 // logit link
 
+cap noi drop pred
+regress x z1 z2 z3
+predict pred
+logit y pred
+scalar lor1 = _b[pred]
+scalar selor1 = _se[pred]
 ivtsps y (x = z1 z2 z3), link(logit)
 ivtsps
+assert abs(_b[b1:_cons] - scalar(lor1)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selor1)) < 1e-2
 
+cap noi drop pred
+regress x z1 z2 z3 if _n <= 100
+predict pred if _n <= 100
+logit y pred if _n <= 100
+scalar lor2 = _b[pred]
+scalar selor2 = _se[pred]
 ivtsps y (x = z1 z2 z3) if _n <= 100, link(logit)
+assert abs(_b[b1:_cons] - scalar(lor2)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selor2)) < 1e-1
 
+cap noi drop pred
+regress x w z1 z2 z3
+predict pred
+logit y w pred
+scalar lor3 = _b[pred]
+scalar selor3 = _se[pred]
 ivtsps y w (x = z1 z2 z3), link(logit)
+assert abs(_b[b1:_cons] - scalar(lor3)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selor3)) < 1e-2
 
 ivtsps y (x = z1 z2 z3), link(logit) estonly
 ivtsps
+mat b = e(b)
+assert abs(b[1,1] - scalar(lor1)) < 1e-2
 
 // check errors
 
