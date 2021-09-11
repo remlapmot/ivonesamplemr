@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite this software using the metadata below."
+authors:
+- family-names: "Palmer"
+  given-names: "Tom"
+  orcid: "https://orcid.org/0000-0003-4655-4511"
+title: "ivonesamplemr - Stata package for one-sample Mendelian randomization (MR) / instrumental variable (IV) analyses"
+type: software
+version: 0.1.0
+date-released: 2021-09-11
+repository-code: "https://github.com/remlapmot/ivonesamplemr"
+license: GPL-3.0
