@@ -77,12 +77,19 @@ if `endogcount' != 1 {
 tempname stage1b stage2b from
 qui regress `endog' `inst' `exog' `if'`in'
 mat `stage1b' = e(b)
-tempvar stage1res
-qui predict `stage1res' `if'`in', residuals
+cap ds residuals
+if _rc == 0 {
+	local residualsreplace 1
+	tempvar residuals
+	qui gen `residuals' = residuals
+	qui drop residuals
+}
+else local residualsreplace 0
+qui predict residuals `if'`in', residuals
 
 if "`link'" == "identity" {
 	// fit stage 2 linear regression to obtain initial values
-	qui regress `lhs' `endog' `stage1res' `exog' `if'`in'
+	qui regress `lhs' `endog' residuals `exog' `if'`in'
 	mat `stage2b' = e(b)
 	mat `from' = (`stage1b', `stage2b')
 
@@ -95,7 +102,7 @@ if "`link'" == "identity" {
 			(`lhs' - ({b1}*`endog' + {b2}*(`endog' - ({s1xb:}) - {a0}) `s2exogexpr' + {b0})) ///
 			`if'`in', ///
 			instruments(1:`inst' `exog') ///
-			instruments(2:`endog' `stage1res' `exog') ///
+			instruments(2:`endog' residuals `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
 			`options' nolog onestep
@@ -105,7 +112,7 @@ if "`link'" == "identity" {
 if "`link'" == "logadd" {
 	// fit stage 2 poisson regression to obtain initial values
 	// nb. for binary should be log-binomial regression, but poisson possibly safer if multi-category outcome
-	qui glm `lhs' `endog' `stage1res' `exog' `if'`in', family(poisson) link(log)
+	qui glm `lhs' `endog' residuals `exog' `if'`in', family(poisson) link(log)
 	mat `stage2b' = e(b)
 	mat `from' = (`stage1b', `stage2b')
 
@@ -118,7 +125,7 @@ if "`link'" == "logadd" {
 			(`lhs' - exp({b1}*`endog' + {b2}*(`endog' - ({s1xb:}) - {a0}) `s2exogexpr' + {b0})) ///
 			`if'`in', ///
 			instruments(1:`inst' `exog') ///
-			instruments(2:`endog' `stage1res' `exog') ///
+			instruments(2:`endog' residuals `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
 			`options' nolog onestep
@@ -127,7 +134,7 @@ if "`link'" == "logadd" {
 
 if "`link'" == "logmult" {
 	// fit stage 2 gamma regression to obtain initial values
-	qui glm `lhs' `endog' `stage1res' `exog' `if'`in', family(gamma) link(log)
+	qui glm `lhs' `endog' residuals `exog' `if'`in', family(gamma) link(log)
 	mat `stage2b' = e(b)
 	mat `from' = (`stage1b', `stage2b')
 
@@ -140,7 +147,7 @@ if "`link'" == "logmult" {
 			(`lhs' * exp(-1 * ({b1}*`endog' + {b2}*(`endog' - ({s1xb:} + {a0})) `s2exogexpr' + {b0})) - 1) ///
 			`if'`in', ///
 			instruments(1:`inst' `exog') ///
-			instruments(2:`endog' `stage1res' `exog') ///
+			instruments(2:`endog' residuals `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
 			`options' nolog onestep
@@ -149,7 +156,7 @@ if "`link'" == "logmult" {
 
 if "`link'" == "logit" {
 	// fit stage 2 logistic regression to obtain initial values
-	qui logit `lhs' `endog' `stage1res' `exog' `if'`in'
+	qui logit `lhs' `endog' residuals `exog' `if'`in'
 	mat `stage2b' = e(b)
 	mat `from' = (`stage1b', `stage2b')
 
@@ -162,12 +169,14 @@ if "`link'" == "logit" {
 			(`lhs' - invlogit({b1}*`endog' + {b2}*(`endog' - ({s1xb:}) - {a0}) `s2exogexpr' + {b0})) ///
 			`if'`in', ///
 			instruments(1:`inst' `exog') ///
-			instruments(2:`endog' `stage1res' `exog') ///
+			instruments(2:`endog' residuals `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
 			`options' nolog onestep
 	}
 }
+
+if `residualsreplace' == 1 qui replace residuals = `residuals'
 
 ereturn local link `link'
 ereturn local estonly `estonly'
