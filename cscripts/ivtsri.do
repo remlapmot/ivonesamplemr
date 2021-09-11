@@ -34,6 +34,10 @@ assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
 assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
 assert abs((_b[b2:_cons] / _se[b2:_cons])^2 - scalar(endogteststat)) < 1e0
 
+ivtsri y (x = z1 z2 z3), onestep
+assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
+
 ivregress gmm y (x = z1 z2 z3) if _n <= 50
 scalar bx2 = _b[x]
 scalar sx2 = _se[x]
