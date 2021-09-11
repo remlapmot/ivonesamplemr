@@ -102,15 +102,32 @@ assert abs(b[1,1] - scalar(larr1)) < 1e-2
 // logmult link
 
 cap noi {
+ivpoisson cfunction y (x = z1 z2 z3), nolog
+scalar lmrr1 = _b[x]
+scalar selmrr1 = _se[x]
 ivtsri y (x = z1 z2 z3), link(logmult)
 ivtsri
+assert abs(_b[b1:_cons] - scalar(lmrr1)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selmrr1)) < 1e-2
 
+ivpoisson cfunction y (x = z1 z2 z3) if _n <= 250, nolog
+scalar lmrr2 = _b[x]
+scalar selmrr2 = _se[x]
 ivtsri y (x = z1 z2 z3) if _n <= 250, link(logmult)
+assert abs(_b[b1:_cons] - scalar(lmrr2)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selmrr2)) < 1e-2
 
+ivpoisson cfunction y (x = z1 z2 z3), nolog
+scalar lmrr3 = _b[x]
+scalar selmrr3 = _se[x]
 ivtsri y w (x = z1 z2 z3), link(logmult)
+assert abs(_b[b1:_cons] - scalar(lmrr3)) < 1e-2
+assert abs(_se[b1:_cons] - scalar(selmrr3)) < 1e-2
 
 ivtsri y (x = z1 z2 z3), link(logmult) estonly
 ivtsri
+mat b = e(b)
+assert abs(b[1,1] - scalar(lmrr1)) < 1e-2
 }
 
 // logit link
