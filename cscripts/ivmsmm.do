@@ -27,6 +27,7 @@ ivpoisson, irr
 
 ivmsmm y (x = z1 z2 z3)
 assert abs(_b[x] - .297) < 1e-3
+cap noi estat overid
 ivpoisson, irr
 
 estat overid
