@@ -30,7 +30,11 @@ assert abs(_b[x] - .297) < 1e-3
 cap noi estat overid
 ivpoisson, irr
 
+// overid test
 estat overid
+assert abs(r(J) - 1.161) < 1e-3
+assert r(J_df) == 2
+assert abs(r(J_p) - .56) < 1e-2
 
 // ivpoisson helpfile
 webuse trip, clear
