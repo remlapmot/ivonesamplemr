@@ -1,7 +1,12 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 # Linguist settings for Languages stats
+*.html linguist-vendored
+*.csv linguist-vendored
+*.svg linguist-vendored
 *.ihlp linguist-language=Stata
 *.toc linguist-language=Stata
 *.pkg linguist-language=Stata
 *.log linguist-language=Stata
+*.smcl linguist-language=Stata
+*.stmd linguist-language=Markdown
