@@ -2,7 +2,7 @@
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  11 Sep 2021, 17:43:48
+ opened on:  11 Sep 2021, 19:16:31
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -96,7 +96,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
          /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk difference for: b1
 
@@ -183,7 +183,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =         50
          /b0 |   .2434077   .0653369     3.73   0.000     .1153498    .3714656
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk difference for: b1
 
@@ -224,7 +224,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
          /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk difference for: b1
 
@@ -290,7 +290,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
          /b0 |   .2867508   .0150764    19.02   0.000     .2572016       .3163
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: __000004 w _cons
+Instruments for equation 2: predicted w _cons
 
 Causal risk difference for: b1
 
@@ -312,7 +312,7 @@ Causal risk difference for: b1
 ------------------------------------------------------------------------------
            y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .1070019   .0093533    11.44   0.000      .088661    .1253429
+   predicted |   .1070019   .0093533    11.44   0.000      .088661    .1253429
        _cons |   .2879917   .0196508    14.66   0.000     .2494581    .3265252
 ------------------------------------------------------------------------------
 
@@ -321,7 +321,7 @@ Causal risk difference for: b1
 ------------------------------------------------------------------------------
            y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .1070019   .0093533    11.44   0.000      .088661    .1253429
+   predicted |   .1070019   .0093533    11.44   0.000      .088661    .1253429
        _cons |   .2879917   .0196508    14.66   0.000     .2494581    .3265252
 ------------------------------------------------------------------------------
 
@@ -332,18 +332,9 @@ Causal risk difference for: b1
 . 
 . // logadd link
 . 
-. ivpoisson gmm y (x = z1 z2 z3), add
+. ivpoisson gmm y (x = z1 z2 z3), add nolog
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  .27965686  
-Iteration 1:   GMM criterion Q(b) =  .00190861  
-Iteration 2:   GMM criterion Q(b) =  .00009051  
-Iteration 3:   GMM criterion Q(b) =  .00007696  
-Iteration 4:   GMM criterion Q(b) =  .00007696  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  .00046837  
-Iteration 1:   GMM criterion Q(b) =  .00046836  
+Final GMM criterion Q(b) =  .0004684
 
 Exponential mean model with endogenous regressors
 
@@ -390,7 +381,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
          /b0 |  -1.141337   .0389282   -29.32   0.000    -1.217634   -1.065039
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk ratio for: b1
 
@@ -431,19 +422,9 @@ Causal risk ratio for: b1
 . assert abs(_se[b1:_cons] - scalar(selrr1)) < 1e-2
 
 . 
-. ivpoisson gmm y (x = z1 z2 z3) if _n <= 200, add
+. ivpoisson gmm y (x = z1 z2 z3) if _n <= 200, add nolog
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  .24179605  
-Iteration 1:   GMM criterion Q(b) =  .00301375  
-Iteration 2:   GMM criterion Q(b) =  .00201683  
-Iteration 3:   GMM criterion Q(b) =  .00201188  
-Iteration 4:   GMM criterion Q(b) =  .00201188  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =   .0136514  
-Iteration 1:   GMM criterion Q(b) =  .01363511  
-Iteration 2:   GMM criterion Q(b) =  .01363511  
+Final GMM criterion Q(b) =  .0136351
 
 Exponential mean model with endogenous regressors
 
@@ -490,7 +471,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        200
          /b0 |  -1.050832   .1150838    -9.13   0.000    -1.276393   -.8252724
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk ratio for: b1
 
@@ -507,19 +488,9 @@ Causal risk ratio for: b1
 . assert abs(_se[b1:_cons] - scalar(selrr2)) < 1e-2
 
 . 
-. ivpoisson gmm y w (x = z1 z2 z3), add
+. ivpoisson gmm y w (x = z1 z2 z3), add nolog
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  .32815251  
-Iteration 1:   GMM criterion Q(b) =  .00341387  
-Iteration 2:   GMM criterion Q(b) =  .00010712  
-Iteration 3:   GMM criterion Q(b) =  .00009085  
-Iteration 4:   GMM criterion Q(b) =  .00009085  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  .00053142  
-Iteration 1:   GMM criterion Q(b) =  .00053103  
-Iteration 2:   GMM criterion Q(b) =  .00053103  
+Final GMM criterion Q(b) =   .000531
 
 Exponential mean model with endogenous regressors
 
@@ -569,7 +540,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
          /b0 |   -1.23406    .039312   -31.39   0.000     -1.31111    -1.15701
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: __000004 w _cons
+Instruments for equation 2: predicted w _cons
 
 Causal risk ratio for: b1
 
@@ -592,7 +563,7 @@ Causal risk ratio for: b1
              |                 OIM
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .2130699   .0266058     8.01   0.000     .1609235    .2652164
+   predicted |   .2130699   .0266058     8.01   0.000     .1609235    .2652164
        _cons |  -1.141337   .0620139   -18.40   0.000    -1.262881   -1.019792
 ------------------------------------------------------------------------------
 
@@ -602,7 +573,7 @@ Causal risk ratio for: b1
              |                 OIM
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .2130699   .0266058     8.01   0.000     .1609235    .2652164
+   predicted |   .2130699   .0266058     8.01   0.000     .1609235    .2652164
        _cons |  -1.141337   .0620139   -18.40   0.000    -1.262881   -1.019792
 ------------------------------------------------------------------------------
 
@@ -614,7 +585,6 @@ Causal risk ratio for: b1
 . // logmult link
 . 
 . cap noi drop pred
-variable pred not found
 
 . regress x z1 z2 z3
 
@@ -637,13 +607,7 @@ variable pred not found
 . predict pred
 (option xb assumed; fitted values)
 
-. glm y pred, family(gamma) link(log)
-
-Iteration 0:   log likelihood = -948.97095  
-Iteration 1:   log likelihood = -617.96862  
-Iteration 2:   log likelihood = -615.50192  
-Iteration 3:   log likelihood = -615.50053  
-Iteration 4:   log likelihood = -615.50053  
+. glm y pred, family(gamma) link(log) nolog
 
 Generalized linear models                         Number of obs   =      2,500
 Optimization     : ML                             Residual df     =      2,498
@@ -693,7 +657,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
          /b0 |  -1.159476   .0439471   -26.38   0.000    -1.245611   -1.073341
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk ratio for: b1
 
@@ -758,13 +722,7 @@ Causal risk ratio for: b1
 (option xb assumed; fitted values)
 (2,250 missing values generated)
 
-. glm y pred if _n <= 250, family(gamma) link(log)
-
-Iteration 0:   log likelihood = -106.31205  
-Iteration 1:   log likelihood = -77.771023  
-Iteration 2:   log likelihood = -77.539585  
-Iteration 3:   log likelihood = -77.539456  
-Iteration 4:   log likelihood = -77.539456  
+. glm y pred if _n <= 250, family(gamma) link(log) nolog
 
 Generalized linear models                         Number of obs   =        250
 Optimization     : ML                             Residual df     =        248
@@ -814,7 +772,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        250
          /b0 |  -1.054149   .1263154    -8.35   0.000    -1.301723   -.8065755
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk ratio for: b1
 
@@ -855,13 +813,7 @@ Causal risk ratio for: b1
 . predict pred
 (option xb assumed; fitted values)
 
-. glm y pred w, family(gamma) link(log)
-
-Iteration 0:   log likelihood = -388.72139  
-Iteration 1:   log likelihood = -231.43666  
-Iteration 2:   log likelihood = -230.68042  
-Iteration 3:   log likelihood = -230.68016  
-Iteration 4:   log likelihood = -230.68016  
+. glm y pred w, family(gamma) link(log) nolog
 
 Generalized linear models                         Number of obs   =      2,500
 Optimization     : ML                             Residual df     =      2,497
@@ -914,7 +866,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
          /b0 |  -1.481904   .0640343   -23.14   0.000    -1.607409   -1.356399
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: __000004 w _cons
+Instruments for equation 2: predicted w _cons
 
 Causal risk ratio for: b1
 
@@ -937,7 +889,7 @@ Causal risk ratio for: b1
              |                 OIM
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .2223683   .0212175    10.48   0.000     .1807828    .2639537
+   predicted |   .2223683   .0212175    10.48   0.000     .1807828    .2639537
        _cons |  -1.159476   .0443907   -26.12   0.000     -1.24648   -1.072472
 ------------------------------------------------------------------------------
 
@@ -947,7 +899,7 @@ Causal risk ratio for: b1
              |                 OIM
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .2223683   .0212175    10.48   0.000     .1807828    .2639537
+   predicted |   .2223683   .0212175    10.48   0.000     .1807828    .2639537
        _cons |  -1.159476   .0443907   -26.12   0.000     -1.24648   -1.072472
 ------------------------------------------------------------------------------
 
@@ -981,12 +933,7 @@ Causal risk ratio for: b1
 . predict pred
 (option xb assumed; fitted values)
 
-. logit y pred
-
-Iteration 0:   log likelihood = -1731.4565  
-Iteration 1:   log likelihood = -1667.9285  
-Iteration 2:   log likelihood = -1667.8059  
-Iteration 3:   log likelihood = -1667.8059  
+. logit y pred, nolog
 
 Logistic regression                             Number of obs     =      2,500
                                                 LR chi2(1)        =     127.30
@@ -1028,7 +975,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
          /b0 |  -.8868145   .0715273   -12.40   0.000    -1.027006   -.7466235
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal odds ratio for: b1
 
@@ -1093,12 +1040,7 @@ Causal odds ratio for: b1
 (option xb assumed; fitted values)
 (2,400 missing values generated)
 
-. logit y pred if _n <= 100
-
-Iteration 0:   log likelihood = -69.294717  
-Iteration 1:   log likelihood = -65.243608  
-Iteration 2:   log likelihood = -65.239728  
-Iteration 3:   log likelihood = -65.239727  
+. logit y pred if _n <= 100, nolog
 
 Logistic regression                             Number of obs     =        100
                                                 LR chi2(1)        =       8.11
@@ -1140,7 +1082,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        100
          /b0 |  -.9312614    .276238    -3.37   0.001    -1.472678   -.3898448
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal odds ratio for: b1
 
@@ -1181,12 +1123,7 @@ Causal odds ratio for: b1
 . predict pred
 (option xb assumed; fitted values)
 
-. logit y w pred
-
-Iteration 0:   log likelihood = -1731.4565  
-Iteration 1:   log likelihood = -1378.2309  
-Iteration 2:   log likelihood = -1378.1819  
-Iteration 3:   log likelihood = -1378.1819  
+. logit y w pred, nolog
 
 Logistic regression                             Number of obs     =      2,500
                                                 LR chi2(2)        =     706.55
@@ -1231,7 +1168,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
          /b0 |  -1.149458   .0870355   -13.21   0.000    -1.320045   -.9788718
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: __000004 w _cons
+Instruments for equation 2: predicted w _cons
 
 Causal odds ratio for: b1
 
@@ -1253,7 +1190,7 @@ Causal odds ratio for: b1
 ------------------------------------------------------------------------------
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .4488332   .0412018    10.89   0.000     .3680791    .5295873
+   predicted |   .4488332   .0412018    10.89   0.000     .3680791    .5295873
        _cons |  -.8868145   .0855778   -10.36   0.000    -1.054544   -.7190852
 ------------------------------------------------------------------------------
 
@@ -1262,7 +1199,7 @@ Causal odds ratio for: b1
 ------------------------------------------------------------------------------
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .4488332   .0412018    10.89   0.000     .3680791    .5295873
+   predicted |   .4488332   .0412018    10.89   0.000     .3680791    .5295873
        _cons |  -.8868145   .0855778   -10.36   0.000    -1.054544   -.7190852
 ------------------------------------------------------------------------------
 
@@ -1278,9 +1215,226 @@ Currently, only 1 endogenous variable is allowed
 invalid syntax
 
 . 
+. // preditced varname test
+. 
+. cap noi drop predicted
+
+. regress x z1 z2 z3
+
+      Source |       SS           df       MS      Number of obs   =     2,500
+-------------+----------------------------------   F(3, 2496)      =    309.62
+       Model |  2714.52663         3   904.84221   Prob > F        =    0.0000
+    Residual |  7294.43352     2,496  2.92244933   R-squared       =    0.2712
+-------------+----------------------------------   Adj R-squared   =    0.2703
+       Total |  10008.9602     2,499  4.00518614   Root MSE        =    1.7095
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9945859   .0609026    16.33   0.000     .8751611    1.114011
+          z2 |   .9540576   .0528847    18.04   0.000     .8503552     1.05776
+          z3 |   .9554229    .050013    19.10   0.000     .8573517    1.053494
+       _cons |   .0842244   .0669462     1.26   0.208    -.0470513    .2155001
+------------------------------------------------------------------------------
+
+. predict predicted
+(option xb assumed; fitted values)
+
+. regress y predicted
+
+      Source |       SS           df       MS      Number of obs   =     2,500
+-------------+----------------------------------   F(1, 2498)      =    130.88
+       Model |  31.0797477         1  31.0797477   Prob > F        =    0.0000
+    Residual |  593.214652     2,498  .237475842   R-squared       =    0.0498
+-------------+----------------------------------   Adj R-squared   =    0.0494
+       Total |    624.2944     2,499  .249817687   Root MSE        =    .48731
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   predicted |   .1070019   .0093533    11.44   0.000      .088661    .1253429
+       _cons |   .2879917   .0196508    14.66   0.000     .2494581    .3265252
+------------------------------------------------------------------------------
+
+. scalar bx4 = _b[predicted]
+
+. replace predicted = _n in 1/3
+(3 real changes made)
+
+. list predicted in 1/5
+
+     +----------+
+     | predic~d |
+     |----------|
+  1. |        1 |
+  2. |        2 |
+  3. |        3 |
+  4. | 1.038282 |
+  5. | 1.038282 |
+     +----------+
+
+. ivtsps y (x = z1 z2 z3)
+
+Final GMM criterion Q(b) =  7.34e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   6
+Number of moments    =   6
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+         /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: predicted _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+------------------------------------------------------------------------------
+
+. assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
+
+. list predicted in 1/5
+
+     +----------+
+     | predic~d |
+     |----------|
+  1. |        1 |
+  2. |        2 |
+  3. |        3 |
+  4. | 1.038282 |
+  5. | 1.038282 |
+     +----------+
+
+. 
+. cap noi drop predicted
+
+. regress x z1 z2 z3 in 101/200
+
+      Source |       SS           df       MS      Number of obs   =       100
+-------------+----------------------------------   F(3, 96)        =     14.95
+       Model |  111.112814         3  37.0376048   Prob > F        =    0.0000
+    Residual |   237.89687        96   2.4780924   R-squared       =    0.3184
+-------------+----------------------------------   Adj R-squared   =    0.2971
+       Total |  349.009685        99  3.52535035   Root MSE        =    1.5742
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |    .969467   .2557025     3.79   0.000     .4619016    1.477032
+          z2 |   .7058939   .2623521     2.69   0.008     .1851291    1.226659
+          z3 |   1.322028    .243232     5.44   0.000     .8392159    1.804839
+       _cons |    .133577   .3190074     0.42   0.676    -.4996476    .7668016
+------------------------------------------------------------------------------
+
+. predict predicted in 101/200
+(option xb assumed; fitted values)
+(2,400 missing values generated)
+
+. regress y predicted in 101/200
+
+      Source |       SS           df       MS      Number of obs   =       100
+-------------+----------------------------------   F(1, 98)        =      3.47
+       Model |   .84312816         1   .84312816   Prob > F        =    0.0654
+    Residual |  23.7968718        98  .242825223   R-squared       =    0.0342
+-------------+----------------------------------   Adj R-squared   =    0.0244
+       Total |       24.64        99  .248888889   Root MSE        =    .49277
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   predicted |   .0871093   .0467482     1.86   0.065    -.0056609    .1798796
+       _cons |   .3906352   .1033901     3.78   0.000     .1854608    .5958095
+------------------------------------------------------------------------------
+
+. scalar bx4 = _b[predicted]
+
+. replace predicted = _n in 1/3
+(3 real changes made)
+
+. list predicted in 1/5
+
+     +----------+
+     | predic~d |
+     |----------|
+  1. |        1 |
+  2. |        2 |
+  3. |        3 |
+  4. |        . |
+  5. |        . |
+     +----------+
+
+. ivtsps y (x = z1 z2 z3) in 101/200
+
+Final GMM criterion Q(b) =  1.09e-32
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   6
+Number of moments    =   6
+Initial weight matrix: Unadjusted                 Number of obs   =        100
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |    .969467   .2259696     4.29   0.000     .5265747    1.412359
+    /s1xb_z2 |   .7058939   .2698506     2.62   0.009     .1769965    1.234791
+    /s1xb_z3 |   1.322028   .2210988     5.98   0.000     .8886818    1.755373
+         /a0 |    .133577   .3267649     0.41   0.683    -.5068705    .7740245
+         /b1 |   .0871093   .0350839     2.48   0.013     .0183461    .1558725
+         /b0 |   .3906352   .0815149     4.79   0.000     .2308689    .5504014
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: predicted _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0871093   .0350839     2.48   0.013     .0183461    .1558725
+------------------------------------------------------------------------------
+
+. assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
+
+. list predicted in 1/5
+
+     +----------+
+     | predic~d |
+     |----------|
+  1. |        1 |
+  2. |        2 |
+  3. |        3 |
+  4. |        . |
+  5. |        . |
+     +----------+
+
+. 
 end of do-file
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  11 Sep 2021, 17:43:50
+ closed on:  11 Sep 2021, 19:16:34
 -------------------------------------------------------------------------------
