@@ -30,6 +30,7 @@ ivtsps y (x = z1 z2 z3)
 ivtsps
 assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
 assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
+mat list r(table)
 
 ivregress gmm y (x = z1 z2 z3) if _n <= 50
 scalar bx2 = _b[x]
@@ -63,6 +64,7 @@ ivtsps y (x = z1 z2 z3), link(logadd)
 ivtsps
 assert abs(_b[b1:_cons] - scalar(lrr1)) < 1e-2
 assert abs(_se[b1:_cons] - scalar(selrr1)) < 1e-2
+mat list r(table)
 
 ivpoisson gmm y (x = z1 z2 z3) if _n <= 200, add nolog
 scalar lrr2 = _b[x]
@@ -95,6 +97,7 @@ ivtsps y (x = z1 z2 z3), link(logmult)
 ivtsps
 assert abs(_b[b1:_cons] - scalar(lmrr1)) < 1e-2
 assert abs(_se[b1:_cons] - scalar(selmrr1)) < 1e-2
+mat list r(table)
 
 cap noi drop pred
 regress x z1 z2 z3 if _n <= 250
@@ -133,6 +136,7 @@ ivtsps y (x = z1 z2 z3), link(logit)
 ivtsps
 assert abs(_b[b1:_cons] - scalar(lor1)) < 1e-2
 assert abs(_se[b1:_cons] - scalar(selor1)) < 1e-2
+mat list r(table)
 
 cap noi drop pred
 regress x z1 z2 z3 if _n <= 100
