@@ -2,7 +2,7 @@
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:08
+ opened on:  11 Sep 2021, 17:43:11
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -83,7 +83,7 @@ Instruments:   z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  3.73e-33
+Final GMM criterion Q(b) =  6.99e-33
 
 note: model is exactly identified
 
@@ -92,7 +92,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -171,58 +170,6 @@ Causal risk difference for: b2
 . assert abs((_b[b2:_cons] / _se[b2:_cons])^2 - scalar(endogteststat)) < 1e0
 
 . 
-. ivtsri y (x = z1 z2 z3), onestep
-
-Final GMM criterion Q(b) =  6.99e-33
-
-note: model is exactly identified
-
-GMM estimation 
-
-Number of parameters =   7
-Number of moments    =   7
-Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-
-------------------------------------------------------------------------------
-             |               Robust
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
-    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
-    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
-         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
-         /b1 |   .1070019   .0074424    14.38   0.000      .092415    .1215889
-         /b2 |   .0740544    .009023     8.21   0.000     .0563696    .0917393
-         /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
-------------------------------------------------------------------------------
-Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
-
-Causal risk difference for: b1
-
- ( 1)  [b1]_cons = 0
-
-------------------------------------------------------------------------------
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-         (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
-------------------------------------------------------------------------------
-
-Causal risk difference for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-         (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
-------------------------------------------------------------------------------
-
-. assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
-
-. assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
-
-. 
 . ivregress gmm y (x = z1 z2 z3) if _n <= 50
 
 Instrumental variables (GMM) regression           Number of obs   =         50
@@ -247,7 +194,7 @@ Instruments:   z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3) if _n <= 50
 
-Final GMM criterion Q(b) =  1.81e-33
+Final GMM criterion Q(b) =  1.43e-33
 
 note: model is exactly identified
 
@@ -256,7 +203,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =         50
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -300,7 +246,7 @@ Causal risk difference for: b2
 . 
 . ivtsri y (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  3.73e-33
+Final GMM criterion Q(b) =  6.99e-33
 
 note: model is exactly identified
 
@@ -309,7 +255,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -376,7 +321,7 @@ Instruments:   w z1 z2 z3
 
 . ivtsri y w (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  4.63e-33
+Final GMM criterion Q(b) =  1.29e-32
 
 note: model is exactly identified
 
@@ -385,7 +330,6 @@ GMM estimation
 Number of parameters =   9
 Number of moments    =   9
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -503,7 +447,7 @@ Log likelihood = -1810.4754                     Pseudo R2         =     0.1323
 
 . ivtsri y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  6.95e-33
+Final GMM criterion Q(b) =  1.10e-32
 
 note: model is exactly identified
 
@@ -512,7 +456,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -637,7 +580,7 @@ Log likelihood = -151.21931                     Pseudo R2         =     0.1242
 
 . ivtsri y (x = z1 z2 z3) if _n <= 200, link(logadd)
 
-Final GMM criterion Q(b) =  8.12e-33
+Final GMM criterion Q(b) =  1.19e-32
 
 note: model is exactly identified
 
@@ -646,7 +589,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =        200
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -736,7 +678,7 @@ Log likelihood = -1804.0989                     Pseudo R2         =     0.1354
 
 . ivtsri y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  3.27e-33
+Final GMM criterion Q(b) =  1.66e-32
 
 note: model is exactly identified
 
@@ -745,7 +687,6 @@ GMM estimation
 Number of parameters =   9
 Number of moments    =   9
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -856,7 +797,7 @@ Instruments:   z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  1.32e-32
+Final GMM criterion Q(b) =  2.70e-32
 
 note: model is exactly identified
 
@@ -865,7 +806,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -980,7 +920,7 @@ Instruments:   z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3) if _n <= 250, link(logmult)
 
-Final GMM criterion Q(b) =  3.34e-33
+Final GMM criterion Q(b) =  8.97e-33
 
 note: model is exactly identified
 
@@ -989,7 +929,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =        250
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1071,7 +1010,7 @@ Instruments:   w z1 z2 z3
 
 . ivtsri y w (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  4.68e-33
+Final GMM criterion Q(b) =  5.89e-32
 
 note: model is exactly identified
 
@@ -1080,7 +1019,6 @@ GMM estimation
 Number of parameters =   9
 Number of moments    =   9
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1202,7 +1140,7 @@ Log likelihood = -1000.3111                     Pseudo R2         =     0.4223
 
 . ivtsri y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  3.97e-33
+Final GMM criterion Q(b) =  6.85e-33
 
 note: model is exactly identified
 
@@ -1211,7 +1149,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1338,7 +1275,7 @@ Log likelihood = -31.040038                     Pseudo R2         =     0.5521
 
 . ivtsri y (x = z1 z2 z3) if _n <= 100, link(logit)
 
-Final GMM criterion Q(b) =  1.04e-32
+Final GMM criterion Q(b) =  2.27e-32
 
 note: model is exactly identified
 
@@ -1347,7 +1284,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =        100
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1440,7 +1376,7 @@ Log likelihood =  -969.8676                     Pseudo R2         =     0.4399
 
 . ivtsri y w (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  3.21e-33
+Final GMM criterion Q(b) =  1.29e-32
 
 note: model is exactly identified
 
@@ -1449,7 +1385,6 @@ GMM estimation
 Number of parameters =   9
 Number of moments    =   9
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1529,5 +1464,5 @@ end of do-file
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:12
+ closed on:  11 Sep 2021, 17:43:14
 -------------------------------------------------------------------------------
