@@ -162,3 +162,27 @@ assert abs(b[1,1] - scalar(lor1)) < 1e-2
 // check errors
 
 rcof "noi ivtsps y w (x1 x2 = z1 z2 z3)" == 198
+
+// preditced varname test
+
+cap noi drop predicted
+regress x z1 z2 z3
+predict predicted
+regress y predicted
+scalar bx4 = _b[predicted]
+replace predicted = _n in 1/3
+list predicted in 1/5
+ivtsps y (x = z1 z2 z3)
+assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
+list predicted in 1/5
+
+cap noi drop predicted
+regress x z1 z2 z3 in 101/200
+predict predicted in 101/200
+regress y predicted in 101/200
+scalar bx4 = _b[predicted]
+replace predicted = _n in 1/3
+list predicted in 1/5
+ivtsps y (x = z1 z2 z3) in 101/200
+assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
+list predicted in 1/5
