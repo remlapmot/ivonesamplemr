@@ -33,6 +33,7 @@ ivtsri
 assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
 assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
 assert abs((_b[b2:_cons] / _se[b2:_cons])^2 - scalar(endogteststat)) < 1e0
+mat list r(table)
 
 ivregress gmm y (x = z1 z2 z3) if _n <= 50
 scalar bx2 = _b[x]
@@ -69,6 +70,7 @@ ivtsri y (x = z1 z2 z3), link(logadd)
 ivtsri
 assert abs(_b[b1:_cons] - scalar(larr1)) < 1e-2
 assert abs(_se[b1:_cons] - scalar(selarr1)) < 1e-2
+mat list r(table)
 
 cap noi drop res
 regress x z1 z2 z3 if _n <= 200
@@ -104,6 +106,7 @@ ivtsri y (x = z1 z2 z3), link(logmult)
 ivtsri
 assert abs(_b[b1:_cons] - scalar(lmrr1)) < 1e-2
 assert abs(_se[b1:_cons] - scalar(selmrr1)) < 1e-2
+mat list r(table)
 
 ivpoisson cfunction y (x = z1 z2 z3) if _n <= 250, nolog
 scalar lmrr2 = _b[x]
@@ -136,6 +139,7 @@ ivtsri y (x = z1 z2 z3), link(logit)
 ivtsri
 assert abs(_b[b1:_cons] - scalar(lor1)) < 1e-2
 assert abs(_se[b1:_cons] - scalar(selor1)) < 1e-2
+mat list r(table)
 
 cap noi drop res
 regress x z1 z2 z3 if _n <= 100
