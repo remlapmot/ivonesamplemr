@@ -62,7 +62,7 @@ assert abs(b[1,1] - scalar(bx1)) < 1e-2
 cap noi drop res
 regress x z1 z2 z3
 predict double res, res
-poisson y x res
+poisson y x res, nolog
 scalar larr1 = _b[x]
 scalar selarr1 = _se[x]
 ivtsri y (x = z1 z2 z3), link(logadd)
@@ -73,7 +73,7 @@ assert abs(_se[b1:_cons] - scalar(selarr1)) < 1e-2
 cap noi drop res
 regress x z1 z2 z3 if _n <= 200
 predict double res if _n <= 200, res
-poisson y x res if _n <= 200
+poisson y x res if _n <= 200, nolog
 scalar larr2 = _b[x]
 scalar selarr2 = _se[x]
 ivtsri y (x = z1 z2 z3) if _n <= 200, link(logadd)
@@ -83,7 +83,7 @@ assert abs(_se[b1:_cons] - scalar(selarr2)) < 1e-1
 cap noi drop res
 regress x z1 z2 z3 w
 predict double res, res
-poisson y x res w
+poisson y x res w, nolog
 scalar larr3 = _b[x]
 scalar selarr3 = _se[x]
 ivtsri y w (x = z1 z2 z3), link(logadd)
@@ -129,7 +129,7 @@ assert abs(b[1,1] - scalar(lmrr1)) < 1e-2
 cap noi drop res
 regress x z1 z2 z3
 predict double res, res
-logit y x res
+logit y x res, nolog
 scalar lor1 = _b[x]
 scalar selor1 = _se[x]
 ivtsri y (x = z1 z2 z3), link(logit)
@@ -140,7 +140,7 @@ assert abs(_se[b1:_cons] - scalar(selor1)) < 1e-2
 cap noi drop res
 regress x z1 z2 z3 if _n <= 100
 predict double res if _n <= 100, res
-logit y x res if _n <= 100
+logit y x res if _n <= 100, nolog
 scalar lor2 = _b[x]
 scalar selor2 = _se[x]
 ivtsri y (x = z1 z2 z3) if _n <= 100, link(logit)
@@ -150,7 +150,7 @@ assert abs(_se[b1:_cons] - scalar(selor2)) < 5e-2
 cap noi drop res
 regress x z1 z2 z3 w
 predict double res, res
-logit y x res w
+logit y x res w, nolog
 scalar lor3 = _b[x]
 scalar selor3 = _se[x]
 ivtsri y w (x = z1 z2 z3), link(logit)
