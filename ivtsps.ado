@@ -137,7 +137,7 @@ if "`link'" == "logmult" {
 		}
 
 		gmm (`endog' - ({s1xb:`inst' `exog'}) - {a0}) ///
-			(`lhs' * exp(-1 * ({b1}*({s1xb:} + {a0}) `s2exogexpr' + {b0}))) ///
+			(`lhs' * exp(-1 * ({b1}*({s1xb:} + {a0}) `s2exogexpr' + {b0})) - 1) ///
 			`if'`in', ///
 			instruments(1:`inst' `exog') ///
 			instruments(2:`pred' `exog') ///
