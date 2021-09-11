@@ -2,7 +2,7 @@
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:01
+ opened on:  11 Sep 2021, 20:55:37
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -78,6 +78,13 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 w _cons
 Instruments for equation 2: z1 w _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(0) = 4.4e-27 (p =     .)
+
+Note: test cannot be performed because there are no
+      overidentifying restrictions.
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -142,6 +149,9 @@ Causal odds ratio for: w
 . eret list
 
 scalars:
+                  e(J) =  4.44363770968e-27
+                e(J_p) =  .
+               e(J_df) =  0
          e(k_eq_model) =  0
               e(k_aux) =  7
                e(k_eq) =  7
@@ -153,8 +163,6 @@ scalars:
           e(converged) =  1
                 e(k_2) =  7
                 e(k_1) =  4
-               e(J_df) =  0
-                  e(J) =  4.44363770968e-27
                   e(Q) =  1.77745508387e-30
                   e(N) =  2500
                e(rank) =  7
@@ -259,6 +267,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 z2 z3 w _cons
 Instruments for equation 2: z1 z2 z3 w _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 2.69532 (p = 0.2598)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -280,9 +292,6 @@ Causal odds ratio for: w
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - .89) < 1e-2
-
-. 
-. cap noi estat overid
 
 . 
 . // multiple endog variables
@@ -317,6 +326,10 @@ GMM weight matrix:     Robust
 ------------------------------------------------------------------------------
 Instruments for equation 1: x1 x2 z1 z2 z3 w _cons
 Instruments for equation 2: z1 z2 z3 w _cons
+
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(1) = 2.08312 (p = 0.1489)
 
 Causal odds ratio for: x1
 
@@ -391,6 +404,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 z2 z3 w _cons
 Instruments for equation 2: z1 z2 z3 w _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 2.69534 (p = 0.2598)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -443,6 +460,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 1.33962 (p = 0.5118)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -484,6 +505,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 1.33962 (p = 0.5118)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -500,7 +525,7 @@ Causal odds ratio for: x
 . // check `options'
 . discard
 
-. ivlsmm y (x = z1 z2 z3) if _n <= 100, nolog
+. ivlsmm y (x = z1 z2 z3) if _n <= 100
 
 Final GMM criterion Q(b) =  .0133962
 
@@ -526,6 +551,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 1.33962 (p = 0.5118)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -542,7 +571,7 @@ Causal odds ratio for: x
 . // amxb test
 . discard
 
-. ivlsmm y w (x = z1 z2 z3), amxb(x z1 z2 z3) nolog
+. ivlsmm y w (x = z1 z2 z3), amxb(x z1 z2 z3)
 
 Final GMM criterion Q(b) =  .0009336
 
@@ -568,6 +597,10 @@ GMM weight matrix:     Robust
 ------------------------------------------------------------------------------
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 w _cons
+
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) =  2.3341 (p = 0.3113)
 
 Causal odds ratio for: x
 
@@ -600,7 +633,7 @@ Causal odds ratio for: w
 
 . gen xz3 = x*z3
 
-. ivlsmm y w (x = z1 z2 z3), amxb(x w z1 z2 z3 xz1 xz2 xz3) nolog
+. ivlsmm y w (x = z1 z2 z3), amxb(x w z1 z2 z3 xz1 xz2 xz3)
 
 Final GMM criterion Q(b) =   .001119
 
@@ -631,6 +664,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x w z1 z2 z3 xz1 xz2 xz3 _cons
 Instruments for equation 2: z1 z2 z3 w _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 2.79747 (p = 0.2469)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -654,9 +691,57 @@ Causal odds ratio for: w
 . assert abs(_b[/cmxb_x] - .90) < 1e-2
 
 . 
+. // overid test
+. ivlsmm y (x = z1 z2 z3)
+
+Final GMM criterion Q(b) =  .0007528
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   9
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.424852   .0577536    24.67   0.000     1.311657    1.538047
+      /xb_z1 |  -.5607264   .0743176    -7.55   0.000    -.7063861   -.4150666
+      /xb_z2 |  -.5449099   .0661095    -8.24   0.000    -.6744822   -.4153376
+      /xb_z3 |  -.5506151   .0684751    -8.04   0.000    -.6848238   -.4164063
+         /b0 |  -1.726392   .1251155   -13.80   0.000    -1.971613    -1.48117
+     /cmxb_x |   .8547843   .0660029    12.95   0.000      .725421    .9841475
+        /ey0 |   .1938915    .023668     8.19   0.000      .147503      .24028
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 z2 z3 _cons
+Instruments for equation 2: z1 z2 z3 _cons
+
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 1.88188 (p = 0.3903)
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.350867   .1551639    12.95   0.000     2.065601     2.67553
+------------------------------------------------------------------------------
+
+. assert abs(e(J) - 1.882) < 1e-3
+
+. assert e(J_df) == 2
+
+. assert abs(e(J_p) - .39) < 1e-2
+
+. 
 end of do-file
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:03
+ closed on:  11 Sep 2021, 20:55:40
 -------------------------------------------------------------------------------
