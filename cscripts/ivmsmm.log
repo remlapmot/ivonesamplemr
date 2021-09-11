@@ -2,7 +2,7 @@
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:03
+ opened on:  11 Sep 2021, 20:55:40
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -146,11 +146,18 @@ Instrumented:  x
 Instruments:   z1 z2 z3
 
 . 
+. // overid test
 . estat overid
 
   Test of overidentifying restriction:
 
   Hansen's J chi2(2) = 1.16116 (p = 0.5596)
+
+. assert abs(r(J) - 1.161) < 1e-3
+
+. assert r(J_df) == 2
+
+. assert abs(r(J_p) - .56) < 1e-2
 
 . 
 . // ivpoisson helpfile
@@ -256,5 +263,5 @@ end of do-file
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:05
+ closed on:  11 Sep 2021, 20:55:42
 -------------------------------------------------------------------------------
