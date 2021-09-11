@@ -2,7 +2,7 @@
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  11 Sep 2021, 20:55:40
+ opened on:  12 Sep 2021, 00:30:22
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -93,6 +93,22 @@ GMM weight matrix:     Robust
 Note: _cons estimates baseline incidence rate.
 Instrumented:  x
 Instruments:   z1
+
+. 
+. mat list r(table)
+
+r(table)[9,2]
+                y:         y:
+                x      _cons
+     b   1.388086  .19420506
+    se  .08046243  .02874071
+     z  5.6571655  -11.07388
+pvalue  1.539e-08  1.680e-28
+    ll  1.2390112  .14530813
+    ul  1.5550971  .25955606
+    df          .          .
+  crit   1.959964   1.959964
+ eform          1          1
 
 . 
 . ivmsmm y (x = z1 z2 z3)
@@ -263,5 +279,5 @@ end of do-file
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  11 Sep 2021, 20:55:42
+ closed on:  12 Sep 2021, 00:30:24
 -------------------------------------------------------------------------------

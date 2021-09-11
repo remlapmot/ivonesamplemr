@@ -2,7 +2,7 @@
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:00
+ opened on:  12 Sep 2021, 00:30:18
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -74,6 +74,13 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 _cons
 Instruments for equation 2: z1 _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(0) = 3.4e-28 (p =     .)
+
+Note: test cannot be performed because there are no
+      overidentifying restrictions.
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -110,7 +117,7 @@ Instruments:   z1 z2 z3
 . 
 . iv tsps y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  7.16e-33
+Final GMM criterion Q(b) =  7.34e-33
 
 note: model is exactly identified
 
@@ -119,7 +126,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -133,7 +139,7 @@ GMM weight matrix:     Robust
          /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk difference for: b1
 
@@ -148,7 +154,7 @@ Causal risk difference for: b1
 . 
 . iv tsri y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  3.97e-33
+Final GMM criterion Q(b) =  6.85e-33
 
 note: model is exactly identified
 
@@ -157,7 +163,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -172,7 +177,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.675875    .133441   -12.56   0.000    -1.937415   -1.414336
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
+Instruments for equation 2: x residuals _cons
 
 Causal odds ratio for: b1
 
@@ -199,5 +204,5 @@ end of do-file
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:01
+ closed on:  12 Sep 2021, 00:30:19
 -------------------------------------------------------------------------------

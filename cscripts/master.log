@@ -2,7 +2,7 @@
       name:  master
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:00
+ opened on:  12 Sep 2021, 00:30:18
 
 . 
 . cscript master
@@ -30,7 +30,7 @@
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:00
+ opened on:  12 Sep 2021, 00:30:18
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -102,6 +102,13 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 _cons
 Instruments for equation 2: z1 _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(0) = 3.4e-28 (p =     .)
+
+Note: test cannot be performed because there are no
+      overidentifying restrictions.
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -138,7 +145,7 @@ Instruments:   z1 z2 z3
 . 
 . iv tsps y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  7.16e-33
+Final GMM criterion Q(b) =  7.34e-33
 
 note: model is exactly identified
 
@@ -147,7 +154,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -161,7 +167,7 @@ GMM weight matrix:     Robust
          /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk difference for: b1
 
@@ -176,7 +182,7 @@ Causal risk difference for: b1
 . 
 . iv tsri y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  3.97e-33
+Final GMM criterion Q(b) =  6.85e-33
 
 note: model is exactly identified
 
@@ -185,7 +191,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -200,7 +205,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.675875    .133441   -12.56   0.000    -1.937415   -1.414336
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
+Instruments for equation 2: x residuals _cons
 
 Causal odds ratio for: b1
 
@@ -227,13 +232,13 @@ end of do-file
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:01
+ closed on:  12 Sep 2021, 00:30:19
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:01
+ opened on:  12 Sep 2021, 00:30:19
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -309,6 +314,13 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 w _cons
 Instruments for equation 2: z1 w _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(0) = 4.4e-27 (p =     .)
+
+Note: test cannot be performed because there are no
+      overidentifying restrictions.
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -373,6 +385,9 @@ Causal odds ratio for: w
 . eret list
 
 scalars:
+                  e(J) =  4.44363770968e-27
+                e(J_p) =  .
+               e(J_df) =  0
          e(k_eq_model) =  0
               e(k_aux) =  7
                e(k_eq) =  7
@@ -384,8 +399,6 @@ scalars:
           e(converged) =  1
                 e(k_2) =  7
                 e(k_1) =  4
-               e(J_df) =  0
-                  e(J) =  4.44363770968e-27
                   e(Q) =  1.77745508387e-30
                   e(N) =  2500
                e(rank) =  7
@@ -490,6 +503,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 z2 z3 w _cons
 Instruments for equation 2: z1 z2 z3 w _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 2.69532 (p = 0.2598)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -511,9 +528,6 @@ Causal odds ratio for: w
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - .89) < 1e-2
-
-. 
-. cap noi estat overid
 
 . 
 . // multiple endog variables
@@ -548,6 +562,10 @@ GMM weight matrix:     Robust
 ------------------------------------------------------------------------------
 Instruments for equation 1: x1 x2 z1 z2 z3 w _cons
 Instruments for equation 2: z1 z2 z3 w _cons
+
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(1) = 2.08312 (p = 0.1489)
 
 Causal odds ratio for: x1
 
@@ -622,6 +640,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 z2 z3 w _cons
 Instruments for equation 2: z1 z2 z3 w _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 2.69534 (p = 0.2598)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -674,6 +696,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 1.33962 (p = 0.5118)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -715,6 +741,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 1.33962 (p = 0.5118)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -731,7 +761,7 @@ Causal odds ratio for: x
 . // check `options'
 . discard
 
-. ivlsmm y (x = z1 z2 z3) if _n <= 100, nolog
+. ivlsmm y (x = z1 z2 z3) if _n <= 100
 
 Final GMM criterion Q(b) =  .0133962
 
@@ -757,6 +787,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 1.33962 (p = 0.5118)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -773,7 +807,7 @@ Causal odds ratio for: x
 . // amxb test
 . discard
 
-. ivlsmm y w (x = z1 z2 z3), amxb(x z1 z2 z3) nolog
+. ivlsmm y w (x = z1 z2 z3), amxb(x z1 z2 z3)
 
 Final GMM criterion Q(b) =  .0009336
 
@@ -799,6 +833,10 @@ GMM weight matrix:     Robust
 ------------------------------------------------------------------------------
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 w _cons
+
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) =  2.3341 (p = 0.3113)
 
 Causal odds ratio for: x
 
@@ -831,7 +869,7 @@ Causal odds ratio for: w
 
 . gen xz3 = x*z3
 
-. ivlsmm y w (x = z1 z2 z3), amxb(x w z1 z2 z3 xz1 xz2 xz3) nolog
+. ivlsmm y w (x = z1 z2 z3), amxb(x w z1 z2 z3 xz1 xz2 xz3)
 
 Final GMM criterion Q(b) =   .001119
 
@@ -862,6 +900,10 @@ GMM weight matrix:     Robust
 Instruments for equation 1: x w z1 z2 z3 xz1 xz2 xz3 _cons
 Instruments for equation 2: z1 z2 z3 w _cons
 
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 2.79747 (p = 0.2469)
+
 Causal odds ratio for: x
 
  ( 1)  [cmxb_x]_cons = 0
@@ -885,17 +927,65 @@ Causal odds ratio for: w
 . assert abs(_b[/cmxb_x] - .90) < 1e-2
 
 . 
+. // overid test
+. ivlsmm y (x = z1 z2 z3)
+
+Final GMM criterion Q(b) =  .0007528
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   9
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.424852   .0577536    24.67   0.000     1.311657    1.538047
+      /xb_z1 |  -.5607264   .0743176    -7.55   0.000    -.7063861   -.4150666
+      /xb_z2 |  -.5449099   .0661095    -8.24   0.000    -.6744822   -.4153376
+      /xb_z3 |  -.5506151   .0684751    -8.04   0.000    -.6848238   -.4164063
+         /b0 |  -1.726392   .1251155   -13.80   0.000    -1.971613    -1.48117
+     /cmxb_x |   .8547843   .0660029    12.95   0.000      .725421    .9841475
+        /ey0 |   .1938915    .023668     8.19   0.000      .147503      .24028
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 z2 z3 _cons
+Instruments for equation 2: z1 z2 z3 _cons
+
+  Test of overidentifying restriction:
+
+  Hansen's J chi2(2) = 1.88188 (p = 0.3903)
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.350867   .1551639    12.95   0.000     2.065601     2.67553
+------------------------------------------------------------------------------
+
+. assert abs(e(J) - 1.882) < 1e-3
+
+. assert e(J_df) == 2
+
+. assert abs(e(J_p) - .39) < 1e-2
+
+. 
 end of do-file
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:03
+ closed on:  12 Sep 2021, 00:30:22
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:03
+ opened on:  12 Sep 2021, 00:30:22
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -988,6 +1078,22 @@ Instrumented:  x
 Instruments:   z1
 
 . 
+. mat list r(table)
+
+r(table)[9,2]
+                y:         y:
+                x      _cons
+     b   1.388086  .19420506
+    se  .08046243  .02874071
+     z  5.6571655  -11.07388
+pvalue  1.539e-08  1.680e-28
+    ll  1.2390112  .14530813
+    ul  1.5550971  .25955606
+    df          .          .
+  crit   1.959964   1.959964
+ eform          1          1
+
+. 
 . ivmsmm y (x = z1 z2 z3)
 
 Final GMM criterion Q(b) =  .0004645
@@ -1039,11 +1145,18 @@ Instrumented:  x
 Instruments:   z1 z2 z3
 
 . 
+. // overid test
 . estat overid
 
   Test of overidentifying restriction:
 
   Hansen's J chi2(2) = 1.16116 (p = 0.5596)
+
+. assert abs(r(J) - 1.161) < 1e-3
+
+. assert r(J_df) == 2
+
+. assert abs(r(J_p) - .56) < 1e-2
 
 . 
 . // ivpoisson helpfile
@@ -1149,13 +1262,13 @@ end of do-file
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:05
+ closed on:  12 Sep 2021, 00:30:24
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:05
+ opened on:  12 Sep 2021, 00:30:24
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -1227,7 +1340,7 @@ Instruments:   z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  7.16e-33
+Final GMM criterion Q(b) =  7.34e-33
 
 note: model is exactly identified
 
@@ -1236,7 +1349,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1250,7 +1362,7 @@ GMM weight matrix:     Robust
          /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk difference for: b1
 
@@ -1290,6 +1402,21 @@ Causal risk difference for: b1
 
 . assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
 
+. mat list r(table)
+
+r(table)[9,6]
+           s1xb_z1:    s1xb_z2:    s1xb_z3:         a0:         b1:         b0:
+             _cons       _cons       _cons       _cons       _cons       _cons
+     b   .99458587   .95405762   .95542294    .0842244   .10700195   .28799166
+    se   .06148771   .05255718   .04950525   .06759281   .00744244    .0157401
+     z    16.17536   18.152756   19.299427   1.2460557   14.377259    18.29668
+pvalue   7.526e-59   1.221e-73   5.431e-83   .21274396   7.189e-47   8.795e-75
+    ll   .87407217   .85104744   .85839444  -.04825507   .09241503   .25714162
+    ul   1.1150996   1.0570678   1.0524514   .21670387   .12158887   .31884169
+    df           .           .           .           .           .           .
+  crit    1.959964    1.959964    1.959964    1.959964    1.959964    1.959964
+ eform           0           0           0           0           0           0
+
 . 
 . ivregress gmm y (x = z1 z2 z3) if _n <= 50
 
@@ -1315,7 +1442,7 @@ Instruments:   z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3) if _n <= 50
 
-Final GMM criterion Q(b) =  1.76e-33
+Final GMM criterion Q(b) =  2.31e-33
 
 note: model is exactly identified
 
@@ -1324,7 +1451,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =         50
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1338,7 +1464,7 @@ GMM weight matrix:     Robust
          /b0 |   .2434077   .0653369     3.73   0.000     .1153498    .3714656
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk difference for: b1
 
@@ -1357,7 +1483,7 @@ Causal risk difference for: b1
 . 
 . ivtsps y (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  7.16e-33
+Final GMM criterion Q(b) =  7.34e-33
 
 note: model is exactly identified
 
@@ -1366,7 +1492,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1380,7 +1505,7 @@ GMM weight matrix:     Robust
          /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk difference for: b1
 
@@ -1422,7 +1547,7 @@ Instruments:   w z1 z2 z3
 
 . ivtsps y w (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  3.04e-33
+Final GMM criterion Q(b) =  1.30e-32
 
 note: model is exactly identified
 
@@ -1431,7 +1556,6 @@ GMM estimation
 Number of parameters =   8
 Number of moments    =   8
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1447,7 +1571,7 @@ GMM weight matrix:     Robust
          /b0 |   .2867508   .0150764    19.02   0.000     .2572016       .3163
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: __000004 w _cons
+Instruments for equation 2: predicted w _cons
 
 Causal risk difference for: b1
 
@@ -1469,7 +1593,7 @@ Causal risk difference for: b1
 ------------------------------------------------------------------------------
            y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .1070019   .0093533    11.44   0.000      .088661    .1253429
+   predicted |   .1070019   .0093533    11.44   0.000      .088661    .1253429
        _cons |   .2879917   .0196508    14.66   0.000     .2494581    .3265252
 ------------------------------------------------------------------------------
 
@@ -1478,7 +1602,7 @@ Causal risk difference for: b1
 ------------------------------------------------------------------------------
            y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .1070019   .0093533    11.44   0.000      .088661    .1253429
+   predicted |   .1070019   .0093533    11.44   0.000      .088661    .1253429
        _cons |   .2879917   .0196508    14.66   0.000     .2494581    .3265252
 ------------------------------------------------------------------------------
 
@@ -1489,18 +1613,9 @@ Causal risk difference for: b1
 . 
 . // logadd link
 . 
-. ivpoisson gmm y (x = z1 z2 z3), add
+. ivpoisson gmm y (x = z1 z2 z3), add nolog
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  .27965686  
-Iteration 1:   GMM criterion Q(b) =  .00190861  
-Iteration 2:   GMM criterion Q(b) =  .00009051  
-Iteration 3:   GMM criterion Q(b) =  .00007696  
-Iteration 4:   GMM criterion Q(b) =  .00007696  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  .00046837  
-Iteration 1:   GMM criterion Q(b) =  .00046836  
+Final GMM criterion Q(b) =  .0004684
 
 Exponential mean model with endogenous regressors
 
@@ -1525,7 +1640,7 @@ Instruments:   z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  6.23e-33
+Final GMM criterion Q(b) =  7.54e-33
 
 note: model is exactly identified
 
@@ -1534,7 +1649,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1548,7 +1662,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.141337   .0389282   -29.32   0.000    -1.217634   -1.065039
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk ratio for: b1
 
@@ -1588,20 +1702,25 @@ Causal risk ratio for: b1
 
 . assert abs(_se[b1:_cons] - scalar(selrr1)) < 1e-2
 
+. mat list r(table)
+
+r(table)[9,6]
+           s1xb_z1:    s1xb_z2:    s1xb_z3:         a0:         b1:         b0:
+             _cons       _cons       _cons       _cons       _cons       _cons
+     b   .99458587   .95405762   .95542294    .0842244   .21306991  -1.1413365
+    se   .06148771   .05255718   .04950525   .06759281   .01493217   .03892822
+     z    16.17536   18.152756   19.299427   1.2460557   14.269183  -29.319003
+pvalue   7.526e-59   1.221e-73   5.431e-83   .21274396   3.405e-46   5.94e-189
+    ll   .87407217   .85104744   .85839444  -.04825507   .18380339  -1.2176344
+    ul   1.1150996   1.0570678   1.0524514   .21670387   .24233643  -1.0650386
+    df           .           .           .           .           .           .
+  crit    1.959964    1.959964    1.959964    1.959964    1.959964    1.959964
+ eform           0           0           0           0           0           0
+
 . 
-. ivpoisson gmm y (x = z1 z2 z3) if _n <= 200, add
+. ivpoisson gmm y (x = z1 z2 z3) if _n <= 200, add nolog
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  .24179605  
-Iteration 1:   GMM criterion Q(b) =  .00301375  
-Iteration 2:   GMM criterion Q(b) =  .00201683  
-Iteration 3:   GMM criterion Q(b) =  .00201188  
-Iteration 4:   GMM criterion Q(b) =  .00201188  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =   .0136514  
-Iteration 1:   GMM criterion Q(b) =  .01363511  
-Iteration 2:   GMM criterion Q(b) =  .01363511  
+Final GMM criterion Q(b) =  .0136351
 
 Exponential mean model with endogenous regressors
 
@@ -1626,7 +1745,7 @@ Instruments:   z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3) if _n <= 200, link(logadd)
 
-Final GMM criterion Q(b) =  7.98e-33
+Final GMM criterion Q(b) =  1.08e-32
 
 note: model is exactly identified
 
@@ -1635,7 +1754,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =        200
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1649,7 +1767,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.050832   .1150838    -9.13   0.000    -1.276393   -.8252724
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk ratio for: b1
 
@@ -1666,19 +1784,9 @@ Causal risk ratio for: b1
 . assert abs(_se[b1:_cons] - scalar(selrr2)) < 1e-2
 
 . 
-. ivpoisson gmm y w (x = z1 z2 z3), add
+. ivpoisson gmm y w (x = z1 z2 z3), add nolog
 
-Step 1
-Iteration 0:   GMM criterion Q(b) =  .32815251  
-Iteration 1:   GMM criterion Q(b) =  .00341387  
-Iteration 2:   GMM criterion Q(b) =  .00010712  
-Iteration 3:   GMM criterion Q(b) =  .00009085  
-Iteration 4:   GMM criterion Q(b) =  .00009085  
-
-Step 2
-Iteration 0:   GMM criterion Q(b) =  .00053142  
-Iteration 1:   GMM criterion Q(b) =  .00053103  
-Iteration 2:   GMM criterion Q(b) =  .00053103  
+Final GMM criterion Q(b) =   .000531
 
 Exponential mean model with endogenous regressors
 
@@ -1704,7 +1812,7 @@ Instruments:   w z1 z2 z3
 
 . ivtsps y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  5.04e-33
+Final GMM criterion Q(b) =  1.85e-32
 
 note: model is exactly identified
 
@@ -1713,7 +1821,6 @@ GMM estimation
 Number of parameters =   8
 Number of moments    =   8
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1729,7 +1836,7 @@ GMM weight matrix:     Robust
          /b0 |   -1.23406    .039312   -31.39   0.000     -1.31111    -1.15701
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: __000004 w _cons
+Instruments for equation 2: predicted w _cons
 
 Causal risk ratio for: b1
 
@@ -1752,7 +1859,7 @@ Causal risk ratio for: b1
              |                 OIM
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .2130699   .0266058     8.01   0.000     .1609235    .2652164
+   predicted |   .2130699   .0266058     8.01   0.000     .1609235    .2652164
        _cons |  -1.141337   .0620139   -18.40   0.000    -1.262881   -1.019792
 ------------------------------------------------------------------------------
 
@@ -1762,7 +1869,7 @@ Causal risk ratio for: b1
              |                 OIM
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .2130699   .0266058     8.01   0.000     .1609235    .2652164
+   predicted |   .2130699   .0266058     8.01   0.000     .1609235    .2652164
        _cons |  -1.141337   .0620139   -18.40   0.000    -1.262881   -1.019792
 ------------------------------------------------------------------------------
 
@@ -1774,7 +1881,6 @@ Causal risk ratio for: b1
 . // logmult link
 . 
 . cap noi drop pred
-variable pred not found
 
 . regress x z1 z2 z3
 
@@ -1797,13 +1903,7 @@ variable pred not found
 . predict pred
 (option xb assumed; fitted values)
 
-. glm y pred, family(gamma) link(log)
-
-Iteration 0:   log likelihood = -948.97095  
-Iteration 1:   log likelihood = -617.96862  
-Iteration 2:   log likelihood = -615.50192  
-Iteration 3:   log likelihood = -615.50053  
-Iteration 4:   log likelihood = -615.50053  
+. glm y pred, family(gamma) link(log) nolog
 
 Generalized linear models                         Number of obs   =      2,500
 Optimization     : ML                             Residual df     =      2,498
@@ -1831,7 +1931,7 @@ Log likelihood   = -615.5005255                   BIC             =  -18652.47
 
 . ivtsps y (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  3.30e-33
+Final GMM criterion Q(b) =  6.77e-33
 
 note: model is exactly identified
 
@@ -1840,7 +1940,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1854,7 +1953,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.159476   .0439471   -26.38   0.000    -1.245611   -1.073341
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk ratio for: b1
 
@@ -1894,6 +1993,21 @@ Causal risk ratio for: b1
 
 . assert abs(_se[b1:_cons] - scalar(selmrr1)) < 1e-2
 
+. mat list r(table)
+
+r(table)[9,6]
+           s1xb_z1:    s1xb_z2:    s1xb_z3:         a0:         b1:         b0:
+             _cons       _cons       _cons       _cons       _cons       _cons
+     b   .99458587   .95405762   .95542294    .0842244   .22236826   -1.159476
+    se   .06148771   .05255718   .04950525   .06759281   .01796449    .0439471
+     z    16.17536   18.152756   19.299427   1.2460557    12.37821  -26.383443
+pvalue   7.526e-59   1.221e-73   5.431e-83   .21274396   3.429e-35   2.12e-153
+    ll   .87407217   .85104744   .85839444  -.04825507   .18715851  -1.2456107
+    ul   1.1150996   1.0570678   1.0524514   .21670387   .25757802  -1.0733412
+    df           .           .           .           .           .           .
+  crit    1.959964    1.959964    1.959964    1.959964    1.959964    1.959964
+ eform           0           0           0           0           0           0
+
 . 
 . cap noi drop pred
 
@@ -1919,13 +2033,7 @@ Causal risk ratio for: b1
 (option xb assumed; fitted values)
 (2,250 missing values generated)
 
-. glm y pred if _n <= 250, family(gamma) link(log)
-
-Iteration 0:   log likelihood = -106.31205  
-Iteration 1:   log likelihood = -77.771023  
-Iteration 2:   log likelihood = -77.539585  
-Iteration 3:   log likelihood = -77.539456  
-Iteration 4:   log likelihood = -77.539456  
+. glm y pred if _n <= 250, family(gamma) link(log) nolog
 
 Generalized linear models                         Number of obs   =        250
 Optimization     : ML                             Residual df     =        248
@@ -1953,7 +2061,7 @@ Log likelihood   =  -77.5394559                   BIC             =  -1291.307
 
 . ivtsps y (x = z1 z2 z3) if _n <= 250, link(logmult)
 
-Final GMM criterion Q(b) =  4.60e-33
+Final GMM criterion Q(b) =  2.06e-32
 
 note: model is exactly identified
 
@@ -1962,7 +2070,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =        250
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -1976,7 +2083,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.054149   .1263154    -8.35   0.000    -1.301723   -.8065755
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal risk ratio for: b1
 
@@ -2017,13 +2124,7 @@ Causal risk ratio for: b1
 . predict pred
 (option xb assumed; fitted values)
 
-. glm y pred w, family(gamma) link(log)
-
-Iteration 0:   log likelihood = -388.72139  
-Iteration 1:   log likelihood = -231.43666  
-Iteration 2:   log likelihood = -230.68042  
-Iteration 3:   log likelihood = -230.68016  
-Iteration 4:   log likelihood = -230.68016  
+. glm y pred w, family(gamma) link(log) nolog
 
 Generalized linear models                         Number of obs   =      2,500
 Optimization     : ML                             Residual df     =      2,497
@@ -2052,7 +2153,7 @@ Log likelihood   = -230.6801555                   BIC             =  -18246.18
 
 . ivtsps y w (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  4.99e-33
+Final GMM criterion Q(b) =  1.89e-32
 
 note: model is exactly identified
 
@@ -2061,7 +2162,6 @@ GMM estimation
 Number of parameters =   8
 Number of moments    =   8
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -2077,7 +2177,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.481904   .0640343   -23.14   0.000    -1.607409   -1.356399
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: __000004 w _cons
+Instruments for equation 2: predicted w _cons
 
 Causal risk ratio for: b1
 
@@ -2100,7 +2200,7 @@ Causal risk ratio for: b1
              |                 OIM
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .2223683   .0212175    10.48   0.000     .1807828    .2639537
+   predicted |   .2223683   .0212175    10.48   0.000     .1807828    .2639537
        _cons |  -1.159476   .0443907   -26.12   0.000     -1.24648   -1.072472
 ------------------------------------------------------------------------------
 
@@ -2110,7 +2210,7 @@ Causal risk ratio for: b1
              |                 OIM
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .2223683   .0212175    10.48   0.000     .1807828    .2639537
+   predicted |   .2223683   .0212175    10.48   0.000     .1807828    .2639537
        _cons |  -1.159476   .0443907   -26.12   0.000     -1.24648   -1.072472
 ------------------------------------------------------------------------------
 
@@ -2144,12 +2244,7 @@ Causal risk ratio for: b1
 . predict pred
 (option xb assumed; fitted values)
 
-. logit y pred
-
-Iteration 0:   log likelihood = -1731.4565  
-Iteration 1:   log likelihood = -1667.9285  
-Iteration 2:   log likelihood = -1667.8059  
-Iteration 3:   log likelihood = -1667.8059  
+. logit y pred, nolog
 
 Logistic regression                             Number of obs     =      2,500
                                                 LR chi2(1)        =     127.30
@@ -2169,7 +2264,7 @@ Log likelihood = -1667.8059                     Pseudo R2         =     0.0368
 
 . ivtsps y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  3.41e-33
+Final GMM criterion Q(b) =  6.99e-33
 
 note: model is exactly identified
 
@@ -2178,7 +2273,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -2192,7 +2286,7 @@ GMM weight matrix:     Robust
          /b0 |  -.8868145   .0715273   -12.40   0.000    -1.027006   -.7466235
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal odds ratio for: b1
 
@@ -2232,6 +2326,21 @@ Causal odds ratio for: b1
 
 . assert abs(_se[b1:_cons] - scalar(selor1)) < 1e-2
 
+. mat list r(table)
+
+r(table)[9,6]
+           s1xb_z1:    s1xb_z2:    s1xb_z3:         a0:         b1:         b0:
+             _cons       _cons       _cons       _cons       _cons       _cons
+     b   .99458587   .95405762   .95542294    .0842244   .44883323  -.88681454
+    se   .06148771   .05255718   .04950525   .06759281   .03468986   .07152734
+     z    16.17536   18.152756   19.299427   1.2460557   12.938458  -12.398259
+pvalue   7.526e-59   1.221e-73   5.431e-83   .21274396   2.731e-38   2.671e-35
+    ll   .87407217   .85104744   .85839444  -.04825507   .38084237  -1.0270056
+    ul   1.1150996   1.0570678   1.0524514   .21670387    .5168241  -.74662353
+    df           .           .           .           .           .           .
+  crit    1.959964    1.959964    1.959964    1.959964    1.959964    1.959964
+ eform           0           0           0           0           0           0
+
 . 
 . cap noi drop pred
 
@@ -2257,12 +2366,7 @@ Causal odds ratio for: b1
 (option xb assumed; fitted values)
 (2,400 missing values generated)
 
-. logit y pred if _n <= 100
-
-Iteration 0:   log likelihood = -69.294717  
-Iteration 1:   log likelihood = -65.243608  
-Iteration 2:   log likelihood = -65.239728  
-Iteration 3:   log likelihood = -65.239727  
+. logit y pred if _n <= 100, nolog
 
 Logistic regression                             Number of obs     =        100
                                                 LR chi2(1)        =       8.11
@@ -2282,7 +2386,7 @@ Log likelihood = -65.239727                     Pseudo R2         =     0.0585
 
 . ivtsps y (x = z1 z2 z3) if _n <= 100, link(logit)
 
-Final GMM criterion Q(b) =  2.11e-32
+Final GMM criterion Q(b) =  2.67e-32
 
 note: model is exactly identified
 
@@ -2291,7 +2395,6 @@ GMM estimation
 Number of parameters =   6
 Number of moments    =   6
 Initial weight matrix: Unadjusted                 Number of obs   =        100
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -2305,7 +2408,7 @@ GMM weight matrix:     Robust
          /b0 |  -.9312614    .276238    -3.37   0.001    -1.472678   -.3898448
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: __000004 _cons
+Instruments for equation 2: predicted _cons
 
 Causal odds ratio for: b1
 
@@ -2346,12 +2449,7 @@ Causal odds ratio for: b1
 . predict pred
 (option xb assumed; fitted values)
 
-. logit y w pred
-
-Iteration 0:   log likelihood = -1731.4565  
-Iteration 1:   log likelihood = -1378.2309  
-Iteration 2:   log likelihood = -1378.1819  
-Iteration 3:   log likelihood = -1378.1819  
+. logit y w pred, nolog
 
 Logistic regression                             Number of obs     =      2,500
                                                 LR chi2(2)        =     706.55
@@ -2372,7 +2470,7 @@ Log likelihood = -1378.1819                     Pseudo R2         =     0.2040
 
 . ivtsps y w (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  2.67e-33
+Final GMM criterion Q(b) =  1.57e-32
 
 note: model is exactly identified
 
@@ -2381,7 +2479,6 @@ GMM estimation
 Number of parameters =   8
 Number of moments    =   8
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -2397,7 +2494,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.149458   .0870355   -13.21   0.000    -1.320045   -.9788718
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: __000004 w _cons
+Instruments for equation 2: predicted w _cons
 
 Causal odds ratio for: b1
 
@@ -2419,7 +2516,7 @@ Causal odds ratio for: b1
 ------------------------------------------------------------------------------
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .4488332   .0412018    10.89   0.000     .3680791    .5295873
+   predicted |   .4488332   .0412018    10.89   0.000     .3680791    .5295873
        _cons |  -.8868145   .0855778   -10.36   0.000    -1.054544   -.7190852
 ------------------------------------------------------------------------------
 
@@ -2428,7 +2525,7 @@ Causal odds ratio for: b1
 ------------------------------------------------------------------------------
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    __000004 |   .4488332   .0412018    10.89   0.000     .3680791    .5295873
+   predicted |   .4488332   .0412018    10.89   0.000     .3680791    .5295873
        _cons |  -.8868145   .0855778   -10.36   0.000    -1.054544   -.7190852
 ------------------------------------------------------------------------------
 
@@ -2444,17 +2541,234 @@ Currently, only 1 endogenous variable is allowed
 invalid syntax
 
 . 
+. // preditced varname test
+. 
+. cap noi drop predicted
+
+. regress x z1 z2 z3
+
+      Source |       SS           df       MS      Number of obs   =     2,500
+-------------+----------------------------------   F(3, 2496)      =    309.62
+       Model |  2714.52663         3   904.84221   Prob > F        =    0.0000
+    Residual |  7294.43352     2,496  2.92244933   R-squared       =    0.2712
+-------------+----------------------------------   Adj R-squared   =    0.2703
+       Total |  10008.9602     2,499  4.00518614   Root MSE        =    1.7095
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9945859   .0609026    16.33   0.000     .8751611    1.114011
+          z2 |   .9540576   .0528847    18.04   0.000     .8503552     1.05776
+          z3 |   .9554229    .050013    19.10   0.000     .8573517    1.053494
+       _cons |   .0842244   .0669462     1.26   0.208    -.0470513    .2155001
+------------------------------------------------------------------------------
+
+. predict predicted
+(option xb assumed; fitted values)
+
+. regress y predicted
+
+      Source |       SS           df       MS      Number of obs   =     2,500
+-------------+----------------------------------   F(1, 2498)      =    130.88
+       Model |  31.0797477         1  31.0797477   Prob > F        =    0.0000
+    Residual |  593.214652     2,498  .237475842   R-squared       =    0.0498
+-------------+----------------------------------   Adj R-squared   =    0.0494
+       Total |    624.2944     2,499  .249817687   Root MSE        =    .48731
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   predicted |   .1070019   .0093533    11.44   0.000      .088661    .1253429
+       _cons |   .2879917   .0196508    14.66   0.000     .2494581    .3265252
+------------------------------------------------------------------------------
+
+. scalar bx4 = _b[predicted]
+
+. replace predicted = _n in 1/3
+(3 real changes made)
+
+. list predicted in 1/5
+
+     +----------+
+     | predic~d |
+     |----------|
+  1. |        1 |
+  2. |        2 |
+  3. |        3 |
+  4. | 1.038282 |
+  5. | 1.038282 |
+     +----------+
+
+. ivtsps y (x = z1 z2 z3)
+
+Final GMM criterion Q(b) =  7.34e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   6
+Number of moments    =   6
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+         /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: predicted _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+------------------------------------------------------------------------------
+
+. assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
+
+. list predicted in 1/5
+
+     +----------+
+     | predic~d |
+     |----------|
+  1. |        1 |
+  2. |        2 |
+  3. |        3 |
+  4. | 1.038282 |
+  5. | 1.038282 |
+     +----------+
+
+. 
+. cap noi drop predicted
+
+. regress x z1 z2 z3 in 101/200
+
+      Source |       SS           df       MS      Number of obs   =       100
+-------------+----------------------------------   F(3, 96)        =     14.95
+       Model |  111.112814         3  37.0376048   Prob > F        =    0.0000
+    Residual |   237.89687        96   2.4780924   R-squared       =    0.3184
+-------------+----------------------------------   Adj R-squared   =    0.2971
+       Total |  349.009685        99  3.52535035   Root MSE        =    1.5742
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |    .969467   .2557025     3.79   0.000     .4619016    1.477032
+          z2 |   .7058939   .2623521     2.69   0.008     .1851291    1.226659
+          z3 |   1.322028    .243232     5.44   0.000     .8392159    1.804839
+       _cons |    .133577   .3190074     0.42   0.676    -.4996476    .7668016
+------------------------------------------------------------------------------
+
+. predict predicted in 101/200
+(option xb assumed; fitted values)
+(2,400 missing values generated)
+
+. regress y predicted in 101/200
+
+      Source |       SS           df       MS      Number of obs   =       100
+-------------+----------------------------------   F(1, 98)        =      3.47
+       Model |   .84312816         1   .84312816   Prob > F        =    0.0654
+    Residual |  23.7968718        98  .242825223   R-squared       =    0.0342
+-------------+----------------------------------   Adj R-squared   =    0.0244
+       Total |       24.64        99  .248888889   Root MSE        =    .49277
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   predicted |   .0871093   .0467482     1.86   0.065    -.0056609    .1798796
+       _cons |   .3906352   .1033901     3.78   0.000     .1854608    .5958095
+------------------------------------------------------------------------------
+
+. scalar bx4 = _b[predicted]
+
+. replace predicted = _n in 1/3
+(3 real changes made)
+
+. list predicted in 1/5
+
+     +----------+
+     | predic~d |
+     |----------|
+  1. |        1 |
+  2. |        2 |
+  3. |        3 |
+  4. |        . |
+  5. |        . |
+     +----------+
+
+. ivtsps y (x = z1 z2 z3) in 101/200
+
+Final GMM criterion Q(b) =  1.09e-32
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   6
+Number of moments    =   6
+Initial weight matrix: Unadjusted                 Number of obs   =        100
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |    .969467   .2259696     4.29   0.000     .5265747    1.412359
+    /s1xb_z2 |   .7058939   .2698506     2.62   0.009     .1769965    1.234791
+    /s1xb_z3 |   1.322028   .2210988     5.98   0.000     .8886818    1.755373
+         /a0 |    .133577   .3267649     0.41   0.683    -.5068705    .7740245
+         /b1 |   .0871093   .0350839     2.48   0.013     .0183461    .1558725
+         /b0 |   .3906352   .0815149     4.79   0.000     .2308689    .5504014
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: predicted _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0871093   .0350839     2.48   0.013     .0183461    .1558725
+------------------------------------------------------------------------------
+
+. assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
+
+. list predicted in 1/5
+
+     +----------+
+     | predic~d |
+     |----------|
+  1. |        1 |
+  2. |        2 |
+  3. |        3 |
+  4. |        . |
+  5. |        . |
+     +----------+
+
+. 
 end of do-file
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:08
+ closed on:  12 Sep 2021, 00:30:26
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:08
+ opened on:  12 Sep 2021, 00:30:26
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -2535,7 +2849,7 @@ Instruments:   z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  3.73e-33
+Final GMM criterion Q(b) =  6.99e-33
 
 note: model is exactly identified
 
@@ -2544,7 +2858,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -2559,7 +2872,7 @@ GMM weight matrix:     Robust
          /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
+Instruments for equation 2: x residuals _cons
 
 Causal risk difference for: b1
 
@@ -2622,57 +2935,32 @@ Causal risk difference for: b2
 
 . assert abs((_b[b2:_cons] / _se[b2:_cons])^2 - scalar(endogteststat)) < 1e0
 
-. 
-. ivtsri y (x = z1 z2 z3), onestep
+. mat list r(table)
 
-Final GMM criterion Q(b) =  6.99e-33
+r(table)[9,7]
+           s1xb_z1:    s1xb_z2:    s1xb_z3:         a0:         b1:         b2:
+             _cons       _cons       _cons       _cons       _cons       _cons
+     b   .99458587   .95405762   .95542294    .0842244   .10700195   .07405445
+    se   .06148771   .05255718   .04950525   .06759281   .00744244   .00902303
+     z    16.17536   18.152756   19.299427   1.2460557   14.377259   8.2072734
+pvalue   7.526e-59   1.221e-73   5.431e-83   .21274396   7.189e-47   2.263e-16
+    ll   .87407217   .85104744   .85839444  -.04825507   .09241503   .05636964
+    ul   1.1150996   1.0570678   1.0524514   .21670387   .12158887   .09173926
+    df           .           .           .           .           .           .
+  crit    1.959964    1.959964    1.959964    1.959964    1.959964    1.959964
+ eform           0           0           0           0           0           0
 
-note: model is exactly identified
-
-GMM estimation 
-
-Number of parameters =   7
-Number of moments    =   7
-Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-
-------------------------------------------------------------------------------
-             |               Robust
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
-    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
-    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
-         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
-         /b1 |   .1070019   .0074424    14.38   0.000      .092415    .1215889
-         /b2 |   .0740544    .009023     8.21   0.000     .0563696    .0917393
-         /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
-------------------------------------------------------------------------------
-Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
-
-Causal risk difference for: b1
-
- ( 1)  [b1]_cons = 0
-
-------------------------------------------------------------------------------
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-         (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
-------------------------------------------------------------------------------
-
-Causal risk difference for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-         (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
-------------------------------------------------------------------------------
-
-. assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
-
-. assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
+                b0:
+             _cons
+     b   .28799166
+    se    .0157401
+     z    18.29668
+pvalue   8.795e-75
+    ll   .25714162
+    ul   .31884169
+    df           .
+  crit    1.959964
+ eform           0
 
 . 
 . ivregress gmm y (x = z1 z2 z3) if _n <= 50
@@ -2699,7 +2987,7 @@ Instruments:   z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3) if _n <= 50
 
-Final GMM criterion Q(b) =  1.81e-33
+Final GMM criterion Q(b) =  1.43e-33
 
 note: model is exactly identified
 
@@ -2708,7 +2996,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =         50
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -2723,7 +3010,7 @@ GMM weight matrix:     Robust
          /b0 |   .2434077   .0653369     3.73   0.000     .1153498    .3714656
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
+Instruments for equation 2: x residuals _cons
 
 Causal risk difference for: b1
 
@@ -2752,7 +3039,7 @@ Causal risk difference for: b2
 . 
 . ivtsri y (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  3.73e-33
+Final GMM criterion Q(b) =  6.99e-33
 
 note: model is exactly identified
 
@@ -2761,7 +3048,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -2776,7 +3062,7 @@ GMM weight matrix:     Robust
          /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
+Instruments for equation 2: x residuals _cons
 
 Causal risk difference for: b1
 
@@ -2828,7 +3114,7 @@ Instruments:   w z1 z2 z3
 
 . ivtsri y w (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  4.63e-33
+Final GMM criterion Q(b) =  1.29e-32
 
 note: model is exactly identified
 
@@ -2837,7 +3123,6 @@ GMM estimation
 Number of parameters =   9
 Number of moments    =   9
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -2854,7 +3139,7 @@ GMM weight matrix:     Robust
          /b0 |   .2867508   .0150764    19.02   0.000     .2572016       .3163
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: x __000004 w _cons
+Instruments for equation 2: x residuals w _cons
 
 Causal risk difference for: b1
 
@@ -2887,7 +3172,7 @@ Causal risk difference for: b2
            y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .1070019   .0072277    14.80   0.000      .092829    .1211749
-    __000004 |   .0740544   .0084664     8.75   0.000     .0574525    .0906564
+   residuals |   .0740544   .0084664     8.75   0.000     .0574525    .0906564
        _cons |   .2879917   .0151852    18.97   0.000     .2582148    .3177685
 ------------------------------------------------------------------------------
 
@@ -2897,7 +3182,7 @@ Causal risk difference for: b2
            y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .1070019   .0072277    14.80   0.000      .092829    .1211749
-    __000004 |   .0740544   .0084664     8.75   0.000     .0574525    .0906564
+   residuals |   .0740544   .0084664     8.75   0.000     .0574525    .0906564
        _cons |   .2879917   .0151852    18.97   0.000     .2582148    .3177685
 ------------------------------------------------------------------------------
 
@@ -2909,7 +3194,6 @@ Causal risk difference for: b2
 . // logadd link
 . 
 . cap noi drop res
-variable res not found
 
 . regress x z1 z2 z3
 
@@ -2931,10 +3215,7 @@ variable res not found
 
 . predict double res, res
 
-. poisson y x res
-
-Iteration 0:   log likelihood = -1810.4754  
-Iteration 1:   log likelihood = -1810.4754  
+. poisson y x res, nolog
 
 Poisson regression                              Number of obs     =      2,500
                                                 LR chi2(2)        =     552.27
@@ -2955,7 +3236,7 @@ Log likelihood = -1810.4754                     Pseudo R2         =     0.1323
 
 . ivtsri y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  6.95e-33
+Final GMM criterion Q(b) =  1.10e-32
 
 note: model is exactly identified
 
@@ -2964,7 +3245,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -2979,7 +3259,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.326536   .0446685   -29.70   0.000    -1.414084   -1.238987
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
+Instruments for equation 2: x residuals _cons
 
 Causal risk ratio for: b1
 
@@ -3040,6 +3320,33 @@ Causal risk ratio for: b2
 
 . assert abs(_se[b1:_cons] - scalar(selarr1)) < 1e-2
 
+. mat list r(table)
+
+r(table)[9,7]
+           s1xb_z1:    s1xb_z2:    s1xb_z3:         a0:         b1:         b2:
+             _cons       _cons       _cons       _cons       _cons       _cons
+     b   .99458587   .95405762   .95542294    .0842244   .20494699   .16514905
+    se   .06148771   .05255718   .04950525   .06759281   .01675341   .01978531
+     z    16.17536   18.152756   19.299427   1.2460557   12.233151   8.3470547
+pvalue   7.526e-59   1.221e-73   5.431e-83   .21274396   2.068e-34   6.999e-17
+    ll   .87407217   .85104744   .85839444  -.04825507   .17211091   .12637056
+    ul   1.1150996   1.0570678   1.0524514   .21670387   .23778307   .20392755
+    df           .           .           .           .           .           .
+  crit    1.959964    1.959964    1.959964    1.959964    1.959964    1.959964
+ eform           0           0           0           0           0           0
+
+                b0:
+             _cons
+     b  -1.3265358
+    se   .04466852
+     z  -29.697332
+pvalue   8.31e-194
+    ll  -1.4140844
+    ul  -1.2389871
+    df           .
+  crit    1.959964
+ eform           0
+
 . 
 . cap noi drop res
 
@@ -3064,11 +3371,7 @@ Causal risk ratio for: b2
 . predict double res if _n <= 200, res
 (2,300 missing values generated)
 
-. poisson y x res if _n <= 200
-
-Iteration 0:   log likelihood = -151.21937  
-Iteration 1:   log likelihood = -151.21931  
-Iteration 2:   log likelihood = -151.21931  
+. poisson y x res if _n <= 200, nolog
 
 Poisson regression                              Number of obs     =        200
                                                 LR chi2(2)        =      42.88
@@ -3089,7 +3392,7 @@ Log likelihood = -151.21931                     Pseudo R2         =     0.1242
 
 . ivtsri y (x = z1 z2 z3) if _n <= 200, link(logadd)
 
-Final GMM criterion Q(b) =  8.12e-33
+Final GMM criterion Q(b) =  1.19e-32
 
 note: model is exactly identified
 
@@ -3098,7 +3401,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =        200
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -3113,7 +3415,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.260957   .1392786    -9.05   0.000    -1.533938    -.987976
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
+Instruments for equation 2: x residuals _cons
 
 Causal risk ratio for: b1
 
@@ -3163,10 +3465,7 @@ Causal risk ratio for: b2
 
 . predict double res, res
 
-. poisson y x res w
-
-Iteration 0:   log likelihood = -1804.0989  
-Iteration 1:   log likelihood = -1804.0989  
+. poisson y x res w, nolog
 
 Poisson regression                              Number of obs     =      2,500
                                                 LR chi2(3)        =     565.02
@@ -3188,7 +3487,7 @@ Log likelihood = -1804.0989                     Pseudo R2         =     0.1354
 
 . ivtsri y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  3.27e-33
+Final GMM criterion Q(b) =  1.66e-32
 
 note: model is exactly identified
 
@@ -3197,7 +3496,6 @@ GMM estimation
 Number of parameters =   9
 Number of moments    =   9
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -3214,7 +3512,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.332769   .0428083   -31.13   0.000    -1.416671   -1.248866
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: x __000004 w _cons
+Instruments for equation 2: x residuals w _cons
 
 Causal risk ratio for: b1
 
@@ -3248,7 +3546,7 @@ Causal risk ratio for: b2
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |    .204947   .0264587     7.75   0.000      .153089     .256805
-    __000004 |   .1651491   .0316964     5.21   0.000     .1030253    .2272729
+   residuals |   .1651491   .0316964     5.21   0.000     .1030253    .2272729
        _cons |  -1.326536   .0639398   -20.75   0.000    -1.451855   -1.201216
 ------------------------------------------------------------------------------
 
@@ -3259,7 +3557,7 @@ Causal risk ratio for: b2
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |    .204947   .0264587     7.75   0.000      .153089     .256805
-    __000004 |   .1651491   .0316964     5.21   0.000     .1030253    .2272729
+   residuals |   .1651491   .0316964     5.21   0.000     .1030253    .2272729
        _cons |  -1.326536   .0639398   -20.75   0.000    -1.451855   -1.201216
 ------------------------------------------------------------------------------
 
@@ -3308,7 +3606,7 @@ Instruments:   z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  1.32e-32
+Final GMM criterion Q(b) =  2.70e-32
 
 note: model is exactly identified
 
@@ -3317,7 +3615,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -3332,7 +3629,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.914564   .1100322   -17.40   0.000    -2.130223   -1.698905
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
+Instruments for equation 2: x residuals _cons
 
 Causal risk ratio for: b1
 
@@ -3393,6 +3690,33 @@ Causal risk ratio for: b2
 
 . assert abs(_se[b1:_cons] - scalar(selmrr1)) < 1e-2
 
+. mat list r(table)
+
+r(table)[9,7]
+           s1xb_z1:    s1xb_z2:    s1xb_z3:         a0:         b1:         b2:
+             _cons       _cons       _cons       _cons       _cons       _cons
+     b   .99458587   .95405762   .95542294    .0842244   .41356426   .30790025
+    se   .06148771   .05255718   .04950525   .06759281   .04562041    .0455426
+     z    16.17536   18.152756   19.299427   1.2460557   9.0653341   6.7607082
+pvalue   7.526e-59   1.221e-73   5.431e-83   .21274396   1.242e-19   1.373e-11
+    ll   .87407217   .85104744   .85839444  -.04825507    .3241499   .21863839
+    ul   1.1150996   1.0570678   1.0524514   .21670387   .50297862   .39716211
+    df           .           .           .           .           .           .
+  crit    1.959964    1.959964    1.959964    1.959964    1.959964    1.959964
+ eform           0           0           0           0           0           0
+
+                b0:
+             _cons
+     b  -1.9145637
+    se   .11003215
+     z  -17.400039
+pvalue   8.245e-68
+    ll  -2.1302227
+    ul  -1.6989046
+    df           .
+  crit    1.959964
+ eform           0
+
 . 
 . ivpoisson cfunction y (x = z1 z2 z3) if _n <= 250, nolog
 
@@ -3432,7 +3756,7 @@ Instruments:   z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3) if _n <= 250, link(logmult)
 
-Final GMM criterion Q(b) =  3.34e-33
+Final GMM criterion Q(b) =  8.97e-33
 
 note: model is exactly identified
 
@@ -3441,7 +3765,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =        250
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -3456,7 +3779,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.764816   .2759322    -6.40   0.000    -2.305633   -1.223999
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
+Instruments for equation 2: x residuals _cons
 
 Causal risk ratio for: b1
 
@@ -3523,7 +3846,7 @@ Instruments:   w z1 z2 z3
 
 . ivtsri y w (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  4.68e-33
+Final GMM criterion Q(b) =  5.89e-32
 
 note: model is exactly identified
 
@@ -3532,7 +3855,6 @@ GMM estimation
 Number of parameters =   9
 Number of moments    =   9
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -3549,7 +3871,7 @@ GMM weight matrix:     Robust
          /b0 |  -2.019925   .1126677   -17.93   0.000    -2.240749     -1.7991
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: x __000004 w _cons
+Instruments for equation 2: x residuals w _cons
 
 Causal risk ratio for: b1
 
@@ -3583,7 +3905,7 @@ Causal risk ratio for: b2
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .4135643   .0394492    10.48   0.000     .3362452    .4908833
-    __000004 |   .3079002   .0450075     6.84   0.000     .2196871    .3961134
+   residuals |   .3079002   .0450075     6.84   0.000     .2196871    .3961134
        _cons |  -1.914564   .0820983   -23.32   0.000    -2.075473   -1.753654
 ------------------------------------------------------------------------------
 
@@ -3594,7 +3916,7 @@ Causal risk ratio for: b2
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .4135643   .0394492    10.48   0.000     .3362452    .4908833
-    __000004 |   .3079002   .0450075     6.84   0.000     .2196871    .3961134
+   residuals |   .3079002   .0450075     6.84   0.000     .2196871    .3961134
        _cons |  -1.914564   .0820983   -23.32   0.000    -2.075473   -1.753654
 ------------------------------------------------------------------------------
 
@@ -3627,13 +3949,7 @@ Causal risk ratio for: b2
 
 . predict double res, res
 
-. logit y x res
-
-Iteration 0:   log likelihood = -1731.4565  
-Iteration 1:   log likelihood = -1001.4692  
-Iteration 2:   log likelihood = -1000.3137  
-Iteration 3:   log likelihood = -1000.3111  
-Iteration 4:   log likelihood = -1000.3111  
+. logit y x res, nolog
 
 Logistic regression                             Number of obs     =      2,500
                                                 LR chi2(2)        =    1462.29
@@ -3654,7 +3970,7 @@ Log likelihood = -1000.3111                     Pseudo R2         =     0.4223
 
 . ivtsri y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  3.97e-33
+Final GMM criterion Q(b) =  6.85e-33
 
 note: model is exactly identified
 
@@ -3663,7 +3979,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -3678,7 +3993,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.675875    .133441   -12.56   0.000    -1.937415   -1.414336
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
+Instruments for equation 2: x residuals _cons
 
 Causal odds ratio for: b1
 
@@ -3739,6 +4054,33 @@ Causal odds ratio for: b2
 
 . assert abs(_se[b1:_cons] - scalar(selor1)) < 1e-2
 
+. mat list r(table)
+
+r(table)[9,7]
+           s1xb_z1:    s1xb_z2:    s1xb_z3:         a0:         b1:         b2:
+             _cons       _cons       _cons       _cons       _cons       _cons
+     b   .99458587   .95405762   .95542294    .0842244   .85182657   .57264911
+    se   .06148771   .05255718   .04950525   .06759281   .06481626   .06945116
+     z    16.17536   18.152756   19.299427   1.2460557   13.142173   8.2453504
+pvalue   7.526e-59   1.221e-73   5.431e-83   .21274396   1.887e-39   1.647e-16
+    ll   .87407217   .85104744   .85839444  -.04825507   .72478903   .43652735
+    ul   1.1150996   1.0570678   1.0524514   .21670387   .97886411   .70877088
+    df           .           .           .           .           .           .
+  crit    1.959964    1.959964    1.959964    1.959964    1.959964    1.959964
+ eform           0           0           0           0           0           0
+
+                b0:
+             _cons
+     b  -1.6758752
+    se   .13344103
+     z   -12.55892
+pvalue   3.551e-36
+    ll  -1.9374148
+    ul  -1.4143356
+    df           .
+  crit    1.959964
+ eform           0
+
 . 
 . cap noi drop res
 
@@ -3763,13 +4105,7 @@ Causal odds ratio for: b2
 . predict double res if _n <= 100, res
 (2,400 missing values generated)
 
-. logit y x res if _n <= 100
-
-Iteration 0:   log likelihood = -69.294717  
-Iteration 1:   log likelihood = -31.418214  
-Iteration 2:   log likelihood = -31.041788  
-Iteration 3:   log likelihood = -31.040039  
-Iteration 4:   log likelihood = -31.040038  
+. logit y x res if _n <= 100, nolog
 
 Logistic regression                             Number of obs     =        100
                                                 LR chi2(2)        =      76.51
@@ -3790,7 +4126,7 @@ Log likelihood = -31.040038                     Pseudo R2         =     0.5521
 
 . ivtsri y (x = z1 z2 z3) if _n <= 100, link(logit)
 
-Final GMM criterion Q(b) =  1.04e-32
+Final GMM criterion Q(b) =  2.27e-32
 
 note: model is exactly identified
 
@@ -3799,7 +4135,6 @@ GMM estimation
 Number of parameters =   7
 Number of moments    =   7
 Initial weight matrix: Unadjusted                 Number of obs   =        100
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -3814,7 +4149,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.790935   .6476516    -2.77   0.006    -3.060309   -.5215611
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 _cons
-Instruments for equation 2: x __000004 _cons
+Instruments for equation 2: x residuals _cons
 
 Causal odds ratio for: b1
 
@@ -3864,13 +4199,7 @@ Causal odds ratio for: b2
 
 . predict double res, res
 
-. logit y x res w
-
-Iteration 0:   log likelihood = -1731.4565  
-Iteration 1:   log likelihood = -973.08499  
-Iteration 2:   log likelihood =  -969.8701  
-Iteration 3:   log likelihood =  -969.8676  
-Iteration 4:   log likelihood =  -969.8676  
+. logit y x res w, nolog
 
 Logistic regression                             Number of obs     =      2,500
                                                 LR chi2(3)        =    1523.18
@@ -3892,7 +4221,7 @@ Log likelihood =  -969.8676                     Pseudo R2         =     0.4399
 
 . ivtsri y w (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  3.21e-33
+Final GMM criterion Q(b) =  1.29e-32
 
 note: model is exactly identified
 
@@ -3901,7 +4230,6 @@ GMM estimation
 Number of parameters =   9
 Number of moments    =   9
 Initial weight matrix: Unadjusted                 Number of obs   =      2,500
-GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
@@ -3918,7 +4246,7 @@ GMM weight matrix:     Robust
          /b0 |  -1.771829   .1332013   -13.30   0.000    -2.032899    -1.51076
 ------------------------------------------------------------------------------
 Instruments for equation 1: z1 z2 z3 w _cons
-Instruments for equation 2: x __000004 w _cons
+Instruments for equation 2: x residuals w _cons
 
 Causal odds ratio for: b1
 
@@ -3951,7 +4279,7 @@ Causal odds ratio for: b2
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .8518266   .0605198    14.08   0.000       .73321    .9704431
-    __000004 |   .5726491    .064993     8.81   0.000     .4452651    .7000331
+   residuals |   .5726491    .064993     8.81   0.000     .4452651    .7000331
        _cons |  -1.675875   .1247896   -13.43   0.000    -1.920458   -1.431292
 ------------------------------------------------------------------------------
 
@@ -3961,7 +4289,7 @@ Causal odds ratio for: b2
            y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .8518266   .0605198    14.08   0.000       .73321    .9704431
-    __000004 |   .5726491    .064993     8.81   0.000     .4452651    .7000331
+   residuals |   .5726491    .064993     8.81   0.000     .4452651    .7000331
        _cons |  -1.675875   .1247896   -13.43   0.000    -1.920458   -1.431292
 ------------------------------------------------------------------------------
 
@@ -3977,17 +4305,272 @@ Currently, only 1 endogenous variable is allowed
 invalid syntax
 
 . 
+. // residuals varname test
+. 
+. cap noi drop residuals
+
+. regress x z1 z2 z3
+
+      Source |       SS           df       MS      Number of obs   =     2,500
+-------------+----------------------------------   F(3, 2496)      =    309.62
+       Model |  2714.52663         3   904.84221   Prob > F        =    0.0000
+    Residual |  7294.43352     2,496  2.92244933   R-squared       =    0.2712
+-------------+----------------------------------   Adj R-squared   =    0.2703
+       Total |  10008.9602     2,499  4.00518614   Root MSE        =    1.7095
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9945859   .0609026    16.33   0.000     .8751611    1.114011
+          z2 |   .9540576   .0528847    18.04   0.000     .8503552     1.05776
+          z3 |   .9554229    .050013    19.10   0.000     .8573517    1.053494
+       _cons |   .0842244   .0669462     1.26   0.208    -.0470513    .2155001
+------------------------------------------------------------------------------
+
+. predict residuals, residuals
+
+. regress y x residuals
+
+      Source |       SS           df       MS      Number of obs   =     2,500
+-------------+----------------------------------   F(2, 2497)      =    952.71
+       Model |  270.201632         2  135.100816   Prob > F        =    0.0000
+    Residual |  354.092768     2,497  .141807276   R-squared       =    0.4328
+-------------+----------------------------------   Adj R-squared   =    0.4324
+       Total |    624.2944     2,499  .249817687   Root MSE        =    .37657
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .1070019   .0072277    14.80   0.000      .092829    .1211749
+   residuals |   .0740544   .0084664     8.75   0.000     .0574525    .0906564
+       _cons |   .2879917   .0151852    18.97   0.000     .2582148    .3177685
+------------------------------------------------------------------------------
+
+. scalar bx4 = _b[x]
+
+. scalar sx4 = _se[x]
+
+. scalar bxr = _b[residuals]
+
+. scalar sxr = _se[residuals]
+
+. replace residuals = _n in 1/3
+(3 real changes made)
+
+. list residuals in 1/5
+
+     +-----------+
+     | residuals |
+     |-----------|
+  1. |         1 |
+  2. |         2 |
+  3. |         3 |
+  4. | -.8104355 |
+  5. | -.2642797 |
+     +-----------+
+
+. ivtsri y (x = z1 z2 z3)
+
+Final GMM criterion Q(b) =  6.99e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+         /b2 |   .0740544    .009023     8.21   0.000     .0563696    .0917393
+         /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x residuals _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+------------------------------------------------------------------------------
+
+Causal risk difference for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
+------------------------------------------------------------------------------
+
+. assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
+
+. assert abs(_b[b2:_cons] - scalar(bxr)) < 1e-2
+
+. list residuals in 1/5
+
+     +-----------+
+     | residuals |
+     |-----------|
+  1. |         1 |
+  2. |         2 |
+  3. |         3 |
+  4. | -.8104355 |
+  5. | -.2642797 |
+     +-----------+
+
+. 
+. cap noi drop residuals
+
+. regress x z1 z2 z3 in 101/200
+
+      Source |       SS           df       MS      Number of obs   =       100
+-------------+----------------------------------   F(3, 96)        =     14.95
+       Model |  111.112814         3  37.0376048   Prob > F        =    0.0000
+    Residual |   237.89687        96   2.4780924   R-squared       =    0.3184
+-------------+----------------------------------   Adj R-squared   =    0.2971
+       Total |  349.009685        99  3.52535035   Root MSE        =    1.5742
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |    .969467   .2557025     3.79   0.000     .4619016    1.477032
+          z2 |   .7058939   .2623521     2.69   0.008     .1851291    1.226659
+          z3 |   1.322028    .243232     5.44   0.000     .8392159    1.804839
+       _cons |    .133577   .3190074     0.42   0.676    -.4996476    .7668016
+------------------------------------------------------------------------------
+
+. predict residuals in 101/200, residuals
+(2,400 missing values generated)
+
+. regress y x residuals in 101/200
+
+      Source |       SS           df       MS      Number of obs   =       100
+-------------+----------------------------------   F(2, 97)        =     24.12
+       Model |  8.18329669         2  4.09164834   Prob > F        =    0.0000
+    Residual |  16.4567033        97  .169656735   R-squared       =    0.3321
+-------------+----------------------------------   Adj R-squared   =    0.3183
+       Total |       24.64        99  .248888889   Root MSE        =    .41189
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .0871093   .0390754     2.23   0.028     .0095555    .1646632
+   residuals |   .0885449   .0473291     1.87   0.064    -.0053902      .18248
+       _cons |   .3906352   .0864207     4.52   0.000      .219114    .5621563
+------------------------------------------------------------------------------
+
+. scalar bx4 = _b[x]
+
+. scalar sx4 = _se[x]
+
+. scalar bxr = _b[residuals]
+
+. scalar sxr = _se[residuals]
+
+. replace residuals = _n in 1/3
+(3 real changes made)
+
+. list residuals in 1/5
+
+     +----------+
+     | residu~s |
+     |----------|
+  1. |        1 |
+  2. |        2 |
+  3. |        3 |
+  4. |        . |
+  5. |        . |
+     +----------+
+
+. ivtsri y (x = z1 z2 z3) in 101/200
+
+Final GMM criterion Q(b) =  7.73e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =        100
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |    .969467   .2259696     4.29   0.000     .5265747    1.412359
+    /s1xb_z2 |   .7058939   .2698506     2.62   0.009     .1769965    1.234791
+    /s1xb_z3 |   1.322028   .2210988     5.98   0.000     .8886818    1.755373
+         /a0 |    .133577   .3267649     0.41   0.683    -.5068705    .7740245
+         /b1 |   .0871093   .0350839     2.48   0.013     .0183461    .1558725
+         /b2 |   .0885449   .0431796     2.05   0.040     .0039145    .1731753
+         /b0 |   .3906352   .0815149     4.79   0.000     .2308689    .5504014
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x residuals _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0871093   .0350839     2.48   0.013     .0183461    .1558725
+------------------------------------------------------------------------------
+
+Causal risk difference for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0885449   .0431796     2.05   0.040     .0039145    .1731753
+------------------------------------------------------------------------------
+
+. assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
+
+. assert abs(_b[b2:_cons] - scalar(bxr)) < 1e-2
+
+. list residuals in 1/5
+
+     +----------+
+     | residu~s |
+     |----------|
+  1. |        1 |
+  2. |        2 |
+  3. |        3 |
+  4. |        . |
+  5. |        . |
+     +----------+
+
+. 
 end of do-file
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:12
+ closed on:  12 Sep 2021, 00:30:30
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:12
+ opened on:  12 Sep 2021, 00:30:30
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -4030,8 +4613,8 @@ Commands
 
       ivtsri        Fits two-stage residual inclusion (TSRI) estimators.
 
-      iv            Allows the use of the iv prefix, so call the commands as
-                      e.g. iv lsmm ... instead of ivlsmm.
+      iv            Allows the use of the iv prefix, hence ivlsmm can instead
+                      be called as iv lsmm ....
 
 Description
 
@@ -4077,15 +4660,18 @@ Examples
     Fit the model with a single instrumental variable.
 
         . ivregress 2sls y (x = z1)
+        . ivreg2 y (x = z1)
 
     Fit the model with multiple instruments.
 
         . ivregress 2sls y (x = z1 z2 z3)
+        . ivreg2 y (x = z1 z2 z3)
 
     Fit the model with multiple exposures, and instruments, and adjusting for
     w.
 
         . ivregress 2sls y w (x1 x2 = z1 z2 z3)
+        . ivreg2 y w (x1 x2 = z1 z2 z3)
 
 References
 
@@ -4280,11 +4866,25 @@ Examples
     Fit the model with multiple instruments.
 
         . ivmsmm y (x = z1 z2 z3)
+        . estat overid
+
+    Adjusting for w.
+
+        . ivmsmm y w (x = z1 z2 z3)
 
     Fit the model with multiple exposures, and instruments, and adjusting for
     w.
 
         . ivmsmm y w (x1 x2 = z1 z2 z3)
+        . estat overid
+
+    Comparison with ivpois (specify onestep option to ivmsmm/ivpoisson for
+    equivalence).
+
+        . ivpois y, endog(x) exog(z1) eform(RR)
+        . ivpois y, endog(x) exog(z1 z2 z3) eform(RR)
+        . ivpois y w, endog(x) exog(z1 z2 z3) eform(RR)
+        . ivpois y w, endog(x1 x2) exog(z1 z2 z3) eform(RR)
 
 Stored results
 
@@ -4527,7 +5127,7 @@ end of do-file
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:12
+ closed on:  12 Sep 2021, 00:30:30
 -------------------------------------------------------------------------------
 
 . 
@@ -4535,5 +5135,5 @@ end of do-file
       name:  master
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:12
+ closed on:  12 Sep 2021, 00:30:30
 -------------------------------------------------------------------------------

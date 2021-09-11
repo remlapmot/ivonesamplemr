@@ -2,7 +2,7 @@
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  11 Sep 2021, 16:21:12
+ opened on:  12 Sep 2021, 00:30:30
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -45,8 +45,8 @@ Commands
 
       ivtsri        Fits two-stage residual inclusion (TSRI) estimators.
 
-      iv            Allows the use of the iv prefix, so call the commands as
-                      e.g. iv lsmm ... instead of ivlsmm.
+      iv            Allows the use of the iv prefix, hence ivlsmm can instead
+                      be called as iv lsmm ....
 
 Description
 
@@ -92,15 +92,18 @@ Examples
     Fit the model with a single instrumental variable.
 
         . ivregress 2sls y (x = z1)
+        . ivreg2 y (x = z1)
 
     Fit the model with multiple instruments.
 
         . ivregress 2sls y (x = z1 z2 z3)
+        . ivreg2 y (x = z1 z2 z3)
 
     Fit the model with multiple exposures, and instruments, and adjusting for
     w.
 
         . ivregress 2sls y w (x1 x2 = z1 z2 z3)
+        . ivreg2 y w (x1 x2 = z1 z2 z3)
 
 References
 
@@ -295,11 +298,25 @@ Examples
     Fit the model with multiple instruments.
 
         . ivmsmm y (x = z1 z2 z3)
+        . estat overid
+
+    Adjusting for w.
+
+        . ivmsmm y w (x = z1 z2 z3)
 
     Fit the model with multiple exposures, and instruments, and adjusting for
     w.
 
         . ivmsmm y w (x1 x2 = z1 z2 z3)
+        . estat overid
+
+    Comparison with ivpois (specify onestep option to ivmsmm/ivpoisson for
+    equivalence).
+
+        . ivpois y, endog(x) exog(z1) eform(RR)
+        . ivpois y, endog(x) exog(z1 z2 z3) eform(RR)
+        . ivpois y w, endog(x) exog(z1 z2 z3) eform(RR)
+        . ivpois y w, endog(x1 x2) exog(z1 z2 z3) eform(RR)
 
 Stored results
 
@@ -542,5 +559,5 @@ end of do-file
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  11 Sep 2021, 16:21:12
+ closed on:  12 Sep 2021, 00:30:30
 -------------------------------------------------------------------------------
