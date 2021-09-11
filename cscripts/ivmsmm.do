@@ -25,6 +25,8 @@ ivmsmm y (x = z1)
 assert abs(_b[x] - .328) < 1e-3
 ivpoisson, irr
 
+mat list r(table)
+
 ivmsmm y (x = z1 z2 z3)
 assert abs(_b[x] - .297) < 1e-3
 cap noi estat overid
