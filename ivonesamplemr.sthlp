@@ -5,6 +5,7 @@
 {vieweralsosee "ivmsmm" "help ivmsmm"}{...}
 {vieweralsosee "ivtsps" "help ivtsps"}{...}
 {vieweralsosee "ivtsri" "help ivtsri"}{...}
+{vieweralsosee "iv" "help iv"}{...}
 {viewerjumpto "Commands" "ivonesamplemr##commands"}{...}
 {viewerjumpto "Description" "ivonesamplemr##description"}{...}
 {viewerjumpto "Author" "ivonesamplemr##author"}{...}
@@ -28,6 +29,8 @@
 {synopt :{opt {help ivtsps}:}}Fits two-stage predictor substitution (TSPS) estimators.
 
 {synopt :{opt {help ivtsri}:}}Fits two-stage residual inclusion (TSRI) estimators.
+
+{synopt :{opt {help iv}:}}Allows the use of the {cmd:iv} prefix, so call the commands as e.g. {cmd:iv lsmm ...} instead of {cmd:ivlsmm}.
 
 {marker description}{...}
 {title:Description}
