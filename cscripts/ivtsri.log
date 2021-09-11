@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivtsri
-       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/ivtsri.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  10 Sep 2021, 08:19:54
+ opened on:  11 Sep 2021, 15:25:38
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -11,7 +11,7 @@
 -------------------------------------------------------------------BEGIN ivtsri
 
 -> which ivtsri, usesysdir
-/Users/tom/Documents/GitHub/onesamplemr-stata/ivtsri.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivtsri.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
@@ -50,6 +50,37 @@ number of observations (_N) was 0, now 2,500
 . 
 . // identity link
 . 
+. ivregress gmm y (x = z1 z2 z3)
+
+Instrumental variables (GMM) regression           Number of obs   =      2,500
+                                                  Wald chi2(1)    =     207.53
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.3690
+GMM weight matrix: Robust                         Root MSE        =     .39694
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .1071817   .0074402    14.41   0.000     .0925993    .1217642
+       _cons |   .2879039   .0157363    18.30   0.000     .2570612    .3187465
+------------------------------------------------------------------------------
+Instrumented:  x
+Instruments:   z1 z2 z3
+
+. scalar bx1 = _b[x]
+
+. scalar sx1 = _se[x]
+
+. estat endog
+
+  Test of endogeneity (orthogonality conditions)
+  Ho: variables are exogenous
+
+  GMM C statistic chi2(1) =  67.6905  (p = 0.0000)
+
+. scalar endogteststat = r(C)
+
 . ivtsri y (x = z1 z2 z3)
 
 Final GMM criterion Q(b) =  3.73e-33
@@ -133,7 +164,87 @@ Causal risk difference for: b2
          (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
 ------------------------------------------------------------------------------
 
+. assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
+
+. assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
+
+. assert abs((_b[b2:_cons] / _se[b2:_cons])^2 - scalar(endogteststat)) < 1e0
+
 . 
+. ivtsri y (x = z1 z2 z3), onestep
+
+Final GMM criterion Q(b) =  6.99e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   7
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+    /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+    /s1xb_z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+         /a0 |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+         /b1 |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+         /b2 |   .0740544    .009023     8.21   0.000     .0563696    .0917393
+         /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
+------------------------------------------------------------------------------
+Instruments for equation 1: z1 z2 z3 _cons
+Instruments for equation 2: x __000004 _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
+------------------------------------------------------------------------------
+
+Causal risk difference for: b2
+
+ ( 1)  [b2]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
+------------------------------------------------------------------------------
+
+. assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
+
+. assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
+
+. 
+. ivregress gmm y (x = z1 z2 z3) if _n <= 50
+
+Instrumental variables (GMM) regression           Number of obs   =         50
+                                                  Wald chi2(1)    =      36.62
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.5501
+GMM weight matrix: Robust                         Root MSE        =     .33512
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .1781062   .0294317     6.05   0.000     .1204211    .2357912
+       _cons |   .2258489   .0642993     3.51   0.000     .0998245    .3518732
+------------------------------------------------------------------------------
+Instrumented:  x
+Instruments:   z1 z2 z3
+
+. scalar bx2 = _b[x]
+
+. scalar sx2 = _se[x]
+
 . ivtsri y (x = z1 z2 z3) if _n <= 50
 
 Final GMM criterion Q(b) =  1.81e-33
@@ -181,6 +292,10 @@ Causal risk difference for: b2
 -------------+----------------------------------------------------------------
          (1) |   .0036814    .039025     0.09   0.925    -.0728061    .0801689
 ------------------------------------------------------------------------------
+
+. assert abs(_b[b1:_cons] - scalar(bx2)) < 1e-2
+
+. assert abs(_se[b1:_cons] - scalar(sx2)) < 1e-3
 
 . 
 . ivtsri y (x = z1 z2 z3), link(identity)
@@ -231,7 +346,34 @@ Causal risk difference for: b2
          (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
 ------------------------------------------------------------------------------
 
+. assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
+
+. assert abs(_se[b1:_cons] - scalar(sx1)) < 1e-3
+
 . 
+. ivregress gmm y w (x = z1 z2 z3)
+
+Instrumental variables (GMM) regression           Number of obs   =      2,500
+                                                  Wald chi2(2)    =    1628.49
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.4202
+GMM weight matrix: Robust                         Root MSE        =     .38051
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .1054227   .0073416    14.36   0.000     .0910334     .119812
+           w |   .1159165    .010589    10.95   0.000     .0951624    .1366707
+       _cons |   .2865861   .0150723    19.01   0.000     .2570449    .3161273
+------------------------------------------------------------------------------
+Instrumented:  x
+Instruments:   w z1 z2 z3
+
+. scalar bx3 = _b[x]
+
+. scalar sx3 = _se[x]
+
 . ivtsri y w (x = z1 z2 z3), link(identity)
 
 Final GMM criterion Q(b) =  4.63e-33
@@ -282,6 +424,10 @@ Causal risk difference for: b2
          (1) |   .0545595   .0092853     5.88   0.000     .0363606    .0727584
 ------------------------------------------------------------------------------
 
+. assert abs(_b[b1:_cons] - scalar(bx3)) < 1e-2
+
+. assert abs(_se[b1:_cons] - scalar(sx3)) < 1e-3
+
 . 
 . ivtsri y (x = z1 z2 z3), estonly
 
@@ -303,10 +449,58 @@ Causal risk difference for: b2
        _cons |   .2879917   .0151852    18.97   0.000     .2582148    .3177685
 ------------------------------------------------------------------------------
 
+. mat b = e(b)
+
+. assert abs(b[1,1] - scalar(bx1)) < 1e-2
+
 . 
 . // logadd link
 . 
-. cap noi {
+. cap noi drop res
+variable res not found
+
+. regress x z1 z2 z3
+
+      Source |       SS           df       MS      Number of obs   =     2,500
+-------------+----------------------------------   F(3, 2496)      =    309.62
+       Model |  2714.52663         3   904.84221   Prob > F        =    0.0000
+    Residual |  7294.43352     2,496  2.92244933   R-squared       =    0.2712
+-------------+----------------------------------   Adj R-squared   =    0.2703
+       Total |  10008.9602     2,499  4.00518614   Root MSE        =    1.7095
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9945859   .0609026    16.33   0.000     .8751611    1.114011
+          z2 |   .9540576   .0528847    18.04   0.000     .8503552     1.05776
+          z3 |   .9554229    .050013    19.10   0.000     .8573517    1.053494
+       _cons |   .0842244   .0669462     1.26   0.208    -.0470513    .2155001
+------------------------------------------------------------------------------
+
+. predict double res, res
+
+. poisson y x res
+
+Iteration 0:   log likelihood = -1810.4754  
+Iteration 1:   log likelihood = -1810.4754  
+
+Poisson regression                              Number of obs     =      2,500
+                                                LR chi2(2)        =     552.27
+                                                Prob > chi2       =     0.0000
+Log likelihood = -1810.4754                     Pseudo R2         =     0.1323
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |    .204947   .0264587     7.75   0.000      .153089     .256805
+         res |    .165149   .0316964     5.21   0.000     .1030252    .2272729
+       _cons |  -1.326536   .0639398   -20.75   0.000    -1.451855   -1.201216
+------------------------------------------------------------------------------
+
+. scalar larr1 = _b[x]
+
+. scalar selarr1 = _se[x]
+
 . ivtsri y (x = z1 z2 z3), link(logadd)
 
 Final GMM criterion Q(b) =  6.95e-33
@@ -354,6 +548,7 @@ Causal risk ratio for: b2
 -------------+----------------------------------------------------------------
          (1) |   1.179569   .0233381     8.35   0.000     1.134703    1.226209
 ------------------------------------------------------------------------------
+
 . ivtsri
 
 ------------------------------------------------------------------------------
@@ -388,7 +583,58 @@ Causal risk ratio for: b2
 -------------+----------------------------------------------------------------
          (1) |   1.179569   .0233381     8.35   0.000     1.134703    1.226209
 ------------------------------------------------------------------------------
+
+. assert abs(_b[b1:_cons] - scalar(larr1)) < 1e-2
+
+. assert abs(_se[b1:_cons] - scalar(selarr1)) < 1e-2
+
 . 
+. cap noi drop res
+
+. regress x z1 z2 z3 if _n <= 200
+
+      Source |       SS           df       MS      Number of obs   =       200
+-------------+----------------------------------   F(3, 196)       =     23.42
+       Model |  212.415301         3  70.8051002   Prob > F        =    0.0000
+    Residual |  592.447131       196  3.02268944   R-squared       =    0.2639
+-------------+----------------------------------   Adj R-squared   =    0.2526
+       Total |  804.862431       199  4.04453483   Root MSE        =    1.7386
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |    .960665   .2046653     4.69   0.000     .5570362    1.364294
+          z2 |   1.017943   .2013996     5.05   0.000      .620755    1.415132
+          z3 |   1.105939   .1918124     5.77   0.000     .7276577     1.48422
+       _cons |  -.1036275   .2577458    -0.40   0.688    -.6119386    .4046836
+------------------------------------------------------------------------------
+
+. predict double res if _n <= 200, res
+(2,300 missing values generated)
+
+. poisson y x res if _n <= 200
+
+Iteration 0:   log likelihood = -151.21937  
+Iteration 1:   log likelihood = -151.21931  
+Iteration 2:   log likelihood = -151.21931  
+
+Poisson regression                              Number of obs     =        200
+                                                LR chi2(2)        =      42.88
+                                                Prob > chi2       =     0.0000
+Log likelihood = -151.21931                     Pseudo R2         =     0.1242
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .2241425   .0872348     2.57   0.010     .0531655    .3951195
+         res |   .1423872   .1026672     1.39   0.165    -.0588368    .3436111
+       _cons |  -1.260957   .2150672    -5.86   0.000    -1.682481   -.8394332
+------------------------------------------------------------------------------
+
+. scalar larr2 = _b[x]
+
+. scalar selarr2 = _se[x]
+
 . ivtsri y (x = z1 z2 z3) if _n <= 200, link(logadd)
 
 Final GMM criterion Q(b) =  8.12e-33
@@ -436,7 +682,58 @@ Causal risk ratio for: b2
 -------------+----------------------------------------------------------------
          (1) |   1.153023   .0622327     2.64   0.008     1.037279    1.281682
 ------------------------------------------------------------------------------
+
+. assert abs(_b[b1:_cons] - scalar(larr2)) < 1e-2
+
+. assert abs(_se[b1:_cons] - scalar(selarr2)) < 1e-1
+
 . 
+. cap noi drop res
+
+. regress x z1 z2 z3 w
+
+      Source |       SS           df       MS      Number of obs   =     2,500
+-------------+----------------------------------   F(4, 2495)      =    656.78
+       Model |  5133.54915         4  1283.38729   Prob > F        =    0.0000
+    Residual |  4875.41101     2,495  1.95407255   R-squared       =    0.5129
+-------------+----------------------------------   Adj R-squared   =    0.5121
+       Total |  10008.9602     2,499  4.00518614   Root MSE        =    1.3979
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9882395   .0498007    19.84   0.000     .8905846    1.085894
+          z2 |   .9152859   .0432582    21.16   0.000     .8304603    1.000111
+          z3 |    .954388   .0408959    23.34   0.000     .8741945    1.034581
+           w |   .9801363   .0278572    35.18   0.000     .9255108    1.034762
+       _cons |   .0734396   .0547431     1.34   0.180     -.033907    .1807861
+------------------------------------------------------------------------------
+
+. predict double res, res
+
+. poisson y x res w
+
+Iteration 0:   log likelihood = -1804.0989  
+Iteration 1:   log likelihood = -1804.0989  
+
+Poisson regression                              Number of obs     =      2,500
+                                                LR chi2(3)        =     565.02
+                                                Prob > chi2       =     0.0000
+Log likelihood = -1804.0989                     Pseudo R2         =     0.1354
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .2005151   .0268895     7.46   0.000     .1478127    .2532175
+         res |   .1272374    .034081     3.73   0.000     .0604399    .1940348
+           w |   .2483673    .039375     6.31   0.000     .1711938    .3255409
+       _cons |  -1.332769   .0638056   -20.89   0.000    -1.457825   -1.207712
+------------------------------------------------------------------------------
+
+. scalar larr3 = _b[x]
+
+. scalar selarr3 = _se[x]
+
 . ivtsri y w (x = z1 z2 z3), link(logadd)
 
 Final GMM criterion Q(b) =  3.27e-33
@@ -486,6 +783,11 @@ Causal risk ratio for: b2
 -------------+----------------------------------------------------------------
          (1) |   1.135687    .023228     6.22   0.000     1.091061    1.182137
 ------------------------------------------------------------------------------
+
+. assert abs(_b[b1:_cons] - scalar(larr3)) < 1e-2
+
+. assert abs(_se[b1:_cons] - scalar(selarr3)) < 5e-2
+
 . 
 . ivtsri y (x = z1 z2 z3), link(logadd) estonly
 
@@ -497,6 +799,7 @@ Causal risk ratio for: b2
     __000004 |   .1651491   .0316964     5.21   0.000     .1030253    .2272729
        _cons |  -1.326536   .0639398   -20.75   0.000    -1.451855   -1.201216
 ------------------------------------------------------------------------------
+
 . ivtsri
 
 ------------------------------------------------------------------------------
@@ -507,12 +810,48 @@ Causal risk ratio for: b2
     __000004 |   .1651491   .0316964     5.21   0.000     .1030253    .2272729
        _cons |  -1.326536   .0639398   -20.75   0.000    -1.451855   -1.201216
 ------------------------------------------------------------------------------
-. }
+
+. mat b = e(b)
+
+. assert abs(b[1,1] - scalar(larr1)) < 1e-2
 
 . 
 . // logmult link
 . 
 . cap noi {
+. ivpoisson cfunction y (x = z1 z2 z3), nolog
+
+Final GMM criterion Q(b) =  4.91e-20
+
+note: model is exactly identified
+
+Exponential mean model with endogenous regressors
+
+Number of parameters =   7                         Number of obs  =      2,500
+Number of moments    =   7
+Initial weight matrix: Unadjusted
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+y            |
+           x |   .4135643   .0456204     9.07   0.000     .3241499    .5029786
+       _cons |  -1.914564   .1100322   -17.40   0.000    -2.130223   -1.698905
+-------------+----------------------------------------------------------------
+x            |
+          z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
+          z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
+          z3 |   .9554229   .0495052    19.30   0.000     .8583944    1.052451
+       _cons |   .0842244   .0675928     1.25   0.213    -.0482551    .2167039
+-------------+----------------------------------------------------------------
+        /c_x |   .3079003   .0455426     6.76   0.000     .2186384    .3971621
+------------------------------------------------------------------------------
+Instrumented:  x
+Instruments:   z1 z2 z3
+. scalar lmrr1 = _b[x]
+. scalar selmrr1 = _se[x]
 . ivtsri y (x = z1 z2 z3), link(logmult)
 numerical derivatives are approximate
 flat or discontinuous region encountered
@@ -644,36 +983,81 @@ Causal risk ratio for: b2
 -------------+----------------------------------------------------------------
          (1) |   1.403014          .        .       .            .           .
 ------------------------------------------------------------------------------
+. assert abs(_b[b1:_cons] - scalar(lmrr1)) < 1e-2
+. assert abs(_se[b1:_cons] - scalar(selmrr1)) < 1e-2
+assertion is false
+r(9);
 . 
+. ivpoisson cfunction y (x = z1 z2 z3) if _n <= 250, nolog
+. scalar lmrr2 = _b[x]
+. scalar selmrr2 = _se[x]
 . ivtsri y (x = z1 z2 z3) if _n <= 250, link(logmult)
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-numerical derivatives are approximate
-flat or discontinuous region encountered
-Hessian is not positive semidefinite
-r(430);
+. assert abs(_b[b1:_cons] - scalar(lmrr2)) < 1e-2
+. assert abs(_se[b1:_cons] - scalar(selmrr2)) < 1e-2
 . 
+. ivpoisson cfunction y (x = z1 z2 z3), nolog
+. scalar lmrr3 = _b[x]
+. scalar selmrr3 = _se[x]
 . ivtsri y w (x = z1 z2 z3), link(logmult)
+. assert abs(_b[b1:_cons] - scalar(lmrr3)) < 1e-2
+. assert abs(_se[b1:_cons] - scalar(selmrr3)) < 1e-2
 . 
 . ivtsri y (x = z1 z2 z3), link(logmult) estonly
 . ivtsri
+. mat b = e(b)
+. assert abs(b[1,1] - scalar(lmrr1)) < 1e-2
 . }
 
 . 
 . // logit link
 . 
+. cap noi drop res
+
+. regress x z1 z2 z3
+
+      Source |       SS           df       MS      Number of obs   =     2,500
+-------------+----------------------------------   F(3, 2496)      =    309.62
+       Model |  2714.52663         3   904.84221   Prob > F        =    0.0000
+    Residual |  7294.43352     2,496  2.92244933   R-squared       =    0.2712
+-------------+----------------------------------   Adj R-squared   =    0.2703
+       Total |  10008.9602     2,499  4.00518614   Root MSE        =    1.7095
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9945859   .0609026    16.33   0.000     .8751611    1.114011
+          z2 |   .9540576   .0528847    18.04   0.000     .8503552     1.05776
+          z3 |   .9554229    .050013    19.10   0.000     .8573517    1.053494
+       _cons |   .0842244   .0669462     1.26   0.208    -.0470513    .2155001
+------------------------------------------------------------------------------
+
+. predict double res, res
+
+. logit y x res
+
+Iteration 0:   log likelihood = -1731.4565  
+Iteration 1:   log likelihood = -1001.4692  
+Iteration 2:   log likelihood = -1000.3137  
+Iteration 3:   log likelihood = -1000.3111  
+Iteration 4:   log likelihood = -1000.3111  
+
+Logistic regression                             Number of obs     =      2,500
+                                                LR chi2(2)        =    1462.29
+                                                Prob > chi2       =     0.0000
+Log likelihood = -1000.3111                     Pseudo R2         =     0.4223
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .8518266   .0605198    14.08   0.000     .7332099    .9704432
+         res |   .5726491   .0649931     8.81   0.000     .4452651    .7000332
+       _cons |  -1.675875   .1247897   -13.43   0.000    -1.920458   -1.431292
+------------------------------------------------------------------------------
+
+. scalar lor1 = _b[x]
+
+. scalar selor1 = _se[x]
+
 . ivtsri y (x = z1 z2 z3), link(logit)
 
 Final GMM criterion Q(b) =  3.97e-33
@@ -757,7 +1141,59 @@ Causal odds ratio for: b2
          (1) |   1.772958    .123134     8.25   0.000     1.547325    2.031493
 ------------------------------------------------------------------------------
 
+. assert abs(_b[b1:_cons] - scalar(lor1)) < 1e-2
+
+. assert abs(_se[b1:_cons] - scalar(selor1)) < 1e-2
+
 . 
+. cap noi drop res
+
+. regress x z1 z2 z3 if _n <= 100
+
+      Source |       SS           df       MS      Number of obs   =       100
+-------------+----------------------------------   F(3, 96)        =     11.91
+       Model |  122.239349         3  40.7464497   Prob > F        =    0.0000
+    Residual |  328.524824        96  3.42213358   R-squared       =    0.2712
+-------------+----------------------------------   Adj R-squared   =    0.2484
+       Total |  450.764173        99  4.55317346   Root MSE        =    1.8499
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |    .820003   .3207528     2.56   0.012     .1833137    1.456692
+          z2 |    1.41933   .3039049     4.67   0.000     .8160838    2.022577
+          z3 |    .920567   .2938893     3.13   0.002     .3372012    1.503933
+       _cons |  -.3875989    .404343    -0.96   0.340    -1.190214    .4150156
+------------------------------------------------------------------------------
+
+. predict double res if _n <= 100, res
+(2,400 missing values generated)
+
+. logit y x res if _n <= 100
+
+Iteration 0:   log likelihood = -69.294717  
+Iteration 1:   log likelihood = -31.418214  
+Iteration 2:   log likelihood = -31.041788  
+Iteration 3:   log likelihood = -31.040039  
+Iteration 4:   log likelihood = -31.040038  
+
+Logistic regression                             Number of obs     =        100
+                                                LR chi2(2)        =      76.51
+                                                Prob > chi2       =     0.0000
+Log likelihood = -31.040038                     Pseudo R2         =     0.5521
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   1.078734   .3518077     3.07   0.002     .3892034    1.768264
+         res |   .6217428   .3802096     1.64   0.102    -.1234544     1.36694
+       _cons |  -1.790935   .6585132    -2.72   0.007    -3.081597   -.5002725
+------------------------------------------------------------------------------
+
+. scalar lor2 = _b[x]
+
+. scalar selor2 = _se[x]
+
 . ivtsri y (x = z1 z2 z3) if _n <= 100, link(logit)
 
 Final GMM criterion Q(b) =  1.04e-32
@@ -806,7 +1242,60 @@ Causal odds ratio for: b2
          (1) |   1.862171   .6574564     1.76   0.078     .9321697    3.720009
 ------------------------------------------------------------------------------
 
+. assert abs(_b[b1:_cons] - scalar(lor2)) < 1e-2
+
+. assert abs(_se[b1:_cons] - scalar(selor2)) < 5e-2
+
 . 
+. cap noi drop res
+
+. regress x z1 z2 z3 w
+
+      Source |       SS           df       MS      Number of obs   =     2,500
+-------------+----------------------------------   F(4, 2495)      =    656.78
+       Model |  5133.54915         4  1283.38729   Prob > F        =    0.0000
+    Residual |  4875.41101     2,495  1.95407255   R-squared       =    0.5129
+-------------+----------------------------------   Adj R-squared   =    0.5121
+       Total |  10008.9602     2,499  4.00518614   Root MSE        =    1.3979
+
+------------------------------------------------------------------------------
+           x |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9882395   .0498007    19.84   0.000     .8905846    1.085894
+          z2 |   .9152859   .0432582    21.16   0.000     .8304603    1.000111
+          z3 |    .954388   .0408959    23.34   0.000     .8741945    1.034581
+           w |   .9801363   .0278572    35.18   0.000     .9255108    1.034762
+       _cons |   .0734396   .0547431     1.34   0.180     -.033907    .1807861
+------------------------------------------------------------------------------
+
+. predict double res, res
+
+. logit y x res w
+
+Iteration 0:   log likelihood = -1731.4565  
+Iteration 1:   log likelihood = -973.08499  
+Iteration 2:   log likelihood =  -969.8701  
+Iteration 3:   log likelihood =  -969.8676  
+Iteration 4:   log likelihood =  -969.8676  
+
+Logistic regression                             Number of obs     =      2,500
+                                                LR chi2(3)        =    1523.18
+                                                Prob > chi2       =     0.0000
+Log likelihood =  -969.8676                     Pseudo R2         =     0.4399
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .8813906   .0628047    14.03   0.000     .7582957    1.004486
+         res |   .4189215   .0696737     6.01   0.000     .2823637    .5554794
+           w |   .9615452   .0849258    11.32   0.000     .7950937    1.127997
+       _cons |  -1.771829   .1283181   -13.81   0.000    -2.023328   -1.520331
+------------------------------------------------------------------------------
+
+. scalar lor3 = _b[x]
+
+. scalar selor3 = _se[x]
+
 . ivtsri y w (x = z1 z2 z3), link(logit)
 
 Final GMM criterion Q(b) =  3.21e-33
@@ -857,6 +1346,10 @@ Causal odds ratio for: b2
          (1) |   1.520321   .1111488     5.73   0.000     1.317362    1.754549
 ------------------------------------------------------------------------------
 
+. assert abs(_b[b1:_cons] - scalar(lor3)) < 1e-2
+
+. assert abs(_se[b1:_cons] - scalar(selor3)) < 1e-2
+
 . 
 . ivtsri y (x = z1 z2 z3), link(logit) estonly
 
@@ -878,6 +1371,10 @@ Causal odds ratio for: b2
        _cons |  -1.675875   .1247896   -13.43   0.000    -1.920458   -1.431292
 ------------------------------------------------------------------------------
 
+. mat b = e(b)
+
+. assert abs(b[1,1] - scalar(lor1)) < 1e-2
+
 . 
 . // check errors
 . 
@@ -888,7 +1385,7 @@ invalid syntax
 . 
 end of do-file
       name:  ivtsri
-       log:  /Users/tom/Documents/GitHub/onesamplemr-stata/cscripts/ivtsri.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  10 Sep 2021, 08:20:00
+ closed on:  11 Sep 2021, 15:25:44
 -------------------------------------------------------------------------------
