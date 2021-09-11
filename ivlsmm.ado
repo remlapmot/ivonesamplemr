@@ -99,6 +99,11 @@ gmm (`lhs' - invlogit({xb:`amxb'} + {b0})) ///
 	nolog ///
 	`options'
 
+estat overid
+ereturn scalar J_df = `r(J_df)'
+ereturn scalar J_p = `r(J_p)'
+ereturn scalar J = `r(J)'
+
 end
 
 
