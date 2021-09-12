@@ -190,3 +190,5 @@ list predicted in 1/5
 ivtsps y (x = z1 z2 z3) in 101/200
 assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
 list predicted in 1/5
+
+bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly
