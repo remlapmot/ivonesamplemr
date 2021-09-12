@@ -49,6 +49,22 @@ qui save `newdata'
 rolling _b _se, window(`window') `leftoptions' saving(ivmwresults, replace): `right'
 
 * Run any code you want to run after the command on the right
+use ivmwresults, clear
+qui gen mid = start + (end - start) / 2
+label variable mid "First stage residuals window midpoint"
+if "`ivcmdname'" == "ivreg2" {
+    local bpar _b_`par'
+    local spar _se_`par'
+}
+if inlist("`ivcmdname'", "ivmsmm") {
+    local bpar `lhs'_b_`par'
+    local spar `lhs'_se_`par'
+}
+qui gen lowci = `bpar' - 1.96 * `spar'
+qui gen uppci = `bpar' + 1.96 * `spar'
+twoway line `bpar' mid || ///
+    rcap uppci lowci mid
+
 tsset, clear
 use `origdata', clear
 
