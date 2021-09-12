@@ -97,6 +97,9 @@ Please see {help gmm##options}
 
 {phang2}{cmd:.} {stata "ivtsps y (x = z1 z2 z3), link(logit)"}{p_end}
 
+{pstd}Bootstrap standard errors.{p_end}
+{phang2}{cmd:.} {stata "bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly"}{p_end}
+
 {marker results}{...}
 {title:Stored results}
 
