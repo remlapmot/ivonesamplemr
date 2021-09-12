@@ -3,6 +3,7 @@
 {vieweralsosee "ivasmm" "help ivasmm"}{...}
 {vieweralsosee "ivlsmm" "help ivlsmm"}{...}
 {vieweralsosee "ivmsmm" "help ivmsmm"}{...}
+{vieweralsosee "ivmw" "help ivmw"}{...}
 {vieweralsosee "ivtsps" "help ivtsps"}{...}
 {vieweralsosee "ivtsri" "help ivtsri"}{...}
 {vieweralsosee "iv" "help iv"}{...}
@@ -25,6 +26,8 @@
 {synopt :{opt {help ivlsmm}:}}Fits the (double) logistic structural mean model (LSMM), i.e. estimates a causal odds ratio for a binary outcome.
 
 {synopt :{opt {help ivmsmm}:}}Fits the multiplicative structural mean model (MSMM), i.e. estimates a causal risk ratio for a binary outcome.
+
+{synopt :{opt {help ivmw}:}}Prefix command which specifies the moving window be applied to the command after the prefix, e.g. {cmd:ivmw, window(100): ivmsmm ...}.
 
 {synopt :{opt {help ivtsps}:}}Fits two-stage predictor substitution (TSPS) estimators.
 
