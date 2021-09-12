@@ -45,7 +45,7 @@ tempfile newdata
 qui save `newdata'
 
 * Now, run the command on the right
-rolling, window(`window') `leftoptions' saving(mwresults, replace): `right'
+rolling, window(`window') `leftoptions' saving(ivmwresults, replace): `right'
 
 * Run any code you want to run after the command on the right
 tsset, clear
