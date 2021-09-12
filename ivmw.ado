@@ -56,9 +56,17 @@ if "`ivcmdname'" == "ivreg2" {
     local bpar _b_`par'
     local spar _se_`par'
 }
-if inlist("`ivcmdname'", "ivmsmm") {
+if "`ivcmdname'" == "ivmsmm" {
     local bpar `lhs'_b_`par'
     local spar `lhs'_se_`par'
+}
+if "`ivcmdname'" == "ivlsmm" {
+    local bpar cmxb_`par'_b_cons
+    local spar cmxb_`par'_se_cons
+}
+if inlist("`ivcmdname'", "ivtsri", "ivtsps") {
+    local bpar `par'_b_cons
+    local spar `par'_se_cons
 }
 qui gen lowci = `bpar' - 1.96 * `spar'
 qui gen uppci = `bpar' + 1.96 * `spar'
