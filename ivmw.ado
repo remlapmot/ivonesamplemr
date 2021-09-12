@@ -17,13 +17,14 @@ else {
 * Now, do the regular syntax parsing
 local 0 : copy local left
 local 0 = subinstr("`0'", ":", "", .)
-syntax, Window(numlist >0 max=1 integer) [*]
+syntax, Window(numlist >0 max=1 integer) par(string) [*]
 local leftoptions `options'
 
 * Run any code you want to run before the command on the right
 local 0 : copy local right
 syntax [anything] [if] [in] [, *]
 tokenize `right'
+local ivcmdname `1'
 macro shift
 local rest `*'
 _iv_parse `rest'
@@ -45,7 +46,7 @@ tempfile newdata
 qui save `newdata'
 
 * Now, run the command on the right
-rolling, window(`window') `leftoptions' saving(ivmwresults, replace): `right'
+rolling _b _se, window(`window') `leftoptions' saving(ivmwresults, replace): `right'
 
 * Run any code you want to run after the command on the right
 tsset, clear
