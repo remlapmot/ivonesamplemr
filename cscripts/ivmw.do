@@ -58,7 +58,7 @@ gen py = invlogit(logitpy)
 replace py = 0.99 if py == 1
 gen y = rbinomial(1, py)
 
-ivmw, window(2450) par(x): ivreg2 y (x = z1 z2 z3)
+ivmw, window(2480) par(x): ivreg2 y (x = z1 z2 z3)
 
 clear
 set obs 2500
@@ -73,4 +73,4 @@ gen py = invlogit(logitpy)
 replace py = 0.99 if py == 1
 gen y = rbinomial(1, py)
 
-ivmw, window(2450) par(x): ivmsmm y (x = z1 z2 z3)
+ivmw, window(2480) par(x): ivmsmm y (x = z1 z2 z3)
