@@ -3,19 +3,19 @@ program ivmsmm, eclass
 
 local cmdline `0'
 
-tokenize `"`0'"', parse(",")
-local cmdbeforeopts `1'
+syntax [anything] [if] [in] [aw fw iw pw] [, noIRR LOG *]
 
-syntax [anything] [, noIRR LOG *]
-
-if "`irr'" == "" local irr "irr"
-else local irr ""
+local comma ""
+if "`options'" == "" & "`irr'" == "" & "`log'" == "" local comma ","
 
 if "`log'" == "" local nolog "nolog"
 else local nolog ""
 
-ivpoisson gmm `cmdbeforeopts', multiplicative `nolog' `irr' `options'
-qui ivpoisson gmm `cmdbeforeopts', multiplicative `nolog' `options' // so r(table) not exponentiated
+if "`irr'" == "" local irr "irr"
+else local irr ""
+
+ivpoisson gmm `cmdline' `comma' multiplicative `nolog' `irr'
+qui ivpoisson gmm `cmdline' `comma' multiplicative `nolog' `irr' // so r(table) not exponentiated
 
 end
 exit
