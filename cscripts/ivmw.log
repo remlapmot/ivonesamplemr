@@ -1,0 +1,279 @@
+-------------------------------------------------------------------------------
+      name:  ivmw
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
+  log type:  text
+ opened on:  12 Sep 2021, 19:10:32
+
+. // ivmw cscript
+. // 2021-09-12
+. 
+. cscript ivmw adofiles ivmw
+---------------------------------------------------------------------BEGIN ivmw
+
+-> which ivmw, usesysdir
+/Users/tom/Documents/GitHub/ivonesamplemr/ivmw.ado
+*! version 0.1.0 12sep2021 Tom Palmer
+
+. 
+. // simulate data
+. clear
+
+. set obs 2500
+number of observations (_N) was 0, now 2,500
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen w = rnormal()
+
+. gen x = z1 + z2 + z3 + w + u + rnormal()
+
+. gen logitpy = -2 + x + w + u
+
+. gen py = invlogit(logitpy)
+
+. gen y = rbinomial(1, py)
+
+. gen x1 = x
+
+. gen x2 = rnormal()
+
+. 
+. // ivregress
+. // ivmw: ivregress 2sls y (x = z1 z2 z3)
+. 
+. // ivreg2
+. ivmw, window(2490) par(x): ivreg2 y (x = z1 z2 z3)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+(note: file ivmwresults.dta not found)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivreg2)
+
+. ivmw, window(90) par(x): ivreg2 y (x = z1 z2 z3) in 1/100
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivreg2)
+
+. 
+. // ivlsmm
+. ivmw, window(2490) par(x): ivlsmm y (x = z1 z2 z3)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivlsmm on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivlsmm)
+
+. 
+. // ivmsmm
+. ivmw, window(2490) par(x): ivmsmm y (x = z1 z2 z3)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivmsmm on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivmsmm)
+
+. 
+. // ivtsps
+. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivtsps on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivtsps)
+
+. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivtsps on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivtsps)
+
+. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivtsps on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivtsps)
+
+. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivtsps on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivtsps)
+
+. 
+. // ivtsri
+. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivtsri on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivtsri)
+
+. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivtsri on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivtsri)
+
+. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivtsri on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivtsri)
+
+. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivtsri on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file ivmwresults.dta saved
+(rolling: ivtsri)
+
+. 
+. // try quadratic exposure
+. clear
+
+. set obs 2500
+number of observations (_N) was 0, now 2,500
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen x = z1 + z2 + z3 + u + rnormal()
+
+. gen logitpy = -6 + x^2 + u
+
+. gen py = invlogit(logitpy)
+
+. replace py = 0.99 if py == 1
+(129 real changes made)
+
+. gen y = rbinomial(1, py)
+
+. 
+. ivmw, window(2480) par(x): ivreg2 y (x = z1 z2 z3)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (21)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+.....................
+file ivmwresults.dta saved
+(rolling: ivreg2)
+
+. 
+. clear
+
+. set obs 2500
+number of observations (_N) was 0, now 2,500
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen x = z1 + z2 + z3 + u + rnormal()
+
+. gen logitpy = -6 + x^2 + u
+
+. gen py = invlogit(logitpy)
+
+. replace py = 0.99 if py == 1
+(129 real changes made)
+
+. gen y = rbinomial(1, py)
+
+. 
+. ivmw, window(2480) par(x): ivmsmm y (x = z1 z2 z3)
+        time variable:  __000001, 1 to 2500
+                delta:  1 unit
+(running ivmsmm on estimation sample)
+
+Rolling replications (21)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+.....................
+file ivmwresults.dta saved
+(rolling: ivmsmm)
+
+. 
+end of do-file
+      name:  ivmw
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
+  log type:  text
+ closed on:  12 Sep 2021, 19:10:59
+-------------------------------------------------------------------------------
