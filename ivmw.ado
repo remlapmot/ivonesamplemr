@@ -23,7 +23,7 @@ local leftoptions `options'
 * Run any code you want to run before the command on the right
 local 0 : copy local right
 syntax [anything] [if] [in] [, *]
-tokenize `right'
+tokenize `"`right'"'
 local ivcmdname `1'
 macro shift
 local rest `*'
