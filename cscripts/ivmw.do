@@ -20,27 +20,27 @@ gen x1 = x
 gen x2 = rnormal()
 
 // ivregress
-ivmw: ivregress 2sls y (x = z1 z2 z3)
+// ivmw: ivregress 2sls y (x = z1 z2 z3)
 
 // ivreg2
-ivmw: ivreg2 y (x = z1 z2 z3)
-ivmw, window(100): ivreg2 y (x = z1 z2 z3)
+ivmw, window(2490): ivreg2 y (x = z1 z2 z3)
+ivmw, window(90): ivreg2 y (x = z1 z2 z3) in 1/100
 
 // ivlsmm
-ivmw: ivlsmm y (x = z1 z2 z3)
+ivmw, window(2490): ivlsmm y (x = z1 z2 z3)
 
 // ivmsmm
-ivmw: ivmsmm y (x = z1 z2 z3)
+ivmw, window(2490): ivmsmm y (x = z1 z2 z3)
 
 // ivtsps
-ivmw: ivtsps y (x = z1 z2 z3)
-ivmw: ivtsps y (x = z1 z2 z3), link(logadd)
-ivmw: ivtsps y (x = z1 z2 z3), link(logmult)
-ivmw: ivtsps y (x = z1 z2 z3), link(logit)
+ivmw, window(2490): ivtsps y (x = z1 z2 z3)
+ivmw, window(2490): ivtsps y (x = z1 z2 z3), link(logadd)
+ivmw, window(2490): ivtsps y (x = z1 z2 z3), link(logmult)
+ivmw, window(2490): ivtsps y (x = z1 z2 z3), link(logit)
 
 // ivtsri
-ivmw: ivtsri y (x = z1 z2 z3)
-ivmw: ivtsri y (x = z1 z2 z3), link(logadd)
-ivmw: ivtsri y (x = z1 z2 z3), link(logmult)
-ivmw: ivtsri y (x = z1 z2 z3), link(logit)
+ivmw, window(2490): ivtsri y (x = z1 z2 z3)
+ivmw, window(2490): ivtsri y (x = z1 z2 z3), link(logadd)
+ivmw, window(2490): ivtsri y (x = z1 z2 z3), link(logmult)
+ivmw, window(2490): ivtsri y (x = z1 z2 z3), link(logit)
 
