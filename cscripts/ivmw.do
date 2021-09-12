@@ -23,26 +23,26 @@ gen x2 = rnormal()
 // ivmw: ivregress 2sls y (x = z1 z2 z3)
 
 // ivreg2
-ivmw, window(2490): ivreg2 y (x = z1 z2 z3)
-ivmw, window(90): ivreg2 y (x = z1 z2 z3) in 1/100
+ivmw, window(2490) par(x): ivreg2 y (x = z1 z2 z3)
+ivmw, window(90) par(x): ivreg2 y (x = z1 z2 z3) in 1/100
 
 // ivlsmm
-ivmw, window(2490): ivlsmm y (x = z1 z2 z3)
+ivmw, window(2490) par(x): ivlsmm y (x = z1 z2 z3)
 
 // ivmsmm
-ivmw, window(2490): ivmsmm y (x = z1 z2 z3)
+ivmw, window(2490) par(x): ivmsmm y (x = z1 z2 z3)
 
 // ivtsps
-ivmw, window(2490): ivtsps y (x = z1 z2 z3)
-ivmw, window(2490): ivtsps y (x = z1 z2 z3), link(logadd)
-ivmw, window(2490): ivtsps y (x = z1 z2 z3), link(logmult)
-ivmw, window(2490): ivtsps y (x = z1 z2 z3), link(logit)
+ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3)
+ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
+ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
 
 // ivtsri
-ivmw, window(2490): ivtsri y (x = z1 z2 z3)
-ivmw, window(2490): ivtsri y (x = z1 z2 z3), link(logadd)
-ivmw, window(2490): ivtsri y (x = z1 z2 z3), link(logmult)
-ivmw, window(2490): ivtsri y (x = z1 z2 z3), link(logit)
+ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3)
+ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
+ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
 
 // try quadratic exposure
 clear
