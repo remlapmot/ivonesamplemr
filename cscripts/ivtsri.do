@@ -201,3 +201,5 @@ ivtsri y (x = z1 z2 z3) in 101/200
 assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
 assert abs(_b[b2:_cons] - scalar(bxr)) < 1e-2
 list residuals in 1/5
+
+bootstrap, reps(250): ivtsri y (x = z1 z2 z3), estonly
