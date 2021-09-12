@@ -15,6 +15,7 @@ if "`log'" == "" local nolog "nolog"
 else local nolog ""
 
 ivpoisson gmm `cmdbeforeopts', multiplicative `nolog' `irr' `options'
+qui ivpoisson gmm `cmdbeforeopts', multiplicative `nolog' `options' // so r(table) not exponentiated
 
 end
 exit
