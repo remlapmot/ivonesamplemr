@@ -58,22 +58,9 @@ Please see {help ivpoisson##options}
 {marker examples}{...}
 {title:Examples}
 
-{pstd}Simulate binary outcome data; y outcome, x exposure, w covariate, z* instrumental variables (genotypes).{p_end}
+{pstd}Read in binary outcome data; y outcome, x exposure, w covariate, z* instrumental variables (genotypes).{p_end}
 
-{phang2}{cmd:.} {stata "drop _all"}{p_end}
-{phang2}{cmd:.} {stata "set obs 2500"}{p_end}
-{phang2}{cmd:.} {stata "set seed 12345"}{p_end}
-{phang2}{cmd:.} {stata "gen z1 = rbinomial(2, .2)"}{p_end}
-{phang2}{cmd:.} {stata "gen z2 = rbinomial(2, .3)"}{p_end}
-{phang2}{cmd:.} {stata "gen z3 = rbinomial(2, .4)"}{p_end}
-{phang2}{cmd:.} {stata "gen u = rnormal()"}{p_end}
-{phang2}{cmd:.} {stata "gen w = rnormal()"}{p_end}
-{phang2}{cmd:.} {stata "gen x = z1 + z2 + z3 + w + u + rnormal()"}{p_end}
-{phang2}{cmd:.} {stata "gen logitpy = -2 + x + w + u"}{p_end}
-{phang2}{cmd:.} {stata "gen py = invlogit(logitpy)"}{p_end}
-{phang2}{cmd:.} {stata "gen y = rbinomial(1, py)"}{p_end}
-{phang2}{cmd:.} {stata "gen x1 = x"}{p_end}
-{phang2}{cmd:.} {stata "gen x2 = rnormal()"}{p_end}
+{phang2}{cmd:.} {stata "use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear"}{p_end}
 
 {pstd}Fit the model with a single instrumental variable.{p_end}
 
