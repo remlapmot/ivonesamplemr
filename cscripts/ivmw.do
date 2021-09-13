@@ -74,3 +74,27 @@ replace py = 0.99 if py == 1
 gen y = rbinomial(1, py)
 
 ivmw, window(2480) par(x): ivmsmm y (x = z1 z2 z3)
+
+// burgess, davies, thompson paper simulations
+
+clear
+set obs 4000
+set seed 12345
+gen g = rbinomial(2, .3)
+gen u = runiform()
+gen ex = rexponential(1)
+gen x = .25*g + u + ex
+gen ey = rnormal()
+gen y1 = .4*x + .8*u + ey
+gen y2 = .1*x^2
+gen y3 = .2*(x - 1)^2
+gen y4 = .3*(x - 2)^2
+gen y5 = max(x - 2, 0)
+
+twoway line y1 y2 y3 y4 y5 x, sort(x)
+
+ivmw, window(3550) par(x): ivreg2 y1 (x = g)
+ivmw, window(3550) par(x): ivreg2 y2 (x = g)
+ivmw, window(3550) par(x): ivreg2 y3 (x = g)
+ivmw, window(3550) par(x): ivreg2 y4 (x = g)
+ivmw, window(3550) par(x): ivreg2 y5 (x = g)
