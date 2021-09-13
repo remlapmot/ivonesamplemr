@@ -91,7 +91,9 @@ gen y3 = .2*(x - 1)^2
 gen y4 = .3*(x - 2)^2
 gen y5 = max(x - 2, 0)
 
-twoway line y1 y2 y3 y4 y5 x, sort(x)
+twoway line y1 x, sort(x)
+twoway line y2 y3 y4 x, sort(x)
+twoway line y5 x, sort(x)
 
 ivmw, window(3550) par(x): ivreg2 y1 (x = g)
 ivmw, window(3550) par(x): ivreg2 y2 (x = g)
