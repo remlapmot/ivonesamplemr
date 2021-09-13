@@ -7,7 +7,9 @@ ivasmm ///
 ivlsmm ///
 ivmsmm ///
 ivtsps ///
-ivtsri
+ivtsri ///
+iv ///
+ivmw
 
 foreach helpfile of local helpfiles {
 	type ../`helpfile'.sthlp
