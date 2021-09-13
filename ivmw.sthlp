@@ -100,7 +100,7 @@ StataCorp. Stata Base Reference Manual. Release 16. rolling - Rolling-window and
 {browse "https://www.stata.com/manuals/tsrolling.pdf":URL}
 {p_end}
 
-{marker author}
+{marker author}{...}
 {title:Author}
 
 INCLUDE help ivonesamplemr-author

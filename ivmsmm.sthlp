@@ -160,7 +160,7 @@ Windmeijer, F. ExpEnd, A Gauss programme for non-linear GMM estimation of EXPone
 {browse "https://www.cemmap.ac.uk/wp-content/uploads/2020/08/CWP1402.pdf":URL}
 {p_end}
 
-{marker author}
+{marker author}{...}
 {title:Author}
 
 INCLUDE help ivonesamplemr-author

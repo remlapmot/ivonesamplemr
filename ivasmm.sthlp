@@ -69,7 +69,7 @@ Clarke PS, Palmer TM, Windmeijer F. Estimating structural mean models with multi
 Robins JM. The analysis of randomised and nonrandomised AIDS treatment trials using a new approach to causal inference in longitudinal studies. In Health Service Research Methodology: A Focus on AIDS (L. Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public Health Service, National Center for Health Services Research, Washington, DC.
 {p_end}
 
-{marker author}
+{marker author}{...}
 {title:Author}
 
 INCLUDE help ivonesamplemr-author

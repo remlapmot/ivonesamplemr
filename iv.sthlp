@@ -68,7 +68,7 @@ The {it:subcommand} is specified as the mrrobust program name without its {cmd:i
 {pstd}
 {cmd:iv} returns the results from the specified subcommand.
 
-{marker author}
+{marker author}{...}
 {title:Author}
 
 INCLUDE help ivonesamplemr-author

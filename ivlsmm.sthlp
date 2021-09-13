@@ -125,7 +125,7 @@ Causal inference with generalized structural mean models.
 {browse "https://doi.org/10.1046/j.1369-7412.2003.00417.x":DOI}
 {p_end}
 
-{marker author}
+{marker author}{...}
 {title:Author}
 
 INCLUDE help ivonesamplemr-author

@@ -41,6 +41,7 @@
 {pstd}
 {cmd:ivonesamplemr} is a suite of programs implementing various instrumental variable (IV) estimators for individual level (a.k.a. one-sample) data. These are useful for Mendelian randomization (MR) analyses.
 
-{title:Author}{marker author}
+{marker author}{...}
+{title:Author}
 
 INCLUDE help ivonesamplemr-author

@@ -134,7 +134,7 @@ Journal of Health Economics. 2008, 27, 3, 531–543.
 {browse "https://doi.org/10.1016/j.jhealeco.2007.09.009":DOI}
 {p_end}
 
-{marker author}
+{marker author}{...}
 {title:Author}
 
 INCLUDE help ivonesamplemr-author
