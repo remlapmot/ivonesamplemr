@@ -18,35 +18,21 @@
 {marker syntax}{...}
 {title:Syntax}
 
-{p 8 14 2}
-{cmd:ivmsmm} {depvar} [{it:{help varlist:varlist1}}]
-{cmd:(}{it:{help varlist:varlist2}} {cmd:=}
-        {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
-[{it:{help ivpoisson##weight:weight}}]
-[{cmd:,} {it:log} {it:noirr} {it:ivpoisson_options}]
-
-{phang}
-{it:varlist1} is the list of exogenous variables.{p_end}
-
-{phang}
-{it:varlist2} is the list of endogenous variables.{p_end}
-
-{phang}
-{it:varlist_iv} is the list of exogenous variables used with {it:varlist1}
-   as instruments for {it:varlist2}.
+{p 8 12 2}
+{cmd:ivmw} {cmd:,} {opt window(#)} {opt par(string)} [{opt rolling_options}]{cmd::} {it:iv_cmd}
 
 {synoptset 20 tabbed}{...}
 {synopthdr}
 {synoptline}
-{synopt:{opt par:}}Do not display exponentiated estimates{p_end}
-{synopt:{opt window:}}Show the GMM iteration log{p_end}
+{synopt:{opt par:}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
+{synopt:{opt window:}}number of consecutive data points in each sample{p_end}
 {synopt:{opt rolling_options:}}{help rolling##options}{p_end}
 
 {marker description}{...}
 {title:Description}
 
 {pstd}
-{cmd:ivmw} implements the moving window (rolling window) approach to the estimator specified after the prefix. It is implemented as a call to {help rolling}.
+{cmd:ivmw} implements the moving window (a.k.a. sliding / rolling window) approach to the estimator specified after the prefix, as per {help ivmw##burgess:Burgess et al., 2014}. It is implemented as a call to {help rolling}.
  
 {marker options}{...}
 {title:Options}
@@ -57,26 +43,41 @@ Please see {help rolling##options}
 {marker examples}{...}
 {title:Examples}
 
-{pstd}Simulate binary outcome data; y outcome, x exposure, w covariate, z* instrumental variables (genotypes).{p_end}
+{pstd}Simulate data with different outcome-exposure relationships; y# outcome, x exposure, g instrumental variable (genotype).{p_end}
 
 {phang2}{cmd:.} {stata "drop _all"}{p_end}
-{phang2}{cmd:.} {stata "set obs 2500"}{p_end}
+{phang2}{cmd:.} {stata "set obs 4000"}{p_end}
 {phang2}{cmd:.} {stata "set seed 12345"}{p_end}
-{phang2}{cmd:.} {stata "gen z1 = rbinomial(2, .2)"}{p_end}
-{phang2}{cmd:.} {stata "gen z2 = rbinomial(2, .3)"}{p_end}
-{phang2}{cmd:.} {stata "gen z3 = rbinomial(2, .4)"}{p_end}
-{phang2}{cmd:.} {stata "gen u = rnormal()"}{p_end}
-{phang2}{cmd:.} {stata "gen w = rnormal()"}{p_end}
-{phang2}{cmd:.} {stata "gen x = z1 + z2 + z3 + w + u + rnormal()"}{p_end}
-{phang2}{cmd:.} {stata "gen logitpy = -2 + x + w + u"}{p_end}
-{phang2}{cmd:.} {stata "gen py = invlogit(logitpy)"}{p_end}
-{phang2}{cmd:.} {stata "gen y = rbinomial(1, py)"}{p_end}
-{phang2}{cmd:.} {stata "gen x1 = x"}{p_end}
-{phang2}{cmd:.} {stata "gen x2 = rnormal()"}{p_end}
+{phang2}{cmd:.} {stata "gen g = rbinomial(2, .3)"}{p_end}
+{phang2}{cmd:.} {stata "gen u = runiform()"}{p_end}
+{phang2}{cmd:.} {stata "gen ex = rexponential(1)"}{p_end}
+{phang2}{cmd:.} {stata "gen x = .25*g + u + ex"}{p_end}
+{phang2}{cmd:.} {stata "gen ey = rnormal()"}{p_end}
+{phang2}{cmd:.} {stata "gen y1 = .4*x + .8*u + ey"}{p_end}
+{phang2}{cmd:.} {stata "gen y2 = .1*x^2"}{p_end}
+{phang2}{cmd:.} {stata "gen y3 = .2*(x - 1)^2"}{p_end}
+{phang2}{cmd:.} {stata "gen y4 = .3*(x - 2)^2"}{p_end}
+{phang2}{cmd:.} {stata "gen y5 = max(x - 2, 0)"}{p_end}
 
-{pstd}Example MSMM fit.{p_end}
+{pstd}Plot outcome-exposure relationships{p_end}
 
-{phang2}{cmd:.} {stata "ivmw, window(2400) par(x): ivmsmm y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "twoway line y1 x, sort(x)"}{p_end}
+{phang2}{cmd:.} {stata "twoway line y2 y3 y4 x, sort(x)"}{p_end}
+{phang2}{cmd:.} {stata "twoway line y5 x, sort(x)"}{p_end}
+
+{pstd}Example moving window fits.{p_end}
+
+{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivreg2 y1 (x = g)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivreg2 y2 (x = g)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivreg2 y3 (x = g)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivreg2 y4 (x = g)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivreg2 y5 (x = g)"}{p_end}
+
+{pstd}Change window size (e.g. for outcome y2).{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(3750) par(x): ivreg2 y2 (x = g)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(3000) par(x): ivreg2 y2 (x = g)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2000) par(x): ivreg2 y2 (x = g)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(1000) par(x): ivreg2 y2 (x = g)"}{p_end}
 
 {marker results}{...}
 {title:Stored results}
