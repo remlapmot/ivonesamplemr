@@ -2,7 +2,7 @@
       name:  ivmw
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:  13 Sep 2021, 07:54:50
+ opened on:  13 Sep 2021, 19:58:17
 
 . // ivmw cscript
 . // 2021-09-12
@@ -300,7 +300,11 @@ number of observations (_N) was 0, now 4,000
 . gen y5 = max(x - 2, 0)
 
 . 
-. twoway line y1 y2 y3 y4 y5 x, sort(x)
+. twoway line y1 x, sort(x)
+
+. twoway line y2 y3 y4 x, sort(x)
+
+. twoway line y5 x, sort(x)
 
 . 
 . ivmw, window(3550) par(x): ivreg2 y1 (x = g)
@@ -408,5 +412,5 @@ end of do-file
       name:  ivmw
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:  13 Sep 2021, 07:56:22
+ closed on:  13 Sep 2021, 19:59:50
 -------------------------------------------------------------------------------
