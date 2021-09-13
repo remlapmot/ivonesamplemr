@@ -45,7 +45,7 @@ The {it:subcommand} is specified as the mrrobust program name without its {cmd:i
 
 {phang2}{cmd:.} {stata "iv msmm y (x = z1 z2 z3)"}{p_end}
 
-{phang2}{cmd:.} {stata "iv tsps y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "iv tsps y (x = z1 z2 z3), link(logit)"}{p_end}
 
 {phang2}{cmd:.} {stata "iv tsri y (x = z1 z2 z3), link(logit)"}{p_end}
 
