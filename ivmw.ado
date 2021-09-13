@@ -48,10 +48,16 @@ qui save `newdata'
 * Now, run the command on the right
 rolling _b _se, window(`window') `leftoptions' saving(ivmwresults, replace): `right'
 
+// collect median of endog in each window
+tempfile ivmwmedres
+qui rolling median = r(p50), window(`window') saving(`ivmwmedres', replace): ///
+    summarize `endog', detail
+
 * Run any code you want to run after the command on the right
 use ivmwresults, clear
-qui gen mid = start + (end - start) / 2
-label variable mid "First stage residuals window midpoint"
+qui merge 1:1 start using `ivmwmedres'
+qui save, replace
+label variable median "Median of exposure in moving window"
 if "`ivcmdname'" == "ivreg2" {
     local bpar _b_`par'
     local spar _se_`par'
@@ -70,8 +76,8 @@ if inlist("`ivcmdname'", "ivtsri", "ivtsps") {
 }
 qui gen lowci = `bpar' - 1.96 * `spar'
 qui gen uppci = `bpar' + 1.96 * `spar'
-twoway line `bpar' mid || ///
-    rcap uppci lowci mid
+twoway line `bpar' median || ///
+    rcap uppci lowci median
 
 tsset, clear
 use `origdata', clear
