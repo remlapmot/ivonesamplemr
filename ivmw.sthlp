@@ -45,19 +45,7 @@ Please see {help rolling##options}
 
 {pstd}Simulate data with different outcome-exposure relationships; y# outcome, x exposure, g instrumental variable (genotype).{p_end}
 
-{phang2}{cmd:.} {stata "drop _all"}{p_end}
-{phang2}{cmd:.} {stata "set obs 4000"}{p_end}
-{phang2}{cmd:.} {stata "set seed 12345"}{p_end}
-{phang2}{cmd:.} {stata "gen g = rbinomial(2, .3)"}{p_end}
-{phang2}{cmd:.} {stata "gen u = runiform()"}{p_end}
-{phang2}{cmd:.} {stata "gen ex = rexponential(1)"}{p_end}
-{phang2}{cmd:.} {stata "gen x = .25*g + u + ex"}{p_end}
-{phang2}{cmd:.} {stata "gen ey = rnormal()"}{p_end}
-{phang2}{cmd:.} {stata "gen y1 = .4*x + .8*u + ey"}{p_end}
-{phang2}{cmd:.} {stata "gen y2 = .1*x^2"}{p_end}
-{phang2}{cmd:.} {stata "gen y3 = .2*(x - 1)^2"}{p_end}
-{phang2}{cmd:.} {stata "gen y4 = .3*(x - 2)^2"}{p_end}
-{phang2}{cmd:.} {stata "gen y5 = max(x - 2, 0)"}{p_end}
+{phang2}{cmd:.} {stata "use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivmwdata, clear"}{p_end}
 
 {pstd}Plot outcome-exposure relationships{p_end}
 
