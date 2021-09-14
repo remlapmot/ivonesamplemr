@@ -19,13 +19,14 @@
 {title:Syntax}
 
 {p 8 12 2}
-{cmd:ivmw} {cmd:,} {opt window(#)} {opt par(string)} [{opt rolling_options}]{cmd::} {it:iv_cmd}
+{cmd:ivmw} {cmd:,} {opt window(#)} {opt par(string)} [{opt sa:ving(string)} {opt rolling_options}]{cmd::} {it:iv_cmd}
 
 {synoptset 20 tabbed}{...}
 {synopthdr}
 {synoptline}
 {synopt:{opt par:}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
 {synopt:{opt window:}}number of consecutive data points in each sample{p_end}
+{synopt:{opt sa:ving(string)}}Save the moving window output to a dataset. Specify {cmd:, replace} to overwrite an existing dataset{p_end}
 {synopt:{opt rolling_options:}}{help rolling##options}{p_end}
 
 {marker description}{...}
@@ -66,6 +67,9 @@ Please see {help rolling##options}
 {phang2}{cmd:.} {stata "ivmw, window(3000) par(x): ivreg2 y2 (x = g)"}{p_end}
 {phang2}{cmd:.} {stata "ivmw, window(2000) par(x): ivreg2 y2 (x = g)"}{p_end}
 {phang2}{cmd:.} {stata "ivmw, window(1000) par(x): ivreg2 y2 (x = g)"}{p_end}
+
+{pstd}Save the moving window dataset.{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)"}{p_end}
 
 {marker results}{...}
 {title:Stored results}
