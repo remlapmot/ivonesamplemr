@@ -51,7 +51,7 @@ rolling _b _se, window(`window') `leftoptions' saving(ivmwresults, replace): `ri
 // collect median of endog in each window
 tempfile ivmwmedres
 qui rolling median = r(p50), window(`window') saving(`ivmwmedres', replace): ///
-    summarize `endog', detail
+    summarize `endog' `if'`in', detail
 
 * Run any code you want to run after the command on the right
 use ivmwresults, clear
