@@ -90,13 +90,21 @@ gen y2 = .1*x^2
 gen y3 = .2*(x - 1)^2
 gen y4 = .3*(x - 2)^2
 gen y5 = max(x - 2, 0)
+gen y6 = -.1*x^2
+gen y7 = (x - 5)^2
 
 twoway line y1 x, sort(x)
 twoway line y2 y3 y4 x, sort(x)
 twoway line y5 x, sort(x)
+twoway line y6 y7 x, sort(x)
 
 ivmw, window(3550) par(x): ivreg2 y1 (x = g)
 ivmw, window(3550) par(x): ivreg2 y2 (x = g)
 ivmw, window(3550) par(x): ivreg2 y3 (x = g)
 ivmw, window(3550) par(x): ivreg2 y4 (x = g)
 ivmw, window(3550) par(x): ivreg2 y5 (x = g)
+ivmw, window(3550) par(x): ivreg2 y6 (x = g)
+ivmw, window(3550) par(x): ivreg2 y7 (x = g)
+ivmw, window(2000) par(x): ivreg2 y7 (x = g)
+
+ivmw, window(200) par(x): ivreg2 y2 (x = g) in 1/500
