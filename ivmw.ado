@@ -17,8 +17,18 @@ else {
 * Now, do the regular syntax parsing
 local 0 : copy local left
 local 0 = subinstr("`0'", ":", "", .)
-syntax, Window(numlist >0 max=1 integer) par(string) [*]
+syntax, Window(numlist >0 max=1 integer) par(string) [SAving(string) *]
 local leftoptions `options'
+if "`saving'" == "" {
+	tempfile saving
+	local savefilename `saving'
+}
+else {
+	tokenize `"`saving'"', parse(",")
+	local savefilename `1'
+	di "`savefilename'"
+}
+
 
 * Run any code you want to run before the command on the right
 local 0 : copy local right
@@ -46,7 +56,7 @@ tempfile newdata
 qui save `newdata'
 
 * Now, run the command on the right
-rolling _b _se, window(`window') `leftoptions' saving(ivmwresults, replace): `right'
+rolling _b _se, window(`window') `leftoptions' saving(`saving'): `right'
 
 // collect median of endog in each window
 tempfile ivmwmedres
@@ -54,7 +64,7 @@ qui rolling median = r(p50), window(`window') saving(`ivmwmedres', replace): ///
     summarize `endog' `if'`in', detail
 
 * Run any code you want to run after the command on the right
-use ivmwresults, clear
+use `savefilename', clear
 qui merge 1:1 start using `ivmwmedres'
 qui save, replace
 label variable median "Median of exposure in moving window"
