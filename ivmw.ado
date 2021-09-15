@@ -71,17 +71,20 @@ use `savefilename', clear
 qui merge 1:1 start using `ivmwmedres'
 qui save, replace
 label variable median "Median of exposure in moving window"
-if "`ivcmdname'" == "ivreg2" {
+if inlist("`ivcmdname'", "ivreg2", "ivtsps", "ivtsri") {
     local bpar _b_`par'
     local spar _se_`par'
+	local parname "effect"
 }
 if "`ivcmdname'" == "ivmsmm" {
     local bpar `lhs'_b_`par'
     local spar `lhs'_se_`par'
+	local parname "log risk ratio"
 }
 if "`ivcmdname'" == "ivlsmm" {
     local bpar cmxb_`par'_b_cons
     local spar cmxb_`par'_se_cons
+	local parname "log odds ratio"
 }
 if inlist("`ivcmdname'", "ivtsri", "ivtsps") {
     local bpar `par'_b_cons
@@ -89,9 +92,11 @@ if inlist("`ivcmdname'", "ivtsri", "ivtsps") {
 }
 qui gen lowci = `bpar' - 1.96 * `spar'
 qui gen uppci = `bpar' + 1.96 * `spar'
+local ytitle "Estimated causal `parname'"
 twoway line `bpar' uppci lowci median, sort(median) ///
     lc(gs0 gs10 gs10) lw(medthick medthick medthick) ///
-    legend(rows(1) order(1 "Estimated causal effect" 2 "95% CI limits"))
+    legend(rows(1) order(1 "Estimated causal `parname'" 2 "95% CI limits")) ///
+	ytitle(`ytitle')
 
 tsset, clear
 use `origdata', clear
