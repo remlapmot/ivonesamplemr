@@ -63,12 +63,14 @@ Please see {help rolling##options}
 {phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivreg2 y5 (x = g)"}{p_end}
 
 {pstd}Change window size (e.g. for outcome y2).{p_end}
+
 {phang2}{cmd:.} {stata "ivmw, window(3750) par(x): ivreg2 y2 (x = g)"}{p_end}
 {phang2}{cmd:.} {stata "ivmw, window(3000) par(x): ivreg2 y2 (x = g)"}{p_end}
 {phang2}{cmd:.} {stata "ivmw, window(2000) par(x): ivreg2 y2 (x = g)"}{p_end}
 {phang2}{cmd:.} {stata "ivmw, window(1000) par(x): ivreg2 y2 (x = g)"}{p_end}
 
 {pstd}Save the moving window dataset.{p_end}
+
 {phang2}{cmd:.} {stata "ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)"}{p_end}
 
 {marker results}{...}
