@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  master
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\master.log
   log type:  text
- opened on:  12 Sep 2021, 00:30:18
+ opened on:  15 Sep 2021, 13:55:46
 
 . 
 . cscript master
@@ -18,6 +18,7 @@
 >         ivmsmm ///
 >     ivtsps ///
 >     ivtsri ///
+>     ivmw ///
 >     helpfiles
 
 . 
@@ -28,9 +29,9 @@
   5. }
 -------------------------------------------------------------------------------
       name:  iv
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\iv.log
   log type:  text
- opened on:  12 Sep 2021, 00:30:18
+ opened on:  15 Sep 2021, 13:55:46
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -39,7 +40,7 @@
 -----------------------------------------------------------------------BEGIN iv
 
 -> which iv, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/iv.ado
+C:\Users\eptmp\Documents\GitHub\ivonesamplemr\iv.ado
 *! version 0.1.0 10sep2021 Tom Palmer
 
 . 
@@ -230,15 +231,15 @@ Causal odds ratio for: b2
 . 
 end of do-file
       name:  iv
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\iv.log
   log type:  text
- closed on:  12 Sep 2021, 00:30:19
+ closed on:  15 Sep 2021, 13:55:47
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivlsmm.log
   log type:  text
- opened on:  12 Sep 2021, 00:30:19
+ opened on:  15 Sep 2021, 13:55:47
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -247,7 +248,7 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivlsmm
 
 -> which ivlsmm, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivlsmm.ado
+C:\Users\eptmp\Documents\GitHub\ivonesamplemr\ivlsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
@@ -288,7 +289,7 @@ number of observations (_N) was 0, now 2,500
 
 . ivlsmm y w (x = z1)
 
-Final GMM criterion Q(b) =  1.78e-30
+Final GMM criterion Q(b) =  1.79e-30
 
 note: model is exactly identified
 
@@ -316,7 +317,7 @@ Instruments for equation 2: z1 w _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(0) = 4.4e-27 (p =     .)
+  Hansen's J chi2(0) = 4.5e-27 (p =     .)
 
 Note: test cannot be performed because there are no
       overidentifying restrictions.
@@ -385,7 +386,7 @@ Causal odds ratio for: w
 . eret list
 
 scalars:
-                  e(J) =  4.44363770968e-27
+                  e(J) =  4.46658764385e-27
                 e(J_p) =  .
                e(J_df) =  0
          e(k_eq_model) =  0
@@ -399,7 +400,7 @@ scalars:
           e(converged) =  1
                 e(k_2) =  7
                 e(k_1) =  4
-                  e(Q) =  1.77745508387e-30
+                  e(Q) =  1.78663505754e-30
                   e(N) =  2500
                e(rank) =  7
 
@@ -977,15 +978,15 @@ Causal odds ratio for: x
 . 
 end of do-file
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivlsmm.log
   log type:  text
- closed on:  12 Sep 2021, 00:30:22
+ closed on:  15 Sep 2021, 13:55:56
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
   log type:  text
- opened on:  12 Sep 2021, 00:30:22
+ opened on:  15 Sep 2021, 13:55:56
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -994,7 +995,7 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivmsmm
 
 -> which ivmsmm, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivmsmm.ado
+C:\Users\eptmp\Documents\GitHub\ivonesamplemr\ivmsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
@@ -1033,7 +1034,7 @@ number of observations (_N) was 0, now 2,500
 . 
 . ivmsmm y (x = z1)
 
-Final GMM criterion Q(b) =  5.69e-33
+Final GMM criterion Q(b) =  5.63e-33
 
 note: model is exactly identified
 
@@ -1175,7 +1176,7 @@ Iteration 3:   GMM criterion Q(b) =  3.685e-16
 
 Step 2
 Iteration 0:   GMM criterion Q(b) =  2.287e-16  
-Iteration 1:   GMM criterion Q(b) =  1.267e-31  
+Iteration 1:   GMM criterion Q(b) =  1.268e-31  
 
 note: model is exactly identified
 
@@ -1260,15 +1261,15 @@ Instruments:   cbd ptn worker weekend pt
 . 
 end of do-file
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
   log type:  text
- closed on:  12 Sep 2021, 00:30:24
+ closed on:  15 Sep 2021, 13:55:59
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
   log type:  text
- opened on:  12 Sep 2021, 00:30:24
+ opened on:  15 Sep 2021, 13:55:59
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -1277,7 +1278,7 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivtsps
 
 -> which ivtsps, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivtsps.ado
+C:\Users\eptmp\Documents\GitHub\ivonesamplemr\ivtsps.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
@@ -1812,7 +1813,7 @@ Instruments:   w z1 z2 z3
 
 . ivtsps y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.85e-32
+Final GMM criterion Q(b) =  1.86e-32
 
 note: model is exactly identified
 
@@ -2758,17 +2759,37 @@ Causal risk difference for: b1
      +----------+
 
 . 
+. bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly
+(running ivtsps on estimation sample)
+
+Bootstrap replications (250)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+..................................................   100
+..................................................   150
+..................................................   200
+..................................................   250
+
+------------------------------------------------------------------------------
+             |   Observed   Bootstrap                         Normal-based
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   predicted |   .1070019    .007757    13.79   0.000     .0917986    .1222053
+       _cons |   .2879917    .016084    17.91   0.000     .2564677    .3195156
+------------------------------------------------------------------------------
+
+. 
 end of do-file
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
   log type:  text
- closed on:  12 Sep 2021, 00:30:26
+ closed on:  15 Sep 2021, 13:56:07
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivtsri.log
   log type:  text
- opened on:  12 Sep 2021, 00:30:26
+ opened on:  15 Sep 2021, 13:56:07
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -2777,7 +2798,7 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivtsri
 
 -> which ivtsri, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivtsri.ado
+C:\Users\eptmp\Documents\GitHub\ivonesamplemr\ivtsri.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
@@ -3236,7 +3257,7 @@ Log likelihood = -1810.4754                     Pseudo R2         =     0.1323
 
 . ivtsri y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.10e-32
+Final GMM criterion Q(b) =  7.00e-33
 
 note: model is exactly identified
 
@@ -3487,7 +3508,7 @@ Log likelihood = -1804.0989                     Pseudo R2         =     0.1354
 
 . ivtsri y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.66e-32
+Final GMM criterion Q(b) =  1.28e-32
 
 note: model is exactly identified
 
@@ -4560,17 +4581,578 @@ Causal risk difference for: b2
      +----------+
 
 . 
+. bootstrap, reps(250): ivtsri y (x = z1 z2 z3), estonly
+(running ivtsri on estimation sample)
+
+Bootstrap replications (250)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+..................................................   100
+..................................................   150
+..................................................   200
+..................................................   250
+
+------------------------------------------------------------------------------
+             |   Observed   Bootstrap                         Normal-based
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .1070019    .007757    13.79   0.000     .0917986    .1222053
+   residuals |   .0740544    .009064     8.17   0.000     .0562894    .0918195
+       _cons |   .2879917    .016084    17.91   0.000     .2564677    .3195156
+------------------------------------------------------------------------------
+
+. 
 end of do-file
       name:  ivtsri
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivtsri.log
   log type:  text
- closed on:  12 Sep 2021, 00:30:30
+ closed on:  15 Sep 2021, 13:56:16
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+      name:  ivmw
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
+  log type:  text
+ opened on:  15 Sep 2021, 13:56:16
+
+. // ivmw cscript
+. // 2021-09-12
+. 
+. cscript ivmw adofiles ivmw
+---------------------------------------------------------------------BEGIN ivmw
+
+-> which ivmw, usesysdir
+C:\Users\eptmp\Documents\GitHub\ivonesamplemr\ivmw.ado
+*! version 0.1.0 12sep2021 Tom Palmer
+
+. 
+. // simulate data
+. clear
+
+. set obs 2500
+number of observations (_N) was 0, now 2,500
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen w = rnormal()
+
+. gen x = z1 + z2 + z3 + w + u + rnormal()
+
+. gen logitpy = -2 + x + w + u
+
+. gen py = invlogit(logitpy)
+
+. gen y = rbinomial(1, py)
+
+. gen x1 = x
+
+. gen x2 = rnormal()
+
+. 
+. // ivregress
+. // ivmw: ivregress 2sls y (x = z1 z2 z3)
+. 
+. // ivreg2
+. ivmw, window(2490) par(x): ivreg2 y (x = z1 z2 z3)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. ivmw, window(90) par(x): ivreg2 y (x = z1 z2 z3) in 1/100
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. 
+. // ivlsmm
+. ivmw, window(2490) par(x): ivlsmm y (x = z1 z2 z3)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivlsmm on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivlsmm)
+
+. 
+. // ivmsmm
+. ivmw, window(2490) par(x): ivmsmm y (x = z1 z2 z3)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivmsmm on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivmsmm)
+
+. 
+. // ivtsps
+. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivtsps on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivtsps)
+
+. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivtsps on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivtsps)
+
+. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivtsps on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivtsps)
+
+. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivtsps on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivtsps)
+
+. 
+. // ivtsri
+. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivtsri on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivtsri)
+
+. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivtsri on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivtsri)
+
+. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivtsri on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivtsri)
+
+. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivtsri on estimation sample)
+
+Rolling replications (11)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...........
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivtsri)
+
+. 
+. // try quadratic exposure
+. clear
+
+. set obs 2500
+number of observations (_N) was 0, now 2,500
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen x = z1 + z2 + z3 + u + rnormal()
+
+. gen logitpy = -6 + x^2 + u
+
+. gen py = invlogit(logitpy)
+
+. replace py = 0.99 if py == 1
+(129 real changes made)
+
+. gen y = rbinomial(1, py)
+
+. 
+. ivmw, window(2480) par(x): ivreg2 y (x = z1 z2 z3)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (21)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+.....................
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. 
+. clear
+
+. set obs 2500
+number of observations (_N) was 0, now 2,500
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen x = z1 + z2 + z3 + u + rnormal()
+
+. gen logitpy = -6 + x^2 + u
+
+. gen py = invlogit(logitpy)
+
+. replace py = 0.99 if py == 1
+(129 real changes made)
+
+. gen y = rbinomial(1, py)
+
+. 
+. ivmw, window(2480) par(x): ivmsmm y (x = z1 z2 z3)
+        time variable:  res_order, 1 to 2500
+                delta:  1 unit
+(running ivmsmm on estimation sample)
+
+Rolling replications (21)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+.....................
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivmsmm)
+
+. 
+. // burgess, davies, thompson paper simulations
+. 
+. clear
+
+. set obs 4000
+number of observations (_N) was 0, now 4,000
+
+. set seed 12345
+
+. gen g = rbinomial(2, .3)
+
+. gen u = runiform()
+
+. gen ex = rexponential(1)
+
+. gen x = .25*g + u + ex
+
+. gen ey = rnormal()
+
+. gen y1 = .4*x + .8*u + ey
+
+. gen y2 = .1*x^2
+
+. gen y3 = .2*(x - 1)^2
+
+. gen y4 = .3*(x - 2)^2
+
+. gen y5 = max(x - 2, 0)
+
+. gen y6 = -.1*x^2
+
+. gen y7 = (x - 5)^2
+
+. 
+. twoway line y1 x, sort(x)
+
+. twoway line y2 y3 y4 x, sort(x)
+
+. twoway line y5 x, sort(x)
+
+. twoway line y6 y7 x, sort(x)
+
+. 
+. ivmw, window(3950) par(x): ivreg2 y1 (x = g)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (51)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+.
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. ivmw, window(3950) par(x): ivreg2 y2 (x = g)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (51)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+.
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. ivmw, window(3950) par(x): ivreg2 y3 (x = g)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (51)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+.
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. ivmw, window(3950) par(x): ivreg2 y4 (x = g)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (51)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+.
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. ivmw, window(3950) par(x): ivreg2 y5 (x = g)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (51)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+.
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. ivmw, window(3950) par(x): ivreg2 y6 (x = g)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (51)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+.
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. ivmw, window(3950) par(x): ivreg2 y7 (x = g)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (51)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+.
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. ivmw, window(2000) par(x): ivreg2 y7 (x = g)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (2001)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+..................................................   100
+..................................................   150
+..................................................   200
+..................................................   250
+..................................................   300
+..................................................   350
+..................................................   400
+..................................................   450
+..................................................   500
+..................................................   550
+..................................................   600
+..................................................   650
+..................................................   700
+..................................................   750
+..................................................   800
+..................................................   850
+..................................................   900
+..................................................   950
+..................................................  1000
+..................................................  1050
+..................................................  1100
+..................................................  1150
+..................................................  1200
+..................................................  1250
+..................................................  1300
+..................................................  1350
+..................................................  1400
+..................................................  1450
+..................................................  1500
+..................................................  1550
+..................................................  1600
+..................................................  1650
+..................................................  1700
+..................................................  1750
+..................................................  1800
+..................................................  1850
+..................................................  1900
+..................................................  1950
+..................................................  2000
+.
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. 
+. ivmw, window(200) par(x): ivreg2 y2 (x = g) in 1/500
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+
+Rolling replications (301)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+..................................................   100
+..................................................   150
+..................................................   200
+..................................................   250
+..................................................   300
+.
+file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+(rolling: ivreg2)
+
+. 
+. ivmw, window(3950) par(x) saving(ivmw, replace): ivreg2 y2 (x = g)
+ivmw
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivreg2 on estimation sample)
+(note: file ivmw.dta not found)
+
+Rolling replications (51)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+.
+file ivmw.dta saved
+(rolling: ivreg2)
+
+. use ivmw, clear
+(rolling: ivreg2)
+
+. list in 1/5
+
+     +----------------------------------------------------------------------+
+  1. | start |  end |     _b_x |   _b_cons |    _se_x | _se_cons |   median |
+     |     1 | 3950 |  .332921 | -.1959417 | .0121513 | .0189048 | 1.352454 |
+     |----------------------------------------------------------------------|
+     |                                  _merge                              |
+     |                             matched (3)                              |
+     +----------------------------------------------------------------------+
+
+     +----------------------------------------------------------------------+
+  2. | start |  end |     _b_x |   _b_cons |    _se_x | _se_cons |   median |
+     |     2 | 3951 | .3315938 | -.1936823 | .0123205 | .0191814 |    1.353 |
+     |----------------------------------------------------------------------|
+     |                                  _merge                              |
+     |                             matched (3)                              |
+     +----------------------------------------------------------------------+
+
+     +----------------------------------------------------------------------+
+  3. | start |  end |     _b_x |   _b_cons |    _se_x | _se_cons |   median |
+     |     3 | 3952 | .3325185 | -.1948544 | .0123327 | .0192166 | 1.353038 |
+     |----------------------------------------------------------------------|
+     |                                  _merge                              |
+     |                             matched (3)                              |
+     +----------------------------------------------------------------------+
+
+     +----------------------------------------------------------------------+
+  4. | start |  end |     _b_x |   _b_cons |    _se_x | _se_cons |   median |
+     |     4 | 3953 | .3311778 | -.1925636 | .0125066 |  .019501 | 1.353228 |
+     |----------------------------------------------------------------------|
+     |                                  _merge                              |
+     |                             matched (3)                              |
+     +----------------------------------------------------------------------+
+
+     +----------------------------------------------------------------------+
+  5. | start |  end |     _b_x |   _b_cons |    _se_x | _se_cons |   median |
+     |     5 | 3954 | .3321689 | -.1938222 | .0125251 | .0195464 | 1.353999 |
+     |----------------------------------------------------------------------|
+     |                                  _merge                              |
+     |                             matched (3)                              |
+     +----------------------------------------------------------------------+
+
+. if c(os) == "Windows" erase ivmw.dta
+
+. else rm ivmw.dta
+
+. 
+end of do-file
+      name:  ivmw
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
+  log type:  text
+ closed on:  15 Sep 2021, 13:59:20
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
+> og
   log type:  text
- opened on:  12 Sep 2021, 00:30:30
+ opened on:  15 Sep 2021, 13:59:20
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -4581,7 +5163,9 @@ end of do-file
 > ivlsmm ///
 > ivmsmm ///
 > ivtsps ///
-> ivtsri
+> ivtsri ///
+> iv ///
+> ivmw
 
 . 
 . foreach helpfile of local helpfiles {
@@ -4608,6 +5192,10 @@ Commands
       ivmsmm        Fits the multiplicative structural mean model (MSMM),
                       i.e. estimates a causal risk ratio for a binary
                       outcome.
+
+      ivmw          Prefix command which specifies the moving window be
+                      applied to the command after the prefix, e.g. ivmw,
+                      window(100): ivmsmm ....
 
       ivtsps        Fits two-stage predictor substitution (TSPS) estimators.
 
@@ -4639,23 +5227,12 @@ For a binary outcome the ASMM estimates a causal risk difference.
 
 Examples
 
-    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
 
-        . drop _all
-        . set obs 2500
-        . set seed 12345
-        . gen z1 = rbinomial(2, .2)
-        . gen z2 = rbinomial(2, .3)
-        . gen z3 = rbinomial(2, .4)
-        . gen u = rnormal()
-        . gen w = rnormal()
-        . gen x = z1 + z2 + z3 + w + u + rnormal()
-        . gen logitpy = -2 + x + w + u
-        . gen py = invlogit(logitpy)
-        . gen y = rbinomial(1, py)
-        . gen x1 = x
-        . gen x2 = rnormal()
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
 
     Fit the model with a single instrumental variable.
 
@@ -4685,7 +5262,6 @@ References
         Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public
         Health Service, National Center for Health Services Research,
         Washington, DC.
-
 
 Author
 
@@ -4730,23 +5306,12 @@ Options
 
 Examples
 
-    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
 
-        . drop _all
-        . set obs 2500
-        . set seed 12345
-        . gen z1 = rbinomial(2, .2)
-        . gen z2 = rbinomial(2, .3)
-        . gen z3 = rbinomial(2, .4)
-        . gen u = rnormal()
-        . gen w = rnormal()
-        . gen x = z1 + z2 + z3 + w + u + rnormal()
-        . gen logitpy = -2 + x + w + u
-        . gen py = invlogit(logitpy)
-        . gen y = rbinomial(1, py)
-        . gen x1 = x
-        . gen x2 = rnormal()
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
 
     Fit the model with a single instrumental variable.
 
@@ -4763,22 +5328,8 @@ Examples
 
 Stored results
 
-    ivlsmm stores the following in e():
-
-    Scalars        
-      e(df_r)             residual degrees of freedom (with tdist option)
-      e(k)                number of instruments
-      e(I2GX)             I^2_GX (with gxse() option)
-      e(QGX)              Q_GX (with gxse() option)
-      e(phi)              Scale parameter (root mean squared error)
-
-    Macros         
-      e(cmd)              lsmm
-      e(cmdline)          command as typed
-
-    Matrices       
-      e(b)                coefficient vector
-      e(V)                variance-covariance matrix of the estimates
+    To see the results ivlsmm stores in e() issue ereturn list after running
+    the command.
 
     ivlsmm stores the following in r():
 
@@ -4801,7 +5352,6 @@ References
 
     Vansteelandt S, Goetghebeur E.  Causal inference with generalized
         structural mean models.  2003, 65, 4, 817-835.  DOI
-
 
 Author
 
@@ -4841,23 +5391,12 @@ Options
 
 Examples
 
-    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
 
-        . drop _all
-        . set obs 2500
-        . set seed 12345
-        . gen z1 = rbinomial(2, .2)
-        . gen z2 = rbinomial(2, .3)
-        . gen z3 = rbinomial(2, .4)
-        . gen u = rnormal()
-        . gen w = rnormal()
-        . gen x = z1 + z2 + z3 + w + u + rnormal()
-        . gen logitpy = -2 + x + w + u
-        . gen py = invlogit(logitpy)
-        . gen y = rbinomial(1, py)
-        . gen x1 = x
-        . gen x2 = rnormal()
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
 
     Fit the model with a single instrumental variable.
 
@@ -4926,7 +5465,6 @@ References
         EXPonential models with ENDogenous regressors for cross section and
         panel data. CEMMAP working paper CWP14/02. 2002.  URL
 
-
 Author
 
 INCLUDE help ivonesamplemr-author
@@ -4965,23 +5503,12 @@ Options
 
 Examples
 
-    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
 
-        . drop _all
-        . set obs 2500
-        . set seed 12345
-        . gen z1 = rbinomial(2, .2)
-        . gen z2 = rbinomial(2, .3)
-        . gen z3 = rbinomial(2, .4)
-        . gen u = rnormal()
-        . gen w = rnormal()
-        . gen x = z1 + z2 + z3 + w + u + rnormal()
-        . gen logitpy = -2 + x + w + u
-        . gen py = invlogit(logitpy)
-        . gen y = rbinomial(1, py)
-        . gen x1 = x
-        . gen x2 = rnormal()
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
 
     Fit the model with a single instrumental variable.
 
@@ -5007,6 +5534,9 @@ Examples
 
         . ivtsps y (x = z1 z2 z3), link(logit)
 
+    Bootstrap standard errors.
+        . bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly
+
 Stored results
 
     Please see gmm##results
@@ -5016,7 +5546,6 @@ References
     Terza JV, Basu A, Rathouz PJ. 2008.  Two-stage residual inclusion
         estimation:  Addressing endogeneity in health econometric modeling.
         Journal of Health Economics 27: 531–543.  DOI
-
 
 Author
 
@@ -5056,23 +5585,12 @@ Options
 
 Examples
 
-    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
 
-        . drop _all
-        . set obs 2500
-        . set seed 12345
-        . gen z1 = rbinomial(2, .2)
-        . gen z2 = rbinomial(2, .3)
-        . gen z3 = rbinomial(2, .4)
-        . gen u = rnormal()
-        . gen w = rnormal()
-        . gen x = z1 + z2 + z3 + w + u + rnormal()
-        . gen logitpy = -2 + x + w + u
-        . gen py = invlogit(logitpy)
-        . gen y = rbinomial(1, py)
-        . gen x1 = x
-        . gen x2 = rnormal()
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
 
     Fit the model with a single instrumental variable.
 
@@ -5098,6 +5616,9 @@ Examples
 
         . ivtsri y (x = z1 z2 z3), link(logit)
 
+    Bootstrap standard errors.
+        . bootstrap, reps(250): ivtsri y (x = z1 z2 z3), estonly
+
 Stored results
 
     Please see gmm##results
@@ -5117,6 +5638,124 @@ References
         Addressing endogeneity in health econometric modeling.  Journal of
         Health Economics. 2008, 27, 3, 531–543.  DOI
 
+Author
+
+INCLUDE help ivonesamplemr-author
+Title
+
+     iv -- Instrumental variable (IV) programs useful for one-sample Mendelian
+randomization (MR) analyses
+
+Syntax
+
+        iv subcommand ... [aweight] [if] [in] [, options]
+
+Description
+
+    iv is a simple wrapper to the commands in the ivonesamplemr package.
+
+    The subcommand is specified as the mrrobust program name without its iv
+    prefix, i.e. ivlsmm ... can alternatively be run using the syntax iv lsmm
+    ....
+
+Options
+
+    iv takes the options for the specified subcommand.
+
+Examples
+
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
+
+    Fit the model with a single instrumental variable.
+
+        . iv lsmm y (x = z1)
+
+        . iv msmm y (x = z1 z2 z3)
+
+        . iv tsps y (x = z1 z2 z3), link(logit)
+
+        . iv tsri y (x = z1 z2 z3), link(logit)
+
+Stored results
+
+    iv returns the results from the specified subcommand.
+
+Author
+
+INCLUDE help ivonesamplemr-author
+Title
+
+     ivmw -- Moving window prefix command
+
+Syntax
+
+        ivmw , window(#) par(string) [saving(string) rolling_options]: iv_cmd
+
+    options               Description
+    -------------------------------------------------------------------------
+      par                 Parameter from the iv_cmd (ivreg2, ivmsmm, ivlsmm,
+                            ivtsps, ivtsri) to collect
+      window              number of consecutive data points in each sample
+      saving(string)      Save the moving window output to a dataset. Specify
+                            , replace to overwrite an existing dataset
+      rolling_options     rolling##options
+
+Description
+
+    ivmw implements the moving window (a.k.a. sliding / rolling window)
+    approach to the estimator specified after the prefix, as per Burgess et
+    al., 2014. It is implemented as a call to rolling.
+
+Options
+
+    Please see rolling##options
+
+Examples
+
+    Simulate data with different outcome-exposure relationships; y# outcome,
+    x exposure, g instrumental variable (genotype).
+
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivmwdata
+            > , clear
+
+    Plot outcome-exposure relationships
+
+        . twoway line y1 x, sort(x)
+        . twoway line y2 y3 y4 x, sort(x)
+        . twoway line y5 x, sort(x)
+
+    Example moving window fits.
+
+        . ivmw, window(3950) par(x): ivreg2 y1 (x = g)
+        . ivmw, window(3950) par(x): ivreg2 y2 (x = g)
+        . ivmw, window(3950) par(x): ivreg2 y3 (x = g)
+        . ivmw, window(3950) par(x): ivreg2 y4 (x = g)
+        . ivmw, window(3950) par(x): ivreg2 y5 (x = g)
+
+    Change window size (e.g. for outcome y2).
+        . ivmw, window(3750) par(x): ivreg2 y2 (x = g)
+        . ivmw, window(3000) par(x): ivreg2 y2 (x = g)
+        . ivmw, window(2000) par(x): ivreg2 y2 (x = g)
+        . ivmw, window(1000) par(x): ivreg2 y2 (x = g)
+
+    Save the moving window dataset.
+        . ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)
+
+Stored results
+
+    Please see rolling##results
+
+References
+
+    Burgess S, Davies N, Thompson SG, EPIC-InterAct Consortium. Instrumental
+        variable analysis with a nonlinear exposure-outcome relationship.
+        Epidemiology, 2014, 25, 6, 877-885.  DOI
+
+    StataCorp. Stata Base Reference Manual. Release 16. rolling -
+        Rolling-window and recursive estimation. 2016.  URL
 
 Author
 
@@ -5125,15 +5764,16 @@ INCLUDE help ivonesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
+> og
   log type:  text
- closed on:  12 Sep 2021, 00:30:30
+ closed on:  15 Sep 2021, 13:59:20
 -------------------------------------------------------------------------------
 
 . 
 . log close _all
       name:  master
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\master.log
   log type:  text
- closed on:  12 Sep 2021, 00:30:30
+ closed on:  15 Sep 2021, 13:59:20
 -------------------------------------------------------------------------------

@@ -1,8 +1,9 @@
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
+> og
   log type:  text
- opened on:  12 Sep 2021, 00:30:30
+ opened on:  15 Sep 2021, 13:59:20
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -13,7 +14,9 @@
 > ivlsmm ///
 > ivmsmm ///
 > ivtsps ///
-> ivtsri
+> ivtsri ///
+> iv ///
+> ivmw
 
 . 
 . foreach helpfile of local helpfiles {
@@ -40,6 +43,10 @@ Commands
       ivmsmm        Fits the multiplicative structural mean model (MSMM),
                       i.e. estimates a causal risk ratio for a binary
                       outcome.
+
+      ivmw          Prefix command which specifies the moving window be
+                      applied to the command after the prefix, e.g. ivmw,
+                      window(100): ivmsmm ....
 
       ivtsps        Fits two-stage predictor substitution (TSPS) estimators.
 
@@ -71,23 +78,12 @@ For a binary outcome the ASMM estimates a causal risk difference.
 
 Examples
 
-    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
 
-        . drop _all
-        . set obs 2500
-        . set seed 12345
-        . gen z1 = rbinomial(2, .2)
-        . gen z2 = rbinomial(2, .3)
-        . gen z3 = rbinomial(2, .4)
-        . gen u = rnormal()
-        . gen w = rnormal()
-        . gen x = z1 + z2 + z3 + w + u + rnormal()
-        . gen logitpy = -2 + x + w + u
-        . gen py = invlogit(logitpy)
-        . gen y = rbinomial(1, py)
-        . gen x1 = x
-        . gen x2 = rnormal()
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
 
     Fit the model with a single instrumental variable.
 
@@ -117,7 +113,6 @@ References
         Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public
         Health Service, National Center for Health Services Research,
         Washington, DC.
-
 
 Author
 
@@ -162,23 +157,12 @@ Options
 
 Examples
 
-    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
 
-        . drop _all
-        . set obs 2500
-        . set seed 12345
-        . gen z1 = rbinomial(2, .2)
-        . gen z2 = rbinomial(2, .3)
-        . gen z3 = rbinomial(2, .4)
-        . gen u = rnormal()
-        . gen w = rnormal()
-        . gen x = z1 + z2 + z3 + w + u + rnormal()
-        . gen logitpy = -2 + x + w + u
-        . gen py = invlogit(logitpy)
-        . gen y = rbinomial(1, py)
-        . gen x1 = x
-        . gen x2 = rnormal()
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
 
     Fit the model with a single instrumental variable.
 
@@ -195,22 +179,8 @@ Examples
 
 Stored results
 
-    ivlsmm stores the following in e():
-
-    Scalars        
-      e(df_r)             residual degrees of freedom (with tdist option)
-      e(k)                number of instruments
-      e(I2GX)             I^2_GX (with gxse() option)
-      e(QGX)              Q_GX (with gxse() option)
-      e(phi)              Scale parameter (root mean squared error)
-
-    Macros         
-      e(cmd)              lsmm
-      e(cmdline)          command as typed
-
-    Matrices       
-      e(b)                coefficient vector
-      e(V)                variance-covariance matrix of the estimates
+    To see the results ivlsmm stores in e() issue ereturn list after running
+    the command.
 
     ivlsmm stores the following in r():
 
@@ -233,7 +203,6 @@ References
 
     Vansteelandt S, Goetghebeur E.  Causal inference with generalized
         structural mean models.  2003, 65, 4, 817-835.  DOI
-
 
 Author
 
@@ -273,23 +242,12 @@ Options
 
 Examples
 
-    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
 
-        . drop _all
-        . set obs 2500
-        . set seed 12345
-        . gen z1 = rbinomial(2, .2)
-        . gen z2 = rbinomial(2, .3)
-        . gen z3 = rbinomial(2, .4)
-        . gen u = rnormal()
-        . gen w = rnormal()
-        . gen x = z1 + z2 + z3 + w + u + rnormal()
-        . gen logitpy = -2 + x + w + u
-        . gen py = invlogit(logitpy)
-        . gen y = rbinomial(1, py)
-        . gen x1 = x
-        . gen x2 = rnormal()
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
 
     Fit the model with a single instrumental variable.
 
@@ -358,7 +316,6 @@ References
         EXPonential models with ENDogenous regressors for cross section and
         panel data. CEMMAP working paper CWP14/02. 2002.  URL
 
-
 Author
 
 INCLUDE help ivonesamplemr-author
@@ -397,23 +354,12 @@ Options
 
 Examples
 
-    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
 
-        . drop _all
-        . set obs 2500
-        . set seed 12345
-        . gen z1 = rbinomial(2, .2)
-        . gen z2 = rbinomial(2, .3)
-        . gen z3 = rbinomial(2, .4)
-        . gen u = rnormal()
-        . gen w = rnormal()
-        . gen x = z1 + z2 + z3 + w + u + rnormal()
-        . gen logitpy = -2 + x + w + u
-        . gen py = invlogit(logitpy)
-        . gen y = rbinomial(1, py)
-        . gen x1 = x
-        . gen x2 = rnormal()
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
 
     Fit the model with a single instrumental variable.
 
@@ -439,6 +385,9 @@ Examples
 
         . ivtsps y (x = z1 z2 z3), link(logit)
 
+    Bootstrap standard errors.
+        . bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly
+
 Stored results
 
     Please see gmm##results
@@ -448,7 +397,6 @@ References
     Terza JV, Basu A, Rathouz PJ. 2008.  Two-stage residual inclusion
         estimation:  Addressing endogeneity in health econometric modeling.
         Journal of Health Economics 27: 531–543.  DOI
-
 
 Author
 
@@ -488,23 +436,12 @@ Options
 
 Examples
 
-    Simulate binary outcome data; y outcome, x exposure, w covariate, z*
+    Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
 
-        . drop _all
-        . set obs 2500
-        . set seed 12345
-        . gen z1 = rbinomial(2, .2)
-        . gen z2 = rbinomial(2, .3)
-        . gen z3 = rbinomial(2, .4)
-        . gen u = rnormal()
-        . gen w = rnormal()
-        . gen x = z1 + z2 + z3 + w + u + rnormal()
-        . gen logitpy = -2 + x + w + u
-        . gen py = invlogit(logitpy)
-        . gen y = rbinomial(1, py)
-        . gen x1 = x
-        . gen x2 = rnormal()
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
 
     Fit the model with a single instrumental variable.
 
@@ -530,6 +467,9 @@ Examples
 
         . ivtsri y (x = z1 z2 z3), link(logit)
 
+    Bootstrap standard errors.
+        . bootstrap, reps(250): ivtsri y (x = z1 z2 z3), estonly
+
 Stored results
 
     Please see gmm##results
@@ -549,6 +489,124 @@ References
         Addressing endogeneity in health econometric modeling.  Journal of
         Health Economics. 2008, 27, 3, 531–543.  DOI
 
+Author
+
+INCLUDE help ivonesamplemr-author
+Title
+
+     iv -- Instrumental variable (IV) programs useful for one-sample Mendelian
+randomization (MR) analyses
+
+Syntax
+
+        iv subcommand ... [aweight] [if] [in] [, options]
+
+Description
+
+    iv is a simple wrapper to the commands in the ivonesamplemr package.
+
+    The subcommand is specified as the mrrobust program name without its iv
+    prefix, i.e. ivlsmm ... can alternatively be run using the syntax iv lsmm
+    ....
+
+Options
+
+    iv takes the options for the specified subcommand.
+
+Examples
+
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
+            > data, clear
+
+    Fit the model with a single instrumental variable.
+
+        . iv lsmm y (x = z1)
+
+        . iv msmm y (x = z1 z2 z3)
+
+        . iv tsps y (x = z1 z2 z3), link(logit)
+
+        . iv tsri y (x = z1 z2 z3), link(logit)
+
+Stored results
+
+    iv returns the results from the specified subcommand.
+
+Author
+
+INCLUDE help ivonesamplemr-author
+Title
+
+     ivmw -- Moving window prefix command
+
+Syntax
+
+        ivmw , window(#) par(string) [saving(string) rolling_options]: iv_cmd
+
+    options               Description
+    -------------------------------------------------------------------------
+      par                 Parameter from the iv_cmd (ivreg2, ivmsmm, ivlsmm,
+                            ivtsps, ivtsri) to collect
+      window              number of consecutive data points in each sample
+      saving(string)      Save the moving window output to a dataset. Specify
+                            , replace to overwrite an existing dataset
+      rolling_options     rolling##options
+
+Description
+
+    ivmw implements the moving window (a.k.a. sliding / rolling window)
+    approach to the estimator specified after the prefix, as per Burgess et
+    al., 2014. It is implemented as a call to rolling.
+
+Options
+
+    Please see rolling##options
+
+Examples
+
+    Simulate data with different outcome-exposure relationships; y# outcome,
+    x exposure, g instrumental variable (genotype).
+
+        . use
+            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivmwdata
+            > , clear
+
+    Plot outcome-exposure relationships
+
+        . twoway line y1 x, sort(x)
+        . twoway line y2 y3 y4 x, sort(x)
+        . twoway line y5 x, sort(x)
+
+    Example moving window fits.
+
+        . ivmw, window(3950) par(x): ivreg2 y1 (x = g)
+        . ivmw, window(3950) par(x): ivreg2 y2 (x = g)
+        . ivmw, window(3950) par(x): ivreg2 y3 (x = g)
+        . ivmw, window(3950) par(x): ivreg2 y4 (x = g)
+        . ivmw, window(3950) par(x): ivreg2 y5 (x = g)
+
+    Change window size (e.g. for outcome y2).
+        . ivmw, window(3750) par(x): ivreg2 y2 (x = g)
+        . ivmw, window(3000) par(x): ivreg2 y2 (x = g)
+        . ivmw, window(2000) par(x): ivreg2 y2 (x = g)
+        . ivmw, window(1000) par(x): ivreg2 y2 (x = g)
+
+    Save the moving window dataset.
+        . ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)
+
+Stored results
+
+    Please see rolling##results
+
+References
+
+    Burgess S, Davies N, Thompson SG, EPIC-InterAct Consortium. Instrumental
+        variable analysis with a nonlinear exposure-outcome relationship.
+        Epidemiology, 2014, 25, 6, 877-885.  DOI
+
+    StataCorp. Stata Base Reference Manual. Release 16. rolling -
+        Rolling-window and recursive estimation. 2016.  URL
 
 Author
 
@@ -557,7 +615,8 @@ INCLUDE help ivonesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
+> og
   log type:  text
- closed on:  12 Sep 2021, 00:30:30
+ closed on:  15 Sep 2021, 13:59:20
 -------------------------------------------------------------------------------

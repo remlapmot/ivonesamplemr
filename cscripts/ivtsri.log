@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivtsri
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivtsri.log
   log type:  text
- opened on:  12 Sep 2021, 00:30:26
+ opened on:  15 Sep 2021, 13:56:07
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -11,7 +11,7 @@
 -------------------------------------------------------------------BEGIN ivtsri
 
 -> which ivtsri, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivtsri.ado
+C:\Users\eptmp\Documents\GitHub\ivonesamplemr\ivtsri.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
@@ -470,7 +470,7 @@ Log likelihood = -1810.4754                     Pseudo R2         =     0.1323
 
 . ivtsri y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.10e-32
+Final GMM criterion Q(b) =  7.00e-33
 
 note: model is exactly identified
 
@@ -721,7 +721,7 @@ Log likelihood = -1804.0989                     Pseudo R2         =     0.1354
 
 . ivtsri y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.66e-32
+Final GMM criterion Q(b) =  1.28e-32
 
 note: model is exactly identified
 
@@ -1794,9 +1794,30 @@ Causal risk difference for: b2
      +----------+
 
 . 
+. bootstrap, reps(250): ivtsri y (x = z1 z2 z3), estonly
+(running ivtsri on estimation sample)
+
+Bootstrap replications (250)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+..................................................   100
+..................................................   150
+..................................................   200
+..................................................   250
+
+------------------------------------------------------------------------------
+             |   Observed   Bootstrap                         Normal-based
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   .1070019    .007757    13.79   0.000     .0917986    .1222053
+   residuals |   .0740544    .009064     8.17   0.000     .0562894    .0918195
+       _cons |   .2879917    .016084    17.91   0.000     .2564677    .3195156
+------------------------------------------------------------------------------
+
+. 
 end of do-file
       name:  ivtsri
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivtsri.log
   log type:  text
- closed on:  12 Sep 2021, 00:30:30
+ closed on:  15 Sep 2021, 13:56:16
 -------------------------------------------------------------------------------

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
   log type:  text
- opened on:  12 Sep 2021, 00:30:24
+ opened on:  15 Sep 2021, 13:55:59
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -11,7 +11,7 @@
 -------------------------------------------------------------------BEGIN ivtsps
 
 -> which ivtsps, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivtsps.ado
+C:\Users\eptmp\Documents\GitHub\ivonesamplemr\ivtsps.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
@@ -546,7 +546,7 @@ Instruments:   w z1 z2 z3
 
 . ivtsps y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.85e-32
+Final GMM criterion Q(b) =  1.86e-32
 
 note: model is exactly identified
 
@@ -1492,9 +1492,29 @@ Causal risk difference for: b1
      +----------+
 
 . 
+. bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly
+(running ivtsps on estimation sample)
+
+Bootstrap replications (250)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+..................................................   100
+..................................................   150
+..................................................   200
+..................................................   250
+
+------------------------------------------------------------------------------
+             |   Observed   Bootstrap                         Normal-based
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   predicted |   .1070019    .007757    13.79   0.000     .0917986    .1222053
+       _cons |   .2879917    .016084    17.91   0.000     .2564677    .3195156
+------------------------------------------------------------------------------
+
+. 
 end of do-file
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
   log type:  text
- closed on:  12 Sep 2021, 00:30:26
+ closed on:  15 Sep 2021, 13:56:07
 -------------------------------------------------------------------------------

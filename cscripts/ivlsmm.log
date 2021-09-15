@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivlsmm.log
   log type:  text
- opened on:  12 Sep 2021, 00:30:19
+ opened on:  15 Sep 2021, 13:55:47
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -11,7 +11,7 @@
 -------------------------------------------------------------------BEGIN ivlsmm
 
 -> which ivlsmm, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivlsmm.ado
+C:\Users\eptmp\Documents\GitHub\ivonesamplemr\ivlsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
@@ -52,7 +52,7 @@ number of observations (_N) was 0, now 2,500
 
 . ivlsmm y w (x = z1)
 
-Final GMM criterion Q(b) =  1.78e-30
+Final GMM criterion Q(b) =  1.79e-30
 
 note: model is exactly identified
 
@@ -80,7 +80,7 @@ Instruments for equation 2: z1 w _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(0) = 4.4e-27 (p =     .)
+  Hansen's J chi2(0) = 4.5e-27 (p =     .)
 
 Note: test cannot be performed because there are no
       overidentifying restrictions.
@@ -149,7 +149,7 @@ Causal odds ratio for: w
 . eret list
 
 scalars:
-                  e(J) =  4.44363770968e-27
+                  e(J) =  4.46658764385e-27
                 e(J_p) =  .
                e(J_df) =  0
          e(k_eq_model) =  0
@@ -163,7 +163,7 @@ scalars:
           e(converged) =  1
                 e(k_2) =  7
                 e(k_1) =  4
-                  e(Q) =  1.77745508387e-30
+                  e(Q) =  1.78663505754e-30
                   e(N) =  2500
                e(rank) =  7
 
@@ -741,7 +741,7 @@ Causal odds ratio for: x
 . 
 end of do-file
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivlsmm.log
   log type:  text
- closed on:  12 Sep 2021, 00:30:22
+ closed on:  15 Sep 2021, 13:55:56
 -------------------------------------------------------------------------------

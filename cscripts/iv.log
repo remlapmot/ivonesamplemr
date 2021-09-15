@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  iv
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\iv.log
   log type:  text
- opened on:  12 Sep 2021, 00:30:18
+ opened on:  15 Sep 2021, 13:55:46
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -11,7 +11,7 @@
 -----------------------------------------------------------------------BEGIN iv
 
 -> which iv, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/iv.ado
+C:\Users\eptmp\Documents\GitHub\ivonesamplemr\iv.ado
 *! version 0.1.0 10sep2021 Tom Palmer
 
 . 
@@ -202,7 +202,7 @@ Causal odds ratio for: b2
 . 
 end of do-file
       name:  iv
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\iv.log
   log type:  text
- closed on:  12 Sep 2021, 00:30:19
+ closed on:  15 Sep 2021, 13:55:47
 -------------------------------------------------------------------------------
