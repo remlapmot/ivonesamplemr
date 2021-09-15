@@ -12,7 +12,7 @@ Stata package of useful programs for one-sample Mendelian randomization (MR) / i
 The `ivtsps` and `ivtsri` commands implement the following link functions: 
 
 * identity - for a binary outcome this estimates a causal risk difference 
-* log (additive and multiplicative) - for a binary outcome this estimates a causal risk ratio
+* logadd (log additive) and logmult (log multiplicative) - for a binary outcome these estimate a causal risk ratio
 * logit - for a binary outcome this estimates a causal odds ratio
 
 ## Installation
