@@ -29,6 +29,11 @@ net install ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesamplemr/
 do "https://raw.github.com/remlapmot/ivonesamplemr/main/dependency.do"
 ```
 
+Launch the main package helpfile with
+``` stata
+help ivonesamplemr
+```
+
 To check for an update to the package run within Stata
 ``` stata
 adoupdate ivonesamplemr, update
@@ -37,9 +42,4 @@ adoupdate ivonesamplemr, update
 Uninstall the package within Stata using
 ``` stata
 ado uninstall ivonesamplemr
-```
-
-And then launch the main package helpfile with
-``` stata
-help ivonesamplemr
 ```
