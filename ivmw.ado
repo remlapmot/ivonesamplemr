@@ -37,6 +37,11 @@ tokenize `"`right'"'
 local ivcmdname `1'
 macro shift
 local rest `*'
+if "`ivcmdname'" == "ivregress" {
+	local rest = subinstr("`rest'", "2sls", "", .)
+	local rest = subinstr("`rest'", "liml", "", .)
+	local rest = subinstr("`rest'", "gmm", "", .)
+}
 _iv_parse `rest'
 local lhs `s(lhs)'
 local endog `s(endog)'
@@ -71,7 +76,7 @@ use `savefilename', clear
 qui merge 1:1 start using `ivmwmedres'
 qui save, replace
 label variable median "Median of exposure in moving window"
-if inlist("`ivcmdname'", "ivreg2", "ivtsps", "ivtsri") {
+if inlist("`ivcmdname'", "ivreg2", "ivtsps", "ivtsri", "ivregress") {
     local bpar _b_`par'
     local spar _se_`par'
 	local parname "effect"
