@@ -1,0 +1,130 @@
+-------------------------------------------------------------------------------
+      name:  install
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\install.log
+  log type:  text
+ opened on:  15 Sep 2021, 14:46:16
+
+. // Test installation methods
+. // 2021-09-06
+. 
+. ** net install
+. 
+. cap noi ado uninstall ivonesamplemr
+package not found
+
+. 
+. net desc ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesamplemr/
+> main/")
+
+-------------------------------------------------------------------------------
+package ivonesamplemr from https://raw.github.com/remlapmot/ivonesamplemr/main
+-------------------------------------------------------------------------------
+
+TITLE
+      ivonesamplemr
+
+DESCRIPTION/AUTHOR(S)
+      Author: Tom Palmer
+      Distribution-Date: 20210915
+
+INSTALLATION FILES                        (type net install ivonesamplemr)
+      iv.ado
+      iv.sthlp
+      ivasmm.sthlp
+      ivlsmm.ado
+      ivlsmm.sthlp
+      ivmsmm.ado
+      ivmsmm.sthlp
+      ivmw.ado
+      ivmw.sthlp
+      ivonesamplemr.sthlp
+      ivonesamplemr-author.ihlp
+      ivtsps.ado
+      ivtsps.sthlp
+      ivtsri.ado
+      ivtsri.sthlp
+-------------------------------------------------------------------------------
+
+. 
+. net install ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesample
+> mr/main/") replace
+checking ivonesamplemr consistency and verifying not already installed...
+installing into c:\ado\plus\...
+installation complete.
+
+. do https://raw.github.com/remlapmot/ivonesamplemr/main/dependency.do
+
+. // dependencies for onesamplemr package
+. // Tom Palmer 2021-09-04
+. ssc install ivpois
+checking ivpois consistency and verifying not already installed...
+all files already exist and are up to date.
+
+. ssc install ivreg2
+checking ivreg2 consistency and verifying not already installed...
+all files already exist and are up to date.
+
+. ssc install ranktest // dependency of ivreg2
+checking ranktest consistency and verifying not already installed...
+all files already exist and are up to date.
+
+. 
+end of do-file
+
+. 
+. ** github package
+. 
+. cap noi ado uninstall ivonesamplemr
+
+package ivonesamplemr from https://raw.github.com/remlapmot/ivonesamplemr/main
+      ivonesamplemr
+
+(package uninstalled)
+
+. 
+. net install github, from("https://haghish.github.io/github/")
+checking github consistency and verifying not already installed...
+all files already exist and are up to date.
+
+. github install remlapmot/ivonesamplemr
+checking ivonesamplemr consistency and verifying not already installed...
+installing into c:\ado\plus\...
+installation complete.
+
+Checking package dependencies
+installing ivonesamplemr package dependencies:
+
+
+. // dependencies for onesamplemr package
+. // Tom Palmer 2021-09-04
+. ssc install ivpois
+checking ivpois consistency and verifying not already installed...
+all files already exist and are up to date.
+
+. ssc install ivreg2
+checking ivreg2 consistency and verifying not already installed...
+all files already exist and are up to date.
+
+. ssc install ranktest // dependency of ivreg2
+checking ranktest consistency and verifying not already installed...
+all files already exist and are up to date.
+
+. 
+end of do-file
+
+. 
+. cap noi ado uninstall ivonesamplemr
+
+package ivonesamplemr from https://raw.githubusercontent.com/remlapmot/ivonesam
+> plemr/master
+      ivonesamplemr
+
+(package uninstalled)
+
+. 
+end of do-file
+      name:  install
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\install.log
+  log type:  text
+ closed on:  15 Sep 2021, 14:47:15
+-------------------------------------------------------------------------------
