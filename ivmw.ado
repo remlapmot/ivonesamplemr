@@ -49,9 +49,12 @@ qui predict double `residuals' `if'`in', residuals
 tempfile origdata
 qui save `origdata'
 sort `residuals'
-tempvar order
-qui gen int `order' = _n
-tsset `order'
+cap ds res_order
+if _rc != 0 {
+	qui gen res_order = 0
+}
+qui replace res_order = _n
+tsset res_order
 tempfile newdata
 qui save `newdata'
 
