@@ -2,7 +2,7 @@
       name:  ivmw
        log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
   log type:  text
- opened on:  14 Sep 2021, 14:48:56
+ opened on:  15 Sep 2021, 13:48:48
 
 . // ivmw cscript
 . // 2021-09-12
@@ -51,7 +51,7 @@ number of observations (_N) was 0, now 2,500
 . 
 . // ivreg2
 . ivmw, window(2490) par(x): ivreg2 y (x = z1 z2 z3)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -62,7 +62,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivreg2)
 
 . ivmw, window(90) par(x): ivreg2 y (x = z1 z2 z3) in 1/100
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -75,7 +75,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 . 
 . // ivlsmm
 . ivmw, window(2490) par(x): ivlsmm y (x = z1 z2 z3)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivlsmm on estimation sample)
 
@@ -88,7 +88,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 . 
 . // ivmsmm
 . ivmw, window(2490) par(x): ivmsmm y (x = z1 z2 z3)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivmsmm on estimation sample)
 
@@ -101,7 +101,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 . 
 . // ivtsps
 . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivtsps on estimation sample)
 
@@ -112,7 +112,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivtsps)
 
 . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivtsps on estimation sample)
 
@@ -123,7 +123,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivtsps)
 
 . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivtsps on estimation sample)
 
@@ -134,7 +134,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivtsps)
 
 . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivtsps on estimation sample)
 
@@ -147,7 +147,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 . 
 . // ivtsri
 . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivtsri on estimation sample)
 
@@ -158,7 +158,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivtsri)
 
 . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivtsri on estimation sample)
 
@@ -169,7 +169,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivtsri)
 
 . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivtsri on estimation sample)
 
@@ -180,7 +180,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivtsri)
 
 . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivtsri on estimation sample)
 
@@ -220,7 +220,7 @@ number of observations (_N) was 0, now 2,500
 
 . 
 . ivmw, window(2480) par(x): ivreg2 y (x = z1 z2 z3)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -259,7 +259,7 @@ number of observations (_N) was 0, now 2,500
 
 . 
 . ivmw, window(2480) par(x): ivmsmm y (x = z1 z2 z3)
-        time variable:  __000001, 1 to 2500
+        time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivmsmm on estimation sample)
 
@@ -314,7 +314,7 @@ number of observations (_N) was 0, now 4,000
 
 . 
 . ivmw, window(3950) par(x): ivreg2 y1 (x = g)
-        time variable:  __000001, 1 to 4000
+        time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -326,7 +326,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivreg2)
 
 . ivmw, window(3950) par(x): ivreg2 y2 (x = g)
-        time variable:  __000001, 1 to 4000
+        time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -338,7 +338,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivreg2)
 
 . ivmw, window(3950) par(x): ivreg2 y3 (x = g)
-        time variable:  __000001, 1 to 4000
+        time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -350,7 +350,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivreg2)
 
 . ivmw, window(3950) par(x): ivreg2 y4 (x = g)
-        time variable:  __000001, 1 to 4000
+        time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -362,7 +362,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivreg2)
 
 . ivmw, window(3950) par(x): ivreg2 y5 (x = g)
-        time variable:  __000001, 1 to 4000
+        time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -374,7 +374,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivreg2)
 
 . ivmw, window(3950) par(x): ivreg2 y6 (x = g)
-        time variable:  __000001, 1 to 4000
+        time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -386,7 +386,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivreg2)
 
 . ivmw, window(3950) par(x): ivreg2 y7 (x = g)
-        time variable:  __000001, 1 to 4000
+        time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -398,7 +398,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 (rolling: ivreg2)
 
 . ivmw, window(2000) par(x): ivreg2 y7 (x = g)
-        time variable:  __000001, 1 to 4000
+        time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -450,7 +450,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 
 . 
 . ivmw, window(200) par(x): ivreg2 y2 (x = g) in 1/500
-        time variable:  __000001, 1 to 4000
+        time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
@@ -469,7 +469,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 . 
 . ivmw, window(3950) par(x) saving(ivmw, replace): ivreg2 y2 (x = g)
 ivmw
-        time variable:  __000001, 1 to 4000
+        time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 (note: file ivmw.dta not found)
@@ -535,5 +535,5 @@ end of do-file
       name:  ivmw
        log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
   log type:  text
- closed on:  14 Sep 2021, 14:51:46
+ closed on:  15 Sep 2021, 13:51:43
 -------------------------------------------------------------------------------
