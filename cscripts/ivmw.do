@@ -20,7 +20,9 @@ gen x1 = x
 gen x2 = rnormal()
 
 // ivregress
-// ivmw: ivregress 2sls y (x = z1 z2 z3)
+ivmw, window(2490) par(x): ivregress 2sls y (x = z1 z2 z3)
+ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)
+ivmw, window(2490) par(x): ivregress gmm y (x = z1 z2 z3)
 
 // ivreg2
 ivmw, window(2490) par(x): ivreg2 y (x = z1 z2 z3)
