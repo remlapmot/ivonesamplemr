@@ -107,12 +107,12 @@ ivmw, window(3950) par(x): ivreg2 y4 (x = g)
 ivmw, window(3950) par(x): ivreg2 y5 (x = g)
 ivmw, window(3950) par(x): ivreg2 y6 (x = g)
 ivmw, window(3950) par(x): ivreg2 y7 (x = g)
-ivmw, window(2000) par(x): ivreg2 y7 (x = g)
 
-ivmw, window(200) par(x): ivreg2 y2 (x = g) in 1/500
+ivmw, window(450) par(x): ivreg2 y2 (x = g) in 1/500
 
 ivmw, window(3950) par(x) saving(ivmw, replace): ivreg2 y2 (x = g)
 use ivmw, clear
 list in 1/5
+clear
 if c(os) == "Windows" erase ivmw.dta
 else rm ivmw.dta
