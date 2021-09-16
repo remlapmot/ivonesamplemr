@@ -177,6 +177,7 @@ if "`link'" == "logit" {
 }
 
 if `predictedreplace' == 1 qui replace predicted = `predicted'
+else qui drop predicted
 
 ereturn local link `link'
 ereturn local estonly `estonly'
