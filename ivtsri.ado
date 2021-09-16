@@ -177,6 +177,7 @@ if "`link'" == "logit" {
 }
 
 if `residualsreplace' == 1 qui replace residuals = `residuals'
+else qui drop residuals
 
 ereturn local link `link'
 ereturn local estonly `estonly'
