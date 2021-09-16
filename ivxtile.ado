@@ -22,11 +22,12 @@ local leftoptions `options'
 if "`saving'" == "" {
 	tempfile saving
 	local savefilename `saving'
+	local savereplace ""
 }
 else {
 	tokenize `"`saving'"', parse(",")
 	local savefilename `1'
-	di "`savefilename'"
+	local savereplace `2' `3'
 }
 
 tempfile origdata
@@ -63,8 +64,7 @@ local levels = r(levels)
 if inlist("`ivcmdname'", "ivtsps", "ivtsri") local par `par':_cons
 if "`ivcmdname'" == "ivlsmm" local par cmxb_`par':_cons
 tempname memhold
-tempfile results
-postfile `memhold' quantile beta se using `results'
+postfile `memhold' quantile beta se using `savefilename' `savereplace'
 if "`trace'" == "" local quietly quietly
 `quietly' foreach quant of local levels {
 	di _n "First stage residuals quantile: `quant'" _n
@@ -83,7 +83,7 @@ if "`trace'" == "" local quietly quietly
 	restore
 }
 postclose `memhold'
-use `results', clear
+use `savefilename', clear
 qui gen lowci = beta - 1.96 * se
 qui gen uppci = beta + 1.96 * se
 
