@@ -8,6 +8,7 @@ Stata package of useful programs for one-sample Mendelian randomization (MR) / i
 * two-stage predictor substitution estimators: `ivtsps` command
 * two-stage residual inclusion estimators: `ivtsri` command
 * moving window versions of these estimators: `ivmw` prefix command
+* performing estimation within quantiles of the first stage residuals: `ivxtile` prefix command
 
 The `ivtsps` and `ivtsri` commands implement the following link functions: 
 
