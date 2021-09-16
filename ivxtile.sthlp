@@ -27,6 +27,7 @@
 {synopt:{opt par:(string)}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
 {synopt:{opt sa:ving(string)}}Save the moving window output to a dataset. 
 Specify {cmd:, replace} to overwrite an existing dataset{p_end}
+{synopt:{opt trace}}View the output from the {cmd:iv_cmd} in each quantile{p_end}
 {synopt:{opt xtile_options:}}{help xtile##options}{p_end}
 
 {marker description}{...}
@@ -57,9 +58,19 @@ Please see {help xtile##options}
 
 {pstd}Use with different iv commands.{p_end}
 
-{phang2}{cmd:.} {stata "ivxtile, nq(5) par(x): ivregress 2sls y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivxtile, nq(5) par(x): ivtsps y (x = z1 z2 z3), link(logadd)"}{p_end}
-{phang2}{cmd:.} {stata "ivxtile, nq(5) par(x): ivtsps y (x = z1 z2 z3), link(logit)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(x): ivregress 2sls y2 (x = g)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(10) par(b1): ivtsps y2 (x = g)"}{p_end}
+
+{pstd}Some binary outcome examples.{p_end}
+
+{phang2}{cmd:.} {stata "use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear"}{p_end}
+
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(b1): ivtsps y (x = z1 z2 z3), link(logit)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(b1): ivtsri y (x = z1 z2 z3), link(logit)"}{p_end}
 {phang2}{cmd:.} {stata "ivxtile, nq(5) par(x): ivlsmm y (x = z1 z2 z3)"}{p_end}
 {phang2}{cmd:.} {stata "ivxtile, nq(5) par(x): ivmsmm y (x = z1 z2 z3)"}{p_end}
 
