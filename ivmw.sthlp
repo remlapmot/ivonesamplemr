@@ -24,8 +24,8 @@
 {synoptset 20 tabbed}{...}
 {synopthdr}
 {synoptline}
-{synopt:{opt par:}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
-{synopt:{opt window:}}number of consecutive data points in each sample{p_end}
+{synopt:{opt par:(string)}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
+{synopt:{opt window:(#)}}number of consecutive data points in each sample{p_end}
 {synopt:{opt sa:ving(string)}}Save the moving window output to a dataset. 
 Specify {cmd:, replace} to overwrite an existing dataset{p_end}
 {synopt:{opt rolling_options:}}{help rolling##options}{p_end}
