@@ -26,7 +26,6 @@ if "`saving'" == "" {
 else {
 	tokenize `"`saving'"', parse(",")
 	local savefilename `1'
-	di "`savefilename'"
 }
 
 
