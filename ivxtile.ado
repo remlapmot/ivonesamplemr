@@ -64,7 +64,7 @@ local levels = r(levels)
 if inlist("`ivcmdname'", "ivtsps", "ivtsri") local par `par':_cons
 if "`ivcmdname'" == "ivlsmm" local par cmxb_`par':_cons
 tempname memhold
-postfile `memhold' quantile beta se using `savefilename' `savereplace'
+postfile `memhold' quantile beta se medendog using `savefilename' `savereplace'
 if "`trace'" == "" local quietly quietly
 else local noisily noisily
 `quietly' foreach quant of local levels {
@@ -79,13 +79,15 @@ else local noisily noisily
 		di as txt "Only `r(N)' observations in quantile `quant'"
 	}
 	qui keep if `resquantiles' == `quant'
+	qui su `endog', detail
+	local medendog = r(p50)
 	capture `noisily' `right'
 	if _rc == 0 & ((inlist("`ivcmdname'", "ivtsps", "ivtsri", "ivlsmm", "ivmsmm") & e(converged) == 1) | inlist("`ivcmdname'", "ivregress", "ivreg2")) {
-		post `memhold' (`quant') (_b[`par']) (_se[`par'])
+		post `memhold' (`quant') (_b[`par']) (_se[`par']) (`medendog')
 	}
 	else {
 		noisily di as txt _n "Model did not fit in quantile `quant'"
-		post `memhold' (`quant') (.) (.)
+		post `memhold' (`quant') (.) (.) (`medendog')
 	}
 	restore
 }
@@ -93,9 +95,11 @@ postclose `memhold'
 use `savefilename', clear
 qui gen lowci = beta - 1.96 * se
 qui gen uppci = beta + 1.96 * se
+label variable beta "Estimated causal effect"
+label variable medendog "Median of exposure in quantile"
 list , clean noobs
 
-twoway line b lowci uppci quantile, sort(quantile) ///
+twoway line b lowci uppci medendog, sort(quantile) ///
 	lc(gs0 gs10 gs10) lw(medthick medthick medthick) ///
 	legend(rows(1) order(1 "Estimated causal effect" 2 "95% CI limits")) ///
 	ytitle("Estimated causal effect")
