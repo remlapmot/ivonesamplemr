@@ -69,3 +69,13 @@ ivxtile, nq(4) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
 ivxtile, nq(4) par(x): ivmsmm y (x = z1 z2 z3)
 
 ivxtile, nq(4) par(x): ivlsmm y (x = z1 z2 z3)
+
+discard
+ivxtile, nq(4) par(x) saving(ivxtileres): ivreg2 y (x = z1 z2 z3)
+discard
+ivxtile, nq(4) par(x) saving(ivxtileres, replace): ivreg2 y (x = z1 z2 z3)
+use ivxtileres, clear
+list 
+clear
+if c(os) == "Windows" erase ivxtileres.dta
+else rm ivxtileres.dta
