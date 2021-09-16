@@ -101,9 +101,10 @@ ivmw, window(3976) par(x): ivreg2 y7 (x = g)
 
 ivmw, window(476) par(x): ivreg2 y2 (x = g) in 1/500
 
+ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)
 ivmw, window(3950) par(x) saving(ivmw, replace): ivreg2 y2 (x = g)
 use ivmw, clear
-list in 1/5
+list start-median in 1/5
 clear
 if c(os) == "Windows" erase ivmw.dta
 else rm ivmw.dta

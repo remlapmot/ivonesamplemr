@@ -18,6 +18,7 @@ local cscripts ///
     ivtsps ///
     ivtsri ///
     ivmw ///
+	ivxtile ///
     helpfiles
 
 foreach dofile of local cscripts {
