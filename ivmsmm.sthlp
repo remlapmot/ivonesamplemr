@@ -47,7 +47,10 @@
 {title:Description}
 
 {pstd}
-{cmd:ivmsmm} implements the multiplicative structural mean model (MSMM) of Robins (1989) as a wrapper to {help ivpoisson} with the {cmd:multiplicative} option. {cmd:ivpoisson} performs generalized method of moments (GMM) estimation of the relevant moment condition using {help gmm}.
+{cmd:ivmsmm} implements the multiplicative structural mean model (MSMM) of Robins (1989) 
+as a wrapper to {help ivpoisson} with the {cmd:multiplicative} option. 
+{cmd:ivpoisson} performs generalized method of moments (GMM) estimation of the relevant moment 
+condition using {help gmm}.
  
 {marker options}{...}
 {title:Options}
@@ -103,47 +106,64 @@ Cameron AC, Trivedi PK. Regression analysis of count data. 2nd ed. 2013. New Yor
 
 {marker clarke}{...}
 {phang}
-Clarke PS, Palmer TM, Windmeijer F. Estimating structural mean models with multiple instrumental variables using the Generalised Method of Moments. Statistical Science, 2015, 30, 1, 96-117. 
+Clarke PS, Palmer TM, Windmeijer F. 
+Estimating structural mean models with multiple instrumental variables using the Generalised Method of Moments. 
+Statistical Science, 2015, 30, 1, 96-117. 
 {browse "https://doi.org/10.1214/14-STS503":DOI}
 {p_end}
 
 {marker hernan}{...}
 {phang}
-Hernán and Robins. Instruments for causal inference: An Epidemiologist's dream? Epidemiology, 2006, 17, 360-372. 
+Hernán and Robins. Instruments for causal inference: An Epidemiologist's dream? 
+Epidemiology, 2006, 17, 360-372. 
 {browse "https://doi.org/10.1097/01.ede.0000222409.00878.37":DOI}
 {p_end}
 
 {marker mullahy}{...}
 {phang}
-Mullahy J. Instrumental-variable estimation of count data models: applications to models of cigarette smoking and behavior. The Review of Economics and Statistics. 1997, 79, 4, 586-593. 
+Mullahy J. Instrumental-variable estimation of count data models: 
+applications to models of cigarette smoking and behavior. 
+The Review of Economics and Statistics. 1997, 79, 4, 586-593. 
 {browse "https://doi.org/10.1162/003465397557169":DOI}
 {p_end}
 
 {marker nichols}{...}
 {phang}
-Nichols A. ivpois: Stata module for IV/GMM Poisson regression. 2007. {browse "http://ideas.repec.org/c/boc/bocode/s456890.html":URL}
+Nichols A. ivpois: Stata module for IV/GMM Poisson regression. 2007. 
+{browse "http://ideas.repec.org/c/boc/bocode/s456890.html":URL}
 {p_end}
 
 {marker robins}{...}
 {phang}
-Robins JM. The analysis of randomised and nonrandomised AIDS treatment trials using a new approach to causal inference in longitudinal studies. In Health Service Research Methodology: A Focus on AIDS (L. Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public Health Service, National Center for Health Services Research, Washington, DC.
+Robins JM. 
+The analysis of randomised and nonrandomised AIDS treatment trials using a new approach to 
+causal inference in longitudinal studies. 
+In Health Service Research Methodology: A Focus on AIDS 
+(L. Sechrest, H. Freeman and A. Mulley, eds.). 
+1989. 113–159. US Public Health Service, National Center for Health Services Research, Washington, DC.
 {p_end}
 
 {marker manivpoisson}{...}
 {phang}
-StataCorp. Stata Base Reference Manual. Release 13. ivpoisson - Poisson model with continuous endogenous covariates. 2013. 
+StataCorp. Stata Base Reference Manual. Release 13. 
+ivpoisson - Poisson model with continuous endogenous covariates. 2013. 
 {browse "https://www.stata.com/manuals13/rivpoisson.pdf":URL}
 {p_end}
 
 {marker windmeijer-1}{...}
 {phang}
-Windmeijer FAG, Santos Silva JMC. Endogeneity in Count Data Models: An Application to Demand for Health Care. Journal of Applied Econometrics. 1997, 12, 3, 281-294. 
+Windmeijer FAG, Santos Silva JMC. Endogeneity in Count Data Models: 
+An Application to Demand for Health Care. 
+Journal of Applied Econometrics. 1997, 12, 3, 281-294. 
 {browse "https://t.ly/3Et7":DOI}
 {p_end}
 
 {marker windmeijer-2}{...}
 {phang}
-Windmeijer, F. ExpEnd, A Gauss programme for non-linear GMM estimation of EXPonential models with ENDogenous regressors for cross section and panel data. CEMMAP working paper CWP14/02. 2002. 
+Windmeijer, F. 
+ExpEnd, A Gauss programme for non-linear GMM estimation of EXPonential models with ENDogenous regressors 
+for cross section and panel data. 
+CEMMAP working paper CWP14/02. 2002. 
 {browse "https://www.cemmap.ac.uk/wp-content/uploads/2020/08/CWP1402.pdf":URL}
 {p_end}
 
