@@ -37,8 +37,8 @@
 {synoptset 20 tabbed}{...}
 {synopthdr}
 {synoptline}
-{synopt:{opt am:xb(lc:varlist)}}The linear predictor for the association model, by default the instruments and exogenous variables are included
-{p_end}
+{synopt:{opt am:xb(lc:varlist)}}The linear predictor for the association model, 
+by default the instruments and exogenous variables are included{p_end}
 {synopt:{opt from(matrix)}}initial values for the parameter estimates for both association and causal models{p_end}
 {synopt:{opt l:evel(#)}}set confidence level; default is {cmd:level(95)}{p_end}
 {synopt:{opt gmm_options}}Options passed to {help gmm}
@@ -95,13 +95,20 @@ To see the results {cmd:ivlsmm} stores in {cmd:e()} issue {cmd:ereturn list} aft
 
 {marker clarke}{...}
 {phang}
-Clarke PS, Palmer TM, Windmeijer F. Estimating structural mean models with multiple instrumental variables using the Generalised Method of Moments. Statistical Science, 2015, 30, 1, 96-117. 
+Clarke PS, Palmer TM, Windmeijer F. 
+Estimating structural mean models with multiple instrumental variables using the Generalised Method of Moments. 
+Statistical Science, 2015, 30, 1, 96-117. 
 {browse "https://doi.org/10.1214/14-STS503":DOI}
 {p_end}
 
 {marker robins}{...}
 {phang}
-Robins JM. The analysis of randomised and nonrandomised AIDS treatment trials using a new approach to causal inference in longitudinal studies. In Health Service Research Methodology: A Focus on AIDS (L. Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public Health Service, National Center for Health Services Research, Washington, DC.
+Robins JM. 
+The analysis of randomised and nonrandomised AIDS treatment trials using a new approach to 
+causal inference in longitudinal studies. 
+In Health Service Research Methodology: A Focus on AIDS 
+(L. Sechrest, H. Freeman and A. Mulley, eds.). 
+1989. 113–159. US Public Health Service, National Center for Health Services Research, Washington, DC.
 {p_end}
 
 {marker vansteelandt}{...}
