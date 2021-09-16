@@ -2,7 +2,7 @@
       name:  ivxtile
        log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivxtile.log
   log type:  text
- opened on:  16 Sep 2021, 15:07:47
+ opened on:  16 Sep 2021, 15:22:55
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -427,9 +427,52 @@ number of observations (_N) was 0, now 4,000
 . else rm ivxtileres.dta
 
 . 
+. // non-convergence
+. clear all
+
+. set obs 2500
+number of observations (_N) was 0, now 2,500
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen w = rnormal()
+
+. gen x1 = z1 + z2 + z3 + w + u + rnormal()
+
+. gen x = x1
+
+. gen x2 = z1 + z2 + u + rnormal()
+
+. gen logitpy = -2 + x1 + 0.5*x2 + w + u
+
+. gen py = invlogit(logitpy)
+
+. gen y = rbinomial(1, py)
+
+. 
+. ivxtile, nq(5) par(x): ivlsmm y (x = z1 z2 z3)
+
+Model did not fit in quantile 3
+
+    quantile       beta         se      lowci      uppci  
+           1    1.40609   .1849153   1.043656   1.768524  
+           2   1.138831   .1222908   .8991413   1.378521  
+           3          .          .          .          .  
+           4   25.19511   .9787352   23.27678   27.11343  
+           5   10.98158   .2573293   10.47721   11.48594  
+
+. 
 end of do-file
       name:  ivxtile
        log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivxtile.log
   log type:  text
- closed on:  16 Sep 2021, 15:08:15
+ closed on:  16 Sep 2021, 15:23:26
 -------------------------------------------------------------------------------
