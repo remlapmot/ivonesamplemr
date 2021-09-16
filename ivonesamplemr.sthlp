@@ -6,6 +6,7 @@
 {vieweralsosee "ivmw" "help ivmw"}{...}
 {vieweralsosee "ivtsps" "help ivtsps"}{...}
 {vieweralsosee "ivtsri" "help ivtsri"}{...}
+{vieweralsosee "ivxtile" "help ivxtile"}{...}
 {vieweralsosee "iv" "help iv"}{...}
 {viewerjumpto "Commands" "ivonesamplemr##commands"}{...}
 {viewerjumpto "Description" "ivonesamplemr##description"}{...}
@@ -38,6 +39,9 @@ after the prefix, e.g. {cmd:ivmw, window(100): ivmsmm ...}.
 {synopt :{opt {help ivtsps}:}}Fits two-stage predictor substitution (TSPS) estimators.
 
 {synopt :{opt {help ivtsri}:}}Fits two-stage residual inclusion (TSRI) estimators.
+
+{synopt :{opt {help ivxtile}:}}Prefix command which performs estimation within quantiles of 
+the first stage residuals.
 
 {synopt :{opt {help iv}:}}Allows the use of the {cmd:iv} prefix, 
 hence {cmd:ivlsmm} can instead be called as {cmd:iv lsmm ...}.
