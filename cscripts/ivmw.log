@@ -2,7 +2,7 @@
       name:  ivmw
        log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
   log type:  text
- opened on:  15 Sep 2021, 14:34:12
+ opened on:  16 Sep 2021, 14:12:57
 
 . // ivmw cscript
 . // 2021-09-12
@@ -55,7 +55,7 @@ number of observations (_N) was 0, now 2,500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)
@@ -66,7 +66,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress gmm y (x = z1 z2 z3)
@@ -77,7 +77,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivregress)
 
 . 
@@ -90,7 +90,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivreg2)
 
 . ivmw, window(90) par(x): ivreg2 y (x = z1 z2 z3) in 1/100
@@ -101,34 +101,8 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivreg2)
-
-. 
-. // ivlsmm
-. ivmw, window(2490) par(x): ivlsmm y (x = z1 z2 z3)
-        time variable:  res_order, 1 to 2500
-                delta:  1 unit
-(running ivlsmm on estimation sample)
-
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
-(rolling: ivlsmm)
-
-. 
-. // ivmsmm
-. ivmw, window(2490) par(x): ivmsmm y (x = z1 z2 z3)
-        time variable:  res_order, 1 to 2500
-                delta:  1 unit
-(running ivmsmm on estimation sample)
-
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
-(rolling: ivmsmm)
 
 . 
 . // ivtsps
@@ -140,10 +114,10 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivtsps)
 
-. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(identity)
         time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivtsps on estimation sample)
@@ -151,29 +125,7 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
-(rolling: ivtsps)
-
-. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
-        time variable:  res_order, 1 to 2500
-                delta:  1 unit
-(running ivtsps on estimation sample)
-
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
-(rolling: ivtsps)
-
-. ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
-        time variable:  res_order, 1 to 2500
-                delta:  1 unit
-(running ivtsps on estimation sample)
-
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivtsps)
 
 . 
@@ -186,10 +138,10 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivtsri)
 
-. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(identity)
         time variable:  res_order, 1 to 2500
                 delta:  1 unit
 (running ivtsri on estimation sample)
@@ -197,31 +149,10 @@ file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivtsri)
 
-. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
-        time variable:  res_order, 1 to 2500
-                delta:  1 unit
-(running ivtsri on estimation sample)
-
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
-(rolling: ivtsri)
-
-. ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
-        time variable:  res_order, 1 to 2500
-                delta:  1 unit
-(running ivtsri on estimation sample)
-
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
-(rolling: ivtsri)
-
+. 
 . 
 . // try quadratic exposure
 . clear
@@ -259,7 +190,7 @@ number of observations (_N) was 0, now 2,500
 Rolling replications (21)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .....................
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivreg2)
 
 . 
@@ -298,11 +229,11 @@ number of observations (_N) was 0, now 2,500
 Rolling replications (21)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .....................
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivmsmm)
 
 . 
-. // burgess, davies, thompson paper simulations
+. // burgess, davies, thompson paper simulations (y1-y5)
 . 
 . clear
 
@@ -345,101 +276,93 @@ number of observations (_N) was 0, now 4,000
 . twoway line y6 y7 x, sort(x)
 
 . 
-. ivmw, window(3950) par(x): ivreg2 y1 (x = g)
+. ivmw, window(3976) par(x): ivreg2 y1 (x = g)
         time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
+Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+.........................
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivreg2)
 
-. ivmw, window(3950) par(x): ivreg2 y2 (x = g)
+. ivmw, window(3976) par(x): ivreg2 y2 (x = g)
         time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
+Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+.........................
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivreg2)
 
-. ivmw, window(3950) par(x): ivreg2 y3 (x = g)
+. ivmw, window(3976) par(x): ivreg2 y3 (x = g)
         time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
+Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+.........................
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivreg2)
 
-. ivmw, window(3950) par(x): ivreg2 y4 (x = g)
+. ivmw, window(3976) par(x): ivreg2 y4 (x = g)
         time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
+Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+.........................
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivreg2)
 
-. ivmw, window(3950) par(x): ivreg2 y5 (x = g)
+. ivmw, window(3976) par(x): ivreg2 y5 (x = g)
         time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
+Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+.........................
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivreg2)
 
-. ivmw, window(3950) par(x): ivreg2 y6 (x = g)
+. ivmw, window(3976) par(x): ivreg2 y6 (x = g)
         time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
+Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+.........................
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivreg2)
 
-. ivmw, window(3950) par(x): ivreg2 y7 (x = g)
+. ivmw, window(3976) par(x): ivreg2 y7 (x = g)
         time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
+Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+.........................
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivreg2)
 
 . 
-. ivmw, window(450) par(x): ivreg2 y2 (x = g) in 1/500
+. ivmw, window(476) par(x): ivreg2 y2 (x = g) in 1/500
         time variable:  res_order, 1 to 4000
                 delta:  1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
+Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
-file C:\Users\eptmp\AppData\Local\Temp\ST_54a0_000001.tmp saved
+.........................
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
 (rolling: ivreg2)
 
 . 
@@ -509,9 +432,130 @@ file ivmw.dta saved
 . else rm ivmw.dta
 
 . 
+. // binary data for logadd, logmult, logit links
+. 
+. clear all
+
+. set obs 4000
+number of observations (_N) was 0, now 4,000
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen w = rnormal()
+
+. gen x1 = z1 + z2 + z3 + w + u + rnormal()
+
+. gen x = x1
+
+. gen x2 = z1 + z2 + u + rnormal()
+
+. gen logitpy = -2 + x1 + 0.5*x2 + w + u
+
+. gen py = invlogit(logitpy)
+
+. gen y = rbinomial(1, py)
+
+. 
+. ivmw, window(3991) par(x): ivlsmm y (x = z1 z2 z3)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivlsmm on estimation sample)
+
+Rolling replications (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..........
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
+(rolling: ivlsmm)
+
+. ivmw, window(3991) par(x): ivmsmm y (x = z1 z2 z3)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivmsmm on estimation sample)
+
+Rolling replications (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..........
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
+(rolling: ivmsmm)
+
+. ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivtsps on estimation sample)
+
+Rolling replications (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..........
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
+(rolling: ivtsps)
+
+. ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivtsps on estimation sample)
+
+Rolling replications (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..........
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
+(rolling: ivtsps)
+
+. ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivtsps on estimation sample)
+
+Rolling replications (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..........
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
+(rolling: ivtsps)
+
+. ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivtsri on estimation sample)
+
+Rolling replications (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..........
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
+(rolling: ivtsri)
+
+. ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivtsri on estimation sample)
+
+Rolling replications (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..........
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
+(rolling: ivtsri)
+
+. ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
+        time variable:  res_order, 1 to 4000
+                delta:  1 unit
+(running ivtsri on estimation sample)
+
+Rolling replications (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..........
+file C:\Users\eptmp\AppData\Local\Temp\ST_6c8_000001.tmp saved
+(rolling: ivtsri)
+
+. 
 end of do-file
       name:  ivmw
        log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
   log type:  text
- closed on:  15 Sep 2021, 14:35:37
+ closed on:  16 Sep 2021, 14:14:34
 -------------------------------------------------------------------------------
