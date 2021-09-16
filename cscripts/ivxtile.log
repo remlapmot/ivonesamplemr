@@ -1,0 +1,435 @@
+-------------------------------------------------------------------------------
+      name:  ivxtile
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivxtile.log
+  log type:  text
+ opened on:  16 Sep 2021, 15:07:47
+
+. // ivxtile cscript
+. // 2021-09-16
+. 
+. cscript ivxtile adofiles ivxtile
+------------------------------------------------------------------BEGIN ivxtile
+
+-> which ivxtile, usesysdir
+C:\Users\eptmp\Documents\GitHub\ivonesamplemr\ivxtile.ado
+*! version 0.1.0 16sep2021 Tom Palmer
+
+. 
+. // burgess, davies, thompson paper simulations (y1-y5)
+. 
+. clear
+
+. set obs 4000
+number of observations (_N) was 0, now 4,000
+
+. set seed 12345
+
+. gen g = rbinomial(2, .3)
+
+. gen u = runiform()
+
+. gen ex = rexponential(1)
+
+. gen x = .25*g + u + ex
+
+. gen ey = rnormal()
+
+. gen y1 = .4*x + .8*u + ey
+
+. gen y2 = .1*x^2
+
+. gen y3 = .2*(x - 1)^2
+
+. gen y4 = .3*(x - 2)^2
+
+. gen y5 = max(x - 2, 0)
+
+. gen y6 = -.1*x^2
+
+. gen y7 = (x - 5)^2
+
+. 
+. discard
+
+. ivxtile, nq(4) par(b1): ivtsps y2 (x = g)
+
+    quantile       beta         se      lowci      uppci  
+           1    .143359   .0020305   .1393792   .1473388  
+           2   .2388808   .0014311   .2360759   .2416857  
+           3   .3372547   .0020202   .3332951   .3412143  
+           4   .6257691   .0509326   .5259411    .725597  
+
+. 
+. ivxtile, nq(4) par(b1) trace: ivtsps y2 (x = g)
+
+First stage residuals quantile: 1
+
+
+Final GMM criterion Q(b) =  1.72e-34
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   4
+Number of moments    =   4
+Initial weight matrix: Unadjusted                 Number of obs   =      1,000
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     /s1xb_g |   .2646999   .0094013    28.16   0.000     .2462737    .2831261
+         /a0 |   .5016236   .0082442    60.85   0.000     .4854653    .5177819
+         /b1 |    .143359   .0020305    70.60   0.000     .1393793    .1473387
+         /b0 |  -.0443731   .0014091   -31.49   0.000    -.0471348   -.0416114
+------------------------------------------------------------------------------
+Instruments for equation 1: g _cons
+Instruments for equation 2: predicted _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |    .143359   .0020305    70.60   0.000     .1393793    .1473387
+------------------------------------------------------------------------------
+
+First stage residuals quantile: 2
+
+
+Final GMM criterion Q(b) =  2.06e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   4
+Number of moments    =   4
+Initial weight matrix: Unadjusted                 Number of obs   =      1,000
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     /s1xb_g |   .2664825   .0057948    45.99   0.000     .2551249    .2778401
+         /a0 |   .9802425   .0050775   193.06   0.000     .9702908    .9901943
+         /b1 |   .2388808   .0014311   166.92   0.000      .236076    .2416857
+         /b0 |  -.1379062   .0015867   -86.91   0.000     -.141016   -.1347963
+------------------------------------------------------------------------------
+Instruments for equation 1: g _cons
+Instruments for equation 2: predicted _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .2388808   .0014311   166.92   0.000      .236076    .2416857
+------------------------------------------------------------------------------
+
+First stage residuals quantile: 3
+
+
+Final GMM criterion Q(b) =  9.02e-33
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   4
+Number of moments    =   4
+Initial weight matrix: Unadjusted                 Number of obs   =      1,000
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     /s1xb_g |    .265626   .0092279    28.78   0.000     .2475395    .2837124
+         /a0 |   1.485285   .0078079   190.23   0.000     1.469982    1.500588
+         /b1 |   .3372547   .0020202   166.94   0.000     .3332952    .3412142
+         /b0 |  -.2777331    .003248   -85.51   0.000     -.284099   -.2713671
+------------------------------------------------------------------------------
+Instruments for equation 1: g _cons
+Instruments for equation 2: predicted _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .3372547   .0020202   166.94   0.000     .3332952    .3412142
+------------------------------------------------------------------------------
+
+First stage residuals quantile: 4
+
+
+Final GMM criterion Q(b) =  4.07e-31
+
+note: model is exactly identified
+
+GMM estimation 
+
+Number of parameters =   4
+Number of moments    =   4
+Initial weight matrix: Unadjusted                 Number of obs   =      1,000
+
+------------------------------------------------------------------------------
+             |               Robust
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     /s1xb_g |    .272497   .0488933     5.57   0.000     .1766678    .3683262
+         /a0 |   2.808065   .0433854    64.72   0.000     2.723032    2.893099
+         /b1 |   .6257691   .0509326    12.29   0.000      .525943    .7255952
+         /b0 |  -.8704803   .1482242    -5.87   0.000    -1.160994   -.5799662
+------------------------------------------------------------------------------
+Instruments for equation 1: g _cons
+Instruments for equation 2: predicted _cons
+
+Causal risk difference for: b1
+
+ ( 1)  [b1]_cons = 0
+
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .6257691   .0509326    12.29   0.000      .525943    .7255952
+------------------------------------------------------------------------------
+
+    quantile       beta         se      lowci      uppci  
+           1    .143359   .0020305   .1393792   .1473388  
+           2   .2388808   .0014311   .2360759   .2416857  
+           3   .3372547   .0020202   .3332951   .3412143  
+           4   .6257691   .0509326   .5259411    .725597  
+
+. 
+. ivxtile, nq(10) par(b1): ivtsps y2 (x = g)
+
+    quantile       beta         se      lowci      uppci  
+           1   .1037679   .0021337   .0995859   .1079499  
+           2   .1585745   .0015963   .1554457   .1617032  
+           3   .1981476   .0015735   .1950635   .2012317  
+           4   .2285919   .0015923    .225471   .2317128  
+           5    .263626   .0014932   .2606993   .2665527  
+           6   .3018492   .0016141   .2986855   .3050129  
+           7   .3490515   .0019169   .3452945   .3528085  
+           8   .4143449   .0022951   .4098466   .4188433  
+           9   .5128626   .0030473   .5068899   .5188352  
+          10   .8345693   .0691984   .6989404   .9701982  
+
+. 
+. ivxtile, nq(4) par(b1): ivtsps y2 (x = g), link(identity)
+
+    quantile       beta         se      lowci      uppci  
+           1    .143359   .0020305   .1393792   .1473388  
+           2   .2388808   .0014311   .2360759   .2416857  
+           3   .3372547   .0020202   .3332951   .3412143  
+           4   .6257691   .0509326   .5259411    .725597  
+
+. 
+. ivxtile, nq(4) par(b1): ivtsri y2 (x = g)
+
+    quantile       beta         se      lowci      uppci  
+           1    .143359   .0020305   .1393792   .1473388  
+           2   .2388808   .0014311   .2360759   .2416857  
+           3   .3372547   .0020202   .3332951   .3412143  
+           4   .6257691   .0509326   .5259412   .7255971  
+
+. ivxtile, nq(4) par(b1): ivtsri y2 (x = g), link(identity)
+
+    quantile       beta         se      lowci      uppci  
+           1    .143359   .0020305   .1393792   .1473388  
+           2   .2388808   .0014311   .2360759   .2416857  
+           3   .3372547   .0020202   .3332951   .3412143  
+           4   .6257691   .0509326   .5259412   .7255971  
+
+. 
+. ivxtile, nq(4) par(x): ivregress 2sls y2 (x = g)
+
+    quantile       beta         se      lowci      uppci  
+           1    .143359   .0016293   .1401656   .1465525  
+           2   .2388808       .001   .2369208   .2408409  
+           3   .3372547   .0014367   .3344388   .3400706  
+           4   .6257691   .0507258   .5263464   .7251917  
+
+. ivxtile, nq(4) par(x): ivregress liml y2 (x = g)
+
+    quantile       beta         se      lowci      uppci  
+           1    .143359   .0016293   .1401656   .1465525  
+           2   .2388808       .001   .2369208   .2408409  
+           3   .3372547   .0014367   .3344388   .3400706  
+           4   .6257691   .0507258   .5263464   .7251917  
+
+. ivxtile, nq(4) par(x): ivregress gmm y2 (x = g)
+
+    quantile       beta         se      lowci      uppci  
+           1    .143359   .0020305   .1393792   .1473388  
+           2   .2388808   .0014311   .2360759   .2416857  
+           3   .3372547   .0020202   .3332951   .3412143  
+           4   .6257691   .0509326   .5259411    .725597  
+
+. 
+. ivxtile, nq(4) par(x): ivreg2 y2 (x = g)
+
+    quantile       beta         se      lowci      uppci  
+           1    .143359   .0016293   .1401656   .1465525  
+           2   .2388808       .001   .2369208   .2408409  
+           3   .3372547   .0014367   .3344388   .3400706  
+           4   .6257691   .0507258   .5263464   .7251917  
+
+. 
+. // binary data for other link functions
+. 
+. clear all
+
+. set obs 4000
+number of observations (_N) was 0, now 4,000
+
+. set seed 12345
+
+. gen z1 = rbinomial(2, .2)
+
+. gen z2 = rbinomial(2, .3)
+
+. gen z3 = rbinomial(2, .4)
+
+. gen u = rnormal()
+
+. gen w = rnormal()
+
+. gen x1 = z1 + z2 + z3 + w + u + rnormal()
+
+. gen x = x1
+
+. gen x2 = z1 + z2 + u + rnormal()
+
+. gen logitpy = -2 + .1*x1^2 + 0.5*x2 + w + u
+
+. gen py = invlogit(logitpy)
+
+. gen y = rbinomial(1, py)
+
+. 
+. twoway line logitpy x1, sort(x1)
+
+. 
+. ivxtile, nq(4) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+
+    quantile       beta         se      lowci      uppci  
+           1   .3971276   .0844622   .2315817   .5626736  
+           2   .3568293   .0490758   .2606408   .4530178  
+           3   .2587495   .0257603   .2082594   .3092397  
+           4   .1513078   .0139182    .124028   .1785875  
+
+. ivxtile, nq(4) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
+
+    quantile       beta         se      lowci      uppci  
+           1    .347589   .0914038   .1684376   .5267404  
+           2   .3328463   .0555028   .2240608   .4416318  
+           3   .2706741   .0329476   .2060968   .3352513  
+           4   .1605982   .0169347   .1274062   .1937901  
+
+. ivxtile, nq(4) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
+
+    quantile       beta         se      lowci      uppci  
+           1   .4462928   .1007416   .2488392   .6437464  
+           2   .4804893   .0721255   .3391234   .6218553  
+           3   .5432177   .0613731   .4229264    .663509  
+           4   .7646972   .0748999   .6178933   .9115011  
+
+. 
+. ivxtile, nq(4) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+
+    quantile       beta         se      lowci      uppci  
+           1   .4066803    .084106   .2418326   .5715281  
+           2   .3597835   .0493127   .2631306   .4564364  
+           3   .2592443   .0257546   .2087653   .3097232  
+           4   .1517823    .014136   .1240759   .1794888  
+
+. ivxtile, nq(4) par(b1): ivtsri y (x = z1 z2 z3), link(logmult) 
+
+    quantile       beta         se      lowci      uppci  
+           1   .3471086   .1240754   .1039208   .5902964  
+           2   .3470605   .0579449   .2334885   .4606326  
+           3   .2662629   .0334318   .2007366   .3317892  
+           4   .1753149   .0193433    .137402   .2132278  
+
+. ivxtile, nq(4) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
+
+    quantile       beta         se      lowci      uppci  
+           1   .4742795   .1058512   .2668111   .6817478  
+           2    .488086   .0730101   .3449862   .6311858  
+           3   .5549521   .0629268   .4316155   .6782886  
+           4   .8418363   .0839261   .6773413   1.006331  
+
+. 
+. ivxtile, nq(4) par(x): ivmsmm y (x = z1 z2 z3)
+
+    quantile       beta         se      lowci      uppci  
+           1   .3442539   .0923321    .163283   .5252247  
+           2   .3458917   .0582438   .2317338   .4600495  
+           3    .267333   .0328979    .202853   .3318129  
+           4   .1725606   .0195767   .1341902    .210931  
+
+. 
+. ivxtile, nq(4) par(x): ivlsmm y (x = z1 z2 z3)
+
+    quantile       beta         se      lowci      uppci  
+           1      .4447   .1138194   .2216139   .6677861  
+           2   .5042965   .0740131   .3592308   .6493623  
+           3   .5729357   .0638491   .4477914     .69808  
+           4   11.38396   .2653633   10.86385   11.90408  
+
+. 
+. discard
+
+. ivxtile, nq(4) par(x) saving(ivxtileres): ivreg2 y (x = z1 z2 z3)
+
+    quantile       beta         se      lowci      uppci  
+           1   .0349277   .0071805   .0208539   .0490016  
+           2   .0804975   .0112173   .0585115   .1024834  
+           3   .1257521   .0131755   .0999281   .1515761  
+           4   .1176837   .0105062   .0970914   .1382759  
+
+. discard
+
+. ivxtile, nq(4) par(x) saving(ivxtileres, replace): ivreg2 y (x = z1 z2 z3)
+
+    quantile       beta         se      lowci      uppci  
+           1   .0349277   .0071805   .0208539   .0490016  
+           2   .0804975   .0112173   .0585115   .1024834  
+           3   .1257521   .0131755   .0999281   .1515761  
+           4   .1176837   .0105062   .0970914   .1382759  
+
+. use ivxtileres, clear
+
+. list 
+
+     +--------------------------------+
+     | quantile       beta         se |
+     |--------------------------------|
+  1. |        1   .0349277   .0071805 |
+  2. |        2   .0804975   .0112173 |
+  3. |        3   .1257521   .0131755 |
+  4. |        4   .1176837   .0105062 |
+     +--------------------------------+
+
+. clear
+
+. if c(os) == "Windows" erase ivxtileres.dta
+
+. else rm ivxtileres.dta
+
+. 
+end of do-file
+      name:  ivxtile
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivxtile.log
+  log type:  text
+ closed on:  16 Sep 2021, 15:08:15
+-------------------------------------------------------------------------------
