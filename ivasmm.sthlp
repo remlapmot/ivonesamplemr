@@ -16,7 +16,9 @@
 {title:Description}
 
 {pstd}
-{cmd:ivasmm} is not a command. This helpfile is to note that the additive structural mean model (ASMM) is simply fit with a linear IV estimator available in {help ivregress} or {help ivreg2} or even implemented yourself with {help gmm}.
+{cmd:ivasmm} is not a command. This helpfile is to note that the additive structural mean model (ASMM) 
+is simply fit with a linear IV estimator available in {help ivregress} or {help ivreg2} 
+or even implemented yourself with {help gmm}.
 
 For a binary outcome the ASMM estimates a causal risk difference.
 
@@ -47,13 +49,20 @@ For a binary outcome the ASMM estimates a causal risk difference.
 
 {marker clarke}{...}
 {phang}
-Clarke PS, Palmer TM, Windmeijer F. Estimating structural mean models with multiple instrumental variables using the Generalised Method of Moments. Statistical Science, 2015, 30, 1, 96-117. 
+Clarke PS, Palmer TM, Windmeijer F. 
+Estimating structural mean models with multiple instrumental variables using the Generalised Method of Moments. 
+Statistical Science, 2015, 30, 1, 96-117. 
 {browse "https://doi.org/10.1214/14-STS503":DOI}
 {p_end}
 
 {marker robins}{...}
 {phang}
-Robins JM. The analysis of randomised and nonrandomised AIDS treatment trials using a new approach to causal inference in longitudinal studies. In Health Service Research Methodology: A Focus on AIDS (L. Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public Health Service, National Center for Health Services Research, Washington, DC.
+Robins JM. 
+The analysis of randomised and nonrandomised AIDS treatment trials using a new approach to 
+causal inference in longitudinal studies. 
+In Health Service Research Methodology: A Focus on AIDS 
+(L. Sechrest, H. Freeman and A. Mulley, eds.). 
+1989. 113–159. US Public Health Service, National Center for Health Services Research, Washington, DC.
 {p_end}
 
 {marker author}{...}
