@@ -77,7 +77,7 @@ gen y = rbinomial(1, py)
 
 ivmw, window(2480) par(x): ivmsmm y (x = z1 z2 z3)
 
-// burgess, davies, thompson paper simulations
+// burgess, davies, thompson paper simulations (y1-y5)
 
 clear
 set obs 4000
