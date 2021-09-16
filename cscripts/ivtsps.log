@@ -2,7 +2,7 @@
       name:  ivtsps
        log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
   log type:  text
- opened on:  15 Sep 2021, 13:55:59
+ opened on:  16 Sep 2021, 11:11:52
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -615,6 +615,7 @@ Causal risk ratio for: b1
 . // logmult link
 . 
 . cap noi drop pred
+variable pred not found
 
 . regress x z1 z2 z3
 
@@ -1278,6 +1279,7 @@ invalid syntax
 . // preditced varname test
 . 
 . cap noi drop predicted
+variable predicted not found
 
 . regress x z1 z2 z3
 
@@ -1516,5 +1518,5 @@ end of do-file
       name:  ivtsps
        log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
   log type:  text
- closed on:  15 Sep 2021, 13:56:07
+ closed on:  16 Sep 2021, 11:12:01
 -------------------------------------------------------------------------------

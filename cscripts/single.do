@@ -10,7 +10,7 @@ cscript single
 
 // cap noi ado describe ivonesamplemr
 
-local cscripts install
+local cscripts ivtsps ivtsri
 
 foreach dofile of local cscripts {
     log using `dofile'.log, text replace name(`dofile')
