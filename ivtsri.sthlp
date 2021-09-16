@@ -45,7 +45,10 @@
 {title:Description}
 
 {pstd}
-{cmd:ivtsri} implements two-stage residual inclusion (TSRI) estimators with several link functions (identity, log-additive, log-multiplicative, logit). It is implemented using generalized method of moments (GMM) estimation by passing the relevant moment condition to the {help gmm} command.
+{cmd:ivtsri} implements two-stage residual inclusion (TSRI) estimators with several link functions 
+(identity, log-additive, log-multiplicative, logit). 
+It is implemented using generalized method of moments (GMM) estimation by passing the relevant 
+moment condition to the {help gmm} command.
  
 {marker options}{...}
 {title:Options}
