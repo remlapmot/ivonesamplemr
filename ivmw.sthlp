@@ -19,15 +19,16 @@
 {title:Syntax}
 
 {p 8 12 2}
-{cmd:ivmw} {cmd:,} {opt window(#)} {opt par(string)} [{opt sa:ving(string)} {opt rolling_options}]{cmd::} {it:iv_cmd}
+{cmd:ivmw} {cmd:,} {opt window(#)} {opt par(string)} [{opt sa:ving(filename [, replace])} 
+{opt rolling_options}]{cmd::} {it:iv_cmd}
 
-{synoptset 20 tabbed}{...}
+{synoptset 30 tabbed}{...}
 {synopthdr}
 {synoptline}
 {synopt:{opt par:(string)}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
 {synopt:{opt window:(#)}}number of consecutive data points in each sample{p_end}
-{synopt:{opt sa:ving(string)}}Save the moving window output to a dataset. 
-Specify {cmd:, replace} to overwrite an existing dataset{p_end}
+{synopt:{opt sa:ving(filename [, replace])}}Save the moving window output to a dataset. 
+Specify {cmd:replace} to overwrite the dataset if it already exists.{p_end}
 {synopt:{opt rolling_options:}}{help rolling##options}{p_end}
 
 {marker description}{...}
