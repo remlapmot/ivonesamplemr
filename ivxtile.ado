@@ -66,6 +66,7 @@ if "`ivcmdname'" == "ivlsmm" local par cmxb_`par':_cons
 tempname memhold
 postfile `memhold' quantile beta se using `savefilename' `savereplace'
 if "`trace'" == "" local quietly quietly
+else local noisily noisily
 `quietly' foreach quant of local levels {
 	di _n "First stage residuals quantile: `quant'" _n
 	preserve
@@ -78,8 +79,14 @@ if "`trace'" == "" local quietly quietly
 		di as txt "Only `r(N)' observations in quantile `quant'"
 	}
 	qui keep if `resquantiles' == `quant'
-	`right'
-	post `memhold' (`quant') (_b[`par']) (_se[`par'])
+	capture `noisily' `right'
+	if _rc == 0 & ((inlist("`ivcmdname'", "ivtsps", "ivtsri", "ivlsmm", "ivmsmm") & e(converged) == 1) | inlist("`ivcmdname'", "ivregress", "ivreg2")) {
+		post `memhold' (`quant') (_b[`par']) (_se[`par'])
+	}
+	else {
+		noisily di as txt _n "Model did not fit in quantile `quant'"
+		post `memhold' (`quant') (.) (.)
+	}
 	restore
 }
 postclose `memhold'
