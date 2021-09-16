@@ -26,14 +26,17 @@
 {synoptline}
 {synopt:{opt par:}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
 {synopt:{opt window:}}number of consecutive data points in each sample{p_end}
-{synopt:{opt sa:ving(string)}}Save the moving window output to a dataset. Specify {cmd:, replace} to overwrite an existing dataset{p_end}
+{synopt:{opt sa:ving(string)}}Save the moving window output to a dataset. 
+Specify {cmd:, replace} to overwrite an existing dataset{p_end}
 {synopt:{opt rolling_options:}}{help rolling##options}{p_end}
 
 {marker description}{...}
 {title:Description}
 
 {pstd}
-{cmd:ivmw} implements the moving window (a.k.a. sliding / rolling window) approach to the estimator specified after the prefix, as per {help ivmw##burgess:Burgess et al., 2014}. It is implemented as a call to {help rolling}.
+{cmd:ivmw} implements the moving window (a.k.a. sliding / rolling window) approach to the estimator 
+specified after the prefix, as per {help ivmw##burgess:Burgess et al., 2014}. 
+It is implemented as a call to {help rolling}.
  
 {marker options}{...}
 {title:Options}
@@ -100,13 +103,16 @@ Please see {help rolling##results}{p_end}
 
 {marker burgess}{...}
 {phang}
-Burgess S, Davies N, Thompson SG, EPIC-InterAct Consortium. Instrumental variable analysis with a nonlinear exposure-outcome relationship. Epidemiology, 2014, 25, 6, 877-885. 
+Burgess S, Davies N, Thompson SG, EPIC-InterAct Consortium. 
+Instrumental variable analysis with a nonlinear exposure-outcome relationship. 
+Epidemiology, 2014, 25, 6, 877-885. 
 {browse "https://doi.org/10.1097/ede.0000000000000161":DOI}
 {p_end}
 
 {marker manrolling}{...}
 {phang}
-StataCorp. Stata Base Reference Manual. Release 16. rolling - Rolling-window and recursive estimation. 2016. 
+StataCorp. Stata Base Reference Manual. Release 16. 
+rolling - Rolling-window and recursive estimation. 2016. 
 {browse "https://www.stata.com/manuals/tsrolling.pdf":URL}
 {p_end}
 
