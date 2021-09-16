@@ -86,6 +86,7 @@ postclose `memhold'
 use `savefilename', clear
 qui gen lowci = beta - 1.96 * se
 qui gen uppci = beta + 1.96 * se
+list , clean noobs
 
 twoway line b lowci uppci quantile, sort(quantile) ///
 	lc(gs0 gs10 gs10) lw(medthick medthick medthick) ///
