@@ -45,7 +45,10 @@
 {title:Description}
 
 {pstd}
-{cmd:ivtsps} implements two-stage predictor substitution (TSPS) estimators with several link functions (identity, log-additive, log-multiplicative, logit). It is implemented using generalized method of moments (GMM) estimation by passing the relevant moment condition to the {help gmm} command.
+{cmd:ivtsps} implements two-stage predictor substitution (TSPS) estimators with several link functions 
+(identity, log-additive, log-multiplicative, logit). 
+It is implemented using generalized method of moments (GMM) estimation by passing the relevant 
+moment condition to the {help gmm} command.
  
 {marker options}{...}
 {title:Options}
