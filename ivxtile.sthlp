@@ -19,14 +19,15 @@
 {title:Syntax}
 
 {p 8 12 2}
-{cmd:ivxtile} {cmd:,} {opt par(string)} [{opt sa:ving(string)} {opt xtile_options}]{cmd::} {it:iv_cmd}
+{cmd:ivxtile} {cmd:,} {opt par(string)} [{opt sa:ving(filename [, replace])} 
+{opt xtile_options}]{cmd::} {it:iv_cmd}
 
-{synoptset 20 tabbed}{...}
+{synoptset 30 tabbed}{...}
 {synopthdr}
 {synoptline}
 {synopt:{opt par:(string)}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
-{synopt:{opt sa:ving(string)}}Save the moving window output to a dataset. 
-Specify {cmd:, replace} to overwrite an existing dataset{p_end}
+{synopt:{opt sa:ving(filename [, replace])}}Save the within quantile estimation results to a dataset. 
+Specify {cmd:replace} to overwrite an existing dataset{p_end}
 {synopt:{opt trace}}View the output from the {cmd:iv_cmd} in each quantile{p_end}
 {synopt:{opt xtile_options:}}{help xtile##options}{p_end}
 
@@ -82,7 +83,8 @@ Please see {help xtile##options}
 {title:Stored results}
 
 {pstd}
-{cmd:ivxtile} does not store results.{p_end}
+{cmd:ivxtile} does not store results in either e() or r() but does save the results dataset 
+if the {cmd:saving()} option is specified.{p_end}
 
 {marker references}{...}
 {title:References}
