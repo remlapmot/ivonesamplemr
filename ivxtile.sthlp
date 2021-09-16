@@ -12,7 +12,7 @@
 {title:Title}
 
 {p 5}
-{bf:ivmw} {hline 2} Perorm estimation within quantiles of the first stage residuals prefix command
+{bf:ivxtile} {hline 2} Perorm estimation within quantiles of the first stage residuals prefix command
 {p_end}
 
 {marker syntax}{...}
@@ -25,7 +25,6 @@
 {synopthdr}
 {synoptline}
 {synopt:{opt par:(string)}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
-{synopt:{opt window:(#)}}number of consecutive data points in each sample{p_end}
 {synopt:{opt sa:ving(string)}}Save the moving window output to a dataset. 
 Specify {cmd:, replace} to overwrite an existing dataset{p_end}
 {synopt:{opt rolling_options:}}{help rolling##options}{p_end}
@@ -34,8 +33,8 @@ Specify {cmd:, replace} to overwrite an existing dataset{p_end}
 {title:Description}
 
 {pstd}
-{cmd:ivxtile} implements the moving window (a.k.a. sliding / rolling window) approach to the estimator 
-specified after the prefix, as per {help ivmw##burgess:Burgess et al., 2014}. 
+{cmd:ivxtile} implements the command specified after the prefix within quantiles of the first stage residuals, 
+as per {help ivxtile##burgess:Burgess et al., 2014}. 
 It is implemented as a call to {help xtile}.
  
 {marker options}{...}
@@ -57,46 +56,23 @@ Please see {help xtile##options}
 {phang2}{cmd:.} {stata "twoway line y2 y3 y4 x, sort(x)"}{p_end}
 {phang2}{cmd:.} {stata "twoway line y5 x, sort(x)"}{p_end}
 
-{pstd}Example moving window fits.{p_end}
+{pstd}Use with different iv commands.{p_end}
 
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivreg2 y1 (x = g)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivreg2 y2 (x = g)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivreg2 y3 (x = g)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivreg2 y4 (x = g)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivreg2 y5 (x = g)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(x): ivregress 2sls y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(x): ivtsps y (x = z1 z2 z3), link(logadd)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(x): ivtsps y (x = z1 z2 z3), link(logit)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(x): ivlsmm y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(5) par(x): ivmsmm y (x = z1 z2 z3)"}{p_end}
 
-{pstd}Change window size (e.g. for outcome y2).{p_end}
+{pstd}Save the dataset of results.{p_end}
 
-{phang2}{cmd:.} {stata "ivmw, window(3750) par(x): ivreg2 y2 (x = g)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3000) par(x): ivreg2 y2 (x = g)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(2000) par(x): ivreg2 y2 (x = g)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(1000) par(x): ivreg2 y2 (x = g)"}{p_end}
-
-{pstd}Save the moving window dataset.{p_end}
-
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)"}{p_end}
-
-{pstd}Use different iv commands.{p_end}
-
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivregress 2sls y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivregress liml y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivregress gmm y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivlsmm y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivmsmm y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logit)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logit)"}{p_end}
+{phang2}{cmd:.} {stata "ivxtile, nq(10) par(x) saving(ivxtileres): ivreg2 y2 (x = g)"}{p_end}
 
 {marker results}{...}
 {title:Stored results}
 
 {pstd}
-Please see {help rolling##results}{p_end}
+{cmd:ivxtile} does not store results.{p_end}
 
 {marker references}{...}
 {title:References}
