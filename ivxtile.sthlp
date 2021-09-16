@@ -19,7 +19,7 @@
 {title:Syntax}
 
 {p 8 12 2}
-{cmd:ivxtile} {cmd:,} {opt window(#)} {opt par(string)} [{opt sa:ving(string)} {opt rolling_options}]{cmd::} {it:iv_cmd}
+{cmd:ivxtile} {cmd:,} {opt par(string)} [{opt sa:ving(string)} {opt xtile_options}]{cmd::} {it:iv_cmd}
 
 {synoptset 20 tabbed}{...}
 {synopthdr}
@@ -27,15 +27,14 @@
 {synopt:{opt par:(string)}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
 {synopt:{opt sa:ving(string)}}Save the moving window output to a dataset. 
 Specify {cmd:, replace} to overwrite an existing dataset{p_end}
-{synopt:{opt rolling_options:}}{help rolling##options}{p_end}
+{synopt:{opt xtile_options:}}{help xtile##options}{p_end}
 
 {marker description}{...}
 {title:Description}
 
 {pstd}
 {cmd:ivxtile} implements the command specified after the prefix within quantiles of the first stage residuals, 
-as per {help ivxtile##burgess:Burgess et al., 2014}. 
-It is implemented as a call to {help xtile}.
+as per {help ivxtile##burgess:Burgess et al., 2014}.
  
 {marker options}{...}
 {title:Options}
