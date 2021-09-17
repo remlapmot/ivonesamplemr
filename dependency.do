@@ -1,4 +1,4 @@
-// dependencies for onesamplemr package
+// dependencies for ivonesamplemr package
 // Tom Palmer 2021-09-04
 
 foreach prog in ivpois ivreg2 ranktest {
