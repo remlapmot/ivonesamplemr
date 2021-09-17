@@ -1,6 +1,8 @@
 // Test installation methods
 // 2021-09-06
 
+log using install.log, text replace
+
 ** net install
 
 cap noi ado uninstall ivonesamplemr
@@ -18,3 +20,5 @@ net install github, from("https://haghish.github.io/github/")
 github install remlapmot/ivonesamplemr
 
 cap noi ado uninstall ivonesamplemr
+
+log close
