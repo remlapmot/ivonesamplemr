@@ -3,7 +3,7 @@
        log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
 > og
   log type:  text
- opened on:  15 Sep 2021, 13:59:20
+ opened on:  22 Sep 2021, 13:35:53
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -33,7 +33,7 @@ Commands
 
       ivasmm        Is simply a helpfile linking to ivregress and ivreg2,
                       which as linear IV estimators fit the additive
-                      structural mean model (ASMM), i.e. estimates a causal
+                      structural mean model (ASMM), i.e. estimate a causal
                       risk difference for a binary outcome.
 
       ivlsmm        Fits the (double) logistic structural mean model (LSMM),
@@ -51,6 +51,9 @@ Commands
       ivtsps        Fits two-stage predictor substitution (TSPS) estimators.
 
       ivtsri        Fits two-stage residual inclusion (TSRI) estimators.
+
+      ivxtile       Prefix command which performs estimation within quantiles
+                      of the first stage residuals.
 
       iv            Allows the use of the iv prefix, hence ivlsmm can instead
                       be called as iv lsmm ....
@@ -103,14 +106,14 @@ Examples
 
 References
 
-    Clarke PS, Palmer TM, Windmeijer F. Estimating structural mean models
+    Clarke PS, Palmer TM, Windmeijer F.  Estimating structural mean models
         with multiple instrumental variables using the Generalised Method of
-        Moments. Statistical Science, 2015, 30, 1, 96-117.  DOI
+        Moments.  Statistical Science, 2015, 30, 1, 96-117.  DOI
 
-    Robins JM. The analysis of randomised and nonrandomised AIDS treatment
+    Robins JM.  The analysis of randomised and nonrandomised AIDS treatment
         trials using a new approach to causal inference in longitudinal
-        studies. In Health Service Research Methodology: A Focus on AIDS (L.
-        Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public
+        studies.  In Health Service Research Methodology: A Focus on AIDS (L.
+        Sechrest, H. Freeman and A. Mulley, eds.).  1989. 113–159. US Public
         Health Service, National Center for Health Services Research,
         Washington, DC.
 
@@ -190,14 +193,14 @@ Stored results
 
 References
 
-    Clarke PS, Palmer TM, Windmeijer F. Estimating structural mean models
+    Clarke PS, Palmer TM, Windmeijer F.  Estimating structural mean models
         with multiple instrumental variables using the Generalised Method of
-        Moments. Statistical Science, 2015, 30, 1, 96-117.  DOI
+        Moments.  Statistical Science, 2015, 30, 1, 96-117.  DOI
 
-    Robins JM. The analysis of randomised and nonrandomised AIDS treatment
+    Robins JM.  The analysis of randomised and nonrandomised AIDS treatment
         trials using a new approach to causal inference in longitudinal
-        studies. In Health Service Research Methodology: A Focus on AIDS (L.
-        Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public
+        studies.  In Health Service Research Methodology: A Focus on AIDS (L.
+        Sechrest, H. Freeman and A. Mulley, eds.).  1989. 113–159. US Public
         Health Service, National Center for Health Services Research,
         Washington, DC.
 
@@ -285,36 +288,36 @@ References
     Cameron AC, Trivedi PK. Regression analysis of count data. 2nd ed. 2013.
         New York, Cambridge University Press.
 
-    Clarke PS, Palmer TM, Windmeijer F. Estimating structural mean models
+    Clarke PS, Palmer TM, Windmeijer F.  Estimating structural mean models
         with multiple instrumental variables using the Generalised Method of
-        Moments. Statistical Science, 2015, 30, 1, 96-117.  DOI
+        Moments.  Statistical Science, 2015, 30, 1, 96-117.  DOI
 
     Hernán and Robins. Instruments for causal inference: An Epidemiologist's
-        dream? Epidemiology, 2006, 17, 360-372.  DOI
+        dream?  Epidemiology, 2006, 17, 360-372.  DOI
 
     Mullahy J. Instrumental-variable estimation of count data models:
-        applications to models of cigarette smoking and behavior. The Review
+        applications to models of cigarette smoking and behavior.  The Review
         of Economics and Statistics. 1997, 79, 4, 586-593.  DOI
 
-    Nichols A. ivpois: Stata module for IV/GMM Poisson regression. 2007. URL
+    Nichols A. ivpois: Stata module for IV/GMM Poisson regression. 2007.  URL
 
-    Robins JM. The analysis of randomised and nonrandomised AIDS treatment
+    Robins JM.  The analysis of randomised and nonrandomised AIDS treatment
         trials using a new approach to causal inference in longitudinal
-        studies. In Health Service Research Methodology: A Focus on AIDS (L.
-        Sechrest, H. Freeman and A. Mulley, eds.). 1989. 113–159. US Public
+        studies.  In Health Service Research Methodology: A Focus on AIDS (L.
+        Sechrest, H. Freeman and A. Mulley, eds.).  1989. 113–159. US Public
         Health Service, National Center for Health Services Research,
         Washington, DC.
 
-    StataCorp. Stata Base Reference Manual. Release 13. ivpoisson - Poisson
+    StataCorp. Stata Base Reference Manual. Release 13.  ivpoisson - Poisson
         model with continuous endogenous covariates. 2013.  URL
 
-    Windmeijer FAG, Santos Silva JMC. Endogeneity in Count Data Models: An
-        Application to Demand for Health Care. Journal of Applied
+    Windmeijer FAG, Santos Silva JMC. Endogeneity in Count Data Models:  An
+        Application to Demand for Health Care.  Journal of Applied
         Econometrics. 1997, 12, 3, 281-294.  DOI
 
-    Windmeijer, F. ExpEnd, A Gauss programme for non-linear GMM estimation of
-        EXPonential models with ENDogenous regressors for cross section and
-        panel data. CEMMAP working paper CWP14/02. 2002.  URL
+    Windmeijer, F.  ExpEnd, A Gauss programme for non-linear GMM estimation
+        of EXPonential models with ENDogenous regressors for cross section
+        and panel data.  CEMMAP working paper CWP14/02. 2002.  URL
 
 Author
 
@@ -338,17 +341,30 @@ Syntax
     options               Description
     -------------------------------------------------------------------------
       noirr               Do not display exponentiated estimates
+      link(string)        Link function for the second stage model (identity,
+                            logadd, logmult, logit)
       log                 Show the GMM iteration log
       gmm_options         gmm##options
 
 Description
 
     ivtsps implements two-stage predictor substitution (TSPS) estimators with
-    several link functions (identity, log-additive, log-multiplicative,
-    logit). It is implemented using generalized method of moments (GMM)
-    estimation by passing the relevant moment condition to the gmm command.
+    several link functions for the second stage model (identity,
+    log-additive, log-multiplicative, logit).  It is implemented using
+    generalized method of moments (GMM) estimation by passing the relevant
+    moment condition to the gmm command.
 
 Options
+
+    link(identity|logadd|logmult|logit) specifies the link function for the
+        second stage model.  identity means the second stage model is a
+        linear regression (which for a binary outcome estimates a causal risk
+        difference).  logadd means the second stage model is a Poisson
+        regression (which for a binary outcome estimates a causal risk
+        ratio).  logmult means the second stage model is a gamma regression
+        (which for a binary outcome estimates a causal risk ratio).  logit
+        means the second stage model is a logistic regression (which for a
+        binary outcome estimates a causal odds ratio).
 
     Please see gmm##options
 
@@ -420,17 +436,30 @@ Syntax
     options               Description
     -------------------------------------------------------------------------
       noirr               Do not display exponentiated estimates
+      link(string)        Link function for the second stage model (identity,
+                            logadd, logmult, logit)
       log                 Show the GMM iteration log
       gmm_options         gmm##options
 
 Description
 
     ivtsri implements two-stage residual inclusion (TSRI) estimators with
-    several link functions (identity, log-additive, log-multiplicative,
-    logit). It is implemented using generalized method of moments (GMM)
-    estimation by passing the relevant moment condition to the gmm command.
+    several link functions for the second stage model (identity,
+    log-additive, log-multiplicative, logit).  It is implemented using
+    generalized method of moments (GMM) estimation by passing the relevant
+    moment condition to the gmm command.
 
 Options
+
+    link(identity|logadd|logmult|logit) specifies the link function for the
+        second stage model.  identity means the second stage model is a
+        linear regression (which for a binary outcome estimates a causal risk
+        difference).  logadd means the second stage model is a Poisson
+        regression (which for a binary outcome estimates a causal risk
+        ratio).  logmult means the second stage model is a gamma regression
+        (which for a binary outcome estimates a causal risk ratio).  logit
+        means the second stage model is a logistic regression (which for a
+        binary outcome estimates a causal odds ratio).
 
     Please see gmm##options
 
@@ -542,22 +571,26 @@ Title
 
 Syntax
 
-        ivmw , window(#) par(string) [saving(string) rolling_options]: iv_cmd
+        ivmw , window(#) par(string) [saving(filename [, replace])
+            rolling_options]: iv_cmd
 
-    options               Description
+    options                         Description
     -------------------------------------------------------------------------
-      par                 Parameter from the iv_cmd (ivreg2, ivmsmm, ivlsmm,
-                            ivtsps, ivtsri) to collect
-      window              number of consecutive data points in each sample
-      saving(string)      Save the moving window output to a dataset. Specify
-                            , replace to overwrite an existing dataset
-      rolling_options     rolling##options
+      par(string)                   Parameter from the iv_cmd (ivreg2,
+                                      ivmsmm, ivlsmm, ivtsps, ivtsri) to
+                                      collect
+      window(#)                     number of consecutive data points in each
+                                      sample
+      saving(filename [, replace])  Save the moving window output to a
+                                      dataset.  Specify replace to overwrite
+                                      the dataset if it already exists.
+      rolling_options               rolling##options
 
 Description
 
     ivmw implements the moving window (a.k.a. sliding / rolling window)
     approach to the estimator specified after the prefix, as per Burgess et
-    al., 2014. It is implemented as a call to rolling.
+    al., 2014.  It is implemented as a call to rolling.
 
 Options
 
@@ -587,13 +620,31 @@ Examples
         . ivmw, window(3950) par(x): ivreg2 y5 (x = g)
 
     Change window size (e.g. for outcome y2).
+
         . ivmw, window(3750) par(x): ivreg2 y2 (x = g)
         . ivmw, window(3000) par(x): ivreg2 y2 (x = g)
         . ivmw, window(2000) par(x): ivreg2 y2 (x = g)
         . ivmw, window(1000) par(x): ivreg2 y2 (x = g)
 
     Save the moving window dataset.
+
         . ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)
+
+    Use different iv commands.
+
+        . ivmw, window(3950) par(x): ivregress 2sls y (x = z1 z2 z3)
+        . ivmw, window(3950) par(x): ivregress liml y (x = z1 z2 z3)
+        . ivmw, window(3950) par(x): ivregress gmm y (x = z1 z2 z3)
+        . ivmw, window(3950) par(x): ivlsmm y (x = z1 z2 z3)
+        . ivmw, window(3950) par(x): ivmsmm y (x = z1 z2 z3)
+        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3)
+        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
+        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
+        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3)
+        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
+        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
 
 Stored results
 
@@ -601,11 +652,11 @@ Stored results
 
 References
 
-    Burgess S, Davies N, Thompson SG, EPIC-InterAct Consortium. Instrumental
+    Burgess S, Davies N, Thompson SG, EPIC-InterAct Consortium.  Instrumental
         variable analysis with a nonlinear exposure-outcome relationship.
         Epidemiology, 2014, 25, 6, 877-885.  DOI
 
-    StataCorp. Stata Base Reference Manual. Release 16. rolling -
+    StataCorp. Stata Base Reference Manual. Release 16.  rolling -
         Rolling-window and recursive estimation. 2016.  URL
 
 Author
@@ -618,5 +669,5 @@ end of do-file
        log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
 > og
   log type:  text
- closed on:  15 Sep 2021, 13:59:20
+ closed on:  22 Sep 2021, 13:35:53
 -------------------------------------------------------------------------------
