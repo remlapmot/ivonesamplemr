@@ -10,11 +10,11 @@ Stata package of useful programs for one-sample Mendelian randomization (MR) / i
 * moving window versions of these estimators: `ivmw` prefix command
 * performing estimation within quantiles of the first stage residuals: `ivxtile` prefix command
 
-The `ivtsps` and `ivtsri` commands implement the following link functions: 
+The `ivtsps` and `ivtsri` commands implement the following link functions for the second stage model: 
 
-* identity - for a binary outcome this estimates a causal risk difference 
-* logadd (log additive) and logmult (log multiplicative) - for a binary outcome these estimate a causal risk ratio
-* logit - for a binary outcome this estimates a causal odds ratio
+* identity (i.e. linear regression) - for a binary outcome this estimates a causal risk difference 
+* logadd (log additive, i.e. Poisson regression) and logmult (log multiplicative, i.e. gamma regression) - for a binary outcome these estimate a causal risk ratio
+* logit (i.e. logistic regression) - for a binary outcome this estimates a causal odds ratio
 
 ## Installation
 
