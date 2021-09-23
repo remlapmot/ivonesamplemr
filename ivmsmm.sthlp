@@ -51,6 +51,17 @@
 as a wrapper to {help ivpoisson} with the {cmd:multiplicative} option. 
 {cmd:ivpoisson} performs generalized method of moments (GMM) estimation of the relevant moment 
 condition using {help gmm}.
+
+{pstd}
+The equivalence of the models of {help ivmsmm##robins:Robins (1989)} and 
+{help ivmsmm##mullahy:Mullahy (1997)}, which was implemented in {help ivpois}, 
+{help ivmsmm##nichols:Nichols (2007)}
+and {help ivpoisson} with the {cmd:mult} option, and discussed in detail by 
+{help ivmsmm##windmeijer-1:Windmeijer and Santos Silva (1997)} and 
+{help ivmsmm##windmeijer-2:Windmeijer (2002)}, was shown by 
+{help ivmsmm##palmer-2011:Palmer (2011)}. These models produce moment 
+conditions equivalent to gamma regression 
+{help ivmsmm##dukes:Dukes and Vansteelandt (2018)}. 
  
 {marker options}{...}
 {title:Options}
@@ -110,6 +121,14 @@ Clarke PS, Palmer TM, Windmeijer F.
 Estimating structural mean models with multiple instrumental variables using the Generalised Method of Moments. 
 Statistical Science, 2015, 30, 1, 96-117. 
 {browse "https://doi.org/10.1214/14-STS503":DOI}
+{p_end}
+
+{marker dukes}{...}
+{phang}
+Dukes O, Vansteelandt S. 
+A note on G-estimation of causal risk ratios. 
+American Journal of Epidemiology, 2018, 187, 5, 1079-1084. 
+{browse "https://doi.org/10.1093/aje/kwx347":DOI}
 {p_end}
 
 {marker hernan}{...}
