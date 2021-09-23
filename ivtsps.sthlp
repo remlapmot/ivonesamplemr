@@ -38,7 +38,7 @@
 {synopthdr}
 {synoptline}
 {synopt:{opt noirr:}}Do not display exponentiated estimates{p_end}
-{synopt:{opt link:(string)}}Link function for the second stage model (identity, logadd, logmult, logit){p_end}
+{synopt:{opt link:(string)}}Link function for the second stage model (identity | logadd | logmult | logit){p_end}
 {synopt:{opt log:}}Show the GMM iteration log{p_end}
 {synopt:{opt gmm_options:}}{help gmm##options}{p_end}
 
@@ -55,7 +55,7 @@ moment condition to the {help gmm} command.
 {title:Options}
 
 {phang}
-{opt link(identity|logadd|logmult|logit)} specifies the link function for the second stage model. 
+{opt link(identity | logadd | logmult | logit)} specifies the link function for the second stage model. 
 {cmd:identity} means the second stage model is a linear regression 
 (which for a binary outcome estimates a causal risk difference). 
 {cmd:logadd} means the second stage model is a Poisson regression 
