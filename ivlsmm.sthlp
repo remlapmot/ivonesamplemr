@@ -124,6 +124,7 @@ In Health Service Research Methodology: A Focus on AIDS
 {phang}
 Vansteelandt S, Goetghebeur E. 
 Causal inference with generalized structural mean models. 
+Journal of the Royal Statistical Society (Series B). 
 2003, 65, 4, 817-835. 
 {browse "https://doi.org/10.1046/j.1369-7412.2003.00417.x":DOI}
 {p_end}
