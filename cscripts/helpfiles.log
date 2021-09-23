@@ -1,9 +1,8 @@
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
-> og
+       log:  C:\Users\tom\DOcuments\github\ivonesamplemr\cscripts\helpfiles.log
   log type:  text
- opened on:  22 Sep 2021, 13:35:53
+ opened on:  23 Sep 2021, 10:19:33
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -64,6 +63,14 @@ Description
     variable (IV) estimators for individual level (a.k.a. one-sample) data.
     These are useful for Mendelian randomization (MR) analyses.
 
+References
+
+    Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell
+        R, Davey Smith G, Didelez V.  Instrumental variable estimation of
+        causal risk ratios and causal odds ratios in Mendelian randomization
+        analyses.  American Journal of Epidemiology, 2011, 173, 12,
+        1392-1403.  DOI
+
 Author
 
 INCLUDE help ivonesamplemr-author
@@ -109,6 +116,12 @@ References
     Clarke PS, Palmer TM, Windmeijer F.  Estimating structural mean models
         with multiple instrumental variables using the Generalised Method of
         Moments.  Statistical Science, 2015, 30, 1, 96-117.  DOI
+
+    Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell
+        R, Davey Smith G, Didelez V.  Instrumental variable estimation of
+        causal risk ratios and causal odds ratios in Mendelian randomization
+        analyses.  American Journal of Epidemiology, 2011, 173, 12,
+        1392-1403.  DOI
 
     Robins JM.  The analysis of randomised and nonrandomised AIDS treatment
         trials using a new approach to causal inference in longitudinal
@@ -197,6 +210,12 @@ References
         with multiple instrumental variables using the Generalised Method of
         Moments.  Statistical Science, 2015, 30, 1, 96-117.  DOI
 
+    Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell
+        R, Davey Smith G, Didelez V.  Instrumental variable estimation of
+        causal risk ratios and causal odds ratios in Mendelian randomization
+        analyses.  American Journal of Epidemiology, 2011, 173, 12,
+        1392-1403.  DOI
+
     Robins JM.  The analysis of randomised and nonrandomised AIDS treatment
         trials using a new approach to causal inference in longitudinal
         studies.  In Health Service Research Methodology: A Focus on AIDS (L.
@@ -205,7 +224,8 @@ References
         Washington, DC.
 
     Vansteelandt S, Goetghebeur E.  Causal inference with generalized
-        structural mean models.  2003, 65, 4, 817-835.  DOI
+        structural mean models.  Journal of the Royal Statistical Society
+        (Series B).  2003, 65, 4, 817-835.  DOI
 
 Author
 
@@ -238,6 +258,13 @@ Description
     Robins (1989) as a wrapper to ivpoisson with the multiplicative option.
     ivpoisson performs generalized method of moments (GMM) estimation of the
     relevant moment condition using gmm.
+
+    The equivalence of the models of Robins (1989) and Mullahy (1997), which
+    was implemented in ivpois, Nichols (2007) and ivpoisson with the mult
+    option, and discussed in detail by Windmeijer and Santos Silva (1997) and
+    Windmeijer (2002), was shown by Palmer (2011). These models produce
+    moment conditions equivalent to gamma regression Dukes and Vansteelandt
+    (2018).
 
 Options
 
@@ -292,6 +319,9 @@ References
         with multiple instrumental variables using the Generalised Method of
         Moments.  Statistical Science, 2015, 30, 1, 96-117.  DOI
 
+    Dukes O, Vansteelandt S.  A note on G-estimation of causal risk ratios.
+        American Journal of Epidemiology, 2018, 187, 5, 1079-1084.  DOI
+
     Hernán and Robins. Instruments for causal inference: An Epidemiologist's
         dream?  Epidemiology, 2006, 17, 360-372.  DOI
 
@@ -300,6 +330,12 @@ References
         of Economics and Statistics. 1997, 79, 4, 586-593.  DOI
 
     Nichols A. ivpois: Stata module for IV/GMM Poisson regression. 2007.  URL
+
+    Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell
+        R, Davey Smith G, Didelez V.  Instrumental variable estimation of
+        causal risk ratios and causal odds ratios in Mendelian randomization
+        analyses.  American Journal of Epidemiology, 2011, 173, 12,
+        1392-1403.  DOI
 
     Robins JM.  The analysis of randomised and nonrandomised AIDS treatment
         trials using a new approach to causal inference in longitudinal
@@ -329,7 +365,7 @@ Title
 Syntax
 
         ivtsps depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
-              [, log noirr gmm_options]
+              [, link(string) log noirr gmm_options]
 
     varlist1 is the list of exogenous variables.
 
@@ -341,8 +377,8 @@ Syntax
     options               Description
     -------------------------------------------------------------------------
       noirr               Do not display exponentiated estimates
-      link(string)        Link function for the second stage model (identity,
-                            logadd, logmult, logit)
+      link(string)        Link function for the second stage model (identity
+                            | logadd | logmult | logit)
       log                 Show the GMM iteration log
       gmm_options         gmm##options
 
@@ -356,15 +392,16 @@ Description
 
 Options
 
-    link(identity|logadd|logmult|logit) specifies the link function for the
-        second stage model.  identity means the second stage model is a
+    link(identity | logadd | logmult | logit) specifies the link function for
+        the second stage model.  identity means the second stage model is a
         linear regression (which for a binary outcome estimates a causal risk
         difference).  logadd means the second stage model is a Poisson
         regression (which for a binary outcome estimates a causal risk
         ratio).  logmult means the second stage model is a gamma regression
-        (which for a binary outcome estimates a causal risk ratio).  logit
-        means the second stage model is a logistic regression (which for a
-        binary outcome estimates a causal odds ratio).
+        (which for a binary outcome estimates a causal risk ratio, Dukes and
+        Vansteelandt, 2018).  logit means the second stage model is a
+        logistic regression (which for a binary outcome estimates a causal
+        odds ratio).
 
     Please see gmm##options
 
@@ -410,6 +447,15 @@ Stored results
 
 References
 
+    Dukes O, Vansteelandt S.  A note on G-estimation of causal risk ratios.
+        American Journal of Epidemiology, 2018, 187, 5, 1079-1084.  DOI
+
+    Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell
+        R, Davey Smith G, Didelez V.  Instrumental variable estimation of
+        causal risk ratios and causal odds ratios in Mendelian randomization
+        analyses.  American Journal of Epidemiology, 2011, 173, 12,
+        1392-1403.  DOI
+
     Terza JV, Basu A, Rathouz PJ. 2008.  Two-stage residual inclusion
         estimation:  Addressing endogeneity in health econometric modeling.
         Journal of Health Economics 27: 531–543.  DOI
@@ -424,7 +470,7 @@ Title
 Syntax
 
         ivtsri depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
-              [, log noirr gmm_options]
+              [, link(string) log noirr gmm_options]
 
     varlist1 is the list of exogenous variables.
 
@@ -436,8 +482,8 @@ Syntax
     options               Description
     -------------------------------------------------------------------------
       noirr               Do not display exponentiated estimates
-      link(string)        Link function for the second stage model (identity,
-                            logadd, logmult, logit)
+      link(string)        Link function for the second stage model (identity
+                            | logadd | logmult | logit)
       log                 Show the GMM iteration log
       gmm_options         gmm##options
 
@@ -451,15 +497,16 @@ Description
 
 Options
 
-    link(identity|logadd|logmult|logit) specifies the link function for the
-        second stage model.  identity means the second stage model is a
+    link(identity | logadd | logmult | logit) specifies the link function for
+        the second stage model.  identity means the second stage model is a
         linear regression (which for a binary outcome estimates a causal risk
         difference).  logadd means the second stage model is a Poisson
         regression (which for a binary outcome estimates a causal risk
         ratio).  logmult means the second stage model is a gamma regression
-        (which for a binary outcome estimates a causal risk ratio).  logit
-        means the second stage model is a logistic regression (which for a
-        binary outcome estimates a causal odds ratio).
+        (which for a binary outcome estimates a causal risk ratio, Dukes and
+        Vansteelandt, 2018).  logit means the second stage model is a
+        logistic regression (which for a binary outcome estimates a causal
+        odds ratio).
 
     Please see gmm##options
 
@@ -509,10 +556,19 @@ References
         case-control data using structural mean models.  Statistics in
         Medicine, 2011, 30, 6, 678-694.  DOI
 
+    Dukes O, Vansteelandt S.  A note on G-estimation of causal risk ratios.
+        American Journal of Epidemiology, 2018, 187, 5, 1079-1084.  DOI
+
     Palmer T, Thompson JR, Tobin MD, Sheehan NA, Burton PR.  Adjusting for
         bias and unmeasured confounding in Mendelian randomization studies
         with binary responses.  International Journal of Epidemiology, 2008,
         37, 5, 1161-1168.  DOI
+
+    Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell
+        R, Davey Smith G, Didelez V.  Instrumental variable estimation of
+        causal risk ratios and causal odds ratios in Mendelian randomization
+        analyses.  American Journal of Epidemiology, 2011, 173, 12,
+        1392-1403.  DOI
 
     Terza JV, Basu A, Rathouz PJ.  Two-stage residual inclusion estimation:
         Addressing endogeneity in health econometric modeling.  Journal of
@@ -666,8 +722,7 @@ INCLUDE help ivonesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
-> og
+       log:  C:\Users\tom\DOcuments\github\ivonesamplemr\cscripts\helpfiles.log
   log type:  text
- closed on:  22 Sep 2021, 13:35:53
+ closed on:  23 Sep 2021, 10:19:33
 -------------------------------------------------------------------------------
