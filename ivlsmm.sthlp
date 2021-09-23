@@ -48,7 +48,10 @@ by default the instruments and exogenous variables are included{p_end}
 {title:Description}
 
 {pstd}
-{cmd:ivlsmm} implements the double logistic structural mean model (LSMM) of Vansteelandt and Goetghebeur (2003) which is a generalisation of the LSMM of Robins (1989).
+{cmd:ivlsmm} implements the double logistic structural mean model (LSMM) of 
+{help ivlsmm##vansteelandt:Vansteelandt and Goetghebeur (2003)} 
+which is a generalisation of the LSMM of 
+{help ivlsmm##robins:Robins (1989)}.
 
 {pstd}{cmd:ivlsmm} is implemented using a call to {help gmm}.
 
