@@ -55,6 +55,15 @@ Statistical Science, 2015, 30, 1, 96-117.
 {browse "https://doi.org/10.1214/14-STS503":DOI}
 {p_end}
 
+{marker palmer-2011}{...}
+{phang}
+Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell R, Davey Smith G, Didelez V. 
+Instrumental variable estimation of causal risk ratios and causal odds 
+ratios in Mendelian randomization analyses. 
+American Journal of Epidemiology, 2011, 173, 12, 1392-1403. 
+{browse "https://doi.org/10.1093/aje/kwr026":DOI}
+{p_end}
+
 {marker robins}{...}
 {phang}
 Robins JM. 
