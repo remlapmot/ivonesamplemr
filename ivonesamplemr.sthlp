@@ -10,6 +10,7 @@
 {vieweralsosee "iv" "help iv"}{...}
 {viewerjumpto "Commands" "ivonesamplemr##commands"}{...}
 {viewerjumpto "Description" "ivonesamplemr##description"}{...}
+{viewerjumpto "References" "ivonesamplemr##references"}{...}
 {viewerjumpto "Author" "ivonesamplemr##author"}{...}
 {title:Title}
 
@@ -52,6 +53,18 @@ hence {cmd:ivlsmm} can instead be called as {cmd:iv lsmm ...}.
 {pstd}
 {cmd:ivonesamplemr} is a suite of programs implementing various instrumental variable (IV) estimators 
 for individual level (a.k.a. one-sample) data. These are useful for Mendelian randomization (MR) analyses.
+
+{marker references}{...}
+{title:References}
+
+{marker palmer-2011}{...}
+{phang}
+Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell R, Davey Smith G, Didelez V. 
+Instrumental variable estimation of causal risk ratios and causal odds 
+ratios in Mendelian randomization analyses. 
+American Journal of Epidemiology, 2011, 173, 12, 1392-1403. 
+{browse "https://doi.org/10.1093/aje/kwr026":DOI}
+{p_end}
 
 {marker author}{...}
 {title:Author}
