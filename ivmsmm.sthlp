@@ -47,7 +47,7 @@
 {title:Description}
 
 {pstd}
-{cmd:ivmsmm} implements the multiplicative structural mean model (MSMM) of Robins (1989) 
+{cmd:ivmsmm} implements the multiplicative structural mean model (MSMM) of {help ivmsmm##robins:Robins (1989)} 
 as a wrapper to {help ivpoisson} with the {cmd:multiplicative} option. 
 {cmd:ivpoisson} performs generalized method of moments (GMM) estimation of the relevant moment 
 condition using {help gmm}.
