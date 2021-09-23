@@ -22,7 +22,7 @@
 {cmd:(}{it:{help varlist:varlist2}} {cmd:=}
         {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
 [{it:{help gmm##weight:weight}}]
-[{cmd:,} {it:log} {it:noirr} {it:gmm_options}]
+[{cmd:,} {it:link(string)} {it:log} {it:noirr} {it:gmm_options}]
 
 {phang}
 {it:varlist1} is the list of exogenous variables.{p_end}
