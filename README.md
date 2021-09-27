@@ -2,13 +2,13 @@
 
 Stata package of useful programs for one-sample Mendelian randomization (MR) / instrumental variable (IV) analyses, including implementations of:
 
-* additive structural mean model: See `help ivasmm`
-* logistic structural mean model: `ivlsmm` command
-* multiplicative structural mean model: `ivmsmm` command
-* two-stage predictor substitution estimators: `ivtsps` command
-* two-stage residual inclusion estimators: `ivtsri` command
-* moving window versions of these estimators: `ivmw` prefix command
-* performing estimation within quantiles of the first stage residuals: `ivxtile` prefix command
+* additive structural mean model: see `help ivasmm`
+* logistic structural mean model: see `help ivlsmm`
+* multiplicative structural mean model: see `help ivmsmm`
+* two-stage predictor substitution estimators: see `ivtsps`
+* two-stage residual inclusion estimators: see `help ivtsri`
+* moving window versions of these estimators: see `help ivmw`
+* performing estimation within quantiles of the first stage residuals: see `help ivxtile`
 
 The `ivtsps` and `ivtsri` commands implement the following link functions for the second stage model: 
 
