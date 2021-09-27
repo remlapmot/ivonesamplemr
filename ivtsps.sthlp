@@ -58,7 +58,7 @@ moment condition to the {help gmm} command.
 {opt link(identity | logadd | logmult | logit)} specifies the link function for the second stage model. 
 {cmd:identity} means the second stage model is a linear regression 
 (which for a binary outcome estimates a causal risk difference). 
-{cmd:logadd} means the second stage model is a Poisson regression 
+{cmd:logadd} means the second stage model is a Poisson/log-binomial regression 
 (which for a binary outcome estimates a causal risk ratio).
 {cmd:logmult} means the second stage model is a gamma regression 
 (which for a binary outcome estimates a causal risk ratio, 
