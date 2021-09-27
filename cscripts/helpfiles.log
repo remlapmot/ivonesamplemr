@@ -1,8 +1,9 @@
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  C:\Users\tom\DOcuments\github\ivonesamplemr\cscripts\helpfiles.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
+> og
   log type:  text
- opened on:  23 Sep 2021, 10:19:33
+ opened on:  27 Sep 2021, 15:24:04
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -395,13 +396,13 @@ Options
     link(identity | logadd | logmult | logit) specifies the link function for
         the second stage model.  identity means the second stage model is a
         linear regression (which for a binary outcome estimates a causal risk
-        difference).  logadd means the second stage model is a Poisson
-        regression (which for a binary outcome estimates a causal risk
-        ratio).  logmult means the second stage model is a gamma regression
-        (which for a binary outcome estimates a causal risk ratio, Dukes and
-        Vansteelandt, 2018).  logit means the second stage model is a
-        logistic regression (which for a binary outcome estimates a causal
-        odds ratio).
+        difference).  logadd means the second stage model is a
+        Poisson/log-binomial regression (which for a binary outcome estimates
+        a causal risk ratio).  logmult means the second stage model is a
+        gamma regression (which for a binary outcome estimates a causal risk
+        ratio, Dukes and Vansteelandt, 2018).  logit means the second stage
+        model is a logistic regression (which for a binary outcome estimates
+        a causal odds ratio).
 
     Please see gmm##options
 
@@ -500,13 +501,13 @@ Options
     link(identity | logadd | logmult | logit) specifies the link function for
         the second stage model.  identity means the second stage model is a
         linear regression (which for a binary outcome estimates a causal risk
-        difference).  logadd means the second stage model is a Poisson
-        regression (which for a binary outcome estimates a causal risk
-        ratio).  logmult means the second stage model is a gamma regression
-        (which for a binary outcome estimates a causal risk ratio, Dukes and
-        Vansteelandt, 2018).  logit means the second stage model is a
-        logistic regression (which for a binary outcome estimates a causal
-        odds ratio).
+        difference).  logadd means the second stage model is a
+        Poisson/log-binomial regression (which for a binary outcome estimates
+        a causal risk ratio).  logmult means the second stage model is a
+        gamma regression (which for a binary outcome estimates a causal risk
+        ratio, Dukes and Vansteelandt, 2018).  logit means the second stage
+        model is a logistic regression (which for a binary outcome estimates
+        a causal odds ratio).
 
     Please see gmm##options
 
@@ -722,7 +723,8 @@ INCLUDE help ivonesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  C:\Users\tom\DOcuments\github\ivonesamplemr\cscripts\helpfiles.log
+       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
+> og
   log type:  text
- closed on:  23 Sep 2021, 10:19:33
+ closed on:  27 Sep 2021, 15:24:04
 -------------------------------------------------------------------------------
