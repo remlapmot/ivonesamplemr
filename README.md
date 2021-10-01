@@ -7,7 +7,7 @@ Stata package of useful programs for one-sample Mendelian randomization (MR) / i
 * multiplicative structural mean model: see `help ivmsmm`
 * two-stage predictor substitution estimators: see `ivtsps`
 * two-stage residual inclusion estimators: see `help ivtsri`
-* moving window versions of these estimators: see `help ivmw`
+* moving window (a.k.a. sliding/rolling window) versions of these estimators: see `help ivmw`
 * performing estimation within quantiles of the first stage residuals: see `help ivxtile`
 
 The `ivtsps` and `ivtsri` commands implement the following link functions for the second stage model: 
