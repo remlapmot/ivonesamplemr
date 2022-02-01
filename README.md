@@ -16,6 +16,11 @@ The `ivtsps` and `ivtsri` commands implement the following link functions for th
 * logadd (log additive, i.e. Poisson/log-binomial regression) and logmult (log multiplicative, i.e. gamma regression) - for a binary outcome these estimate a causal risk ratio
 * logit (i.e. logistic regression) - for a binary outcome this estimates a causal odds ratio
 
+## Latest updates
+
+* February 2022:
+  - Ran cscripts under Stata 17.0
+
 ## Installation
 
 Install the ivonesamplemr package within Stata using
