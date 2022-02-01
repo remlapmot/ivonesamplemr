@@ -2,7 +2,7 @@
       name:  ivxtile
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:  16 Sep 2021, 18:23:06
+ opened on:   1 Feb 2022, 14:45:45
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -20,7 +20,7 @@
 . clear
 
 . set obs 4000
-number of observations (_N) was 0, now 4,000
+Number of observations (_N) was 0, now 4,000.
 
 . set seed 12345
 
@@ -67,7 +67,7 @@ First stage residuals quantile: 1
 
 Final GMM criterion Q(b) =  1.72e-34
 
-note: model is exactly identified
+note: model is exactly identified.
 
 GMM estimation 
 
@@ -77,7 +77,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 
 ------------------------------------------------------------------------------
              |               Robust
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
      /s1xb_g |   .2646999   .0094013    28.16   0.000     .2462737    .2831261
          /a0 |   .5016236   .0082442    60.85   0.000     .4854653    .5177819
@@ -92,7 +92,7 @@ Causal risk difference for: b1
  ( 1)  [b1]_cons = 0
 
 ------------------------------------------------------------------------------
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |    .143359   .0020305    70.60   0.000     .1393793    .1473387
 ------------------------------------------------------------------------------
@@ -102,7 +102,7 @@ First stage residuals quantile: 2
 
 Final GMM criterion Q(b) =  2.06e-33
 
-note: model is exactly identified
+note: model is exactly identified.
 
 GMM estimation 
 
@@ -112,7 +112,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 
 ------------------------------------------------------------------------------
              |               Robust
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
      /s1xb_g |   .2664825   .0057948    45.99   0.000     .2551249    .2778401
          /a0 |   .9802425   .0050775   193.06   0.000     .9702908    .9901943
@@ -127,7 +127,7 @@ Causal risk difference for: b1
  ( 1)  [b1]_cons = 0
 
 ------------------------------------------------------------------------------
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   .2388808   .0014311   166.92   0.000      .236076    .2416857
 ------------------------------------------------------------------------------
@@ -137,7 +137,7 @@ First stage residuals quantile: 3
 
 Final GMM criterion Q(b) =  9.02e-33
 
-note: model is exactly identified
+note: model is exactly identified.
 
 GMM estimation 
 
@@ -147,7 +147,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 
 ------------------------------------------------------------------------------
              |               Robust
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
      /s1xb_g |    .265626   .0092279    28.78   0.000     .2475395    .2837124
          /a0 |   1.485285   .0078079   190.23   0.000     1.469982    1.500588
@@ -162,7 +162,7 @@ Causal risk difference for: b1
  ( 1)  [b1]_cons = 0
 
 ------------------------------------------------------------------------------
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   .3372547   .0020202   166.94   0.000     .3332952    .3412142
 ------------------------------------------------------------------------------
@@ -172,7 +172,7 @@ First stage residuals quantile: 4
 
 Final GMM criterion Q(b) =  4.07e-31
 
-note: model is exactly identified
+note: model is exactly identified.
 
 GMM estimation 
 
@@ -182,7 +182,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 
 ------------------------------------------------------------------------------
              |               Robust
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
      /s1xb_g |    .272497   .0488933     5.57   0.000     .1766678    .3683262
          /a0 |   2.808065   .0433854    64.72   0.000     2.723032    2.893099
@@ -197,7 +197,7 @@ Causal risk difference for: b1
  ( 1)  [b1]_cons = 0
 
 ------------------------------------------------------------------------------
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   .6257691   .0509326    12.29   0.000      .525943    .7255952
 ------------------------------------------------------------------------------
@@ -289,7 +289,7 @@ Causal risk difference for: b1
 . clear all
 
 . set obs 4000
-number of observations (_N) was 0, now 4,000
+Number of observations (_N) was 0, now 4,000.
 
 . set seed 12345
 
@@ -431,7 +431,7 @@ number of observations (_N) was 0, now 4,000
 . clear all
 
 . set obs 2500
-number of observations (_N) was 0, now 2,500
+Number of observations (_N) was 0, now 2,500.
 
 . set seed 12345
 
@@ -474,5 +474,5 @@ end of do-file
       name:  ivxtile
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:  16 Sep 2021, 18:23:20
+ closed on:   1 Feb 2022, 14:45:59
 -------------------------------------------------------------------------------

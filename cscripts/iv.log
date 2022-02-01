@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  iv
-       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\iv.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  15 Sep 2021, 13:55:46
+ opened on:   1 Feb 2022, 14:44:39
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -11,7 +11,7 @@
 -----------------------------------------------------------------------BEGIN iv
 
 -> which iv, usesysdir
-C:\Users\eptmp\Documents\GitHub\ivonesamplemr\iv.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/iv.ado
 *! version 0.1.0 10sep2021 Tom Palmer
 
 . 
@@ -19,7 +19,7 @@ C:\Users\eptmp\Documents\GitHub\ivonesamplemr\iv.ado
 . clear
 
 . set obs 2500
-number of observations (_N) was 0, now 2,500
+Number of observations (_N) was 0, now 2,500.
 
 . set seed 12345
 
@@ -52,7 +52,7 @@ number of observations (_N) was 0, now 2,500
 
 Final GMM criterion Q(b) =  1.36e-31
 
-note: model is exactly identified
+note: model is exactly identified.
 
 GMM estimation 
 
@@ -63,7 +63,7 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
        /xb_x |   1.238333   .0496761    24.93   0.000     1.140969    1.335696
       /xb_z1 |  -.2808945   .1005886    -2.79   0.005    -.4780446   -.0837444
@@ -86,7 +86,7 @@ Causal odds ratio for: x
  ( 1)  [cmxb_x]_cons = 0
 
 ------------------------------------------------------------------------------
-             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |    2.57553   .2783156     8.75   0.000     2.083937    3.183089
 ------------------------------------------------------------------------------
@@ -105,21 +105,21 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-           y |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
            x |   1.346121   .0440578     9.08   0.000      1.26248    1.435302
        _cons |     .20946   .0194699   -16.82   0.000      .174574    .2513173
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented:  x
-Instruments:   z1 z2 z3
+Instrumented: x
+ Instruments: z1 z2 z3
 
 . 
 . iv tsps y (x = z1 z2 z3)
 
 Final GMM criterion Q(b) =  7.34e-33
 
-note: model is exactly identified
+note: model is exactly identified.
 
 GMM estimation 
 
@@ -129,7 +129,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 
 ------------------------------------------------------------------------------
              |               Robust
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
     /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
     /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
@@ -146,7 +146,7 @@ Causal risk difference for: b1
  ( 1)  [b1]_cons = 0
 
 ------------------------------------------------------------------------------
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
 ------------------------------------------------------------------------------
@@ -156,7 +156,7 @@ Causal risk difference for: b1
 
 Final GMM criterion Q(b) =  6.85e-33
 
-note: model is exactly identified
+note: model is exactly identified.
 
 GMM estimation 
 
@@ -166,7 +166,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 
 ------------------------------------------------------------------------------
              |               Robust
-             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
     /s1xb_z1 |   .9945859   .0614877    16.18   0.000     .8740722      1.1151
     /s1xb_z2 |   .9540576   .0525572    18.15   0.000     .8510474    1.057068
@@ -184,7 +184,7 @@ Causal odds ratio for: b1
  ( 1)  [b1]_cons = 0
 
 ------------------------------------------------------------------------------
-             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   2.343924   .1519244    13.14   0.000     2.064296    2.661431
 ------------------------------------------------------------------------------
@@ -194,7 +194,7 @@ Causal odds ratio for: b2
  ( 1)  [b2]_cons = 0
 
 ------------------------------------------------------------------------------
-             |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   1.772958    .123134     8.25   0.000     1.547325    2.031493
 ------------------------------------------------------------------------------
@@ -202,7 +202,7 @@ Causal odds ratio for: b2
 . 
 end of do-file
       name:  iv
-       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\iv.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  15 Sep 2021, 13:55:47
+ closed on:   1 Feb 2022, 14:44:40
 -------------------------------------------------------------------------------

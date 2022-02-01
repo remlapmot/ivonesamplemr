@@ -1,9 +1,8 @@
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
-> og
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  27 Sep 2021, 15:24:04
+ opened on:   1 Feb 2022, 14:45:59
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -723,8 +722,7 @@ INCLUDE help ivonesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.l
-> og
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  27 Sep 2021, 15:24:04
+ closed on:   1 Feb 2022, 14:45:59
 -------------------------------------------------------------------------------

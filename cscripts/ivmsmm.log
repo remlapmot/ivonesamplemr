@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivmsmm
-       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  15 Sep 2021, 13:55:56
+ opened on:   1 Feb 2022, 14:44:43
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -11,7 +11,7 @@
 -------------------------------------------------------------------BEGIN ivmsmm
 
 -> which ivmsmm, usesysdir
-C:\Users\eptmp\Documents\GitHub\ivonesamplemr\ivmsmm.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivmsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
@@ -19,7 +19,7 @@ C:\Users\eptmp\Documents\GitHub\ivonesamplemr\ivmsmm.ado
 . clear
 
 . set obs 2500
-number of observations (_N) was 0, now 2,500
+Number of observations (_N) was 0, now 2,500.
 
 . set seed 12345
 
@@ -50,9 +50,9 @@ number of observations (_N) was 0, now 2,500
 . 
 . ivmsmm y (x = z1)
 
-Final GMM criterion Q(b) =  5.63e-33
+Final GMM criterion Q(b) =  5.69e-33
 
-note: model is exactly identified
+note: model is exactly identified.
 
 Exponential mean model with endogenous regressors
 
@@ -63,14 +63,14 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-           y |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
            x |   1.388086   .0804624     5.66   0.000     1.239011    1.555097
        _cons |   .1942051   .0287407   -11.07   0.000     .1453081    .2595561
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented:  x
-Instruments:   z1
+Instrumented: x
+ Instruments: z1
 
 . assert abs(_b[x] - .328) < 1e-3
 
@@ -85,14 +85,14 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-           y |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
            x |   1.388086   .0804624     5.66   0.000     1.239011    1.555097
        _cons |   .1942051   .0287407   -11.07   0.000     .1453081    .2595561
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented:  x
-Instruments:   z1
+Instrumented: x
+ Instruments: z1
 
 . 
 . mat list r(table)
@@ -124,14 +124,14 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-           y |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
            x |   1.346121   .0440578     9.08   0.000      1.26248    1.435302
        _cons |     .20946   .0194699   -16.82   0.000      .174574    .2513173
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented:  x
-Instruments:   z1 z2 z3
+Instrumented: x
+ Instruments: z1 z2 z3
 
 . assert abs(_b[x] - .297) < 1e-3
 
@@ -152,14 +152,14 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-           y |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
            x |   1.346121   .0440578     9.08   0.000      1.26248    1.435302
        _cons |     .20946   .0194699   -16.82   0.000      .174574    .2513173
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented:  x
-Instruments:   z1 z2 z3
+Instrumented: x
+ Instruments: z1 z2 z3
 
 . 
 . // overid test
@@ -192,9 +192,9 @@ Iteration 3:   GMM criterion Q(b) =  3.685e-16
 
 Step 2
 Iteration 0:   GMM criterion Q(b) =  2.287e-16  
-Iteration 1:   GMM criterion Q(b) =  1.268e-31  
+Iteration 1:   GMM criterion Q(b) =  1.267e-31  
 
-note: model is exactly identified
+note: model is exactly identified.
 
 Exponential mean model with endogenous regressors
 
@@ -205,7 +205,7 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-       trips |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+       trips | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
        tcost |   .0352185   .0098182     3.59   0.000     .0159752    .0544617
          cbd |   -.008398   .0020172    -4.16   0.000    -.0123517   -.0044444
@@ -214,8 +214,8 @@ GMM weight matrix:     Robust
      weekend |   .3009323   .0362682     8.30   0.000     .2298479    .3720167
        _cons |   .2654423   .1550127     1.71   0.087    -.0383769    .5692616
 ------------------------------------------------------------------------------
-Instrumented:  tcost
-Instruments:   cbd ptn worker weekend pt
+Instrumented: tcost
+ Instruments: cbd ptn worker weekend pt
 
 . assert abs(_b[tcost] - .035) < 1e-3
 
@@ -230,7 +230,7 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-       trips |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
+       trips |        IRR   std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
        tcost |   1.035846   .0101701     3.59   0.000     1.016103    1.055972
          cbd |   .9916371   .0020003    -4.16   0.000     .9877243    .9955655
@@ -240,15 +240,15 @@ GMM weight matrix:     Robust
        _cons |   1.304008   .2021377     1.71   0.087     .9623501    1.766962
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented:  tcost
-Instruments:   cbd ptn worker weekend pt
+Instrumented: tcost
+ Instruments: cbd ptn worker weekend pt
 
 . 
 . ivmsmm trips cbd ptn worker weekend (tcost=pt)
 
 Final GMM criterion Q(b) =  1.27e-31
 
-note: model is exactly identified
+note: model is exactly identified.
 
 Exponential mean model with endogenous regressors
 
@@ -259,7 +259,7 @@ GMM weight matrix:     Robust
 
 ------------------------------------------------------------------------------
              |               Robust
-       trips |        IRR   Std. Err.      z    P>|z|     [95% Conf. Interval]
+       trips |        IRR   std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
        tcost |   1.035846   .0101701     3.59   0.000     1.016103    1.055972
          cbd |   .9916371   .0020003    -4.16   0.000     .9877243    .9955655
@@ -269,15 +269,15 @@ GMM weight matrix:     Robust
        _cons |   1.304008   .2021377     1.71   0.087     .9623501    1.766962
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented:  tcost
-Instruments:   cbd ptn worker weekend pt
+Instrumented: tcost
+ Instruments: cbd ptn worker weekend pt
 
 . assert abs(_b[tcost] - .035) < 1e-3
 
 . 
 end of do-file
       name:  ivmsmm
-       log:  C:\Users\eptmp\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  15 Sep 2021, 13:55:59
+ closed on:   1 Feb 2022, 14:44:45
 -------------------------------------------------------------------------------
