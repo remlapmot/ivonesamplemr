@@ -1,5 +1,7 @@
 # ivonesamplemr Stata package
 
+## Description
+
 Stata package of useful programs for one-sample Mendelian randomization (MR) / instrumental variable (IV) analyses, including implementations of:
 
 * additive structural mean model: see `help ivasmm`
