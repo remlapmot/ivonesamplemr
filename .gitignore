@@ -1,1 +1,15 @@
 ivmwresults.dta
+.Rproj.user/
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
+.RDataTmp
+
+# User-specific files
+.Ruserdata
+
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
