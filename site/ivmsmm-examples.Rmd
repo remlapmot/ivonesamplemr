@@ -1,0 +1,55 @@
+---
+title: "Multiplicative structural mean model"
+pagetitle: ivmsmm-examples
+---
+
+```{r, include=FALSE}
+library(Statamarkdown)
+```
+
+```{stata, collectcode=TRUE, include=FALSE}
+adopath ++ ..
+```
+
+Read in binary outcome data; `y` outcome, `x` exposure, `w` covariate, `z*` instrumental variables (genotypes).
+
+```{stata, collectcode=TRUE, results=FALSE}
+use ../data/ivbinoutdata, clear
+```
+
+Fit the model with a single instrumental variable.
+
+```{stata}
+ivmsmm y (x = z1)
+```
+
+Fit the model with multiple instruments.
+```{stata}
+ivmsmm y (x = z1 z2 z3)
+estat overid
+```
+
+Adjusting for `w`.
+```{stata}
+ivmsmm y w (x = z1 z2 z3)
+```
+
+Fit the model with multiple exposures, and instruments, and adjusting for w.
+```{stata}
+ivmsmm y w (x1 x2 = z1 z2 z3)
+estat overid
+```
+
+Comparison with `ivpois` (specify onestep option to `ivmsmm`/`ivpoisson` for equivalence).
+```{stata}
+ivpois y, endog(x) exog(z1) eform(RR)
+```
+```{stata}
+ivpois y, endog(x) exog(z1 z2 z3) eform(RR)
+```
+```{stata}
+ivpois y w, endog(x) exog(z1 z2 z3) eform(RR)
+```
+```{stata}
+ivpois y w, endog(x1 x2) exog(z1 z2 z3) eform(RR)
+```
