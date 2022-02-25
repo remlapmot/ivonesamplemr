@@ -15,7 +15,10 @@ To install the Stata dependencies run in Stata
 do ../dependency.do
 ```
 
-To build the website, either open the project in RStudio and in the *Build* pane click *Build Website*, or run in R
+To build the website, either open the project in RStudio and click the *Knit* button for each *.Rmd* file.
+
+For some reason opening the *Build* pane clicking *Build Website*, or running in R
 ```r
 rmarkdown::render_site(encoding = 'UTF-8')
 ```
+fail.
