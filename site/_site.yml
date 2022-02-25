@@ -6,8 +6,20 @@ navbar:
     - text: "Home"
       href: index.html
     - text: "Helpfile examples"
-      href: helpfile-examples.html
-    # - text: "Helpfiles"
-    #   menu:
+      menu:
+      - text: "ivasmm"
+        href: ivasmm-examples.html
+      - text: "ivlsmm"
+        href: ivlsmm-examples.html
+      - text: "ivmsmm"
+        href: ivmsmm-examples.html
+      - text: "ivmw"
+        href: ivmw-examples.html
+      - text: "ivtsps"
+        href: ivtsps-examples.html
+      - text: "ivtsri"
+        href: ivtsri-examples.html
+      - text: "ivxtile"
+        href: ivxtile-examples.html
     - text: "About"
       href: about.html
