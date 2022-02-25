@@ -1,0 +1,32 @@
+---
+title: "Logistic structural mean model"
+pagetitle: ivlsmm-examples
+---
+
+```{r, include=FALSE}
+library(Statamarkdown)
+```
+
+```{stata, collectcode=TRUE, include=FALSE}
+adopath ++ ..
+```
+
+Read in binary outcome data; `y` outcome, `x` exposure, `w` covariate, `z*` instrumental variables (genotypes).
+```{stata, collectcode=TRUE, results=FALSE}
+use ../data/ivbinoutdata, clear
+```
+
+Fit the model with a single instrumental variable.
+```{stata}
+ivlsmm y (x = z1)
+```
+
+Fit the model with multiple instruments.
+```{stata}
+ivlsmm y (x = z1 z2 z3)
+```
+
+Fit the model with multiple exposures, and instruments, and adjusting for w.
+```{stata}
+ivlsmm y w (x1 x2 = z1 z2 z3)
+```
