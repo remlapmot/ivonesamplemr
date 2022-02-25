@@ -1,0 +1,76 @@
+---
+title: "Moving window estimator"
+pagetitle: ivmw-examples
+---
+
+```{r, include=FALSE}
+library(Statamarkdown)
+```
+
+```{stata, collectcode=TRUE, include=FALSE}
+adopath ++ ..
+```
+
+```{stata, collectcode=TRUE, results=FALSE}
+use ../data/ivmwdata, clear
+```
+
+Plot outcome-exposure relationships
+```{stata}
+twoway line y1 x, sort(x)
+twoway line y2 y3 y4 x, sort(x)
+twoway line y5 x, sort(x)
+```
+    
+Example moving window fits.
+```{stata}
+ivmw, window(3950) par(x): ivreg2 y1 (x = g)
+```
+```{stata}
+ivmw, window(3950) par(x): ivreg2 y2 (x = g)
+```
+```{stata}
+ivmw, window(3950) par(x): ivreg2 y3 (x = g)
+```
+```{stata}
+ivmw, window(3950) par(x): ivreg2 y4 (x = g)
+```
+```{stata}
+ivmw, window(3950) par(x): ivreg2 y5 (x = g)
+```
+
+Change window size (e.g. for outcome y2).
+```{stata}
+ivmw, window(3750) par(x): ivreg2 y2 (x = g)
+```
+```{stata}
+ivmw, window(3000) par(x): ivreg2 y2 (x = g)
+```
+```{stata}
+ivmw, window(2000) par(x): ivreg2 y2 (x = g)
+```
+```{stata}
+ivmw, window(1000) par(x): ivreg2 y2 (x = g)
+```
+
+Save the moving window dataset.
+```{stata, eval=FALSE}
+ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)
+```
+
+Use different iv commands.
+```{stata, eval=FALSE}
+ivmw, window(3950) par(x): ivregress 2sls y (x = z1 z2 z3)
+ivmw, window(3950) par(x): ivregress liml y (x = z1 z2 z3)
+ivmw, window(3950) par(x): ivregress gmm y (x = z1 z2 z3)
+ivmw, window(3950) par(x): ivlsmm y (x = z1 z2 z3)
+ivmw, window(3950) par(x): ivmsmm y (x = z1 z2 z3)
+ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3)
+ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
+ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
+ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3)
+ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
+ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
+```
