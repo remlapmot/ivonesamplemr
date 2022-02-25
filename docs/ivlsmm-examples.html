@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>ivlsmm-examples</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">ivonesamplemr</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Helpfile examples
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ivasmm-examples.html">ivasmm</a>
+    </li>
+    <li>
+      <a href="ivlsmm-examples.html">ivlsmm</a>
+    </li>
+    <li>
+      <a href="ivmsmm-examples.html">ivmsmm</a>
+    </li>
+    <li>
+      <a href="ivmw-examples.html">ivmw</a>
+    </li>
+    <li>
+      <a href="ivtsps-examples.html">ivtsps</a>
+    </li>
+    <li>
+      <a href="ivtsri-examples.html">ivtsri</a>
+    </li>
+    <li>
+      <a href="ivxtile-examples.html">ivxtile</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Logistic structural mean model</h1>
+
+</div>
+
+
+<p>Read in binary outcome data; <code>y</code> outcome, <code>x</code>
+exposure, <code>w</code> covariate, <code>z*</code> instrumental
+variables (genotypes).</p>
+<pre class="stata"><code>use ../data/ivbinoutdata, clear</code></pre>
+<p>Fit the model with a single instrumental variable.</p>
+<pre class="stata"><code>ivlsmm y (x = z1)</code></pre>
+<pre><code>Final GMM criterion Q(b) =  2.01e-30
+
+note: model is exactly identified.
+
+GMM estimation 
+
+Number of parameters =   5
+Number of moments    =   5
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             | Coefficient  std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.375182   .0563156    24.42   0.000     1.264805    1.485558
+      /xb_z1 |  -.1698859   .1079229    -1.57   0.115    -.3814109    .0416391
+         /b0 |  -2.076602   .1038597   -19.99   0.000    -2.280163   -1.873041
+     /cmxb_x |   1.196517   .1133081    10.56   0.000     .9744374    1.418597
+        /ey0 |   .1448039   .0310372     4.67   0.000     .0839722    .2056356
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 _cons
+Instruments for equation 2: z1 _cons
+
+  Test of overidentifying restriction:
+
+  Hansen&#39;s J chi2(0) = 5.0e-27 (p =     .)
+
+Note: test cannot be performed because there are no
+      overidentifying restrictions.
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   3.308574   .3748881    10.56   0.000     2.649676     4.13132
+------------------------------------------------------------------------------</code></pre>
+<p>Fit the model with multiple instruments.</p>
+<pre class="stata"><code>ivlsmm y (x = z1 z2 z3)</code></pre>
+<pre><code>Final GMM criterion Q(b) =  .0007498
+
+GMM estimation 
+
+Number of parameters =   7
+Number of moments    =   9
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             | Coefficient  std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   1.497546   .0629276    23.80   0.000     1.374211    1.620882
+      /xb_z1 |  -.3828314   .0697615    -5.49   0.000    -.5195614   -.2461015
+      /xb_z2 |   -.361644   .0634738    -5.70   0.000    -.4860504   -.2372376
+      /xb_z3 |  -.3727515   .0639573    -5.83   0.000    -.4981055   -.2473976
+         /b0 |  -1.692298   .1204232   -14.05   0.000    -1.928323   -1.456273
+     /cmxb_x |   1.113372   .0673101    16.54   0.000     .9814465    1.245297
+        /ey0 |   .1778203   .0213404     8.33   0.000     .1359939    .2196468
+------------------------------------------------------------------------------
+Instruments for equation 1: x z1 z2 z3 _cons
+Instruments for equation 2: z1 z2 z3 _cons
+
+  Test of overidentifying restriction:
+
+  Hansen&#39;s J chi2(2) = 1.87445 (p = 0.3917)
+
+Causal odds ratio for: x
+
+ ( 1)  [cmxb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   3.044607   .2049329    16.54   0.000     2.668313    3.473968
+------------------------------------------------------------------------------</code></pre>
+<p>Fit the model with multiple exposures, and instruments, and adjusting
+for w.</p>
+<pre class="stata"><code>ivlsmm y w (x1 x2 = z1 z2 z3)</code></pre>
+<pre><code>Final GMM criterion Q(b) =  .0006646
+
+GMM estimation 
+
+Number of parameters =  11
+Number of moments    =  12
+Initial weight matrix: Unadjusted                 Number of obs   =      2,500
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             | Coefficient  std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      /xb_x1 |   1.270939   .0709528    17.91   0.000     1.131875    1.410004
+      /xb_x2 |   .7280662   .0577047    12.62   0.000     .6149671    .8411654
+      /xb_z1 |  -.6069302   .0915561    -6.63   0.000    -.7863769   -.4274835
+      /xb_z2 |  -.6409243   .0906894    -7.07   0.000    -.8186723   -.4631763
+      /xb_z3 |  -.0478545   .0956419    -0.50   0.617    -.2353092    .1396002
+       /xb_w |   .6417589   .0844396     7.60   0.000     .4762603    .8072576
+         /b0 |  -1.973388   .1356534   -14.55   0.000    -2.239264   -1.707512
+    /cmxb_x1 |   1.193709   .1028285    11.61   0.000     .9921685    1.395249
+    /cmxb_x2 |   .1719145   .1120826     1.53   0.125    -.0477634    .3915923
+     /cmxb_w |   .7090571     .11249     6.30   0.000     .4885808    .9295334
+        /ey0 |   .1486804   .0181689     8.18   0.000     .1130701    .1842907
+------------------------------------------------------------------------------
+Instruments for equation 1: x1 x2 z1 z2 z3 w _cons
+Instruments for equation 2: z1 z2 z3 w _cons
+
+  Test of overidentifying restriction:
+
+  Hansen&#39;s J chi2(1) = 1.66158 (p = 0.1974)
+
+Causal odds ratio for: x1
+
+ ( 1)  [cmxb_x1]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   3.299294   .3392614    11.61   0.000     2.697077    4.035978
+------------------------------------------------------------------------------
+
+Causal odds ratio for: x2
+
+ ( 1)  [cmxb_x2]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.187576   .1331066     1.53   0.125     .9533594    1.479334
+------------------------------------------------------------------------------
+
+Causal odds ratio for: w
+
+ ( 1)  [cmxb_w]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   2.032074    .228588     6.30   0.000     1.630001    2.533327
+------------------------------------------------------------------------------</code></pre>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

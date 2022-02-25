@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>ivasmm-examples</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">ivonesamplemr</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Helpfile examples
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ivasmm-examples.html">ivasmm</a>
+    </li>
+    <li>
+      <a href="ivlsmm-examples.html">ivlsmm</a>
+    </li>
+    <li>
+      <a href="ivmsmm-examples.html">ivmsmm</a>
+    </li>
+    <li>
+      <a href="ivmw-examples.html">ivmw</a>
+    </li>
+    <li>
+      <a href="ivtsps-examples.html">ivtsps</a>
+    </li>
+    <li>
+      <a href="ivtsri-examples.html">ivtsri</a>
+    </li>
+    <li>
+      <a href="ivxtile-examples.html">ivxtile</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Additive structural mean model</h1>
+
+</div>
+
+
+<p>Read in binary outcome data; <code>y</code> outcome, <code>x</code>
+exposure, <code>w</code> covariate, <code>z*</code> instrumental
+variables (genotypes).</p>
+<pre class="stata"><code>use ../data/ivbinoutdata, clear</code></pre>
+<p>Fit the model with a single instrumental variable.</p>
+<pre class="stata"><code>ivregress 2sls y (x = z1)</code></pre>
+<pre><code>Instrumental variables 2SLS regression            Number of obs   =      2,500
+                                                  Wald chi2(1)    =     100.20
+                                                  Prob &gt; chi2     =     0.0000
+                                                  R-squared       =     0.4338
+                                                  Root MSE        =     .37484
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   .1433391   .0143193    10.01   0.000     .1152738    .1714043
+       _cons |   .2817003   .0271777    10.37   0.000      .228433    .3349676
+------------------------------------------------------------------------------
+Instrumented: x
+ Instruments: z1</code></pre>
+<pre class="stata"><code>ivreg2 y (x = z1)</code></pre>
+<pre><code>IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics consistent for homoskedasticity only
+
+                                                      Number of obs =     2500
+                                                      F(  1,  2498) =   100.12
+                                                      Prob &gt; F      =   0.0000
+Total (centered) SS     =     620.3344                Centered R2   =   0.4338
+Total (uncentered) SS   =         1358                Uncentered R2 =   0.7413
+Residual SS             =   351.260716                Root MSE      =    .3748
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   .1433391   .0143193    10.01   0.000     .1152738    .1714043
+       _cons |   .2817003   .0271777    10.37   0.000      .228433    .3349676
+------------------------------------------------------------------------------
+Underidentification test (Anderson canon. corr. LM statistic):         171.159
+                                                   Chi-sq(1) P-val =    0.0000
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):              183.591
+Stock-Yogo weak ID test critical values: 10% maximal IV size             16.38
+                                         15% maximal IV size              8.96
+                                         20% maximal IV size              6.66
+                                         25% maximal IV size              5.53
+Source: Stock-Yogo (2005).  Reproduced by permission.
+------------------------------------------------------------------------------
+Sargan statistic (overidentification test of all instruments):           0.000
+                                                 (equation exactly identified)
+------------------------------------------------------------------------------
+Instrumented:         x
+Excluded instruments: z1
+------------------------------------------------------------------------------</code></pre>
+<p>Fit the model with multiple instruments.</p>
+<pre class="stata"><code>ivregress 2sls y (x = z1 z2 z3)</code></pre>
+<pre><code>Instrumental variables 2SLS regression            Number of obs   =      2,500
+                                                  Wald chi2(1)    =     323.89
+                                                  Prob &gt; chi2     =     0.0000
+                                                  R-squared       =     0.4223
+                                                  Root MSE        =     .37863
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   .1307856   .0072671    18.00   0.000     .1165423    .1450289
+       _cons |   .3046021    .015268    19.95   0.000     .2746774    .3345267
+------------------------------------------------------------------------------
+Instrumented: x
+ Instruments: z1 z2 z3</code></pre>
+<pre class="stata"><code>ivreg2 y (x = z1 z2 z3)</code></pre>
+<pre><code>IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics consistent for homoskedasticity only
+
+                                                      Number of obs =     2500
+                                                      F(  1,  2498) =   323.63
+                                                      Prob &gt; F      =   0.0000
+Total (centered) SS     =     620.3344                Centered R2   =   0.4223
+Total (uncentered) SS   =         1358                Uncentered R2 =   0.7361
+Residual SS             =  358.3930269                Root MSE      =    .3786
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   .1307856   .0072671    18.00   0.000     .1165423    .1450289
+       _cons |   .3046021    .015268    19.95   0.000     .2746774    .3345267
+------------------------------------------------------------------------------
+Underidentification test (Anderson canon. corr. LM statistic):         678.024
+                                                   Chi-sq(3) P-val =    0.0000
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):              309.618
+Stock-Yogo weak ID test critical values:  5% maximal IV relative bias    13.91
+                                         10% maximal IV relative bias     9.08
+                                         20% maximal IV relative bias     6.46
+                                         30% maximal IV relative bias     5.39
+                                         10% maximal IV size             22.30
+                                         15% maximal IV size             12.83
+                                         20% maximal IV size              9.54
+                                         25% maximal IV size              7.80
+Source: Stock-Yogo (2005).  Reproduced by permission.
+------------------------------------------------------------------------------
+Sargan statistic (overidentification test of all instruments):           1.662
+                                                   Chi-sq(2) P-val =    0.4357
+------------------------------------------------------------------------------
+Instrumented:         x
+Excluded instruments: z1 z2 z3
+------------------------------------------------------------------------------</code></pre>
+<p>Fit the model with multiple exposures, and instruments, and adjusting
+for <code>w</code>.</p>
+<pre class="stata"><code>ivregress 2sls y w (x1 x2 = z1 z2 z3)</code></pre>
+<pre><code>Instrumental variables 2SLS regression            Number of obs   =      2,500
+                                                  Wald chi2(3)    =    1010.76
+                                                  Prob &gt; chi2     =     0.0000
+                                                  R-squared       =     0.4481
+                                                  Root MSE        =     .37006
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .1212489   .0108116    11.21   0.000     .1000585    .1424392
+          x2 |   .0142141   .0135397     1.05   0.294    -.0123231    .0407513
+           w |   .0721392   .0129687     5.56   0.000     .0467211    .0975573
+       _cons |   .3056947    .014944    20.46   0.000     .2764051    .3349843
+------------------------------------------------------------------------------
+Instrumented: x1 x2
+ Instruments: w z1 z2 z3</code></pre>
+<pre class="stata"><code>ivreg2 y w (x1 x2 = z1 z2 z3)</code></pre>
+<pre><code>IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics consistent for homoskedasticity only
+
+                                                      Number of obs =     2500
+                                                      F(  3,  2496) =   336.38
+                                                      Prob &gt; F      =   0.0000
+Total (centered) SS     =     620.3344                Centered R2   =   0.4481
+Total (uncentered) SS   =         1358                Uncentered R2 =   0.7479
+Residual SS             =  342.3610763                Root MSE      =    .3701
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .1212489   .0108116    11.21   0.000     .1000585    .1424392
+          x2 |   .0142141   .0135397     1.05   0.294    -.0123231    .0407513
+           w |   .0721392   .0129687     5.56   0.000     .0467211    .0975573
+       _cons |   .3056947    .014944    20.46   0.000     .2764051    .3349843
+------------------------------------------------------------------------------
+Underidentification test (Anderson canon. corr. LM statistic):         413.984
+                                                   Chi-sq(2) P-val =    0.0000
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):              165.050
+Stock-Yogo weak ID test critical values: 10% maximal IV size             13.43
+                                         15% maximal IV size              8.18
+                                         20% maximal IV size              6.40
+                                         25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+------------------------------------------------------------------------------
+Sargan statistic (overidentification test of all instruments):           0.523
+                                                   Chi-sq(1) P-val =    0.4696
+------------------------------------------------------------------------------
+Instrumented:         x1 x2
+Included instruments: w
+Excluded instruments: z1 z2 z3
+------------------------------------------------------------------------------</code></pre>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

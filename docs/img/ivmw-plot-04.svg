@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This is a Stata 17.0 generated SVG file (http://www.stata.com) -->
+
+<svg version="1.1" width="5.500in" height="4.000in" viewBox="0 0 3960 2880" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>Stata Graph - Graph</desc>
+	<rect x="0" y="0" width="3960" height="2880" style="fill:#EAF2F3;stroke:none"/>
+	<rect x="0.00" y="0.00" width="3959.88" height="2880.00" style="fill:#EAF2F3"/>
+	<rect x="2.88" y="2.88" width="3954.12" height="2874.24" style="fill:none;stroke:#EAF2F3;stroke-width:5.76"/>
+	<rect x="390.80" y="100.86" width="3468.22" height="2132.77" style="fill:#FFFFFF"/>
+	<rect x="393.68" y="103.74" width="3462.46" height="2127.01" style="fill:none;stroke:#FFFFFF;stroke-width:5.76"/>
+	<line x1="390.80" y1="2170.27" x2="3859.02" y2="2170.27" style="stroke:#EAF2F3;stroke-width:8.64"/>
+	<line x1="390.80" y1="1668.82" x2="3859.02" y2="1668.82" style="stroke:#EAF2F3;stroke-width:8.64"/>
+	<line x1="390.80" y1="1167.25" x2="3859.02" y2="1167.25" style="stroke:#EAF2F3;stroke-width:8.64"/>
+	<line x1="390.80" y1="665.67" x2="3859.02" y2="665.67" style="stroke:#EAF2F3;stroke-width:8.64"/>
+	<line x1="390.80" y1="164.22" x2="3859.02" y2="164.22" style="stroke:#EAF2F3;stroke-width:8.64"/>
+	<path d=" M782.10 1238.78 L854.99 1240.88 L860.06 1235.06 L885.56 1226.90 L988.52 1233.33 L1167.71 1231.47 L1285.89 1210.56 L1341.45 1226.15 L1379.19 1212.66 L1415.70 1209.82 L1484.88 1221.82 L1605.29 1214.89 L1706.14 1205.24 L1791.41 1213.90 L1936.94 1219.59 L2015.89 1218.23 L2019.72 1233.45 L2034.70 1231.60 L2049.42 1228.01 L2131.84 1229.00 L2247.42 1225.53 L2321.05 1233.83 L2362.14 1222.19 L2371.55 1216.75 L2395.30 1215.02 L2468.57 1215.51 L2547.02 1223.06 L2673.12 1220.96 L2797.37 1204.74 L2827.94 1219.72 L2844.64 1216.13 L2852.69 1212.91 L2921.99 1225.66 L2997.35 1238.16 L3020.74 1243.60 L3060.09 1245.09 L3120.36 1231.60 L3157.48 1231.35 L3199.68 1224.05 L3247.45 1234.07 L3285.07 1230.48 L3342.24 1218.23 L3397.56 1208.70 L3433.94 1204.74 L3469.58 1207.22 L3527.62 1216.62 L3608.43 1199.55 L3681.69 1224.92 L3707.55 1225.16 L3730.82 1224.54 L3774.25 1237.17" stroke-linejoin="round" style="fill:none;stroke:#000000;stroke-width:12.96"/>
+	<path d=" M782.10 324.61 L854.99 323.99 L860.06 322.26 L885.56 311.24 L988.52 321.39 L1167.71 316.44 L1285.89 294.91 L1341.45 311.98 L1379.19 312.85 L1415.70 308.64 L1484.88 316.93 L1605.29 314.46 L1706.14 310.99 L1791.41 313.59 L1936.94 312.97 L2015.89 313.10 L2019.72 322.50 L2034.70 324.98 L2049.42 322.87 L2131.84 320.28 L2247.42 313.22 L2321.05 327.95 L2362.14 315.08 L2371.55 306.04 L2395.30 297.88 L2468.57 291.69 L2547.02 301.09 L2673.12 300.97 L2797.37 283.27 L2827.94 309.51 L2844.64 307.78 L2852.69 315.32 L2921.99 321.14 L2997.35 326.46 L3020.74 324.73 L3060.09 331.17 L3120.36 310.37 L3157.48 323.12 L3199.68 321.39 L3247.45 326.34 L3285.07 325.10 L3342.24 310.13 L3397.56 303.32 L3433.94 305.05 L3469.58 299.24 L3527.62 316.44 L3608.43 318.05 L3681.69 334.01 L3707.55 340.45 L3730.82 333.52 L3774.25 351.71" stroke-linejoin="round" style="fill:none;stroke:#A0A0A0;stroke-width:12.96"/>
+	<path d=" M782.10 2152.82 L854.99 2157.90 L860.06 2148.00 L885.56 2142.67 L988.52 2145.27 L1167.71 2146.51 L1285.89 2126.09 L1341.45 2140.32 L1379.19 2112.48 L1415.70 2110.87 L1484.88 2126.71 L1605.29 2115.45 L1706.14 2099.36 L1791.41 2114.21 L1936.94 2126.34 L2015.89 2123.37 L2019.72 2144.41 L2034.70 2138.22 L2049.42 2133.27 L2131.84 2137.72 L2247.42 2137.85 L2321.05 2139.70 L2362.14 2129.19 L2371.55 2127.45 L2395.30 2132.16 L2468.57 2139.21 L2547.02 2145.03 L2673.12 2141.07 L2797.37 2126.22 L2827.94 2129.93 L2844.64 2124.48 L2852.69 2110.50 L2921.99 2130.18 L2997.35 2149.85 L3020.74 2162.48 L3060.09 2159.13 L3120.36 2152.95 L3157.48 2139.58 L3199.68 2126.59 L3247.45 2141.93 L3285.07 2135.74 L3342.24 2126.34 L3397.56 2114.09 L3433.94 2104.56 L3469.58 2115.32 L3527.62 2116.81 L3608.43 2081.05 L3681.69 2115.70 L3707.55 2109.88 L3730.82 2115.57 L3774.25 2122.50" stroke-linejoin="round" style="fill:none;stroke:#A0A0A0;stroke-width:12.96"/>
+	<line x1="390.80" y1="2233.63" x2="390.80" y2="100.86" style="stroke:#000000;stroke-width:5.76"/>
+	<line x1="390.80" y1="2170.27" x2="350.83" y2="2170.27" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="300.72" y="2170.27" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" transform="rotate(-90 300.72,2170.27)" text-anchor="middle">.2</text>
+	<line x1="390.80" y1="1668.82" x2="350.83" y2="1668.82" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="300.72" y="1668.82" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" transform="rotate(-90 300.72,1668.82)" text-anchor="middle">.3</text>
+	<line x1="390.80" y1="1167.25" x2="350.83" y2="1167.25" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="300.72" y="1167.25" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" transform="rotate(-90 300.72,1167.25)" text-anchor="middle">.4</text>
+	<line x1="390.80" y1="665.67" x2="350.83" y2="665.67" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="300.72" y="665.67" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" transform="rotate(-90 300.72,665.67)" text-anchor="middle">.5</text>
+	<line x1="390.80" y1="164.22" x2="350.83" y2="164.22" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="300.72" y="164.22" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" transform="rotate(-90 300.72,164.22)" text-anchor="middle">.6</text>
+	<text x="190.71" y="1167.25" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" transform="rotate(-90 190.71,1167.25)" text-anchor="middle">Estimated causal effect</text>
+	<line x1="390.80" y1="2233.63" x2="3859.02" y2="2233.63" style="stroke:#000000;stroke-width:5.76"/>
+	<line x1="454.16" y1="2233.63" x2="454.16" y2="2273.73" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="454.16" y="2363.59" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">1.35</text>
+	<line x1="1122.41" y1="2233.63" x2="1122.41" y2="2273.73" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="1122.41" y="2363.59" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">1.355</text>
+	<line x1="1790.79" y1="2233.63" x2="1790.79" y2="2273.73" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="1790.79" y="2363.59" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">1.36</text>
+	<line x1="2459.04" y1="2233.63" x2="2459.04" y2="2273.73" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="2459.04" y="2363.59" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">1.365</text>
+	<line x1="3127.41" y1="2233.63" x2="3127.41" y2="2273.73" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="3127.41" y="2363.59" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">1.37</text>
+	<line x1="3795.66" y1="2233.63" x2="3795.66" y2="2273.73" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="3795.66" y="2363.59" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">1.375</text>
+	<text x="2124.91" y="2473.60" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">Median of exposure in moving window</text>
+	<rect x="742.62" y="2558.24" width="2764.58" height="186.37" style="fill:#FFFFFF"/>
+	<rect x="745.50" y="2561.12" width="2758.82" height="180.61" style="fill:none;stroke:#000000;stroke-width:5.76"/>
+	<line x1="785.81" y1="2651.43" x2="1160.16" y2="2651.43" style="stroke:#000000;stroke-width:12.96"/>
+	<line x1="2425.87" y1="2651.43" x2="2800.34" y2="2651.43" style="stroke:#A0A0A0;stroke-width:12.96"/>
+	<text x="1220.18" y="2686.46" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">Estimated causal effect</text>
+	<text x="2860.36" y="2686.46" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">95% CI limits</text>
+</svg>
