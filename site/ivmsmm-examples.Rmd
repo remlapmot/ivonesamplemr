@@ -7,18 +7,16 @@ pagetitle: ivmsmm-examples
 library(Statamarkdown)
 ```
 
-```{stata, collectcode=TRUE, include=FALSE}
+```{stata, include=FALSE, collectcode=TRUE}
 adopath ++ ..
 ```
 
 Read in binary outcome data; `y` outcome, `x` exposure, `w` covariate, `z*` instrumental variables (genotypes).
-
-```{stata, collectcode=TRUE, results=FALSE}
+```{stata, collectcode=TRUE, results='hide'}
 use ../data/ivbinoutdata, clear
 ```
 
 Fit the model with a single instrumental variable.
-
 ```{stata}
 ivmsmm y (x = z1)
 ```
