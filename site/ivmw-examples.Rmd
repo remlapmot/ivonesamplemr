@@ -7,49 +7,80 @@ pagetitle: ivmw-examples
 library(Statamarkdown)
 ```
 
-```{stata, collectcode=TRUE, include=FALSE}
+```{stata, include=FALSE, collectcode=TRUE}
 adopath ++ ..
 ```
 
-```{stata, collectcode=TRUE, results=FALSE}
+Read in simulated data with different outcome-exposure relationships; `y#` outcome, `x` exposure, `g` instrumental variable (genotype).
+```{stata, collectcode=TRUE, results='hide'}
 use ../data/ivmwdata, clear
 ```
 
 Plot outcome-exposure relationships
-```{stata}
+```{stata, results=FALSE}
 twoway line y1 x, sort(x)
+qui gr export ./img/ivmw-plot-01.svg, replace
+```
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("./img/ivmw-plot-01.svg")
+```
+```{stata, results=FALSE}
 twoway line y2 y3 y4 x, sort(x)
+qui gr export ./img/ivmw-plot-02.svg, replace
+```
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("./img/ivmw-plot-02.svg")
+```
+```{stata, results=FALSE}
 twoway line y5 x, sort(x)
+qui gr export ./img/ivmw-plot-03.svg, replace
+```
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("./img/ivmw-plot-03.svg")
 ```
     
 Example moving window fits.
-```{stata}
+```{stata, cleanlog=FALSE}
 ivmw, window(3950) par(x): ivreg2 y1 (x = g)
+qui gr export ./img/ivmw-plot-04.svg, replace
+```
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("./img/ivmw-plot-04.svg")
 ```
 ```{stata}
 ivmw, window(3950) par(x): ivreg2 y2 (x = g)
+qui gr export ./img/ivmw-plot-05.svg, replace
+```
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("./img/ivmw-plot-05.svg")
 ```
 ```{stata}
 ivmw, window(3950) par(x): ivreg2 y3 (x = g)
+qui gr export ./img/ivmw-plot-06.svg, replace
+```
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("./img/ivmw-plot-06.svg")
 ```
 ```{stata}
 ivmw, window(3950) par(x): ivreg2 y4 (x = g)
+qui gr export ./img/ivmw-plot-07.svg, replace
+```
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("./img/ivmw-plot-07.svg")
 ```
 ```{stata}
 ivmw, window(3950) par(x): ivreg2 y5 (x = g)
+qui gr export ./img/ivmw-plot-08.svg, replace
+```
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("./img/ivmw-plot-08.svg")
 ```
 
 Change window size (e.g. for outcome y2).
-```{stata}
+```{stata, eval=FALSE}
 ivmw, window(3750) par(x): ivreg2 y2 (x = g)
-```
-```{stata}
 ivmw, window(3000) par(x): ivreg2 y2 (x = g)
-```
-```{stata}
 ivmw, window(2000) par(x): ivreg2 y2 (x = g)
-```
-```{stata}
 ivmw, window(1000) par(x): ivreg2 y2 (x = g)
 ```
 
