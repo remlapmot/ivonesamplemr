@@ -6,6 +6,10 @@ pagetitle: helpfile-examples
 library(Statamarkdown)
 ```
 
+```{stata, collectcode=TRUE, include=FALSE}
+adopath ++ ..
+```
+
 * [`ivasmm`](#ivasmm)
 * [`ivlsmm`](#ivlsmm)
 * [`ivmsmm`](#ivmsmm)
