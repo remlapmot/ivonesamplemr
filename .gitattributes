@@ -12,3 +12,4 @@
 *.smcl linguist-language=Stata
 *.stmd linguist-language=Markdown
 /docs/* linguist-vendored
+/site/* linguist-vendored
