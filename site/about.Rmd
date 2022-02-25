@@ -1,0 +1,10 @@
+---
+title: ""
+pagetitle: about
+---
+
+This is the website for the **ivonesamplemr** package.
+
+The GitHub repository is [here](https://github.com/remlapmot/ivonesamplemr).
+
+It is maintained by [Tom Palmer](https://remlapmot.github.io/).
