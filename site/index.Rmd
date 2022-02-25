@@ -1,6 +1,6 @@
 ---
 title: ""
-pagetitle: "ivonesamplemr"
+pagetitle: ivonesamplemr
 ---
 
 ```{r, child="../README.md"}
