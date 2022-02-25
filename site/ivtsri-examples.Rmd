@@ -1,0 +1,52 @@
+---
+title: "Two-stage residual inclusion estimators"
+pagetitle: ivtsri-examples
+---
+
+```{r, include=FALSE}
+library(Statamarkdown)
+```
+
+```{stata, collectcode=TRUE, include=FALSE}
+adopath ++ ..
+```
+
+Read in binary outcome data; `y` outcome, `x` exposure, `w` covariate, `z*` instrumental variables (genotypes).
+```{stata, collectcode=TRUE, results=FALSE}
+use ../data/ivbinoutdata, clear
+```
+
+Fit the model with a single instrumental variable.
+```{stata}
+ivtsri y (x = z1)
+```
+
+Fit the model with multiple instruments.
+```{stata}
+ivtsri y (x = z1 z2 z3)
+```
+
+Fit the model with multiple instruments, and adjusting for `w`.
+```{stata}
+ivtsri y w (x = z1 z2 z3)
+```
+
+Using the log additive link function.
+```{stata}
+ivtsri y (x = z1 z2 z3), link(logadd)
+```
+
+Using the log multiplicative link function.
+```{stata}
+ivtsri y (x = z1 z2 z3), link(logmult)
+```
+
+Using the logit link function.
+```{stata}
+ivtsri y (x = z1 z2 z3), link(logit)
+```
+
+Bootstrap standard errors.
+```{stata}
+bootstrap, reps(250): ivtsri y (x = z1 z2 z3), estonly
+```
