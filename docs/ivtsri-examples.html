@@ -298,7 +298,7 @@ estimators</h1>
 <p>Read in binary outcome data; <code>y</code> outcome, <code>x</code>
 exposure, <code>w</code> covariate, <code>z*</code> instrumental
 variables (genotypes).</p>
-<pre class="stata"><code>use ../data/ivbinoutdata, clear</code></pre>
+<pre class="stata"><code>use ivbinoutdata, clear</code></pre>
 <p>Fit the model with a single instrumental variable.</p>
 <pre class="stata"><code>ivtsri y (x = z1)</code></pre>
 <pre><code>Final GMM criterion Q(b) =  1.38e-32
@@ -486,7 +486,7 @@ Causal risk ratio for: b2
 ------------------------------------------------------------------------------</code></pre>
 <p>Using the log multiplicative link function.</p>
 <pre class="stata"><code>ivtsri y (x = z1 z2 z3), link(logmult)</code></pre>
-<pre><code>Final GMM criterion Q(b) =  6.20e-32
+<pre><code>Final GMM criterion Q(b) =  2.62e-32
 
 note: model is exactly identified.
 
@@ -532,7 +532,7 @@ Causal risk ratio for: b2
 ------------------------------------------------------------------------------</code></pre>
 <p>Using the logit link function.</p>
 <pre class="stata"><code>ivtsri y (x = z1 z2 z3), link(logit)</code></pre>
-<pre><code>Final GMM criterion Q(b) =  6.75e-33
+<pre><code>Final GMM criterion Q(b) =  6.74e-33
 
 note: model is exactly identified.
 

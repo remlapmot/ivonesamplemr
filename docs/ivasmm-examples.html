@@ -297,7 +297,7 @@ $(document).ready(function () {
 <p>Read in binary outcome data; <code>y</code> outcome, <code>x</code>
 exposure, <code>w</code> covariate, <code>z*</code> instrumental
 variables (genotypes).</p>
-<pre class="stata"><code>use ../data/ivbinoutdata, clear</code></pre>
+<pre class="stata"><code>use ivbinoutdata, clear</code></pre>
 <p>Fit the model with a single instrumental variable.</p>
 <pre class="stata"><code>ivregress 2sls y (x = z1)</code></pre>
 <pre><code>Instrumental variables 2SLS regression            Number of obs   =      2,500

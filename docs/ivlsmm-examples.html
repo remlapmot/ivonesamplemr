@@ -297,10 +297,10 @@ $(document).ready(function () {
 <p>Read in binary outcome data; <code>y</code> outcome, <code>x</code>
 exposure, <code>w</code> covariate, <code>z*</code> instrumental
 variables (genotypes).</p>
-<pre class="stata"><code>use ../data/ivbinoutdata, clear</code></pre>
+<pre class="stata"><code>use ivbinoutdata, clear</code></pre>
 <p>Fit the model with a single instrumental variable.</p>
 <pre class="stata"><code>ivlsmm y (x = z1)</code></pre>
-<pre><code>Final GMM criterion Q(b) =  2.01e-30
+<pre><code>Final GMM criterion Q(b) =  2.37e-30
 
 note: model is exactly identified.
 
@@ -326,7 +326,7 @@ Instruments for equation 2: z1 _cons
 
   Test of overidentifying restriction:
 
-  Hansen&#39;s J chi2(0) = 5.0e-27 (p =     .)
+  Hansen&#39;s J chi2(0) = 5.9e-27 (p =     .)
 
 Note: test cannot be performed because there are no
       overidentifying restrictions.

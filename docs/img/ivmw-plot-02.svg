@@ -41,12 +41,12 @@
 	<line x1="3644.56" y1="2093.67" x2="3644.56" y2="2133.64" style="stroke:#000000;stroke-width:5.76"/>
 	<text x="3644.56" y="2223.62" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">10</text>
 	<text x="2074.92" y="2333.64" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">x</text>
-	<rect x="1418.18" y="2418.27" width="1313.48" height="326.34" style="fill:#FFFFFF"/>
-	<rect x="1421.05" y="2421.15" width="1307.72" height="320.58" style="fill:none;stroke:#000000;stroke-width:5.76"/>
-	<line x1="1461.36" y1="2511.46" x2="1835.71" y2="2511.46" style="stroke:#1A476F;stroke-width:8.64"/>
+	<rect x="1416.44" y="2418.27" width="1316.95" height="326.34" style="fill:#FFFFFF"/>
+	<rect x="1419.32" y="2421.15" width="1311.19" height="320.58" style="fill:none;stroke:#000000;stroke-width:5.76"/>
+	<line x1="1459.63" y1="2511.46" x2="1834.10" y2="2511.46" style="stroke:#1A476F;stroke-width:8.64"/>
 	<line x1="2144.96" y1="2511.46" x2="2519.30" y2="2511.46" style="stroke:#90353B;stroke-width:8.64"/>
-	<line x1="1461.36" y1="2651.43" x2="1835.71" y2="2651.43" style="stroke:#55752F;stroke-width:8.64"/>
-	<text x="1895.73" y="2546.49" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">y2</text>
+	<line x1="1459.63" y1="2651.43" x2="1834.10" y2="2651.43" style="stroke:#55752F;stroke-width:8.64"/>
+	<text x="1893.99" y="2546.49" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">y2</text>
 	<text x="2579.32" y="2546.49" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">y3</text>
-	<text x="1895.73" y="2686.46" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">y4</text>
+	<text x="1893.99" y="2686.46" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">y4</text>
 </svg>
