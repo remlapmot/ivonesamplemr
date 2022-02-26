@@ -1,9 +1,13 @@
 # ivonesamplemr Stata package
 
-* [Description](#description)
 * [Latest updates](#latest-updates)
+* [Description](#description)
 * [Installation](#installation)
 
+## Latest updates
+
+* February 2022:
+  - Ran cscripts under Stata 17.0
 ## Description
 
 Stata package of useful programs for one-sample Mendelian randomization (MR) / instrumental variable (IV) analyses, including implementations of:
@@ -21,11 +25,6 @@ The `ivtsps` and `ivtsri` commands implement the following link functions for th
 * identity (i.e. linear regression) - for a binary outcome this estimates a causal risk difference 
 * logadd (log additive, i.e. Poisson/log-binomial regression) and logmult (log multiplicative, i.e. gamma regression) - for a binary outcome these estimate a causal risk ratio
 * logit (i.e. logistic regression) - for a binary outcome this estimates a causal odds ratio
-
-## Latest updates
-
-* February 2022:
-  - Ran cscripts under Stata 17.0
 
 ## Installation
 
