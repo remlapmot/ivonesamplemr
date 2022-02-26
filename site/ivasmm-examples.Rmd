@@ -9,11 +9,12 @@ library(Statamarkdown)
 
 ```{stata, include=FALSE, collectcode=TRUE}
 adopath ++ ..
+cd ../data
 ```
 
 Read in binary outcome data; `y` outcome, `x` exposure, `w` covariate, `z*` instrumental variables (genotypes).
 ```{stata, collectcode=TRUE, results='hide'}
-use ../data/ivbinoutdata, clear
+use ivbinoutdata, clear
 ```
 
 Fit the model with a single instrumental variable.
