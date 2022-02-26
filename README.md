@@ -8,6 +8,8 @@
 
 * February 2022:
   - Ran cscripts under Stata 17.0
+  - **ivonesamplemr** now has a website https://remlapmot.github.io/ivonesamplemr/
+
 ## Description
 
 Stata package of useful programs for one-sample Mendelian randomization (MR) / instrumental variable (IV) analyses, including implementations of:
