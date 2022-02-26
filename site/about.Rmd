@@ -3,7 +3,7 @@ title: ""
 pagetitle: about
 ---
 
-This is the website for the **ivonesamplemr** package.
+This is the website for the **ivonesamplemr** Stata package.
 
 The GitHub repository is [here](https://github.com/remlapmot/ivonesamplemr).
 
