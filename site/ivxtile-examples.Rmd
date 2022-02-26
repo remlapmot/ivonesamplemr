@@ -77,3 +77,7 @@ Save the dataset of results.
 ```{stata, eval=FALSE}
 ivxtile, nq(10) par(x) saving(ivxtileres): ivreg2 y2 (x = g)
 ```
+
+```{r, include=FALSE}
+detach(package:Statamarkdown)
+```
