@@ -40,7 +40,7 @@ knitr::include_graphics("./img/ivmw-plot-03.svg")
 ```
     
 Example moving window fits.
-```{stata, cleanlog=FALSE}
+```{stata}
 ivmw, window(3950) par(x): ivreg2 y1 (x = g)
 qui gr export ./img/ivmw-plot-04.svg, replace
 ```
