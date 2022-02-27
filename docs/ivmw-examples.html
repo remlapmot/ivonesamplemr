@@ -311,9 +311,7 @@ qui gr export ./img/ivmw-plot-03.svg, replace</code></pre>
 <p>Example moving window fits.</p>
 <pre class="stata"><code>ivmw, window(3950) par(x): ivreg2 y1 (x = g)
 qui gr export ./img/ivmw-plot-04.svg, replace</code></pre>
-<pre><code> . ivmw, window(3950) par(x): ivreg2 y1 (x = g)
-
-Time variable: res_order, 1 to 4000
+<pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
@@ -321,11 +319,9 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_30486.000001 saved as
+file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_34861.000001 saved as
     .dta format
-(rolling: ivreg2)
-
-. qui gr export ./img/ivmw-plot-04.svg, replace</code></pre>
+(rolling: ivreg2)</code></pre>
 <p><img src="img/ivmw-plot-04.svg" style="display: block; margin: auto;" /></p>
 <pre class="stata"><code>ivmw, window(3950) par(x): ivreg2 y2 (x = g)
 qui gr export ./img/ivmw-plot-05.svg, replace</code></pre>
@@ -337,7 +333,7 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_30491.000001 saved as
+file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_34865.000001 saved as
     .dta format
 (rolling: ivreg2)</code></pre>
 <p><img src="img/ivmw-plot-05.svg" style="display: block; margin: auto;" /></p>
@@ -351,7 +347,7 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_30495.000001 saved as
+file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_34869.000001 saved as
     .dta format
 (rolling: ivreg2)</code></pre>
 <p><img src="img/ivmw-plot-06.svg" style="display: block; margin: auto;" /></p>
@@ -365,7 +361,7 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_30499.000001 saved as
+file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_34873.000001 saved as
     .dta format
 (rolling: ivreg2)</code></pre>
 <p><img src="img/ivmw-plot-07.svg" style="display: block; margin: auto;" /></p>
@@ -379,7 +375,7 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_30503.000001 saved as
+file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_34877.000001 saved as
     .dta format
 (rolling: ivreg2)</code></pre>
 <p><img src="img/ivmw-plot-08.svg" style="display: block; margin: auto;" /></p>
