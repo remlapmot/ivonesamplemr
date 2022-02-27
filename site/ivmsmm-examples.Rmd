@@ -52,7 +52,3 @@ ivpois y w, endog(x) exog(z1 z2 z3) eform(RR)
 ```{stata}
 ivpois y w, endog(x1 x2) exog(z1 z2 z3) eform(RR)
 ```
-
-```{r, include=FALSE}
-detach(package:Statamarkdown)
-```

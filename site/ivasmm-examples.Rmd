@@ -40,7 +40,3 @@ ivregress 2sls y w (x1 x2 = z1 z2 z3)
 ```{stata}
 ivreg2 y w (x1 x2 = z1 z2 z3)
 ```
-
-```{r, include=FALSE}
-detach(package:Statamarkdown)
-```

@@ -51,7 +51,3 @@ Bootstrap standard errors.
 ```{stata}
 bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly
 ```
-
-```{r, include=FALSE}
-detach(package:Statamarkdown)
-```
