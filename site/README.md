@@ -20,4 +20,4 @@ To build the website, either open this directory as an RStudio project and then 
 rmarkdown::render_site(encoding = 'UTF-8')
 ```
 
-* Note: if the **Statamarkdown** package is not detached at the end of each `.Rmd` file `render_site()` fails (I don't know why).
+* Note: in `_site.yml` the `new_session: true` is important, if removed the **Statamarkdown** package must be detached at the end of each `.Rmd` file with `detach(package:Statamarkdown)` (i.e., in an R code chunk with `include=FALSE`). Otherwise the site build fails.
