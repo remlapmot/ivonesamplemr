@@ -274,6 +274,42 @@ $(document).ready(function () {
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Helpfiles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ivonesamplemr-helpfile.html">ivonesamplemr</a>
+    </li>
+    <li>
+      <a href="ivasmm-helpfile.html">ivasmm</a>
+    </li>
+    <li>
+      <a href="ivlsmm-helpfile.html">ivlsmm</a>
+    </li>
+    <li>
+      <a href="ivmsmm-helpfile.html">ivmsmm</a>
+    </li>
+    <li>
+      <a href="ivmw-helpfile.html">ivmw</a>
+    </li>
+    <li>
+      <a href="ivtsps-helpfile.html">ivtsps</a>
+    </li>
+    <li>
+      <a href="ivtsri-helpfile.html">ivtsri</a>
+    </li>
+    <li>
+      <a href="ivxtile-helpfile.html">ivxtile</a>
+    </li>
+    <li>
+      <a href="iv-helpfile.html">iv</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="about.html">About</a>
 </li>
@@ -300,7 +336,7 @@ variables (genotypes).</p>
 <pre class="stata"><code>use ivbinoutdata, clear</code></pre>
 <p>Fit the model with a single instrumental variable.</p>
 <pre class="stata"><code>ivmsmm y (x = z1)</code></pre>
-<pre><code>Final GMM criterion Q(b) =  4.62e-34
+<pre><code>Final GMM criterion Q(b) =  4.80e-34
 
 note: model is exactly identified.
 
@@ -414,7 +450,8 @@ y            |
 -------------+----------------------------------------------------------------
 y            |
            x |   1.455861   .0554883     9.85   0.000     1.351069    1.568781
-       _cons |   .2014477   .0196368   -16.44   0.000     .1664136    .2438574
+
+      _cons |   .2014477   .0196368   -16.44   0.000     .1664136    .2438574
 ------------------------------------------------------------------------------</code></pre>
 <pre class="stata"><code>ivpois y w, endog(x) exog(z1 z2 z3) eform(RR)</code></pre>
 <pre><code>           y |         RR   Std. err.      z    P&gt;|z|     [95% conf. interval]

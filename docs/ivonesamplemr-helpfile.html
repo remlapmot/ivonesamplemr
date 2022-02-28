@@ -11,7 +11,7 @@
 
 
 
-<title>ivonesamplemr</title>
+<title>ivonesamplemr-helpfile</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -329,73 +329,8 @@ $(document).ready(function () {
 </div>
 
 
-<div id="ivonesamplemr-stata-package" class="section level1">
-<h1>ivonesamplemr Stata package</h1>
-<p>One-sample Mendelian randomization (MR) / instrumental variable (IV)
-analyses in Stata.</p>
-<ul>
-<li><a href="#latest-updates">Latest updates</a></li>
-<li><a href="#description">Description</a></li>
-<li><a href="#installation">Installation</a></li>
-</ul>
-<div id="latest-updates" class="section level2">
-<h2>Latest updates</h2>
-<ul>
-<li>February 2022:
-<ul>
-<li>Ran cscripts under Stata 17.0</li>
-<li><strong>ivonesamplemr</strong> now has a website <a
-href="https://remlapmot.github.io/ivonesamplemr/"
-class="uri">https://remlapmot.github.io/ivonesamplemr/</a></li>
-</ul></li>
-</ul>
-</div>
-<div id="description" class="section level2">
-<h2>Description</h2>
-<p>The package includes implementations of:</p>
-<ul>
-<li>additive structural mean model: see <code>help ivasmm</code></li>
-<li>logistic structural mean model: see <code>help ivlsmm</code></li>
-<li>multiplicative structural mean model: see
-<code>help ivmsmm</code></li>
-<li>two-stage predictor substitution estimators: see
-<code>ivtsps</code></li>
-<li>two-stage residual inclusion estimators: see
-<code>help ivtsri</code></li>
-<li>moving window (a.k.a. sliding/rolling window) versions of these
-estimators: see <code>help ivmw</code></li>
-<li>performing estimation within quantiles of the first stage residuals:
-see <code>help ivxtile</code></li>
-</ul>
-<p>The <code>ivtsps</code> and <code>ivtsri</code> commands implement
-the following link functions for the second stage model:</p>
-<ul>
-<li>identity (i.e. linear regression) - for a binary outcome this
-estimates a causal risk difference</li>
-<li>logadd (log additive, i.e. Poisson/log-binomial regression) and
-logmult (log multiplicative, i.e. gamma regression) - for a binary
-outcome these estimate a causal risk ratio</li>
-<li>logit (i.e. logistic regression) - for a binary outcome this
-estimates a causal odds ratio</li>
-</ul>
-</div>
-<div id="installation" class="section level2">
-<h2>Installation</h2>
-<p>Install the ivonesamplemr package within Stata using</p>
-<pre class="stata"><code>net install github, from(&quot;https://haghish.github.io/github/&quot;)
-github install remlapmot/ivonesamplemr</code></pre>
-<p>Or use the following code</p>
-<pre class="stata"><code>net install ivonesamplemr, from(&quot;https://raw.github.com/remlapmot/ivonesamplemr/main/&quot;) replace
-do &quot;https://raw.github.com/remlapmot/ivonesamplemr/main/dependency.do&quot;</code></pre>
-<p>Launch the main package helpfile with</p>
-<pre class="stata"><code>help ivonesamplemr</code></pre>
-<p>To check for an update to the package run within Stata</p>
-<pre class="stata"><code>adoupdate ivonesamplemr, update</code></pre>
-<p>Uninstall the package within Stata using</p>
-<pre class="stata"><code>ado uninstall ivonesamplemr</code></pre>
-<!-- For generating the html versions of the helpfiles -->
-</div>
-</div>
+<iframe src="./helpfiles/ivonesamplemr.html" width="100%" style="height: 100em; border: none">
+</iframe>
 
 
 

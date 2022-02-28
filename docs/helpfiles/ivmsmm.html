@@ -1,0 +1,137 @@
+
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css">
+BODY{background-color: ffffff;
+    font-family: monaco, "courier new", monospace;
+     color: #000000}
+.input, .result, .error{font-weight: bold}
+.input {color: #CC6600}
+.result{color: #000099}
+.error{color: #dd0000}
+</style>
+</head>
+<body>
+<pre>
+<span class=result><u>Title</u></span>
+<br><br>
+     <span class=result>ivmsmm</span> -- Multiplicative structural mean model
+<br><br>
+<a name="syntax"></a><span class=result><u>Syntax</u></span>
+<br><br>
+        <span class=result>ivmsmm</span> <i>depvar</i> [<i>varlist1</i>] <span class=result>(</span><i>varlist2</i> <span class=result>=</span> <i>varlist_iv</i><span class=result>)</span> [<i>if</i>] [<i>in</i>] [<i>weight</i>] [<span class=result>,</span> <i>log</i> <i>noirr</i>
+              <i>ivpoisson_options</i>]
+<br><br>
+    <i>varlist1</i> is the list of exogenous variables.
+<br><br>
+    <i>varlist2</i> is the list of endogenous variables.
+<br><br>
+    <i>varlist_iv</i> is the list of exogenous variables used with <i>varlist1</i> as instruments for <i>varlist2</i>.
+<br><br>
+    <i>options</i>               Description
+    ----------------------------------------------------------------------------------------------
+      <span class=result>noirr</span>               Do not display exponentiated estimates
+      <span class=result>log</span>                 Show the GMM iteration log
+      <span class=result>ivpoisson_options</span>   ivpoisson##optionstbl
+<br><br>
+<a name="description"></a><span class=result><u>Description</u></span>
+<br><br>
+    <span class=result>ivmsmm</span> implements the multiplicative structural mean model (MSMM) of Robins (1989) as a
+    wrapper to ivpoisson with the <span class=result>multiplicative</span> option.  <span class=result>ivpoisson</span> performs generalized method of
+    moments (GMM) estimation of the relevant moment condition using gmm.
+<br><br>
+    The equivalence of the models of Robins (1989) and Mullahy (1997), which was implemented in 
+    ivpois, Nichols (2007) and ivpoisson with the <span class=result>mult</span> option, and discussed in detail by
+    Windmeijer and Santos Silva (1997) and Windmeijer (2002), was shown by Palmer (2011). These
+    models produce moment conditions equivalent to gamma regression Dukes and Vansteelandt (2018).
+<br><br>
+<a name="options"></a><span class=result><u>Options</u></span>
+<br><br>
+    Please see ivpoisson##options
+<br><br>
+<a name="examples"></a><span class=result><u>Examples</u></span>
+<br><br>
+    Read in binary outcome data; y outcome, x exposure, w covariate, z* instrumental variables
+    (genotypes).
+<br><br>
+        <span class=result>.</span> use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear
+<br><br>
+    Fit the model with a single instrumental variable.
+<br><br>
+        <span class=result>.</span> ivmsmm y (x = z1)
+<br><br>
+    Fit the model with multiple instruments.
+<br><br>
+        <span class=result>.</span> ivmsmm y (x = z1 z2 z3)
+        <span class=result>.</span> estat overid
+<br><br>
+    Adjusting for w.
+<br><br>
+        <span class=result>.</span> ivmsmm y w (x = z1 z2 z3)
+<br><br>
+    Fit the model with multiple exposures, and instruments, and adjusting for w.
+<br><br>
+        <span class=result>.</span> ivmsmm y w (x1 x2 = z1 z2 z3)
+        <span class=result>.</span> estat overid
+<br><br>
+    Comparison with <span class=result>ivpois</span> (specify <span class=result>onestep</span> option to <span class=result>ivmsmm</span>/<span class=result>ivpoisson</span> for equivalence).
+<br><br>
+        <span class=result>.</span> ivpois y, endog(x) exog(z1) eform(RR)
+        <span class=result>.</span> ivpois y, endog(x) exog(z1 z2 z3) eform(RR)
+        <span class=result>.</span> ivpois y w, endog(x) exog(z1 z2 z3) eform(RR)
+        <span class=result>.</span> ivpois y w, endog(x1 x2) exog(z1 z2 z3) eform(RR)
+<br><br>
+<a name="results"></a><span class=result><u>Stored results</u></span>
+<br><br>
+    Please see ivpoisson##results
+<br><br>
+<a name="references"></a><span class=result><u>References</u></span>
+<br><br>
+<a name="cameron"></a>    Cameron AC, Trivedi PK. Regression analysis of count data. 2nd ed. 2013. New York, Cambridge
+        University Press.
+<br><br>
+<a name="clarke"></a>    Clarke PS, Palmer TM, Windmeijer F.  Estimating structural mean models with multiple
+        instrumental variables using the Generalised Method of Moments.  Statistical Science,
+        2015, 30, 1, 96-117.  DOI
+<br><br>
+<a name="dukes"></a>    Dukes O, Vansteelandt S.  A note on G-estimation of causal risk ratios.  American Journal of
+        Epidemiology, 2018, 187, 5, 1079-1084.  DOI
+<br><br>
+<a name="hernan"></a>    Hernán and Robins. Instruments for causal inference: An Epidemiologist's dream?  Epidemiology,
+        2006, 17, 360-372.  DOI
+<br><br>
+<a name="mullahy"></a>    Mullahy J. Instrumental-variable estimation of count data models:  applications to models of
+        cigarette smoking and behavior.  The Review of Economics and Statistics. 1997, 79, 4,
+        586-593.  DOI
+<br><br>
+<a name="nichols"></a>    Nichols A. ivpois: Stata module for IV/GMM Poisson regression. 2007.  URL
+<br><br>
+<a name="palmer-2011"></a>    Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell R, Davey Smith G,
+        Didelez V.  Instrumental variable estimation of causal risk ratios and causal odds ratios
+        in Mendelian randomization analyses.  American Journal of Epidemiology, 2011, 173, 12,
+        1392-1403.  DOI
+<br><br>
+<a name="robins"></a>    Robins JM.  The analysis of randomised and nonrandomised AIDS treatment trials using a new
+        approach to causal inference in longitudinal studies.  In Health Service Research
+        Methodology: A Focus on AIDS (L. Sechrest, H. Freeman and A. Mulley, eds.).  1989.
+        113–159. US Public Health Service, National Center for Health Services Research,
+        Washington, DC.
+<br><br>
+<a name="manivpoisson"></a>    StataCorp. Stata Base Reference Manual. Release 13.  ivpoisson - Poisson model with continuous
+        endogenous covariates. 2013.  URL
+<br><br>
+<a name="windmeijer-1"></a>    Windmeijer FAG, Santos Silva JMC. Endogeneity in Count Data Models:  An Application to Demand
+        for Health Care.  Journal of Applied Econometrics. 1997, 12, 3, 281-294.  DOI
+<br><br>
+<a name="windmeijer-2"></a>    Windmeijer, F.  ExpEnd, A Gauss programme for non-linear GMM estimation of EXPonential models
+        with ENDogenous regressors for cross section and panel data.  CEMMAP working paper
+        CWP14/02. 2002.  URL
+<br><br>
+<a name="author"></a><span class=result><u>Author</u></span>
+<br><br>
+INCLUDE help ivonesamplemr-author
+</pre>
+</body>
+</html>

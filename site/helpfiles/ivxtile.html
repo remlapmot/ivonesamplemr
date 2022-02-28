@@ -1,0 +1,97 @@
+
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css">
+BODY{background-color: ffffff;
+    font-family: monaco, "courier new", monospace;
+     color: #000000}
+.input, .result, .error{font-weight: bold}
+.input {color: #CC6600}
+.result{color: #000099}
+.error{color: #dd0000}
+</style>
+</head>
+<body>
+<pre>
+<span class=result><u>Title</u></span>
+<br><br>
+     <span class=result>ivxtile</span> -- Perorm estimation within quantiles of the first stage residuals prefix command
+<br><br>
+<a name="syntax"></a><span class=result><u>Syntax</u></span>
+<br><br>
+        <span class=result>ivxtile</span> <span class=result>,</span> <span class=result>par(</span><i>string</i><span class=result>)</span> [<span class=result><u>sa</u></span><span class=result>ving(</span><i>filename </i>[<span class=result>,</span><i> replace</i>]<span class=result>)</span> <span class=result>xtile_options</span>]<span class=result>:</span> <i>iv_cmd</i>
+<br><br>
+    <i>options</i>                         Description
+    ----------------------------------------------------------------------------------------------
+      <span class=result>par(</span><i>string</i><span class=result>)</span>                   Parameter from the <i>iv_cmd</i> (ivreg2, ivmsmm, ivlsmm, ivtsps,
+                                      ivtsri) to collect
+      <span class=result><u>sa</u></span><span class=result>ving(</span><i>filename </i>[<span class=result>,</span><i> replace</i>]<span class=result>)</span>  Save the within quantile estimation results to a dataset.
+                                      Specify <span class=result>replace</span> to overwrite an existing dataset
+      <span class=result>trace</span>                         View the output from the <span class=result>iv_cmd</span> in each quantile
+      <span class=result>xtile_options</span>                 xtile##options
+<br><br>
+<a name="description"></a><span class=result><u>Description</u></span>
+<br><br>
+    <span class=result>ivxtile</span> implements the command specified after the prefix within quantiles of the first stage
+    residuals, as per Burgess et al., 2014.
+<br><br>
+<a name="options"></a><span class=result><u>Options</u></span>
+<br><br>
+    Please see xtile##options
+<br><br>
+<a name="examples"></a><span class=result><u>Examples</u></span>
+<br><br>
+    Simulate data with different outcome-exposure relationships; y# outcome, x exposure, g
+    instrumental variable (genotype).
+<br><br>
+        <span class=result>.</span> use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivmwdata, clear
+<br><br>
+    Plot outcome-exposure relationships
+<br><br>
+        <span class=result>.</span> twoway line y1 x, sort(x)
+        <span class=result>.</span> twoway line y2 y3 y4 x, sort(x)
+        <span class=result>.</span> twoway line y5 x, sort(x)
+<br><br>
+    Use with different iv commands.
+<br><br>
+        <span class=result>.</span> ivxtile, nq(5) par(x): ivregress 2sls y2 (x = g)
+        <span class=result>.</span> ivxtile, nq(10) par(b1): ivtsps y2 (x = g)
+<br><br>
+    Some binary outcome examples.
+<br><br>
+        <span class=result>.</span> use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear
+<br><br>
+        <span class=result>.</span> ivxtile, nq(5) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+        <span class=result>.</span> ivxtile, nq(5) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
+        <span class=result>.</span> ivxtile, nq(5) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
+        <span class=result>.</span> ivxtile, nq(5) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+        <span class=result>.</span> ivxtile, nq(5) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
+        <span class=result>.</span> ivxtile, nq(5) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
+        <span class=result>.</span> ivxtile, nq(5) par(x): ivlsmm y (x = z1 z2 z3)
+        <span class=result>.</span> ivxtile, nq(5) par(x): ivmsmm y (x = z1 z2 z3)
+<br><br>
+    Save the dataset of results.
+<br><br>
+        <span class=result>.</span> ivxtile, nq(10) par(x) saving(ivxtileres): ivreg2 y2 (x = g)
+<br><br>
+<a name="results"></a><span class=result><u>Stored results</u></span>
+<br><br>
+    <span class=result>ivxtile</span> does not store results in either e() or r() but does save the results dataset if the
+    <span class=result>saving()</span> option is specified.
+<br><br>
+<a name="references"></a><span class=result><u>References</u></span>
+<br><br>
+<a name="burgess"></a>    Burgess S, Davies N, Thompson SG, EPIC-InterAct Consortium.  Instrumental variable analysis
+        with a nonlinear exposure-outcome relationship.  Epidemiology, 2014, 25, 6, 877-885.  DOI
+<br><br>
+<a name="manxtile"></a>    StataCorp. Stata Base Reference Manual. Release 16.  pctile - Creating variable containing
+        percentiles. 2016.  URL
+<br><br>
+<a name="author"></a><span class=result><u>Author</u></span>
+<br><br>
+INCLUDE help ivonesamplemr-author
+</pre>
+</body>
+</html>

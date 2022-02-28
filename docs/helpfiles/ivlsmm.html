@@ -1,0 +1,106 @@
+
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css">
+BODY{background-color: ffffff;
+    font-family: monaco, "courier new", monospace;
+     color: #000000}
+.input, .result, .error{font-weight: bold}
+.input {color: #CC6600}
+.result{color: #000099}
+.error{color: #dd0000}
+</style>
+</head>
+<body>
+<pre>
+<span class=result><u>Title</u></span>
+<br><br>
+     <span class=result>ivlsmm</span> -- (double) Logistic structural mean model
+<br><br>
+<a name="syntax"></a><span class=result><u>Syntax</u></span>
+<br><br>
+        <span class=result>ivlsmm</span> <i>depvar</i> [<i>varlist1</i>] <span class=result>(</span><i>varlist2</i> <span class=result>=</span> <i>varlist_iv</i><span class=result>)</span> [<i>if</i>] [<i>in</i>] [<i>weight</i>] [<span class=result>,</span> <i>options</i>]
+<br><br>
+    <i>varlist1</i> is the list of exogenous variables.
+<br><br>
+    <i>varlist2</i> is the list of endogenous variables.
+<br><br>
+    <i>varlist_iv</i> is the list of exogenous variables used with <i>varlist1</i> as instruments for <i>varlist2</i>.
+<br><br>
+    <i>options</i>               Description
+    ----------------------------------------------------------------------------------------------
+      <span class=result><u>am</u></span><span class=result>xb(</span><i>lc</i><span class=result>:</span><i>varlist</i><span class=result>)</span>    The linear predictor for the association model, by default the
+                            instruments and exogenous variables are included
+      <span class=result>from(</span><i>matrix</i><span class=result>)</span>        initial values for the parameter estimates for both association and
+                            causal models
+      <span class=result><u>l</u></span><span class=result>evel(</span><i>#</i><span class=result>)</span>            set confidence level; default is <span class=result>level(95)</span>
+      <span class=result>gmm_options</span>         Options passed to gmm
+<br><br>
+<a name="description"></a><span class=result><u>Description</u></span>
+<br><br>
+    <span class=result>ivlsmm</span> implements the double logistic structural mean model (LSMM) of Vansteelandt and
+    Goetghebeur (2003) which is a generalisation of the LSMM of Robins (1989).
+<br><br>
+    <span class=result>ivlsmm</span> is implemented using a call to gmm.
+<br><br>
+<a name="options"></a><span class=result><u>Options</u></span>
+<br><br>
+    <span class=result>level(</span><i>#</i><span class=result>)</span>; see <span class=result>[R] estimation options</span>.
+<br><br>
+<a name="examples"></a><span class=result><u>Examples</u></span>
+<br><br>
+    Read in binary outcome data; y outcome, x exposure, w covariate, z* instrumental variables
+    (genotypes).
+<br><br>
+        <span class=result>.</span> use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear
+<br><br>
+    Fit the model with a single instrumental variable.
+<br><br>
+        <span class=result>.</span> ivlsmm y (x = z1)
+<br><br>
+    Fit the model with multiple instruments.
+<br><br>
+        <span class=result>.</span> ivlsmm y (x = z1 z2 z3)
+<br><br>
+    Fit the model with multiple exposures, and instruments, and adjusting for w.
+<br><br>
+        <span class=result>.</span> ivlsmm y w (x1 x2 = z1 z2 z3)
+<br><br>
+<a name="results"></a><span class=result><u>Stored results</u></span>
+<br><br>
+    To see the results <span class=result>ivlsmm</span> stores in <span class=result>e()</span> issue <span class=result>ereturn list</span> after running the command.
+<br><br>
+    <span class=result>ivlsmm</span> stores the following in <span class=result>r()</span>:
+<br><br>
+    Matrices       
+      <span class=result>r(table)</span>            Coefficient table with rownames: b, se, z, pvalue, ll, ul, df, crit,
+                            eform
+<br><br>
+<a name="references"></a><span class=result><u>References</u></span>
+<br><br>
+<a name="clarke"></a>    Clarke PS, Palmer TM, Windmeijer F.  Estimating structural mean models with multiple
+        instrumental variables using the Generalised Method of Moments.  Statistical Science,
+        2015, 30, 1, 96-117.  DOI
+<br><br>
+<a name="palmer-2011"></a>    Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell R, Davey Smith G,
+        Didelez V.  Instrumental variable estimation of causal risk ratios and causal odds ratios
+        in Mendelian randomization analyses.  American Journal of Epidemiology, 2011, 173, 12,
+        1392-1403.  DOI
+<br><br>
+<a name="robins"></a>    Robins JM.  The analysis of randomised and nonrandomised AIDS treatment trials using a new
+        approach to causal inference in longitudinal studies.  In Health Service Research
+        Methodology: A Focus on AIDS (L. Sechrest, H. Freeman and A. Mulley, eds.).  1989.
+        113–159. US Public Health Service, National Center for Health Services Research,
+        Washington, DC.
+<br><br>
+<a name="vansteelandt"></a>    Vansteelandt S, Goetghebeur E.  Causal inference with generalized structural mean models.
+        Journal of the Royal Statistical Society (Series B).  2003, 65, 4, 817-835.  DOI
+<br><br>
+<a name="author"></a><span class=result><u>Author</u></span>
+<br><br>
+INCLUDE help ivonesamplemr-author
+</pre>
+</body>
+</html>

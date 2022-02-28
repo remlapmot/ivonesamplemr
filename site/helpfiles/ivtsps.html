@@ -1,0 +1,117 @@
+
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css">
+BODY{background-color: ffffff;
+    font-family: monaco, "courier new", monospace;
+     color: #000000}
+.input, .result, .error{font-weight: bold}
+.input {color: #CC6600}
+.result{color: #000099}
+.error{color: #dd0000}
+</style>
+</head>
+<body>
+<pre>
+<span class=result><u>Title</u></span>
+<br><br>
+     <span class=result>ivtsps</span> -- Two-stage predictor substitution estimators
+<br><br>
+<a name="syntax"></a><span class=result><u>Syntax</u></span>
+<br><br>
+        <span class=result>ivtsps</span> <i>depvar</i> [<i>varlist1</i>] <span class=result>(</span><i>varlist2</i> <span class=result>=</span> <i>varlist_iv</i><span class=result>)</span> [<i>if</i>] [<i>in</i>] [<i>weight</i>] [<span class=result>,</span> <i>link(string)</i> <i>log</i>
+              <i>noirr</i> <i>gmm_options</i>]
+<br><br>
+    <i>varlist1</i> is the list of exogenous variables.
+<br><br>
+    <i>varlist2</i> is the list of endogenous variables.
+<br><br>
+    <i>varlist_iv</i> is the list of exogenous variables used with <i>varlist1</i> as instruments for <i>varlist2</i>.
+<br><br>
+    <i>options</i>               Description
+    ----------------------------------------------------------------------------------------------
+      <span class=result>noirr</span>               Do not display exponentiated estimates
+      <span class=result>link(</span><i>string</i><span class=result>)</span>        Link function for the second stage model (identity | logadd | logmult |
+                            logit)
+      <span class=result>log</span>                 Show the GMM iteration log
+      <span class=result>gmm_options</span>         gmm##options
+<br><br>
+<a name="description"></a><span class=result><u>Description</u></span>
+<br><br>
+    <span class=result>ivtsps</span> implements two-stage predictor substitution (TSPS) estimators with several link
+    functions for the second stage model (identity, log-additive, log-multiplicative, logit).  It
+    is implemented using generalized method of moments (GMM) estimation by passing the relevant
+    moment condition to the gmm command.
+<br><br>
+<a name="options"></a><span class=result><u>Options</u></span>
+<br><br>
+    <span class=result>link(</span><i>identity </i>|<i> logadd </i>|<i> logmult </i>|<i> logit</i><span class=result>)</span> specifies the link function for the second stage
+        model.  <span class=result>identity</span> means the second stage model is a linear regression (which for a binary
+        outcome estimates a causal risk difference).  <span class=result>logadd</span> means the second stage model is a
+        Poisson/log-binomial regression (which for a binary outcome estimates a causal risk
+        ratio).  <span class=result>logmult</span> means the second stage model is a gamma regression (which for a binary
+        outcome estimates a causal risk ratio, Dukes and Vansteelandt, 2018).  <span class=result>logit</span> means the
+        second stage model is a logistic regression (which for a binary outcome estimates a causal
+        odds ratio).
+<br><br>
+    Please see gmm##options
+<br><br>
+<a name="examples"></a><span class=result><u>Examples</u></span>
+<br><br>
+    Read in binary outcome data; y outcome, x exposure, w covariate, z* instrumental variables
+    (genotypes).
+<br><br>
+        <span class=result>.</span> use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear
+<br><br>
+    Fit the model with a single instrumental variable.
+<br><br>
+        <span class=result>.</span> ivtsps y (x = z1)
+<br><br>
+    Fit the model with multiple instruments.
+<br><br>
+        <span class=result>.</span> ivtsps y (x = z1 z2 z3)
+<br><br>
+    Fit the model with multiple instruments, and adjusting for w.
+<br><br>
+        <span class=result>.</span> ivtsps y w (x = z1 z2 z3)
+<br><br>
+    Using the log additive link function.
+<br><br>
+        <span class=result>.</span> ivtsps y (x = z1 z2 z3), link(logadd)
+<br><br>
+    Using the log multiplicative link function.
+<br><br>
+        <span class=result>.</span> ivtsps y (x = z1 z2 z3), link(logmult)
+<br><br>
+    Using the logit link function.
+<br><br>
+        <span class=result>.</span> ivtsps y (x = z1 z2 z3), link(logit)
+<br><br>
+    Bootstrap standard errors.
+        <span class=result>.</span> bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly
+<br><br>
+<a name="results"></a><span class=result><u>Stored results</u></span>
+<br><br>
+    Please see gmm##results
+<br><br>
+<a name="references"></a><span class=result><u>References</u></span>
+<br><br>
+<a name="dukes"></a>    Dukes O, Vansteelandt S.  A note on G-estimation of causal risk ratios.  American Journal of
+        Epidemiology, 2018, 187, 5, 1079-1084.  DOI
+<br><br>
+<a name="palmer-2011"></a>    Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell R, Davey Smith G,
+        Didelez V.  Instrumental variable estimation of causal risk ratios and causal odds ratios
+        in Mendelian randomization analyses.  American Journal of Epidemiology, 2011, 173, 12,
+        1392-1403.  DOI
+<br><br>
+<a name="terza"></a>    Terza JV, Basu A, Rathouz PJ. 2008.  Two-stage residual inclusion estimation:  Addressing
+        endogeneity in health econometric modeling.  Journal of Health Economics 27: 531–543.  DOI
+<br><br>
+<a name="author"></a><span class=result><u>Author</u></span>
+<br><br>
+INCLUDE help ivonesamplemr-author
+</pre>
+</body>
+</html>

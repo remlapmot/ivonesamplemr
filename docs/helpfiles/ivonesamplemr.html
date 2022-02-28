@@ -1,0 +1,68 @@
+
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css">
+BODY{background-color: ffffff;
+    font-family: monaco, "courier new", monospace;
+     color: #000000}
+.input, .result, .error{font-weight: bold}
+.input {color: #CC6600}
+.result{color: #000099}
+.error{color: #dd0000}
+</style>
+</head>
+<body>
+<pre>
+<span class=result><u>Title</u></span>
+<br><br>
+    <span class=result>ivonesamplemr</span> -- commands for one-sample Mendelian randomization (MR) / instrumental variable
+        (IV) analyses.
+<br><br>
+    https://github.com/remlapmot/ivonesamplemr#readme
+<br><br>
+<a name="commands"></a><span class=result><u>Commands</u></span>
+<br><br>
+      ivasmm        Is simply a helpfile linking to ivregress and ivreg2, which as linear IV
+                      estimators fit the additive structural mean model (ASMM), i.e. estimate a
+                      causal risk difference for a binary outcome.
+<br><br>
+      ivlsmm        Fits the (double) logistic structural mean model (LSMM), i.e. estimates a
+                      causal odds ratio for a binary outcome.
+<br><br>
+      ivmsmm        Fits the multiplicative structural mean model (MSMM), i.e. estimates a causal
+                      risk ratio for a binary outcome.
+<br><br>
+      ivmw          Prefix command which specifies the moving window be applied to the command
+                      after the prefix, e.g. <span class=result>ivmw, window(100): ivmsmm ...</span>.
+<br><br>
+      ivtsps        Fits two-stage predictor substitution (TSPS) estimators.
+<br><br>
+      ivtsri        Fits two-stage residual inclusion (TSRI) estimators.
+<br><br>
+      ivxtile       Prefix command which performs estimation within quantiles of the first stage
+                      residuals.
+<br><br>
+      iv            Allows the use of the <span class=result>iv</span> prefix, hence <span class=result>ivlsmm</span> can instead be called as <span class=result>iv lsmm</span>
+                      <span class=result>...</span>.
+<br><br>
+<a name="description"></a><span class=result><u>Description</u></span>
+<br><br>
+    <span class=result>ivonesamplemr</span> is a suite of programs implementing various instrumental variable (IV)
+    estimators for individual level (a.k.a. one-sample) data. These are useful for Mendelian
+    randomization (MR) analyses.
+<br><br>
+<a name="references"></a><span class=result><u>References</u></span>
+<br><br>
+<a name="palmer-2011"></a>    Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell R, Davey Smith G,
+        Didelez V.  Instrumental variable estimation of causal risk ratios and causal odds ratios
+        in Mendelian randomization analyses.  American Journal of Epidemiology, 2011, 173, 12,
+        1392-1403.  DOI
+<br><br>
+<a name="author"></a><span class=result><u>Author</u></span>
+<br><br>
+INCLUDE help ivonesamplemr-author
+</pre>
+</body>
+</html>

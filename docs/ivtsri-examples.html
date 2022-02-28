@@ -274,6 +274,42 @@ $(document).ready(function () {
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Helpfiles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ivonesamplemr-helpfile.html">ivonesamplemr</a>
+    </li>
+    <li>
+      <a href="ivasmm-helpfile.html">ivasmm</a>
+    </li>
+    <li>
+      <a href="ivlsmm-helpfile.html">ivlsmm</a>
+    </li>
+    <li>
+      <a href="ivmsmm-helpfile.html">ivmsmm</a>
+    </li>
+    <li>
+      <a href="ivmw-helpfile.html">ivmw</a>
+    </li>
+    <li>
+      <a href="ivtsps-helpfile.html">ivtsps</a>
+    </li>
+    <li>
+      <a href="ivtsri-helpfile.html">ivtsri</a>
+    </li>
+    <li>
+      <a href="ivxtile-helpfile.html">ivxtile</a>
+    </li>
+    <li>
+      <a href="iv-helpfile.html">iv</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="about.html">About</a>
 </li>
@@ -408,10 +444,8 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 -------------+----------------------------------------------------------------
     /s1xb_z1 |   .9882395   .0505573    19.55   0.000     .8891491     1.08733
     /s1xb_z2 |   .9152859   .0431149    21.23   0.000     .8307823    .9997895
-    /s1xb_z3 |    .954388   .0404106    23.62   0.000     .8751847    1.033591
      /s1xb_w |   .9801363    .027334    35.86   0.000     .9265627     1.03371
          /a0 |   .0734396   .0541988     1.36   0.175    -.0327882    .1796673
-         /b1 |    .129698    .006901    18.79   0.000     .1161722    .1432237
          /b2 |   .0404658    .008937     4.53   0.000     .0229495    .0579821
  /s2exogxb_w |   .0638726   .0103505     6.17   0.000     .0435859    .0841593
          /b0 |   .3041477   .0145428    20.91   0.000     .2756443    .3326511
@@ -486,7 +520,7 @@ Causal risk ratio for: b2
 ------------------------------------------------------------------------------</code></pre>
 <p>Using the log multiplicative link function.</p>
 <pre class="stata"><code>ivtsri y (x = z1 z2 z3), link(logmult)</code></pre>
-<pre><code>Final GMM criterion Q(b) =  2.62e-32
+<pre><code>Final GMM criterion Q(b) =  6.20e-32
 
 note: model is exactly identified.
 
@@ -532,7 +566,7 @@ Causal risk ratio for: b2
 ------------------------------------------------------------------------------</code></pre>
 <p>Using the logit link function.</p>
 <pre class="stata"><code>ivtsri y (x = z1 z2 z3), link(logit)</code></pre>
-<pre><code>Final GMM criterion Q(b) =  6.74e-33
+<pre><code>Final GMM criterion Q(b) =  6.75e-33
 
 note: model is exactly identified.
 
