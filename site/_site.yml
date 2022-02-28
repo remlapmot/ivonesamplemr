@@ -22,6 +22,26 @@ navbar:
         href: ivtsri-examples.html
       - text: "ivxtile"
         href: ivxtile-examples.html
+    - text: "Helpfiles"
+      menu:
+      - text: "ivonesamplemr"
+        href: ivonesamplemr-helpfile.html
+      - text: "ivasmm"
+        href: ivasmm-helpfile.html
+      - text: "ivlsmm"
+        href: ivlsmm-helpfile.html
+      - text: "ivmsmm"
+        href: ivmsmm-helpfile.html
+      - text: "ivmw"
+        href: ivmw-helpfile.html
+      - text: "ivtsps"
+        href: ivtsps-helpfile.html
+      - text: "ivtsri"
+        href: ivtsri-helpfile.html
+      - text: "ivxtile"
+        href: ivxtile-helpfile.html
+      - text: "iv"
+        href: iv-helpfile.html
     - text: "About"
       href: about.html
 new_session: true
