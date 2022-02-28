@@ -1,0 +1,24 @@
+---
+pagetitle: Helpfiles
+---
+
+<!-- Note to self: this file needs to have a name such that it is run before the iv*.Rmd files -->
+<!-- i.e., starting with h is fine. -->
+
+```{r, include=FALSE}
+if (file.exists('profile.do')) file.remove('profile.do')
+library(Statamarkdown)
+```
+
+```{stata, include=FALSE}
+* ssc install log2html
+local helpfiles ivonesamplemr ivasmm ivlsmm ivmsmm ivmw ivtsps ivtsri ivxtile iv
+foreach file in `helpfiles' {
+	di _n "`file'"
+	copy ../`file'.sthlp ./helpfiles/`file'.smcl, replace
+	cap noi log2html ./helpfiles/`file', bold replace linesize(100)
+	if _rc != 0 di as err "Conversersion of `file'.smcl failed"
+	if c(os) != "Windows" rm ./helpfiles/`file'.smcl
+  else erase ./helpfiles/`file'.smcl
+}
+```
