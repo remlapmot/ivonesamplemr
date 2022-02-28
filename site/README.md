@@ -13,6 +13,7 @@ if (!requireNamespace("rmarkdown")) install.packages("rmarkdown")
 To install the Stata dependencies run in Stata
 ```stata
 do ../dependency.do
+do developer.do
 ```
 
 To build the website, either open this directory as an RStudio project and then in the *Build* pane click *Build Website*, or run in R
