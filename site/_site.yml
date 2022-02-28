@@ -1,5 +1,6 @@
 name: "ivonesamplemr"
 output_dir: ../docs
+exclude: ["developer.do"]
 navbar:
   title: "ivonesamplemr"
   left:
