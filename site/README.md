@@ -3,10 +3,7 @@
 Install the R dependencies with
 
 ```r
-if (!requireNamespace("Statamarkdown")) {
-  if (!requireNamespace("remotes")) install.packages("remotes")
-  remotes::install_github("Hemken/Statamarkdown")
-}
+if (!requireNamespace("Statamarkdown")) install.packages("Statamarkdown")
 if (!requireNamespace("rmarkdown")) install.packages("rmarkdown")
 ```
 
