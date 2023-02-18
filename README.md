@@ -8,6 +8,8 @@ One-sample Mendelian randomization (MR) / instrumental variable (IV) analyses in
 
 ## Latest updates
 
+* February 2023:
+  - Updated the R Markdown code generating the website to use CRAN version of the [**Statamarkdown**](https://cran.r-project.org/package=Statamarkdown) package
 * November 2022:
   - For an example Mendelian randomization analysis using **ivonesamplemr** please see Madley-Dowd et al., Maternal vitamin D during pregnancy and offspring autism and autism-associated traits: a prospective cohort study, Molecular Autism, 2022, [here](https://doi.org/10.1186/s13229-022-00523-4)
 * February 2022:
