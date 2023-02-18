@@ -36,7 +36,7 @@ The `ivtsps` and `ivtsri` commands implement the following link functions for th
 
 ## Installation
 
-Install the ivonesamplemr package within Stata using
+Install the **ivonesamplemr** package within Stata using
 ``` stata
 net install github, from("https://haghish.github.io/github/")
 github install remlapmot/ivonesamplemr
