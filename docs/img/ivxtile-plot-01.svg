@@ -41,10 +41,10 @@
 	<line x1="3795.66" y1="2233.63" x2="3795.66" y2="2273.73" style="stroke:#000000;stroke-width:5.76"/>
 	<text x="3795.66" y="2363.59" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">3</text>
 	<text x="2124.91" y="2473.60" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">Median of exposure in quantile</text>
-	<rect x="729.26" y="2558.24" width="2791.43" height="186.37" style="fill:#FFFFFF"/>
-	<rect x="732.14" y="2561.12" width="2785.67" height="180.61" style="fill:none;stroke:#000000;stroke-width:5.76"/>
-	<line x1="772.45" y1="2651.43" x2="1146.79" y2="2651.43" style="stroke:#000000;stroke-width:12.96"/>
-	<line x1="2430.45" y1="2651.43" x2="2804.79" y2="2651.43" style="stroke:#A0A0A0;stroke-width:12.96"/>
-	<text x="1206.81" y="2686.46" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">Estimated causal effect</text>
-	<text x="2864.81" y="2686.46" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">95% CI limits</text>
+	<rect x="735.94" y="2558.24" width="2777.94" height="186.37" style="fill:#FFFFFF"/>
+	<rect x="738.82" y="2561.12" width="2772.18" height="180.61" style="fill:none;stroke:#000000;stroke-width:5.76"/>
+	<line x1="779.13" y1="2651.43" x2="1153.47" y2="2651.43" style="stroke:#000000;stroke-width:12.96"/>
+	<line x1="2432.68" y1="2651.43" x2="2807.02" y2="2651.43" style="stroke:#A0A0A0;stroke-width:12.96"/>
+	<text x="1213.49" y="2686.46" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">Estimated causal effect</text>
+	<text x="2867.04" y="2686.46" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">95% CI limits</text>
 </svg>

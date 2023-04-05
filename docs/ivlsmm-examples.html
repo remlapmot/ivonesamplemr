@@ -13,7 +13,7 @@
 
 <title>ivlsmm-examples</title>
 
-<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -337,7 +337,7 @@ variables (genotypes).</p>
 <pre class="stata"><code>use ivbinoutdata, clear</code></pre>
 <p>Fit the model with a single instrumental variable.</p>
 <pre class="stata"><code>ivlsmm y (x = z1)</code></pre>
-<pre><code>Final GMM criterion Q(b) =  2.37e-30
+<pre><code>Final GMM criterion Q(b) =  2.00e-30
 
 note: model is exactly identified.
 
@@ -363,7 +363,7 @@ Instruments for equation 2: z1 _cons
 
   Test of overidentifying restriction:
 
-  Hansen&#39;s J chi2(0) = 5.9e-27 (p =     .)
+  Hansen&#39;s J chi2(0) = 5.0e-27 (p =     .)
 
 Note: test cannot be performed because there are no
       overidentifying restrictions.

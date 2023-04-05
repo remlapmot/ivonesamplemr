@@ -13,7 +13,7 @@
 
 <title>ivmw-examples</title>
 
-<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -338,13 +338,13 @@ instrumental variable (genotype).</p>
 <p>Plot outcome-exposure relationships</p>
 <pre class="stata"><code>twoway line y1 x, sort(x)
 qui gr export ./img/ivmw-plot-01.svg, replace</code></pre>
-<p><img src="img/ivmw-plot-01.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivmw-plot-01.svg" alt="Plot of relationship between y1 and x." style="display: block; margin: auto;" /></p>
 <pre class="stata"><code>twoway line y2 y3 y4 x, sort(x)
 qui gr export ./img/ivmw-plot-02.svg, replace</code></pre>
-<p><img src="img/ivmw-plot-02.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivmw-plot-02.svg" alt="Plot of relationships between y2, y3, y4, and x." style="display: block; margin: auto;" /></p>
 <pre class="stata"><code>twoway line y5 x, sort(x)
 qui gr export ./img/ivmw-plot-03.svg, replace</code></pre>
-<p><img src="img/ivmw-plot-03.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivmw-plot-03.svg" alt="Plot of relationship between y5 and x." style="display: block; margin: auto;" /></p>
 <p>Example moving window fits.</p>
 <pre class="stata"><code>ivmw, window(3950) par(x): ivreg2 y1 (x = g)
 qui gr export ./img/ivmw-plot-04.svg, replace</code></pre>
@@ -356,9 +356,9 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_62475.000001 saved as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_8068_000001.tmp saved as .dta format
 (rolling: ivreg2)</code></pre>
-<p><img src="img/ivmw-plot-04.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivmw-plot-04.svg" alt="Plot of estimated causal effect versus the median of the exposure in the moving window." style="display: block; margin: auto;" /></p>
 <pre class="stata"><code>ivmw, window(3950) par(x): ivreg2 y2 (x = g)
 qui gr export ./img/ivmw-plot-05.svg, replace</code></pre>
 <pre><code>Time variable: res_order, 1 to 4000
@@ -369,9 +369,9 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_62488.000001 saved as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_3940_000001.tmp saved as .dta format
 (rolling: ivreg2)</code></pre>
-<p><img src="img/ivmw-plot-05.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivmw-plot-05.svg" alt="Plot of estimated causal effect versus the median of the exposure in the moving window." style="display: block; margin: auto;" /></p>
 <pre class="stata"><code>ivmw, window(3950) par(x): ivreg2 y3 (x = g)
 qui gr export ./img/ivmw-plot-06.svg, replace</code></pre>
 <pre><code>Time variable: res_order, 1 to 4000
@@ -382,9 +382,9 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_62495.000001 saved as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_1204_000001.tmp saved as .dta format
 (rolling: ivreg2)</code></pre>
-<p><img src="img/ivmw-plot-06.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivmw-plot-06.svg" alt="Plot of estimated causal effect versus the median of the exposure in the moving window." style="display: block; margin: auto;" /></p>
 <pre class="stata"><code>ivmw, window(3950) par(x): ivreg2 y4 (x = g)
 qui gr export ./img/ivmw-plot-07.svg, replace</code></pre>
 <pre><code>Time variable: res_order, 1 to 4000
@@ -395,9 +395,9 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_62509.000001 saved as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_2ba4_000001.tmp saved as .dta format
 (rolling: ivreg2)</code></pre>
-<p><img src="img/ivmw-plot-07.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivmw-plot-07.svg" alt="Plot of estimated causal effect versus the median of the exposure in the moving window." style="display: block; margin: auto;" /></p>
 <pre class="stata"><code>ivmw, window(3950) par(x): ivreg2 y5 (x = g)
 qui gr export ./img/ivmw-plot-08.svg, replace</code></pre>
 <pre><code>Time variable: res_order, 1 to 4000
@@ -408,9 +408,9 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_62516.000001 saved as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_21e0_000001.tmp saved as .dta format
 (rolling: ivreg2)</code></pre>
-<p><img src="img/ivmw-plot-08.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivmw-plot-08.svg" alt="Plot of estimated causal effect versus the median of the exposure in the moving window." style="display: block; margin: auto;" /></p>
 <p>Change window size (e.g. for outcome y2).</p>
 <pre class="stata"><code>ivmw, window(3750) par(x): ivreg2 y2 (x = g)
 ivmw, window(3000) par(x): ivreg2 y2 (x = g)

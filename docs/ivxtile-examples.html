@@ -13,7 +13,7 @@
 
 <title>ivxtile-examples</title>
 
-<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -337,11 +337,11 @@ instrumental variable (genotype).</p>
 <pre class="stata"><code>use ../data/ivmwdata, clear</code></pre>
 <p>Plot outcome-exposure relationships</p>
 <pre class="stata"><code>twoway line y1 x, sort(x)</code></pre>
-<p><img src="img/ivmw-plot-01.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivmw-plot-01.svg" alt="Plot of relationship between y1 and x." style="display: block; margin: auto;" /></p>
 <pre class="stata"><code>twoway line y2 y3 y4 x, sort(x)</code></pre>
-<p><img src="img/ivmw-plot-02.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivmw-plot-02.svg" alt="Plot of relationships between y2, y3, y4, and x." style="display: block; margin: auto;" /></p>
 <pre class="stata"><code>twoway line y5 x, sort(x)</code></pre>
-<p><img src="img/ivmw-plot-03.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivmw-plot-03.svg" alt="Plot of relationship between y5 and x." style="display: block; margin: auto;" /></p>
 <p>Use with different iv commands.</p>
 <pre class="stata"><code>ivxtile, nq(5) par(x): ivregress 2sls y2 (x = g)
 qui gr export ./img/ivxtile-plot-01.svg, replace</code></pre>
@@ -351,7 +351,7 @@ qui gr export ./img/ivxtile-plot-01.svg, replace</code></pre>
            3   .2827527    .001016   1.343214   .2807613   .2847441  
            4   .3815383   .0015779   1.825639   .3784456    .384631  
            5   .6742788    .054497   2.897407   .5674646   .7810929  </code></pre>
-<p><img src="img/ivxtile-plot-01.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivxtile-plot-01.svg" alt="Plot of estimated causal effect versus median of exposure in quantile." style="display: block; margin: auto;" /></p>
 <pre class="stata"><code>ivxtile, nq(10) par(b1): ivtsps y2 (x = g)
 qui gr export ./img/ivxtile-plot-02.svg, replace</code></pre>
 <pre><code>    quantile       beta         se   medendog      lowci      uppci  
@@ -365,7 +365,7 @@ qui gr export ./img/ivxtile-plot-02.svg, replace</code></pre>
            8   .4143449   .0022951   1.994051   .4098466   .4188433  
            9   .5128626   .0030473   2.466335   .5068899   .5188352  
           10   .8345693   .0691984   3.577371   .6989404   .9701982  </code></pre>
-<p><img src="img/ivxtile-plot-02.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivxtile-plot-02.svg" alt="Plot of estimated causal effect versus median of exposure in quantile." style="display: block; margin: auto;" /></p>
 <p>Some binary outcome examples.</p>
 <pre class="stata"><code>use ../data/ivbinoutdata, clear</code></pre>
 <pre class="stata"><code>ivxtile, nq(5) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
@@ -376,7 +376,7 @@ qui gr export ./img/ivxtile-plot-03.svg, replace</code></pre>
            3   .3532819   .0297168    1.851269   .2950371   .4115268  
            4   .1504481   .0224022    2.627049   .1065397   .1943565  
            5   .0427768   .0098807    4.113728   .0234107    .062143  </code></pre>
-<p><img src="img/ivxtile-plot-03.svg" style="display: block; margin: auto;" /></p>
+<p><img src="img/ivxtile-plot-03.svg" alt="Plot of estimated causal effect versus median of exposure in quantile." style="display: block; margin: auto;" /></p>
 <pre class="stata"><code>ivxtile, nq(5) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
 ivxtile, nq(5) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
 ivxtile, nq(5) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
