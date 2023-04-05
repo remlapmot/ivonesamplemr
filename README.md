@@ -8,6 +8,8 @@ One-sample Mendelian randomization (MR) / instrumental variable (IV) analyses in
 
 ## Latest updates
 
+* April 2023:
+  - The images in the package website now have accompanying alt text descriptions
 * February 2023:
   - Updated the R Markdown code generating the website to use the CRAN version of the [**Statamarkdown**](https://cran.r-project.org/package=Statamarkdown) package
 * November 2022:
