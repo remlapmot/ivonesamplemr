@@ -21,21 +21,21 @@ Plot outcome-exposure relationships
 twoway line y1 x, sort(x)
 qui gr export ./img/ivmw-plot-01.svg, replace
 ```
-```{r, echo=FALSE, fig.align='center'}
+```{r, echo=FALSE, fig.align='center', fig.alt="Plot of relationship between y1 and x."}
 knitr::include_graphics("./img/ivmw-plot-01.svg")
 ```
 ```{stata, results=FALSE}
 twoway line y2 y3 y4 x, sort(x)
 qui gr export ./img/ivmw-plot-02.svg, replace
 ```
-```{r, echo=FALSE, fig.align='center'}
+```{r, echo=FALSE, fig.align='center', fig.alt="Plot of relationships between y2, y3, y4, and x."}
 knitr::include_graphics("./img/ivmw-plot-02.svg")
 ```
 ```{stata, results=FALSE}
 twoway line y5 x, sort(x)
 qui gr export ./img/ivmw-plot-03.svg, replace
 ```
-```{r, echo=FALSE, fig.align='center'}
+```{r, echo=FALSE, fig.align='center', fig.alt="Plot of relationship between y5 and x."}
 knitr::include_graphics("./img/ivmw-plot-03.svg")
 ```
     
@@ -44,35 +44,35 @@ Example moving window fits.
 ivmw, window(3950) par(x): ivreg2 y1 (x = g)
 qui gr export ./img/ivmw-plot-04.svg, replace
 ```
-```{r, echo=FALSE, fig.align='center'}
+```{r, echo=FALSE, fig.align='center', fig.alt="Plot of estimated causal effect versus the median of the exposure in the moving window."}
 knitr::include_graphics("./img/ivmw-plot-04.svg")
 ```
 ```{stata}
 ivmw, window(3950) par(x): ivreg2 y2 (x = g)
 qui gr export ./img/ivmw-plot-05.svg, replace
 ```
-```{r, echo=FALSE, fig.align='center'}
+```{r, echo=FALSE, fig.align='center', fig.alt="Plot of estimated causal effect versus the median of the exposure in the moving window."}
 knitr::include_graphics("./img/ivmw-plot-05.svg")
 ```
 ```{stata}
 ivmw, window(3950) par(x): ivreg2 y3 (x = g)
 qui gr export ./img/ivmw-plot-06.svg, replace
 ```
-```{r, echo=FALSE, fig.align='center'}
+```{r, echo=FALSE, fig.align='center', fig.alt="Plot of estimated causal effect versus the median of the exposure in the moving window."}
 knitr::include_graphics("./img/ivmw-plot-06.svg")
 ```
 ```{stata}
 ivmw, window(3950) par(x): ivreg2 y4 (x = g)
 qui gr export ./img/ivmw-plot-07.svg, replace
 ```
-```{r, echo=FALSE, fig.align='center'}
+```{r, echo=FALSE, fig.align='center', fig.alt="Plot of estimated causal effect versus the median of the exposure in the moving window."}
 knitr::include_graphics("./img/ivmw-plot-07.svg")
 ```
 ```{stata}
 ivmw, window(3950) par(x): ivreg2 y5 (x = g)
 qui gr export ./img/ivmw-plot-08.svg, replace
 ```
-```{r, echo=FALSE, fig.align='center'}
+```{r, echo=FALSE, fig.align='center', fig.alt="Plot of estimated causal effect versus the median of the exposure in the moving window."}
 knitr::include_graphics("./img/ivmw-plot-08.svg")
 ```
 
