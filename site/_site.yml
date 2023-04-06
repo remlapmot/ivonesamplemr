@@ -3,6 +3,9 @@ output_dir: ../docs
 exclude: ["developer.do"]
 navbar:
   title: "ivonesamplemr"
+  right:
+    - icon: fa-github
+      href: https://github.com/remlapmot/ivonesamplemr
   left:
     - text: "Home"
       href: index.html
