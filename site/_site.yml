@@ -48,3 +48,6 @@ navbar:
     - text: "About"
       href: about.html
 new_session: true
+output:
+  html_document:
+    highlight: arrow
