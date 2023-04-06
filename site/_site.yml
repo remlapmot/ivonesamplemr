@@ -52,3 +52,4 @@ output:
   html_document:
     theme: flatly
     highlight: arrow
+    css: mystyles.css
