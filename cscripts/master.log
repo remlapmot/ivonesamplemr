@@ -1,8 +1,8 @@
---------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
       name:  master
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:   1 Feb 2022, 14:44:39
+ opened on:  11 Apr 2023, 13:19:25
 
 . 
 . cscript master
@@ -32,7 +32,7 @@
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:   1 Feb 2022, 14:44:39
+ opened on:  11 Apr 2023, 13:19:25
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -234,13 +234,13 @@ end of do-file
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:   1 Feb 2022, 14:44:40
+ closed on:  11 Apr 2023, 13:19:26
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:   1 Feb 2022, 14:44:40
+ opened on:  11 Apr 2023, 13:19:26
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -981,13 +981,13 @@ end of do-file
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:   1 Feb 2022, 14:44:43
+ closed on:  11 Apr 2023, 13:19:29
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:   1 Feb 2022, 14:44:43
+ opened on:  11 Apr 2023, 13:19:29
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -1264,13 +1264,13 @@ end of do-file
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:   1 Feb 2022, 14:44:45
+ closed on:  11 Apr 2023, 13:19:33
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:   1 Feb 2022, 14:44:45
+ opened on:  11 Apr 2023, 13:19:33
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -2786,13 +2786,13 @@ end of do-file
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:   1 Feb 2022, 14:44:49
+ closed on:  11 Apr 2023, 13:19:37
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:   1 Feb 2022, 14:44:49
+ opened on:  11 Apr 2023, 13:19:37
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -4611,13 +4611,13 @@ end of do-file
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:   1 Feb 2022, 14:44:54
+ closed on:  11 Apr 2023, 13:19:42
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:   1 Feb 2022, 14:44:54
+ opened on:  11 Apr 2023, 13:19:42
 
 . // ivmw cscript
 . // 2021-09-12
@@ -4671,7 +4671,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4684,7 +4684,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4697,7 +4697,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4712,7 +4712,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4725,7 +4725,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4740,7 +4740,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4753,7 +4753,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4768,7 +4768,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4781,7 +4781,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4824,7 +4824,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (21)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .....................
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4865,7 +4865,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (21)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .....................
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -4922,7 +4922,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4935,7 +4935,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4948,7 +4948,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4961,7 +4961,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4974,7 +4974,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4987,7 +4987,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5000,7 +5000,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5014,7 +5014,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5108,7 +5108,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivlsmm)
 
@@ -5121,7 +5121,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -5134,7 +5134,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5147,7 +5147,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5160,7 +5160,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5173,7 +5173,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5186,7 +5186,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5199,7 +5199,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/wr/9_chh41d327cm97kngnr4qqh0000gp/T//S_18791.000001 saved
+file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5208,13 +5208,13 @@ end of do-file
       name:  ivmw
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:   1 Feb 2022, 14:45:45
+ closed on:  11 Apr 2023, 13:20:28
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:   1 Feb 2022, 14:45:45
+ opened on:  11 Apr 2023, 13:20:28
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -5686,13 +5686,13 @@ end of do-file
       name:  ivxtile
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:   1 Feb 2022, 14:45:59
+ closed on:  11 Apr 2023, 13:20:41
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:   1 Feb 2022, 14:45:59
+ opened on:  11 Apr 2023, 13:20:41
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -6414,7 +6414,7 @@ end of do-file
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:   1 Feb 2022, 14:45:59
+ closed on:  11 Apr 2023, 13:20:41
 -------------------------------------------------------------------------------
 
 . 
@@ -6422,5 +6422,5 @@ end of do-file
       name:  master
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:   1 Feb 2022, 14:45:59
+ closed on:  11 Apr 2023, 13:20:41
 -------------------------------------------------------------------------------

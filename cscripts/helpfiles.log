@@ -2,7 +2,7 @@
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:   1 Feb 2022, 14:45:59
+ opened on:  11 Apr 2023, 13:20:41
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -724,5 +724,5 @@ end of do-file
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:   1 Feb 2022, 14:45:59
+ closed on:  11 Apr 2023, 13:20:41
 -------------------------------------------------------------------------------
