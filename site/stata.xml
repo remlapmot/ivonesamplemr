@@ -2764,6 +2764,9 @@
       <item>ivlsmm</item>
       <item>ivmsmm</item>
       <item>ivmw</item>
+      <item>ivpois</item>
+      <item>ivreg2</item>
+      <item>ivregress</item>
       <item>ivtsps</item>
       <item>ivtsri</item>
       <item>ivxtile</item>
