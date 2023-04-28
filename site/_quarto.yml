@@ -1,52 +1,61 @@
-name: "ivonesamplemr"
-output_dir: ../docs
-exclude: ["developer.do"]
-navbar:
+project: 
+  type: website
+  output-dir: ../docs
+  preview: 
+    port: 4000
+
+website: 
   title: "ivonesamplemr"
-  right:
-    - icon: fa-github
-      href: https://github.com/remlapmot/ivonesamplemr
-  left:
-    - text: "Home"
-      href: index.html
-    - text: "Helpfile examples"
-      menu:
-      - text: "ivasmm"
-        href: ivasmm-examples.html
-      - text: "ivlsmm"
-        href: ivlsmm-examples.html
-      - text: "ivmsmm"
-        href: ivmsmm-examples.html
-      - text: "ivmw"
-        href: ivmw-examples.html
-      - text: "ivtsps"
-        href: ivtsps-examples.html
-      - text: "ivtsri"
-        href: ivtsri-examples.html
-      - text: "ivxtile"
-        href: ivxtile-examples.html
-    - text: "Helpfiles"
-      menu:
-      - text: "ivonesamplemr"
-        href: ivonesamplemr-helpfile.html
-      - text: "ivasmm"
-        href: ivasmm-helpfile.html
-      - text: "ivlsmm"
-        href: ivlsmm-helpfile.html
-      - text: "ivmsmm"
-        href: ivmsmm-helpfile.html
-      - text: "ivmw"
-        href: ivmw-helpfile.html
-      - text: "ivtsps"
-        href: ivtsps-helpfile.html
-      - text: "ivtsri"
-        href: ivtsri-helpfile.html
-      - text: "ivxtile"
-        href: ivxtile-helpfile.html
-      - text: "iv"
-        href: iv-helpfile.html
-    - text: "About"
-      href: about.html
+  repo-url: https://github.com/remlapmot/ivonesamplemr
+  repo-branch: main
+  navbar:
+    search: true
+    left:
+      - text: "Home"
+        href: index.html
+      - text: "Helpfile examples"
+        menu:
+        - text: "ivasmm"
+          href: ivasmm-examples.html
+        - text: "ivlsmm"
+          href: ivlsmm-examples.html
+        - text: "ivmsmm"
+          href: ivmsmm-examples.html
+        - text: "ivmw"
+          href: ivmw-examples.html
+        - text: "ivtsps"
+          href: ivtsps-examples.html
+        - text: "ivtsri"
+          href: ivtsri-examples.html
+        - text: "ivxtile"
+          href: ivxtile-examples.html
+      - text: "Helpfiles"
+        menu:
+        - text: "ivonesamplemr"
+          href: ivonesamplemr-helpfile.html
+        - text: "ivasmm"
+          href: ivasmm-helpfile.html
+        - text: "ivlsmm"
+          href: ivlsmm-helpfile.html
+        - text: "ivmsmm"
+          href: ivmsmm-helpfile.html
+        - text: "ivmw"
+          href: ivmw-helpfile.html
+        - text: "ivtsps"
+          href: ivtsps-helpfile.html
+        - text: "ivtsri"
+          href: ivtsri-helpfile.html
+        - text: "ivxtile"
+          href: ivxtile-helpfile.html
+        - text: "iv"
+          href: iv-helpfile.html
+      - text: "About"
+        href: about.html
+    right:
+      - icon: github
+        href: https://github.com/remlapmot/ivonesamplemr
+        aria-label: GitHub
+
 new_session: true
 output:
   html_document:
