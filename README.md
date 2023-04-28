@@ -11,6 +11,7 @@ One-sample Mendelian randomization (MR) / instrumental variable (IV) analyses in
 * April 2023:
   - The images in the package website now have accompanying alt text descriptions
   - Checked the certification scripts run under the latest Stata 17.0
+  - Rewrote the website using [Quarto](https://quarto.org/)
 * February 2023:
   - Updated the R Markdown code generating the website to use the CRAN version of the [**Statamarkdown**](https://cran.r-project.org/package=Statamarkdown) package
 * November 2022:
