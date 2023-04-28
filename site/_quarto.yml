@@ -62,6 +62,8 @@ format:
     css: mystyles.css
     toc: true
     highlight-style: arrow
+    syntax-definitions: 
+      - stata.xml
 
 freeze: auto  # re-render only when source changes
 
