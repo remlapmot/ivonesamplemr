@@ -1,58 +1,26 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
 
-<head>
-
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>ivmw-examples</title>
-
-<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-6.2.1/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.2.1/css/v4-shims.min.css" rel="stylesheet" />
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
-
-
-
-<style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
-<style type="text/css" data-origin="pandoc">
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -79,379 +47,249 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
-  { color: #00769e; background-color: #f1f3f5; }
+  {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span { color: #00769e; } /* Normal */
-code span.al { color: #ad0000; } /* Alert */
-code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #657422; } /* Attribute */
-code span.bn { color: #ad0000; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #00769e; } /* ControlFlow */
-code span.ch { color: #20794d; } /* Char */
-code span.cn { color: #8f5902; } /* Constant */
-code span.co { color: #5e5e5e; } /* Comment */
-code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-code span.dt { color: #ad0000; } /* DataType */
-code span.dv { color: #ad0000; } /* DecVal */
-code span.er { color: #ad0000; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #ad0000; } /* Float */
-code span.fu { color: #4758ab; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #00769e; } /* Keyword */
-code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #00769e; } /* Other */
-code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #5e5e5e; } /* SpecialChar */
-code span.ss { color: #20794d; } /* SpecialString */
-code span.st { color: #20794d; } /* String */
-code span.va { color: #111111; } /* Variable */
-code span.vs { color: #20794d; } /* VerbatimString */
-code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-
 </style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    var j = 0;
-    while (j < rules.length) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
-        j++;
-        continue;
-      }
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') {
-        j++;
-        continue;
-      }
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
   }
-})();
-</script>
+}</script>
 
 
-
-
-<link rel="stylesheet" href="mystyles.css" type="text/css" />
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
-}
-pre code {
-  padding: 0;
-}
-</style>
-
-
-<style type="text/css">
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
-}
-</style>
-
-<script type="text/javascript">
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
-});
-</script>
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
-
-
-
-
+<link rel="stylesheet" href="mystyles.css">
 </head>
 
-<body>
+<body class="nav-fixed">
 
-
-<div class="container-fluid main-container">
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">ivonesamplemr</a>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">ivonesamplemr</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-helpfile-examples" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Helpfile examples</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-helpfile-examples">    
+        <li>
+    <a class="dropdown-item" href="./ivasmm-examples.html" rel="" target="">
+ <span class="dropdown-text">ivasmm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivlsmm-examples.html" rel="" target="">
+ <span class="dropdown-text">ivlsmm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivmsmm-examples.html" rel="" target="">
+ <span class="dropdown-text">ivmsmm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivmw-examples.html" rel="" target="">
+ <span class="dropdown-text">ivmw</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivtsps-examples.html" rel="" target="">
+ <span class="dropdown-text">ivtsps</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivtsri-examples.html" rel="" target="">
+ <span class="dropdown-text">ivtsri</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivxtile-examples.html" rel="" target="">
+ <span class="dropdown-text">ivxtile</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-helpfiles" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Helpfiles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-helpfiles">    
+        <li>
+    <a class="dropdown-item" href="./ivonesamplemr-helpfile.html" rel="" target="">
+ <span class="dropdown-text">ivonesamplemr</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivasmm-helpfile.html" rel="" target="">
+ <span class="dropdown-text">ivasmm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivlsmm-helpfile.html" rel="" target="">
+ <span class="dropdown-text">ivlsmm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivmsmm-helpfile.html" rel="" target="">
+ <span class="dropdown-text">ivmsmm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivmw-helpfile.html" rel="" target="">
+ <span class="dropdown-text">ivmw</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivtsps-helpfile.html" rel="" target="">
+ <span class="dropdown-text">ivtsps</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivtsri-helpfile.html" rel="" target="">
+ <span class="dropdown-text">ivtsri</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ivxtile-helpfile.html" rel="" target="">
+ <span class="dropdown-text">ivxtile</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./iv-helpfile.html" rel="" target="">
+ <span class="dropdown-text">iv</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/remlapmot/ivonesamplemr" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">Home</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Helpfile examples
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="ivasmm-examples.html">ivasmm</a>
-    </li>
-    <li>
-      <a href="ivlsmm-examples.html">ivlsmm</a>
-    </li>
-    <li>
-      <a href="ivmsmm-examples.html">ivmsmm</a>
-    </li>
-    <li>
-      <a href="ivmw-examples.html">ivmw</a>
-    </li>
-    <li>
-      <a href="ivtsps-examples.html">ivtsps</a>
-    </li>
-    <li>
-      <a href="ivtsri-examples.html">ivtsri</a>
-    </li>
-    <li>
-      <a href="ivxtile-examples.html">ivxtile</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Helpfiles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="ivonesamplemr-helpfile.html">ivonesamplemr</a>
-    </li>
-    <li>
-      <a href="ivasmm-helpfile.html">ivasmm</a>
-    </li>
-    <li>
-      <a href="ivlsmm-helpfile.html">ivlsmm</a>
-    </li>
-    <li>
-      <a href="ivmsmm-helpfile.html">ivmsmm</a>
-    </li>
-    <li>
-      <a href="ivmw-helpfile.html">ivmw</a>
-    </li>
-    <li>
-      <a href="ivtsps-helpfile.html">ivtsps</a>
-    </li>
-    <li>
-      <a href="ivtsri-helpfile.html">ivtsri</a>
-    </li>
-    <li>
-      <a href="ivxtile-helpfile.html">ivxtile</a>
-    </li>
-    <li>
-      <a href="iv-helpfile.html">iv</a>
-    </li>
-  </ul>
-</li>
-<li>
-  <a href="about.html">About</a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/remlapmot/ivonesamplemr">
-    <span class="fa fa-github"></span>
-     
-  </a>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
+<!-- main -->
+<main class="content" id="quarto-document-content">
 
-<div id="header">
-
-
-
-<h1 class="title toc-ignore">Moving window estimator</h1>
-
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Moving window estimator</h1>
 </div>
 
 
-<p>Read in simulated data with different outcome-exposure relationships;
-<code>y#</code> outcome, <code>x</code> exposure, <code>g</code>
-instrumental variable (genotype).</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">use</span> ../<span class="kw">data</span>/ivmwdata, <span class="kw">clear</span></span></code></pre></div>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Read in simulated data with different outcome-exposure relationships; <code>y#</code> outcome, <code>x</code> exposure, <code>g</code> instrumental variable (genotype).</p>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> ../<span class="kw">data</span>/ivmwdata, <span class="kw">clear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Plot outcome-exposure relationships</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">line</span> y1 x, <span class="kw">sort</span>(x)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-01.svg, <span class="kw">replace</span></span></code></pre></div>
-<p><img src="img/ivmw-plot-01.svg" alt="Plot of relationship between y1 and x." style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">line</span> y2 y3 y4 x, <span class="kw">sort</span>(x)</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-02.svg, <span class="kw">replace</span></span></code></pre></div>
-<p><img src="img/ivmw-plot-02.svg" alt="Plot of relationships between y2, y3, y4, and x." style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">line</span> y5 x, <span class="kw">sort</span>(x)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-03.svg, <span class="kw">replace</span></span></code></pre></div>
-<p><img src="img/ivmw-plot-03.svg" alt="Plot of relationship between y5 and x." style="display: block; margin: auto;" /></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">line</span> y1 x, <span class="kw">sort</span>(x)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-01.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/ivmw-plot-01.svg" class="img-fluid figure-img" alt="Plot of relationship between y1 and x."></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">line</span> y2 y3 y4 x, <span class="kw">sort</span>(x)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-02.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/ivmw-plot-02.svg" class="img-fluid figure-img" alt="Plot of relationships between y2, y3, y4, and x."></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">line</span> y5 x, <span class="kw">sort</span>(x)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-03.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/ivmw-plot-03.svg" class="img-fluid figure-img" alt="Plot of relationship between y5 and x."></p>
+</figure>
+</div>
+</div>
+</div>
 <p>Example moving window fits.</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y1 (x = g)</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-04.svg, <span class="kw">replace</span></span></code></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y1 (x = g)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-04.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
@@ -460,12 +298,23 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_03756.000001 saved as .dta format
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_24232.000001 saved as .dta format
 (rolling: ivreg2)</code></pre>
-<p><img src="img/ivmw-plot-04.svg" alt="Plot of estimated causal effect versus the median of the exposure in the moving window." style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y2 (x = g)</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-05.svg, <span class="kw">replace</span></span></code></pre></div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/ivmw-plot-04.svg" class="img-fluid figure-img" alt="Plot of estimated causal effect versus the median of the exposure in the moving window."></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y2 (x = g)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-05.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
@@ -474,12 +323,23 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_03767.000001 saved as .dta format
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_24241.000001 saved as .dta format
 (rolling: ivreg2)</code></pre>
-<p><img src="img/ivmw-plot-05.svg" alt="Plot of estimated causal effect versus the median of the exposure in the moving window." style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y3 (x = g)</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-06.svg, <span class="kw">replace</span></span></code></pre></div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/ivmw-plot-05.svg" class="img-fluid figure-img" alt="Plot of estimated causal effect versus the median of the exposure in the moving window."></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y3 (x = g)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-06.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
@@ -488,12 +348,23 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_03777.000001 saved as .dta format
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_24249.000001 saved as .dta format
 (rolling: ivreg2)</code></pre>
-<p><img src="img/ivmw-plot-06.svg" alt="Plot of estimated causal effect versus the median of the exposure in the moving window." style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y4 (x = g)</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-07.svg, <span class="kw">replace</span></span></code></pre></div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/ivmw-plot-06.svg" class="img-fluid figure-img" alt="Plot of estimated causal effect versus the median of the exposure in the moving window."></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y4 (x = g)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-07.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
@@ -502,12 +373,23 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_03787.000001 saved as .dta format
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_24255.000001 saved as .dta format
 (rolling: ivreg2)</code></pre>
-<p><img src="img/ivmw-plot-07.svg" alt="Plot of estimated causal effect versus the median of the exposure in the moving window." style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y5 (x = g)</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-08.svg, <span class="kw">replace</span></span></code></pre></div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/ivmw-plot-07.svg" class="img-fluid figure-img" alt="Plot of estimated causal effect versus the median of the exposure in the moving window."></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y5 (x = g)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-08.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
@@ -516,78 +398,285 @@ Rolling replications (51)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..................................................    50
 .
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_03797.000001 saved as .dta format
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_24262.000001 saved as .dta format
 (rolling: ivreg2)</code></pre>
-<p><img src="img/ivmw-plot-08.svg" alt="Plot of estimated causal effect versus the median of the exposure in the moving window." style="display: block; margin: auto;" /></p>
-<p>Change window size (e.g. for outcome y2).</p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3750) par(x): ivreg2 y2 (x = g)</span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3000) par(x): ivreg2 y2 (x = g)</span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>ivmw, <span class="kw">window</span>(2000) par(x): ivreg2 y2 (x = g)</span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>ivmw, <span class="kw">window</span>(1000) par(x): ivreg2 y2 (x = g)</span></code></pre></div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/ivmw-plot-08.svg" class="img-fluid figure-img" alt="Plot of estimated causal effect versus the median of the exposure in the moving window."></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Change window size (e.g.&nbsp;for outcome y2).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3750) par(x): ivreg2 y2 (x = g)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3000) par(x): ivreg2 y2 (x = g)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(2000) par(x): ivreg2 y2 (x = g)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(1000) par(x): ivreg2 y2 (x = g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Save the moving window dataset.</p>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x) <span class="kw">saving</span>(ivmw): ivreg2 y2 (x = g)</span></code></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x) <span class="kw">saving</span>(ivmw): ivreg2 y2 (x = g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Use different iv commands.</p>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivregress 2sls <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivregress liml <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivregress gmm <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivlsmm <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivmsmm <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
-<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
-<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span>
-<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
-<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
-<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span></code></pre></div>
-
-
-
-
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivregress 2sls <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivregress liml <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivregress gmm <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivlsmm <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivmsmm <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
   });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
 });
 </script>
+</div> <!-- /content -->
 
-<!-- code folding -->
 
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
-
-</body>
-</html>
+</body></html>
