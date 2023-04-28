@@ -56,9 +56,13 @@ website:
         href: https://github.com/remlapmot/ivonesamplemr
         aria-label: GitHub
 
-new_session: true
-output:
-  html_document:
+format:
+  html:
     theme: flatly
-    highlight: arrow
     css: mystyles.css
+    toc: true
+    highlight-style: arrow
+
+freeze: auto  # re-render only when source changes
+
+# bibliography: refs.bib
