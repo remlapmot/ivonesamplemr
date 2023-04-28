@@ -25,5 +25,5 @@ quarto render
 
 To rerender a single file run say
 ```sh
-quarto render index.qmd
+quarto render index.Rmd
 ```
