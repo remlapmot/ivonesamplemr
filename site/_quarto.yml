@@ -58,7 +58,7 @@ website:
 
 format:
   html:
-    theme: flatly
+    theme: cosmo
     css: mystyles.css
     toc: true
     highlight-style: arrow
