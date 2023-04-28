@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Fit the model with a single instrumental variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ivtsps <span class="fu">y</span> (x = z1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Final GMM criterion Q(b) =  1.76e-32
 
@@ -284,7 +284,7 @@ Causal risk difference for: b1
 </div>
 <p>Fit the model with multiple instruments.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ivtsps <span class="fu">y</span> (x = z1 z2 z3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Final GMM criterion Q(b) =  6.65e-33
 
@@ -323,7 +323,7 @@ Causal risk difference for: b1
 </div>
 <p>Fit the model with multiple instruments, and adjusting for <code>w</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ivtsps <span class="fu">y</span> <span class="fu">w</span> (x = z1 z2 z3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivtsps</span> <span class="fu">y</span> <span class="fu">w</span> (x = z1 z2 z3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Final GMM criterion Q(b) =  1.27e-32
 
@@ -364,7 +364,7 @@ Causal risk difference for: b1
 </div>
 <p>Using the log additive link function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Final GMM criterion Q(b) =  8.95e-33
 
@@ -403,7 +403,7 @@ Causal risk ratio for: b1
 </div>
 <p>Using the log multiplicative link function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Final GMM criterion Q(b) =  1.10e-32
 
@@ -442,7 +442,7 @@ Causal risk ratio for: b1
 </div>
 <p>Using the logit link function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Final GMM criterion Q(b) =  6.69e-33
 
@@ -481,7 +481,7 @@ Causal odds ratio for: b1
 </div>
 <p>Bootstrap standard errors.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">bootstrap</span>, reps(250): ivtsps <span class="fu">y</span> (x = z1 z2 z3), estonly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">bootstrap</span>, reps(250): <span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3), estonly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(running ivtsps on estimation sample)
 

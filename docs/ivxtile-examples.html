@@ -284,8 +284,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Use with different iv commands.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ivxtile, nq(5) par(x): ivregress 2sls y2 (x = g)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivxtile-plot-01.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivxtile</span>, nq(5) par(x): ivregress 2sls y2 (x = g)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/<span class="kw">ivxtile</span>-plot-01.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    quantile       beta         se   medendog      lowci      uppci  
            1   .1311195   .0015519   .6070275   .1280778   .1341611  
@@ -305,8 +305,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ivxtile, nq(10) par(b1): ivtsps y2 (x = g)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivxtile-plot-02.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivxtile</span>, nq(10) par(b1): <span class="kw">ivtsps</span> y2 (x = g)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/<span class="kw">ivxtile</span>-plot-02.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    quantile       beta         se   medendog      lowci      uppci  
            1   .1037679   .0021337   .4384223   .0995859   .1079499  
@@ -335,8 +335,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> ../<span class="kw">data</span>/ivbinoutdata, <span class="kw">clear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ivxtile, nq(5) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivxtile-plot-03.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivxtile</span>, nq(5) par(b1): <span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/<span class="kw">ivxtile</span>-plot-03.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    quantile       beta         se    medendog      lowci      uppci  
            1   .8962642   .0908862   -.5241845   .7181272   1.074401  
@@ -356,17 +356,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ivxtile, nq(5) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ivxtile, nq(5) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ivxtile, nq(5) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>ivxtile, nq(5) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ivxtile, nq(5) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>ivxtile, nq(5) par(x): ivlsmm <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>ivxtile, nq(5) par(x): ivmsmm <span class="fu">y</span> (x = z1 z2 z3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivxtile</span>, nq(5) par(b1): <span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ivxtile</span>, nq(5) par(b1): <span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ivxtile</span>, nq(5) par(b1): <span class="kw">ivtsri</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ivxtile</span>, nq(5) par(b1): <span class="kw">ivtsri</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ivxtile</span>, nq(5) par(b1): <span class="kw">ivtsri</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ivxtile</span>, nq(5) par(x): <span class="kw">ivlsmm</span> <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ivxtile</span>, nq(5) par(x): <span class="kw">ivmsmm</span> <span class="fu">y</span> (x = z1 z2 z3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Save the dataset of results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ivxtile, nq(10) par(x) <span class="kw">saving</span>(ivxtileres): ivreg2 y2 (x = g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivxtile</span>, nq(10) par(x) <span class="kw">saving</span>(ivxtileres): ivreg2 y2 (x = g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

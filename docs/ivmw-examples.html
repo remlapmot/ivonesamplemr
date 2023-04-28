@@ -248,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Plot outcome-exposure relationships</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">line</span> y1 x, <span class="kw">sort</span>(x)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-01.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/<span class="kw">ivmw</span>-plot-01.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -261,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">line</span> y2 y3 y4 x, <span class="kw">sort</span>(x)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-02.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/<span class="kw">ivmw</span>-plot-02.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -274,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">line</span> y5 x, <span class="kw">sort</span>(x)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-03.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/<span class="kw">ivmw</span>-plot-03.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -287,8 +287,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Example moving window fits.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y1 (x = g)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-04.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(x): ivreg2 y1 (x = g)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/<span class="kw">ivmw</span>-plot-04.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
@@ -312,8 +312,8 @@ file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_24232.000001 saved as .
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y2 (x = g)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-05.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(x): ivreg2 y2 (x = g)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/<span class="kw">ivmw</span>-plot-05.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
@@ -337,8 +337,8 @@ file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_24241.000001 saved as .
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y3 (x = g)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-06.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(x): ivreg2 y3 (x = g)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/<span class="kw">ivmw</span>-plot-06.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
@@ -362,8 +362,8 @@ file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_24249.000001 saved as .
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y4 (x = g)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-07.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(x): ivreg2 y4 (x = g)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/<span class="kw">ivmw</span>-plot-07.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
@@ -387,8 +387,8 @@ file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_24255.000001 saved as .
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y5 (x = g)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-08.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(x): ivreg2 y5 (x = g)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/<span class="kw">ivmw</span>-plot-08.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
@@ -413,30 +413,30 @@ file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_24262.000001 saved as .
 </div>
 <p>Change window size (e.g.&nbsp;for outcome y2).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3750) par(x): ivreg2 y2 (x = g)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3000) par(x): ivreg2 y2 (x = g)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(2000) par(x): ivreg2 y2 (x = g)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(1000) par(x): ivreg2 y2 (x = g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3750) par(x): ivreg2 y2 (x = g)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3000) par(x): ivreg2 y2 (x = g)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(2000) par(x): ivreg2 y2 (x = g)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(1000) par(x): ivreg2 y2 (x = g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Save the moving window dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x) <span class="kw">saving</span>(ivmw): ivreg2 y2 (x = g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(x) <span class="kw">saving</span>(<span class="kw">ivmw</span>): ivreg2 y2 (x = g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Use different iv commands.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivregress 2sls <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivregress liml <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivregress gmm <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivlsmm <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivmsmm <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsps <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(b1): ivtsri <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(x): ivregress 2sls <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(x): ivregress liml <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(x): ivregress gmm <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(x): <span class="kw">ivlsmm</span> <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(x): <span class="kw">ivmsmm</span> <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(b1): <span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(b1): <span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(b1): <span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(b1): <span class="kw">ivtsps</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(b1): <span class="kw">ivtsri</span> <span class="fu">y</span> (x = z1 z2 z3)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(b1): <span class="kw">ivtsri</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logadd)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(b1): <span class="kw">ivtsri</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(logmult)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="kw">ivmw</span>, <span class="kw">window</span>(3950) par(b1): <span class="kw">ivtsri</span> <span class="fu">y</span> (x = z1 z2 z3), <span class="kw">link</span>(<span class="kw">logit</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
