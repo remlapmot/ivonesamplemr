@@ -18,7 +18,7 @@ One-sample Mendelian randomization (MR) / instrumental variable (IV) analyses in
   - For an example Mendelian randomization analysis using **ivonesamplemr** please see Madley-Dowd et al., Maternal vitamin D during pregnancy and offspring autism and autism-associated traits: a prospective cohort study, Molecular Autism, 2022, [here](https://doi.org/10.1186/s13229-022-00523-4)
 * February 2022:
   - Ran cscripts under Stata 17.0
-  - **ivonesamplemr** now has a website https://remlapmot.github.io/ivonesamplemr/
+  - **ivonesamplemr** now has a website <https://remlapmot.github.io/ivonesamplemr/>
 
 ## Description
 
