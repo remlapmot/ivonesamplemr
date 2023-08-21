@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
   log type:  text
- opened on:  11 Apr 2023, 13:19:29
+ opened on:  21 Aug 2023, 21:32:26
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -11,8 +11,23 @@
 -------------------------------------------------------------------BEGIN ivmsmm
 
 -> which ivmsmm, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivmsmm.ado
+C:\Users\tom\Documents\GitHub\ivonesamplemr\ivmsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
+
+. 
+. about
+
+Stata/MP 17.0 for Windows (64-bit x86-64)
+Revision 18 Jul 2023
+Copyright 1985-2021 StataCorp LLC
+
+Total physical memory:       32.00 GB
+Available physical memory:   18.65 GB
+
+Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
+Serial number: 501709378202
+  Licensed to: Tom Palmer
+               University of Bristol
 
 . 
 . // simulate data
@@ -50,7 +65,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . ivmsmm y (x = z1)
 
-Final GMM criterion Q(b) =  5.69e-33
+Final GMM criterion Q(b) =  5.63e-33
 
 note: model is exactly identified.
 
@@ -192,7 +207,7 @@ Iteration 3:   GMM criterion Q(b) =  3.685e-16
 
 Step 2
 Iteration 0:   GMM criterion Q(b) =  2.287e-16  
-Iteration 1:   GMM criterion Q(b) =  1.267e-31  
+Iteration 1:   GMM criterion Q(b) =  1.268e-31  
 
 note: model is exactly identified.
 
@@ -277,7 +292,7 @@ Instrumented: tcost
 . 
 end of do-file
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
   log type:  text
- closed on:  11 Apr 2023, 13:19:33
+ closed on:  21 Aug 2023, 21:32:28
 -------------------------------------------------------------------------------

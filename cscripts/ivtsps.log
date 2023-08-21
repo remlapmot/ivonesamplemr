@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
   log type:  text
- opened on:  11 Apr 2023, 13:19:33
+ opened on:  21 Aug 2023, 21:32:28
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -11,8 +11,23 @@
 -------------------------------------------------------------------BEGIN ivtsps
 
 -> which ivtsps, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivtsps.ado
+C:\Users\tom\Documents\GitHub\ivonesamplemr\ivtsps.ado
 *! 1.0.0 Tom Palmer 05sep2021
+
+. 
+. about
+
+Stata/MP 17.0 for Windows (64-bit x86-64)
+Revision 18 Jul 2023
+Copyright 1985-2021 StataCorp LLC
+
+Total physical memory:       32.00 GB
+Available physical memory:   18.66 GB
+
+Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
+Serial number: 501709378202
+  Licensed to: Tom Palmer
+               University of Bristol
 
 . 
 . // simulate data
@@ -546,7 +561,7 @@ Instrumented: x
 
 . ivtsps y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.85e-32
+Final GMM criterion Q(b) =  1.86e-32
 
 note: model is exactly identified.
 
@@ -1516,7 +1531,7 @@ Bootstrap replications (250)
 . 
 end of do-file
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
   log type:  text
- closed on:  11 Apr 2023, 13:19:37
+ closed on:  21 Aug 2023, 21:32:34
 -------------------------------------------------------------------------------

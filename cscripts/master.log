@@ -1,8 +1,8 @@
-----------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
       name:  master
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\master.log
   log type:  text
- opened on:  11 Apr 2023, 13:19:25
+ opened on:  21 Aug 2023, 21:32:19
 
 . 
 . cscript master
@@ -30,9 +30,9 @@
   5. }
 -------------------------------------------------------------------------------
       name:  iv
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\iv.log
   log type:  text
- opened on:  11 Apr 2023, 13:19:25
+ opened on:  21 Aug 2023, 21:32:19
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -41,8 +41,23 @@
 -----------------------------------------------------------------------BEGIN iv
 
 -> which iv, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/iv.ado
+C:\Users\tom\Documents\GitHub\ivonesamplemr\iv.ado
 *! version 0.1.0 10sep2021 Tom Palmer
+
+. 
+. about
+
+Stata/MP 17.0 for Windows (64-bit x86-64)
+Revision 18 Jul 2023
+Copyright 1985-2021 StataCorp LLC
+
+Total physical memory:       32.00 GB
+Available physical memory:   18.60 GB
+
+Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
+Serial number: 501709378202
+  Licensed to: Tom Palmer
+               University of Bristol
 
 . 
 . // simulate data
@@ -232,15 +247,15 @@ Causal odds ratio for: b2
 . 
 end of do-file
       name:  iv
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\iv.log
   log type:  text
- closed on:  11 Apr 2023, 13:19:26
+ closed on:  21 Aug 2023, 21:32:20
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivlsmm.log
   log type:  text
- opened on:  11 Apr 2023, 13:19:26
+ opened on:  21 Aug 2023, 21:32:20
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -249,8 +264,23 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivlsmm
 
 -> which ivlsmm, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivlsmm.ado
+C:\Users\tom\Documents\GitHub\ivonesamplemr\ivlsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
+
+. 
+. about
+
+Stata/MP 17.0 for Windows (64-bit x86-64)
+Revision 18 Jul 2023
+Copyright 1985-2021 StataCorp LLC
+
+Total physical memory:       32.00 GB
+Available physical memory:   18.59 GB
+
+Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
+Serial number: 501709378202
+  Licensed to: Tom Palmer
+               University of Bristol
 
 . 
 . // simulate data
@@ -290,7 +320,7 @@ Number of observations (_N) was 0, now 2,500.
 
 . ivlsmm y w (x = z1)
 
-Final GMM criterion Q(b) =  1.78e-30
+Final GMM criterion Q(b) =  1.79e-30
 
 note: model is exactly identified.
 
@@ -318,7 +348,7 @@ Instruments for equation 2: z1 w _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(0) = 4.4e-27 (p =     .)
+  Hansen's J chi2(0) = 4.5e-27 (p =     .)
 
 Note: test cannot be performed because there are no
       overidentifying restrictions.
@@ -387,7 +417,7 @@ Causal odds ratio for: w
 . eret list
 
 scalars:
-                  e(J) =  4.44363770968e-27
+                  e(J) =  4.46658764385e-27
                 e(J_p) =  .
                e(J_df) =  0
          e(k_eq_model) =  0
@@ -401,7 +431,7 @@ scalars:
           e(converged) =  1
                 e(k_2) =  7
                 e(k_1) =  4
-                  e(Q) =  1.77745508387e-30
+                  e(Q) =  1.78663505754e-30
                   e(N) =  2500
                e(rank) =  7
 
@@ -979,15 +1009,15 @@ Causal odds ratio for: x
 . 
 end of do-file
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivlsmm.log
   log type:  text
- closed on:  11 Apr 2023, 13:19:29
+ closed on:  21 Aug 2023, 21:32:26
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
   log type:  text
- opened on:  11 Apr 2023, 13:19:29
+ opened on:  21 Aug 2023, 21:32:26
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -996,8 +1026,23 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivmsmm
 
 -> which ivmsmm, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivmsmm.ado
+C:\Users\tom\Documents\GitHub\ivonesamplemr\ivmsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
+
+. 
+. about
+
+Stata/MP 17.0 for Windows (64-bit x86-64)
+Revision 18 Jul 2023
+Copyright 1985-2021 StataCorp LLC
+
+Total physical memory:       32.00 GB
+Available physical memory:   18.65 GB
+
+Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
+Serial number: 501709378202
+  Licensed to: Tom Palmer
+               University of Bristol
 
 . 
 . // simulate data
@@ -1035,7 +1080,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . ivmsmm y (x = z1)
 
-Final GMM criterion Q(b) =  5.69e-33
+Final GMM criterion Q(b) =  5.63e-33
 
 note: model is exactly identified.
 
@@ -1177,7 +1222,7 @@ Iteration 3:   GMM criterion Q(b) =  3.685e-16
 
 Step 2
 Iteration 0:   GMM criterion Q(b) =  2.287e-16  
-Iteration 1:   GMM criterion Q(b) =  1.267e-31  
+Iteration 1:   GMM criterion Q(b) =  1.268e-31  
 
 note: model is exactly identified.
 
@@ -1262,15 +1307,15 @@ Instrumented: tcost
 . 
 end of do-file
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
   log type:  text
- closed on:  11 Apr 2023, 13:19:33
+ closed on:  21 Aug 2023, 21:32:28
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
   log type:  text
- opened on:  11 Apr 2023, 13:19:33
+ opened on:  21 Aug 2023, 21:32:28
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -1279,8 +1324,23 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivtsps
 
 -> which ivtsps, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivtsps.ado
+C:\Users\tom\Documents\GitHub\ivonesamplemr\ivtsps.ado
 *! 1.0.0 Tom Palmer 05sep2021
+
+. 
+. about
+
+Stata/MP 17.0 for Windows (64-bit x86-64)
+Revision 18 Jul 2023
+Copyright 1985-2021 StataCorp LLC
+
+Total physical memory:       32.00 GB
+Available physical memory:   18.66 GB
+
+Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
+Serial number: 501709378202
+  Licensed to: Tom Palmer
+               University of Bristol
 
 . 
 . // simulate data
@@ -1814,7 +1874,7 @@ Instrumented: x
 
 . ivtsps y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.85e-32
+Final GMM criterion Q(b) =  1.86e-32
 
 note: model is exactly identified.
 
@@ -2784,15 +2844,15 @@ Bootstrap replications (250)
 . 
 end of do-file
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
   log type:  text
- closed on:  11 Apr 2023, 13:19:37
+ closed on:  21 Aug 2023, 21:32:34
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsri.log
   log type:  text
- opened on:  11 Apr 2023, 13:19:37
+ opened on:  21 Aug 2023, 21:32:34
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -2801,8 +2861,23 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivtsri
 
 -> which ivtsri, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivtsri.ado
+C:\Users\tom\Documents\GitHub\ivonesamplemr\ivtsri.ado
 *! 1.0.0 Tom Palmer 05sep2021
+
+. 
+. about
+
+Stata/MP 17.0 for Windows (64-bit x86-64)
+Revision 18 Jul 2023
+Copyright 1985-2021 StataCorp LLC
+
+Total physical memory:       32.00 GB
+Available physical memory:   18.67 GB
+
+Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
+Serial number: 501709378202
+  Licensed to: Tom Palmer
+               University of Bristol
 
 . 
 . // simulate data
@@ -3261,7 +3336,7 @@ Log likelihood = -1810.4754                             Pseudo R2     = 0.1323
 
 . ivtsri y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.10e-32
+Final GMM criterion Q(b) =  7.00e-33
 
 note: model is exactly identified.
 
@@ -3512,7 +3587,7 @@ Log likelihood = -1804.0989                             Pseudo R2     = 0.1354
 
 . ivtsri y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.66e-32
+Final GMM criterion Q(b) =  1.28e-32
 
 note: model is exactly identified.
 
@@ -4609,15 +4684,15 @@ Bootstrap replications (250)
 . 
 end of do-file
       name:  ivtsri
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsri.log
   log type:  text
- closed on:  11 Apr 2023, 13:19:42
+ closed on:  21 Aug 2023, 21:32:41
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
   log type:  text
- opened on:  11 Apr 2023, 13:19:42
+ opened on:  21 Aug 2023, 21:32:41
 
 . // ivmw cscript
 . // 2021-09-12
@@ -4626,8 +4701,23 @@ end of do-file
 ---------------------------------------------------------------------BEGIN ivmw
 
 -> which ivmw, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivmw.ado
+C:\Users\tom\Documents\GitHub\ivonesamplemr\ivmw.ado
 *! version 0.1.0 12sep2021 Tom Palmer
+
+. 
+. about
+
+Stata/MP 17.0 for Windows (64-bit x86-64)
+Revision 18 Jul 2023
+Copyright 1985-2021 StataCorp LLC
+
+Total physical memory:       32.00 GB
+Available physical memory:   18.68 GB
+
+Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
+Serial number: 501709378202
+  Licensed to: Tom Palmer
+               University of Bristol
 
 . 
 . // simulate data
@@ -4671,8 +4761,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)
@@ -4684,8 +4773,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress gmm y (x = z1 z2 z3)
@@ -4697,8 +4785,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivregress)
 
 . 
@@ -4712,8 +4799,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(90) par(x): ivreg2 y (x = z1 z2 z3) in 1/100
@@ -4725,8 +4811,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -4740,8 +4825,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(identity)
@@ -4753,8 +4837,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivtsps)
 
 . 
@@ -4768,8 +4851,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(identity)
@@ -4781,8 +4863,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (11)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ...........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivtsri)
 
 . 
@@ -4824,8 +4905,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (21)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .....................
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -4865,8 +4945,7 @@ Time variable: res_order, 1 to 2500
 Rolling replications (21)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .....................
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivmsmm)
 
 . 
@@ -4922,8 +5001,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y2 (x = g)
@@ -4935,8 +5013,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y3 (x = g)
@@ -4948,8 +5025,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y4 (x = g)
@@ -4961,8 +5037,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y5 (x = g)
@@ -4974,8 +5049,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y6 (x = g)
@@ -4987,8 +5061,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y7 (x = g)
@@ -5000,8 +5073,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -5014,8 +5086,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (25)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 .........................
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -5108,8 +5179,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivlsmm)
 
 . ivmw, window(3991) par(x): ivmsmm y (x = z1 z2 z3)
@@ -5121,8 +5191,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivmsmm)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
@@ -5134,8 +5203,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
@@ -5147,8 +5215,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
@@ -5160,8 +5227,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
@@ -5173,8 +5239,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
@@ -5186,8 +5251,7 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
@@ -5199,22 +5263,21 @@ Time variable: res_order, 1 to 4000
 Rolling replications (10)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
 ..........
-file /var/folders/cp/v8nnpg_90dq3clydrdlddfjm0000gn/T//S_00854.000001 saved
-    as .dta format
+file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
 (rolling: ivtsri)
 
 . 
 end of do-file
       name:  ivmw
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
   log type:  text
- closed on:  11 Apr 2023, 13:20:28
+ closed on:  21 Aug 2023, 21:33:44
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivxtile.log
   log type:  text
- opened on:  11 Apr 2023, 13:20:28
+ opened on:  21 Aug 2023, 21:33:44
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -5223,8 +5286,23 @@ end of do-file
 ------------------------------------------------------------------BEGIN ivxtile
 
 -> which ivxtile, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivxtile.ado
+C:\Users\tom\Documents\GitHub\ivonesamplemr\ivxtile.ado
 *! version 0.1.0 16sep2021 Tom Palmer
+
+. 
+. about
+
+Stata/MP 17.0 for Windows (64-bit x86-64)
+Revision 18 Jul 2023
+Copyright 1985-2021 StataCorp LLC
+
+Total physical memory:       32.00 GB
+Available physical memory:   18.64 GB
+
+Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
+Serial number: 501709378202
+  Licensed to: Tom Palmer
+               University of Bristol
 
 . 
 . // burgess, davies, thompson paper simulations (y1-y5)
@@ -5684,18 +5762,33 @@ Model did not fit in quantile 3
 . 
 end of do-file
       name:  ivxtile
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivxtile.log
   log type:  text
- closed on:  11 Apr 2023, 13:20:41
+ closed on:  21 Aug 2023, 21:34:05
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.log
   log type:  text
- opened on:  11 Apr 2023, 13:20:41
+ opened on:  21 Aug 2023, 21:34:05
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
+. 
+. about
+
+Stata/MP 17.0 for Windows (64-bit x86-64)
+Revision 18 Jul 2023
+Copyright 1985-2021 StataCorp LLC
+
+Total physical memory:       32.00 GB
+Available physical memory:   18.63 GB
+
+Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
+Serial number: 501709378202
+  Licensed to: Tom Palmer
+               University of Bristol
+
 . 
 . local helpfiles ///
 > ivonesamplemr ///
@@ -6412,15 +6505,15 @@ INCLUDE help ivonesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.log
   log type:  text
- closed on:  11 Apr 2023, 13:20:41
+ closed on:  21 Aug 2023, 21:34:05
 -------------------------------------------------------------------------------
 
 . 
 . log close _all
       name:  master
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\master.log
   log type:  text
- closed on:  11 Apr 2023, 13:20:41
+ closed on:  21 Aug 2023, 21:34:05
 -------------------------------------------------------------------------------
