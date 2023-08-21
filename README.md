@@ -8,6 +8,8 @@ One-sample Mendelian randomization (MR) / instrumental variable (IV) analyses in
 
 ## Latest updates
 
+* August 2023:
+  - Added a record of the Stata version in the certification scripts
 * April 2023:
   - The images in the package website now have accompanying alt text descriptions
   - Checked the certification scripts run under the latest Stata 17.0
