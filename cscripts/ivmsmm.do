@@ -3,6 +3,8 @@
 
 cscript ivmsmm adofiles ivmsmm
 
+about
+
 // simulate data
 clear
 set obs 2500

@@ -3,6 +3,8 @@
 
 cscript iv adofiles iv
 
+about
+
 // simulate data
 clear
 set obs 2500

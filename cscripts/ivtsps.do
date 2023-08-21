@@ -3,6 +3,8 @@
 
 cscript ivtsps adofiles ivtsps
 
+about
+
 // simulate data
 clear
 set obs 2500
