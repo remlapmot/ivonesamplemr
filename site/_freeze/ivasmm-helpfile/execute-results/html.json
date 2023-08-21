@@ -1,8 +1,10 @@
 {
-  "hash": "665e59c52ae9dbe2b66d6f6773986593",
+  "hash": "c1b4a1ce213ac1dba4001f96d8c8af45",
   "result": {
     "markdown": "---\npagetitle: ivasmm-helpfile\n---\n\n\n<iframe src=\"./helpfiles/ivasmm.html\" width=\"100%\" style=\"height: 100em; border: none\">\n</iframe>\n",
-    "supporting": [],
+    "supporting": [
+      "ivasmm-helpfile_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

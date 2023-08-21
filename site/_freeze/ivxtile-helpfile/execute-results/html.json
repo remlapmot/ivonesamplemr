@@ -1,8 +1,10 @@
 {
-  "hash": "52659edf57cce7298e7cd419ac4f97e9",
+  "hash": "23ea0cadd3356b75b5643dc43a34e644",
   "result": {
     "markdown": "---\npagetitle: ivxtile-helpfile\n---\n\n\n<iframe src=\"./helpfiles/ivxtile.html\" width=\"100%\" style=\"height: 100em; border: none\">\n</iframe>\n",
-    "supporting": [],
+    "supporting": [
+      "ivxtile-helpfile_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

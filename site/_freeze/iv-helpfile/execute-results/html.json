@@ -1,8 +1,10 @@
 {
-  "hash": "bdeae34a7897f2e8784cd63d65044bf7",
+  "hash": "464d5d51f3c8f84183f82be019840142",
   "result": {
     "markdown": "---\npagetitle: iv-helpfile\n---\n\n\n<iframe src=\"./helpfiles/iv.html\" width=\"100%\" style=\"height: 100em; border: none\">\n</iframe>\n",
-    "supporting": [],
+    "supporting": [
+      "iv-helpfile_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],
