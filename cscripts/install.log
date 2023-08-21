@@ -1,8 +1,23 @@
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/install.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\install.log
   log type:  text
- opened on:  17 Sep 2021, 20:41:22
+ opened on:  21 Aug 2023, 21:35:28
+
+. 
+. about
+
+Stata/MP 17.0 for Windows (64-bit x86-64)
+Revision 18 Jul 2023
+Copyright 1985-2021 StataCorp LLC
+
+Total physical memory:       32.00 GB
+Available physical memory:   18.61 GB
+
+Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
+Serial number: 501709378202
+  Licensed to: Tom Palmer
+               University of Bristol
 
 . 
 . ** net install
@@ -11,19 +26,19 @@
 package not found
 
 . 
-. net desc ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesamplemr/m
-> ain/")
+. net desc ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesamplemr/
+> main/")
 
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 package ivonesamplemr from https://raw.github.com/remlapmot/ivonesamplemr/main
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 TITLE
       ivonesamplemr
 
 DESCRIPTION/AUTHOR(S)
       Author: Tom Palmer
-      Distribution-Date: 20210917
+      Distribution-Date: 20210927
 
 INSTALLATION FILES                        (type net install ivonesamplemr)
       iv.ado
@@ -43,13 +58,13 @@ INSTALLATION FILES                        (type net install ivonesamplemr)
       ivtsri.sthlp
       ivxtile.ado
       ivxtile.sthlp
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 . 
-. net install ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesamplem
-> r/main/") replace
+. net install ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesample
+> mr/main/") replace
 checking ivonesamplemr consistency and verifying not already installed...
-installing into /Users/tom/Library/Application Support/Stata/ado/plus/...
+installing into c:\ado\plus\...
 installation complete.
 
 . do https://raw.github.com/remlapmot/ivonesamplemr/main/dependency.do
@@ -92,7 +107,7 @@ all files already exist and are up to date.
 
 . github install remlapmot/ivonesamplemr
 checking ivonesamplemr consistency and verifying not already installed...
-installing into /Users/tom/Library/Application Support/Stata/ado/plus/...
+installing into c:\ado\plus\...
 installation complete.
 
 Checking package dependencies
@@ -123,8 +138,8 @@ end of do-file
 . 
 . cap noi ado uninstall ivonesamplemr
 
-package ivonesamplemr from https://raw.githubusercontent.com/remlapmot/ivonesamp
-> lemr/master
+package ivonesamplemr from https://raw.githubusercontent.com/remlapmot/ivonesam
+> plemr/master
       ivonesamplemr
 
 (package uninstalled)
@@ -132,7 +147,7 @@ package ivonesamplemr from https://raw.githubusercontent.com/remlapmot/ivonesamp
 . 
 . log close
       name:  <unnamed>
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/install.log
+       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\install.log
   log type:  text
- closed on:  17 Sep 2021, 20:42:22
---------------------------------------------------------------------------------
+ closed on:  21 Aug 2023, 21:36:17
+-------------------------------------------------------------------------------
