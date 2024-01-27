@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivtsps
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  21 Aug 2023, 21:32:28
+ opened on:  27 Jan 2024, 19:56:01
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -11,21 +11,20 @@
 -------------------------------------------------------------------BEGIN ivtsps
 
 -> which ivtsps, usesysdir
-C:\Users\tom\Documents\GitHub\ivonesamplemr\ivtsps.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivtsps.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
 . about
 
-Stata/MP 17.0 for Windows (64-bit x86-64)
-Revision 18 Jul 2023
-Copyright 1985-2021 StataCorp LLC
+Stata/MP 18.0 for Mac (Apple Silicon)
+Revision 20 Dec 2023
+Copyright 1985-2023 StataCorp LLC
 
-Total physical memory:       32.00 GB
-Available physical memory:   18.66 GB
+Total physical memory: 8.01 GB
 
-Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
-Serial number: 501709378202
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -80,8 +79,8 @@ GMM weight matrix: Robust                         Root MSE        =     .39694
            x |   .1071817   .0074402    14.41   0.000     .0925993    .1217642
        _cons |   .2879039   .0157363    18.30   0.000     .2570612    .3187465
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar bx1 = _b[x]
 
@@ -182,8 +181,8 @@ GMM weight matrix: Robust                         Root MSE        =     .33512
            x |   .1781062   .0294317     6.05   0.000     .1204211    .2357912
        _cons |   .2258489   .0642993     3.51   0.000     .0998245    .3518732
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar bx2 = _b[x]
 
@@ -287,8 +286,8 @@ GMM weight matrix: Robust                         Root MSE        =     .38051
            w |   .1159165    .010589    10.95   0.000     .0951624    .1366707
        _cons |   .2865861   .0150723    19.01   0.000     .2570449    .3161273
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: w z1 z2 z3
+Endogenous: x
+Exogenous:  w z1 z2 z3
 
 . scalar bx3 = _b[x]
 
@@ -380,8 +379,8 @@ GMM weight matrix:     Robust
            x |   .2111395   .0148693    14.20   0.000     .1819962    .2402828
        _cons |  -1.203142   .0468509   -25.68   0.000    -1.294969   -1.111316
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar lrr1 = _b[x]
 
@@ -485,8 +484,8 @@ GMM weight matrix:     Robust
            x |   .2041092   .0443505     4.60   0.000     .1171838    .2910346
        _cons |  -1.093612   .1396017    -7.83   0.000    -1.367226   -.8199976
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar lrr2 = _b[x]
 
@@ -552,8 +551,8 @@ GMM weight matrix:     Robust
            w |   .2455423   .0228433    10.75   0.000     .2007703    .2903144
        _cons |  -1.273175   .0445619   -28.57   0.000    -1.360515   -1.185836
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: w z1 z2 z3
+Endogenous: x
+Exogenous:  w z1 z2 z3
 
 . scalar lrr3 = _b[x]
 
@@ -561,7 +560,7 @@ Instrumented: x
 
 . ivtsps y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.86e-32
+Final GMM criterion Q(b) =  1.85e-32
 
 note: model is exactly identified.
 
@@ -1512,13 +1511,11 @@ Causal risk difference for: b1
 . bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly
 (running ivtsps on estimation sample)
 
-Bootstrap replications (250)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-..................................................   100
-..................................................   150
-..................................................   200
-..................................................   250
+Bootstrap replications (250): .........10.........20.........30.........40.....
+> ....50.........60.........70.........80.........90.........100.........110...
+> ......120.........130.........140.........150.........160.........170........
+> .180.........190.........200.........210.........220.........230.........240.
+> ........250 done
 
 ------------------------------------------------------------------------------
              |   Observed   Bootstrap                         Normal-based
@@ -1531,7 +1528,7 @@ Bootstrap replications (250)
 . 
 end of do-file
       name:  ivtsps
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  21 Aug 2023, 21:32:34
+ closed on:  27 Jan 2024, 19:56:06
 -------------------------------------------------------------------------------

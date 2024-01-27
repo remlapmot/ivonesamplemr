@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivmw
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:  21 Aug 2023, 21:32:41
+ opened on:  27 Jan 2024, 19:56:13
 
 . // ivmw cscript
 . // 2021-09-12
@@ -11,21 +11,20 @@
 ---------------------------------------------------------------------BEGIN ivmw
 
 -> which ivmw, usesysdir
-C:\Users\tom\Documents\GitHub\ivonesamplemr\ivmw.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivmw.ado
 *! version 0.1.0 12sep2021 Tom Palmer
 
 . 
 . about
 
-Stata/MP 17.0 for Windows (64-bit x86-64)
-Revision 18 Jul 2023
-Copyright 1985-2021 StataCorp LLC
+Stata/MP 18.0 for Mac (Apple Silicon)
+Revision 20 Dec 2023
+Copyright 1985-2023 StataCorp LLC
 
-Total physical memory:       32.00 GB
-Available physical memory:   18.68 GB
+Total physical memory: 8.01 GB
 
-Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
-Serial number: 501709378202
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -68,10 +67,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivregress on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)
@@ -80,10 +78,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivregress on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress gmm y (x = z1 z2 z3)
@@ -92,10 +89,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivregress on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivregress)
 
 . 
@@ -106,10 +102,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(90) par(x): ivreg2 y (x = z1 z2 z3) in 1/100
@@ -118,10 +113,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . 
@@ -132,10 +126,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivtsps on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(identity)
@@ -144,10 +137,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivtsps on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsps)
 
 . 
@@ -158,10 +150,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivtsri on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(identity)
@@ -170,10 +161,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivtsri on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsri)
 
 . 
@@ -212,10 +202,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (21)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.....................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (21): .........10.........20. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . 
@@ -252,10 +241,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivmsmm on estimation sample)
 
-Rolling replications (21)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.....................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (21): .........10.........20. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivmsmm)
 
 . 
@@ -308,10 +296,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y2 (x = g)
@@ -320,10 +307,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y3 (x = g)
@@ -332,10 +318,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y4 (x = g)
@@ -344,10 +329,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y5 (x = g)
@@ -356,10 +340,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y6 (x = g)
@@ -368,10 +351,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y7 (x = g)
@@ -380,10 +362,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . 
@@ -393,10 +374,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . 
@@ -406,10 +386,8 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
+Rolling replications (51): .........10.........20.........30.........40........
+> .50. done
 file ivmw.dta saved
 (rolling: ivreg2)
 
@@ -419,10 +397,8 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
+Rolling replications (51): .........10.........20.........30.........40........
+> .50. done
 file ivmw.dta saved
 (rolling: ivreg2)
 
@@ -486,10 +462,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivlsmm on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivlsmm)
 
 . ivmw, window(3991) par(x): ivmsmm y (x = z1 z2 z3)
@@ -498,10 +473,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivmsmm on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivmsmm)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
@@ -510,10 +484,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsps on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
@@ -522,10 +495,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsps on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
@@ -534,10 +506,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsps on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
@@ -546,10 +517,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsri on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
@@ -558,10 +528,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsri on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
@@ -570,16 +539,15 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsri on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsri)
 
 . 
 end of do-file
       name:  ivmw
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:  21 Aug 2023, 21:33:44
+ closed on:  27 Jan 2024, 19:57:14
 -------------------------------------------------------------------------------

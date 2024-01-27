@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  master
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\master.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:  21 Aug 2023, 21:32:19
+ opened on:  27 Jan 2024, 19:55:54
 
 . 
 . cscript master
@@ -30,9 +30,9 @@
   5. }
 -------------------------------------------------------------------------------
       name:  iv
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\iv.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  21 Aug 2023, 21:32:19
+ opened on:  27 Jan 2024, 19:55:54
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -41,21 +41,20 @@
 -----------------------------------------------------------------------BEGIN iv
 
 -> which iv, usesysdir
-C:\Users\tom\Documents\GitHub\ivonesamplemr\iv.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/iv.ado
 *! version 0.1.0 10sep2021 Tom Palmer
 
 . 
 . about
 
-Stata/MP 17.0 for Windows (64-bit x86-64)
-Revision 18 Jul 2023
-Copyright 1985-2021 StataCorp LLC
+Stata/MP 18.0 for Mac (Apple Silicon)
+Revision 20 Dec 2023
+Copyright 1985-2023 StataCorp LLC
 
-Total physical memory:       32.00 GB
-Available physical memory:   18.60 GB
+Total physical memory: 8.01 GB
 
-Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
-Serial number: 501709378202
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -156,8 +155,8 @@ GMM weight matrix:     Robust
        _cons |     .20946   .0194699   -16.82   0.000      .174574    .2513173
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . 
 . iv tsps y (x = z1 z2 z3)
@@ -247,15 +246,15 @@ Causal odds ratio for: b2
 . 
 end of do-file
       name:  iv
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\iv.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  21 Aug 2023, 21:32:20
+ closed on:  27 Jan 2024, 19:55:55
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivlsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  21 Aug 2023, 21:32:20
+ opened on:  27 Jan 2024, 19:55:55
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -264,21 +263,20 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivlsmm
 
 -> which ivlsmm, usesysdir
-C:\Users\tom\Documents\GitHub\ivonesamplemr\ivlsmm.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivlsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
 . about
 
-Stata/MP 17.0 for Windows (64-bit x86-64)
-Revision 18 Jul 2023
-Copyright 1985-2021 StataCorp LLC
+Stata/MP 18.0 for Mac (Apple Silicon)
+Revision 20 Dec 2023
+Copyright 1985-2023 StataCorp LLC
 
-Total physical memory:       32.00 GB
-Available physical memory:   18.59 GB
+Total physical memory: 8.01 GB
 
-Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
-Serial number: 501709378202
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -320,7 +318,7 @@ Number of observations (_N) was 0, now 2,500.
 
 . ivlsmm y w (x = z1)
 
-Final GMM criterion Q(b) =  1.79e-30
+Final GMM criterion Q(b) =  1.78e-30
 
 note: model is exactly identified.
 
@@ -348,7 +346,7 @@ Instruments for equation 2: z1 w _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(0) = 4.5e-27 (p =     .)
+  Hansen's J chi2(0) = 4.4e-27 (p =     .)
 
 Note: test cannot be performed because there are no
       overidentifying restrictions.
@@ -417,7 +415,7 @@ Causal odds ratio for: w
 . eret list
 
 scalars:
-                  e(J) =  4.46658764385e-27
+                  e(J) =  4.44363770968e-27
                 e(J_p) =  .
                e(J_df) =  0
          e(k_eq_model) =  0
@@ -431,7 +429,7 @@ scalars:
           e(converged) =  1
                 e(k_2) =  7
                 e(k_1) =  4
-                  e(Q) =  1.78663505754e-30
+                  e(Q) =  1.77745508387e-30
                   e(N) =  2500
                e(rank) =  7
 
@@ -1009,15 +1007,15 @@ Causal odds ratio for: x
 . 
 end of do-file
       name:  ivlsmm
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivlsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  21 Aug 2023, 21:32:26
+ closed on:  27 Jan 2024, 19:55:58
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  21 Aug 2023, 21:32:26
+ opened on:  27 Jan 2024, 19:55:58
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -1026,21 +1024,20 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivmsmm
 
 -> which ivmsmm, usesysdir
-C:\Users\tom\Documents\GitHub\ivonesamplemr\ivmsmm.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivmsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
 . about
 
-Stata/MP 17.0 for Windows (64-bit x86-64)
-Revision 18 Jul 2023
-Copyright 1985-2021 StataCorp LLC
+Stata/MP 18.0 for Mac (Apple Silicon)
+Revision 20 Dec 2023
+Copyright 1985-2023 StataCorp LLC
 
-Total physical memory:       32.00 GB
-Available physical memory:   18.65 GB
+Total physical memory: 8.01 GB
 
-Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
-Serial number: 501709378202
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -1080,7 +1077,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . ivmsmm y (x = z1)
 
-Final GMM criterion Q(b) =  5.63e-33
+Final GMM criterion Q(b) =  5.69e-33
 
 note: model is exactly identified.
 
@@ -1099,8 +1096,8 @@ GMM weight matrix:     Robust
        _cons |   .1942051   .0287407   -11.07   0.000     .1453081    .2595561
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: x
- Instruments: z1
+Endogenous: x
+Exogenous:  z1
 
 . assert abs(_b[x] - .328) < 1e-3
 
@@ -1121,8 +1118,8 @@ GMM weight matrix:     Robust
        _cons |   .1942051   .0287407   -11.07   0.000     .1453081    .2595561
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: x
- Instruments: z1
+Endogenous: x
+Exogenous:  z1
 
 . 
 . mat list r(table)
@@ -1160,8 +1157,8 @@ GMM weight matrix:     Robust
        _cons |     .20946   .0194699   -16.82   0.000      .174574    .2513173
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . assert abs(_b[x] - .297) < 1e-3
 
@@ -1188,8 +1185,8 @@ GMM weight matrix:     Robust
        _cons |     .20946   .0194699   -16.82   0.000      .174574    .2513173
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . 
 . // overid test
@@ -1215,14 +1212,14 @@ Instrumented: x
 . ivpoisson gmm trips cbd ptn worker weekend (tcost=pt), multiplicative
 
 Step 1
-Iteration 0:   GMM criterion Q(b) =  .04949852  
-Iteration 1:   GMM criterion Q(b) =  .00011194  
-Iteration 2:   GMM criterion Q(b) =  1.563e-08  
-Iteration 3:   GMM criterion Q(b) =  3.685e-16  
+Iteration 0:  GMM criterion Q(b) =  .04949852  
+Iteration 1:  GMM criterion Q(b) =  .00011194  
+Iteration 2:  GMM criterion Q(b) =  1.563e-08  
+Iteration 3:  GMM criterion Q(b) =  3.685e-16  
 
 Step 2
-Iteration 0:   GMM criterion Q(b) =  2.287e-16  
-Iteration 1:   GMM criterion Q(b) =  1.268e-31  
+Iteration 0:  GMM criterion Q(b) =  2.287e-16  
+Iteration 1:  GMM criterion Q(b) =  1.267e-31  
 
 note: model is exactly identified.
 
@@ -1244,8 +1241,8 @@ GMM weight matrix:     Robust
      weekend |   .3009323   .0362682     8.30   0.000     .2298479    .3720167
        _cons |   .2654423   .1550127     1.71   0.087    -.0383769    .5692616
 ------------------------------------------------------------------------------
-Instrumented: tcost
- Instruments: cbd ptn worker weekend pt
+Endogenous: tcost
+Exogenous:  cbd ptn worker weekend pt
 
 . assert abs(_b[tcost] - .035) < 1e-3
 
@@ -1270,8 +1267,8 @@ GMM weight matrix:     Robust
        _cons |   1.304008   .2021377     1.71   0.087     .9623501    1.766962
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: tcost
- Instruments: cbd ptn worker weekend pt
+Endogenous: tcost
+Exogenous:  cbd ptn worker weekend pt
 
 . 
 . ivmsmm trips cbd ptn worker weekend (tcost=pt)
@@ -1299,23 +1296,23 @@ GMM weight matrix:     Robust
        _cons |   1.304008   .2021377     1.71   0.087     .9623501    1.766962
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: tcost
- Instruments: cbd ptn worker weekend pt
+Endogenous: tcost
+Exogenous:  cbd ptn worker weekend pt
 
 . assert abs(_b[tcost] - .035) < 1e-3
 
 . 
 end of do-file
       name:  ivmsmm
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  21 Aug 2023, 21:32:28
+ closed on:  27 Jan 2024, 19:56:01
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  21 Aug 2023, 21:32:28
+ opened on:  27 Jan 2024, 19:56:01
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -1324,21 +1321,20 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivtsps
 
 -> which ivtsps, usesysdir
-C:\Users\tom\Documents\GitHub\ivonesamplemr\ivtsps.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivtsps.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
 . about
 
-Stata/MP 17.0 for Windows (64-bit x86-64)
-Revision 18 Jul 2023
-Copyright 1985-2021 StataCorp LLC
+Stata/MP 18.0 for Mac (Apple Silicon)
+Revision 20 Dec 2023
+Copyright 1985-2023 StataCorp LLC
 
-Total physical memory:       32.00 GB
-Available physical memory:   18.66 GB
+Total physical memory: 8.01 GB
 
-Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
-Serial number: 501709378202
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -1393,8 +1389,8 @@ GMM weight matrix: Robust                         Root MSE        =     .39694
            x |   .1071817   .0074402    14.41   0.000     .0925993    .1217642
        _cons |   .2879039   .0157363    18.30   0.000     .2570612    .3187465
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar bx1 = _b[x]
 
@@ -1495,8 +1491,8 @@ GMM weight matrix: Robust                         Root MSE        =     .33512
            x |   .1781062   .0294317     6.05   0.000     .1204211    .2357912
        _cons |   .2258489   .0642993     3.51   0.000     .0998245    .3518732
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar bx2 = _b[x]
 
@@ -1600,8 +1596,8 @@ GMM weight matrix: Robust                         Root MSE        =     .38051
            w |   .1159165    .010589    10.95   0.000     .0951624    .1366707
        _cons |   .2865861   .0150723    19.01   0.000     .2570449    .3161273
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: w z1 z2 z3
+Endogenous: x
+Exogenous:  w z1 z2 z3
 
 . scalar bx3 = _b[x]
 
@@ -1693,8 +1689,8 @@ GMM weight matrix:     Robust
            x |   .2111395   .0148693    14.20   0.000     .1819962    .2402828
        _cons |  -1.203142   .0468509   -25.68   0.000    -1.294969   -1.111316
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar lrr1 = _b[x]
 
@@ -1798,8 +1794,8 @@ GMM weight matrix:     Robust
            x |   .2041092   .0443505     4.60   0.000     .1171838    .2910346
        _cons |  -1.093612   .1396017    -7.83   0.000    -1.367226   -.8199976
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar lrr2 = _b[x]
 
@@ -1865,8 +1861,8 @@ GMM weight matrix:     Robust
            w |   .2455423   .0228433    10.75   0.000     .2007703    .2903144
        _cons |  -1.273175   .0445619   -28.57   0.000    -1.360515   -1.185836
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: w z1 z2 z3
+Endogenous: x
+Exogenous:  w z1 z2 z3
 
 . scalar lrr3 = _b[x]
 
@@ -1874,7 +1870,7 @@ Instrumented: x
 
 . ivtsps y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.86e-32
+Final GMM criterion Q(b) =  1.85e-32
 
 note: model is exactly identified.
 
@@ -2825,13 +2821,11 @@ Causal risk difference for: b1
 . bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly
 (running ivtsps on estimation sample)
 
-Bootstrap replications (250)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-..................................................   100
-..................................................   150
-..................................................   200
-..................................................   250
+Bootstrap replications (250): .........10.........20.........30.........40.....
+> ....50.........60.........70.........80.........90.........100.........110...
+> ......120.........130.........140.........150.........160.........170........
+> .180.........190.........200.........210.........220.........230.........240.
+> ........250 done
 
 ------------------------------------------------------------------------------
              |   Observed   Bootstrap                         Normal-based
@@ -2844,15 +2838,15 @@ Bootstrap replications (250)
 . 
 end of do-file
       name:  ivtsps
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsps.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  21 Aug 2023, 21:32:34
+ closed on:  27 Jan 2024, 19:56:06
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsri.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  21 Aug 2023, 21:32:34
+ opened on:  27 Jan 2024, 19:56:06
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -2861,21 +2855,20 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivtsri
 
 -> which ivtsri, usesysdir
-C:\Users\tom\Documents\GitHub\ivonesamplemr\ivtsri.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivtsri.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
 . about
 
-Stata/MP 17.0 for Windows (64-bit x86-64)
-Revision 18 Jul 2023
-Copyright 1985-2021 StataCorp LLC
+Stata/MP 18.0 for Mac (Apple Silicon)
+Revision 20 Dec 2023
+Copyright 1985-2023 StataCorp LLC
 
-Total physical memory:       32.00 GB
-Available physical memory:   18.67 GB
+Total physical memory: 8.01 GB
 
-Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
-Serial number: 501709378202
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -2930,8 +2923,8 @@ GMM weight matrix: Robust                         Root MSE        =     .39694
            x |   .1071817   .0074402    14.41   0.000     .0925993    .1217642
        _cons |   .2879039   .0157363    18.30   0.000     .2570612    .3187465
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar bx1 = _b[x]
 
@@ -3077,8 +3070,8 @@ GMM weight matrix: Robust                         Root MSE        =     .33512
            x |   .1781062   .0294317     6.05   0.000     .1204211    .2357912
        _cons |   .2258489   .0642993     3.51   0.000     .0998245    .3518732
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar bx2 = _b[x]
 
@@ -3204,8 +3197,8 @@ GMM weight matrix: Robust                         Root MSE        =     .38051
            w |   .1159165    .010589    10.95   0.000     .0951624    .1366707
        _cons |   .2865861   .0150723    19.01   0.000     .2570449    .3161273
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: w z1 z2 z3
+Endogenous: x
+Exogenous:  w z1 z2 z3
 
 . scalar bx3 = _b[x]
 
@@ -3336,7 +3329,7 @@ Log likelihood = -1810.4754                             Pseudo R2     = 0.1323
 
 . ivtsri y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  7.00e-33
+Final GMM criterion Q(b) =  1.10e-32
 
 note: model is exactly identified.
 
@@ -3587,7 +3580,7 @@ Log likelihood = -1804.0989                             Pseudo R2     = 0.1354
 
 . ivtsri y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.28e-32
+Final GMM criterion Q(b) =  1.66e-32
 
 note: model is exactly identified.
 
@@ -3697,8 +3690,8 @@ x            |
 -------------+----------------------------------------------------------------
         /c_x |   .3079003   .0455426     6.76   0.000     .2186384    .3971621
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar lmrr1 = _b[x]
 
@@ -3847,8 +3840,8 @@ x            |
 -------------+----------------------------------------------------------------
         /c_x |   .1639146   .1218836     1.34   0.179    -.0749729    .4028022
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . scalar lmrr2 = _b[x]
 
@@ -3937,8 +3930,8 @@ x            |
 -------------+----------------------------------------------------------------
         /c_x |   .2131522   .0477597     4.46   0.000     .1195449    .3067596
 ------------------------------------------------------------------------------
-Instrumented: x
- Instruments: w z1 z2 z3
+Endogenous: x
+Exogenous:  w z1 z2 z3
 
 . scalar lmrr3 = _b[x]
 
@@ -4664,13 +4657,11 @@ Causal risk difference for: b2
 . bootstrap, reps(250): ivtsri y (x = z1 z2 z3), estonly
 (running ivtsri on estimation sample)
 
-Bootstrap replications (250)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-..................................................   100
-..................................................   150
-..................................................   200
-..................................................   250
+Bootstrap replications (250): .........10.........20.........30.........40.....
+> ....50.........60.........70.........80.........90.........100.........110...
+> ......120.........130.........140.........150.........160.........170........
+> .180.........190.........200.........210.........220.........230.........240.
+> ........250 done
 
 ------------------------------------------------------------------------------
              |   Observed   Bootstrap                         Normal-based
@@ -4684,15 +4675,15 @@ Bootstrap replications (250)
 . 
 end of do-file
       name:  ivtsri
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivtsri.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  21 Aug 2023, 21:32:41
+ closed on:  27 Jan 2024, 19:56:13
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:  21 Aug 2023, 21:32:41
+ opened on:  27 Jan 2024, 19:56:13
 
 . // ivmw cscript
 . // 2021-09-12
@@ -4701,21 +4692,20 @@ end of do-file
 ---------------------------------------------------------------------BEGIN ivmw
 
 -> which ivmw, usesysdir
-C:\Users\tom\Documents\GitHub\ivonesamplemr\ivmw.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivmw.ado
 *! version 0.1.0 12sep2021 Tom Palmer
 
 . 
 . about
 
-Stata/MP 17.0 for Windows (64-bit x86-64)
-Revision 18 Jul 2023
-Copyright 1985-2021 StataCorp LLC
+Stata/MP 18.0 for Mac (Apple Silicon)
+Revision 20 Dec 2023
+Copyright 1985-2023 StataCorp LLC
 
-Total physical memory:       32.00 GB
-Available physical memory:   18.68 GB
+Total physical memory: 8.01 GB
 
-Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
-Serial number: 501709378202
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -4758,10 +4748,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivregress on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)
@@ -4770,10 +4759,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivregress on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress gmm y (x = z1 z2 z3)
@@ -4782,10 +4770,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivregress on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivregress)
 
 . 
@@ -4796,10 +4783,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(90) par(x): ivreg2 y (x = z1 z2 z3) in 1/100
@@ -4808,10 +4794,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . 
@@ -4822,10 +4807,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivtsps on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(identity)
@@ -4834,10 +4818,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivtsps on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsps)
 
 . 
@@ -4848,10 +4831,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivtsri on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(identity)
@@ -4860,10 +4842,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivtsri on estimation sample)
 
-Rolling replications (11)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-...........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (11): .........10. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsri)
 
 . 
@@ -4902,10 +4883,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (21)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.....................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (21): .........10.........20. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . 
@@ -4942,10 +4922,9 @@ Time variable: res_order, 1 to 2500
         Delta: 1 unit
 (running ivmsmm on estimation sample)
 
-Rolling replications (21)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.....................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (21): .........10.........20. done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivmsmm)
 
 . 
@@ -4998,10 +4977,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y2 (x = g)
@@ -5010,10 +4988,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y3 (x = g)
@@ -5022,10 +4999,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y4 (x = g)
@@ -5034,10 +5010,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y5 (x = g)
@@ -5046,10 +5021,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y6 (x = g)
@@ -5058,10 +5032,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y7 (x = g)
@@ -5070,10 +5043,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . 
@@ -5083,10 +5055,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (25)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-.........................
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (25): .........10.........20..... done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivreg2)
 
 . 
@@ -5096,10 +5067,8 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
+Rolling replications (51): .........10.........20.........30.........40........
+> .50. done
 file ivmw.dta saved
 (rolling: ivreg2)
 
@@ -5109,10 +5078,8 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivreg2 on estimation sample)
 
-Rolling replications (51)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..................................................    50
-.
+Rolling replications (51): .........10.........20.........30.........40........
+> .50. done
 file ivmw.dta saved
 (rolling: ivreg2)
 
@@ -5176,10 +5143,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivlsmm on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivlsmm)
 
 . ivmw, window(3991) par(x): ivmsmm y (x = z1 z2 z3)
@@ -5188,10 +5154,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivmsmm on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivmsmm)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
@@ -5200,10 +5165,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsps on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
@@ -5212,10 +5176,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsps on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
@@ -5224,10 +5187,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsps on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
@@ -5236,10 +5198,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsri on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
@@ -5248,10 +5209,9 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsri on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
@@ -5260,24 +5220,23 @@ Time variable: res_order, 1 to 4000
         Delta: 1 unit
 (running ivtsri on estimation sample)
 
-Rolling replications (10)
-----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-..........
-file C:\Users\tom\AppData\Local\Temp\ST_74f4_000001.tmp saved as .dta format
+Rolling replications (10): .........10 done
+file /var/folders/ly/ywcn0q251jj24qrshjnt1jjc0000gp/T//S_46797.000001 saved
+    as .dta format
 (rolling: ivtsri)
 
 . 
 end of do-file
       name:  ivmw
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmw.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:  21 Aug 2023, 21:33:44
+ closed on:  27 Jan 2024, 19:57:14
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivxtile.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:  21 Aug 2023, 21:33:44
+ opened on:  27 Jan 2024, 19:57:14
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -5286,21 +5245,20 @@ end of do-file
 ------------------------------------------------------------------BEGIN ivxtile
 
 -> which ivxtile, usesysdir
-C:\Users\tom\Documents\GitHub\ivonesamplemr\ivxtile.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivxtile.ado
 *! version 0.1.0 16sep2021 Tom Palmer
 
 . 
 . about
 
-Stata/MP 17.0 for Windows (64-bit x86-64)
-Revision 18 Jul 2023
-Copyright 1985-2021 StataCorp LLC
+Stata/MP 18.0 for Mac (Apple Silicon)
+Revision 20 Dec 2023
+Copyright 1985-2023 StataCorp LLC
 
-Total physical memory:       32.00 GB
-Available physical memory:   18.64 GB
+Total physical memory: 8.01 GB
 
-Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
-Serial number: 501709378202
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -5762,30 +5720,29 @@ Model did not fit in quantile 3
 . 
 end of do-file
       name:  ivxtile
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivxtile.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:  21 Aug 2023, 21:34:05
+ closed on:  27 Jan 2024, 19:57:32
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  21 Aug 2023, 21:34:05
+ opened on:  27 Jan 2024, 19:57:32
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
 . 
 . about
 
-Stata/MP 17.0 for Windows (64-bit x86-64)
-Revision 18 Jul 2023
-Copyright 1985-2021 StataCorp LLC
+Stata/MP 18.0 for Mac (Apple Silicon)
+Revision 20 Dec 2023
+Copyright 1985-2023 StataCorp LLC
 
-Total physical memory:       32.00 GB
-Available physical memory:   18.63 GB
+Total physical memory: 8.01 GB
 
-Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
-Serial number: 501709378202
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -6505,15 +6462,15 @@ INCLUDE help ivonesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\helpfiles.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  21 Aug 2023, 21:34:05
+ closed on:  27 Jan 2024, 19:57:32
 -------------------------------------------------------------------------------
 
 . 
 . log close _all
       name:  master
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\master.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:  21 Aug 2023, 21:34:05
+ closed on:  27 Jan 2024, 19:57:32
 -------------------------------------------------------------------------------

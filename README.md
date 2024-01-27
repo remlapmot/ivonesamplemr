@@ -8,6 +8,8 @@ One-sample Mendelian randomization (MR) / instrumental variable (IV) analyses in
 
 ## Latest updates
 
+* January 2024:
+  - Reran certification scripts under Stata 18.0
 * August 2023:
   - Added a record of the Stata version in the certification scripts
 * April 2023:

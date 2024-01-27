@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivmsmm
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  21 Aug 2023, 21:32:26
+ opened on:  27 Jan 2024, 19:55:58
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -11,21 +11,20 @@
 -------------------------------------------------------------------BEGIN ivmsmm
 
 -> which ivmsmm, usesysdir
-C:\Users\tom\Documents\GitHub\ivonesamplemr\ivmsmm.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivmsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
 . about
 
-Stata/MP 17.0 for Windows (64-bit x86-64)
-Revision 18 Jul 2023
-Copyright 1985-2021 StataCorp LLC
+Stata/MP 18.0 for Mac (Apple Silicon)
+Revision 20 Dec 2023
+Copyright 1985-2023 StataCorp LLC
 
-Total physical memory:       32.00 GB
-Available physical memory:   18.65 GB
+Total physical memory: 8.01 GB
 
-Stata license: Unlimited-user 2-core network, expiring 21 Jan 2024
-Serial number: 501709378202
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -65,7 +64,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . ivmsmm y (x = z1)
 
-Final GMM criterion Q(b) =  5.63e-33
+Final GMM criterion Q(b) =  5.69e-33
 
 note: model is exactly identified.
 
@@ -84,8 +83,8 @@ GMM weight matrix:     Robust
        _cons |   .1942051   .0287407   -11.07   0.000     .1453081    .2595561
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: x
- Instruments: z1
+Endogenous: x
+Exogenous:  z1
 
 . assert abs(_b[x] - .328) < 1e-3
 
@@ -106,8 +105,8 @@ GMM weight matrix:     Robust
        _cons |   .1942051   .0287407   -11.07   0.000     .1453081    .2595561
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: x
- Instruments: z1
+Endogenous: x
+Exogenous:  z1
 
 . 
 . mat list r(table)
@@ -145,8 +144,8 @@ GMM weight matrix:     Robust
        _cons |     .20946   .0194699   -16.82   0.000      .174574    .2513173
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . assert abs(_b[x] - .297) < 1e-3
 
@@ -173,8 +172,8 @@ GMM weight matrix:     Robust
        _cons |     .20946   .0194699   -16.82   0.000      .174574    .2513173
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: x
- Instruments: z1 z2 z3
+Endogenous: x
+Exogenous:  z1 z2 z3
 
 . 
 . // overid test
@@ -200,14 +199,14 @@ Instrumented: x
 . ivpoisson gmm trips cbd ptn worker weekend (tcost=pt), multiplicative
 
 Step 1
-Iteration 0:   GMM criterion Q(b) =  .04949852  
-Iteration 1:   GMM criterion Q(b) =  .00011194  
-Iteration 2:   GMM criterion Q(b) =  1.563e-08  
-Iteration 3:   GMM criterion Q(b) =  3.685e-16  
+Iteration 0:  GMM criterion Q(b) =  .04949852  
+Iteration 1:  GMM criterion Q(b) =  .00011194  
+Iteration 2:  GMM criterion Q(b) =  1.563e-08  
+Iteration 3:  GMM criterion Q(b) =  3.685e-16  
 
 Step 2
-Iteration 0:   GMM criterion Q(b) =  2.287e-16  
-Iteration 1:   GMM criterion Q(b) =  1.268e-31  
+Iteration 0:  GMM criterion Q(b) =  2.287e-16  
+Iteration 1:  GMM criterion Q(b) =  1.267e-31  
 
 note: model is exactly identified.
 
@@ -229,8 +228,8 @@ GMM weight matrix:     Robust
      weekend |   .3009323   .0362682     8.30   0.000     .2298479    .3720167
        _cons |   .2654423   .1550127     1.71   0.087    -.0383769    .5692616
 ------------------------------------------------------------------------------
-Instrumented: tcost
- Instruments: cbd ptn worker weekend pt
+Endogenous: tcost
+Exogenous:  cbd ptn worker weekend pt
 
 . assert abs(_b[tcost] - .035) < 1e-3
 
@@ -255,8 +254,8 @@ GMM weight matrix:     Robust
        _cons |   1.304008   .2021377     1.71   0.087     .9623501    1.766962
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: tcost
- Instruments: cbd ptn worker weekend pt
+Endogenous: tcost
+Exogenous:  cbd ptn worker weekend pt
 
 . 
 . ivmsmm trips cbd ptn worker weekend (tcost=pt)
@@ -284,15 +283,15 @@ GMM weight matrix:     Robust
        _cons |   1.304008   .2021377     1.71   0.087     .9623501    1.766962
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline incidence rate.
-Instrumented: tcost
- Instruments: cbd ptn worker weekend pt
+Endogenous: tcost
+Exogenous:  cbd ptn worker weekend pt
 
 . assert abs(_b[tcost] - .035) < 1e-3
 
 . 
 end of do-file
       name:  ivmsmm
-       log:  C:\Users\tom\Documents\GitHub\ivonesamplemr\cscripts\ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  21 Aug 2023, 21:32:28
+ closed on:  27 Jan 2024, 19:56:01
 -------------------------------------------------------------------------------
