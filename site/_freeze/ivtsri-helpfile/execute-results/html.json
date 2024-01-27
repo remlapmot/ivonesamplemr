@@ -1,6 +1,7 @@
 {
-  "hash": "37d90753e17043fa8b4dfd0683cd7fb1",
+  "hash": "277fe512b17d6e7a0532dc05fee170b6",
   "result": {
+    "engine": "knitr",
     "markdown": "---\npagetitle: ivtsri-helpfile\n---\n\n\n<iframe src=\"./helpfiles/ivtsri.html\" width=\"100%\" style=\"height: 100em; border: none\">\n</iframe>\n",
     "supporting": [
       "ivtsri-helpfile_files"

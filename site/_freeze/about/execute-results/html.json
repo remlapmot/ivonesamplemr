@@ -1,6 +1,7 @@
 {
-  "hash": "5034f215db8f7de08d9937af9fb54e71",
+  "hash": "6c63624432293295c2570d43938e4fea",
   "result": {
+    "engine": "knitr",
     "markdown": "---\ntitle: \"\"\npagetitle: about\n---\n\n\nThis is the website for the **ivonesamplemr** Stata package.\n\nThe GitHub repository is [here](https://github.com/remlapmot/ivonesamplemr).\n\nIt is maintained by [Tom Palmer](https://remlapmot.github.io/).\n",
     "supporting": [
       "about_files"

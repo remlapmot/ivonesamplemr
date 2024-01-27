@@ -1,6 +1,7 @@
 {
-  "hash": "ed900387e2b4681e67cd6eb040c7f070",
+  "hash": "e5daa5cfccc960ded74d06200290c453",
   "result": {
+    "engine": "knitr",
     "markdown": "---\npagetitle: ivmw-helpfile\n---\n\n\n<iframe src=\"./helpfiles/ivmw.html\" width=\"100%\" style=\"height: 100em; border: none\">\n</iframe>\n",
     "supporting": [
       "ivmw-helpfile_files"
