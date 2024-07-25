@@ -29,7 +29,7 @@ knitr::include_graphics("./img/ivmw-plot-01.svg")
 ```
 
 ```{stata, results=FALSE}
-twoway line y2 y3 y4 x, sort(x)
+twoway line y2 y3 y4 x, sort(x) legend(pos(6) rows(1))
 qui gr export ./img/ivmw-plot-02.svg, replace
 ```
 
