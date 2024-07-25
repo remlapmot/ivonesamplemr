@@ -8,6 +8,8 @@ One-sample Mendelian randomization (MR) / instrumental variable (IV) analyses in
 
 ## Latest updates
 
+* July 2024:
+  - Amend legend position in `ivmw` and `ivxtile` to use the 6 o'clock position as per in Stata 17 and earlier
 * January 2024:
   - Reran certification scripts under Stata 18.0
 * August 2023:
