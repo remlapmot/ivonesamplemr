@@ -24,7 +24,7 @@ twoway line y1 x, sort(x)
 knitr::include_graphics("./img/ivmw-plot-01.svg")
 ```
 ```{stata, eval=FALSE}
-twoway line y2 y3 y4 x, sort(x)
+twoway line y2 y3 y4 x, sort(x) legend(pos(6) rows(1))
 ```
 ```{r, echo=FALSE, fig.align='center', fig.alt="Plot of relationships between y2, y3, y4, and x."}
 knitr::include_graphics("./img/ivmw-plot-02.svg")
