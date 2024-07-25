@@ -101,7 +101,7 @@ list , clean noobs
 
 twoway line b lowci uppci medendog, sort(quantile) ///
 	lc(gs0 gs10 gs10) lw(medthick medthick medthick) ///
-	legend(rows(1) order(1 "Estimated causal effect" 2 "95% CI limits")) ///
+	legend(rows(1) order(1 "Estimated causal effect" 2 "95% CI limits") pos(6)) ///
 	ytitle("Estimated causal effect")
 
 use `origdata', clear
