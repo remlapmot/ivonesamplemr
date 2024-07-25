@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivxtile
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:  27 Jan 2024, 19:57:14
+ opened on:  25 Jul 2024, 14:35:00
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -11,17 +11,17 @@
 ------------------------------------------------------------------BEGIN ivxtile
 
 -> which ivxtile, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivxtile.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivxtile.ado
 *! version 0.1.0 16sep2021 Tom Palmer
 
 . 
 . about
 
-Stata/MP 18.0 for Mac (Apple Silicon)
-Revision 20 Dec 2023
+StataNow/MP 18.5 for Mac (Apple Silicon)
+Revision 16 Jul 2024
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 8.01 GB
+Total physical memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
 Serial number: 501809305331
@@ -486,7 +486,7 @@ Model did not fit in quantile 3
 . 
 end of do-file
       name:  ivxtile
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:  27 Jan 2024, 19:57:32
+ closed on:  25 Jul 2024, 14:35:14
 -------------------------------------------------------------------------------

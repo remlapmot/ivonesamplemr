@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  27 Jan 2024, 19:56:01
+ opened on:  25 Jul 2024, 14:34:05
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -11,17 +11,17 @@
 -------------------------------------------------------------------BEGIN ivtsps
 
 -> which ivtsps, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivtsps.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivtsps.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
 . about
 
-Stata/MP 18.0 for Mac (Apple Silicon)
-Revision 20 Dec 2023
+StataNow/MP 18.5 for Mac (Apple Silicon)
+Revision 16 Jul 2024
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 8.01 GB
+Total physical memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
 Serial number: 501809305331
@@ -1528,7 +1528,7 @@ Bootstrap replications (250): .........10.........20.........30.........40.....
 . 
 end of do-file
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  27 Jan 2024, 19:56:06
+ closed on:  25 Jul 2024, 14:34:09
 -------------------------------------------------------------------------------

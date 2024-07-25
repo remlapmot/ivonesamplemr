@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  27 Jan 2024, 19:55:58
+ opened on:  25 Jul 2024, 14:34:04
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -11,17 +11,17 @@
 -------------------------------------------------------------------BEGIN ivmsmm
 
 -> which ivmsmm, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivmsmm.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivmsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
 . about
 
-Stata/MP 18.0 for Mac (Apple Silicon)
-Revision 20 Dec 2023
+StataNow/MP 18.5 for Mac (Apple Silicon)
+Revision 16 Jul 2024
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 8.01 GB
+Total physical memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
 Serial number: 501809305331
@@ -198,13 +198,13 @@ Exogenous:  z1 z2 z3
 . * Generalized method of moments: multiplicative errors
 . ivpoisson gmm trips cbd ptn worker weekend (tcost=pt), multiplicative
 
-Step 1
+Step 1:
 Iteration 0:  GMM criterion Q(b) =  .04949852  
 Iteration 1:  GMM criterion Q(b) =  .00011194  
 Iteration 2:  GMM criterion Q(b) =  1.563e-08  
 Iteration 3:  GMM criterion Q(b) =  3.685e-16  
 
-Step 2
+Step 2:
 Iteration 0:  GMM criterion Q(b) =  2.287e-16  
 Iteration 1:  GMM criterion Q(b) =  1.267e-31  
 
@@ -291,7 +291,7 @@ Exogenous:  cbd ptn worker weekend pt
 . 
 end of do-file
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  27 Jan 2024, 19:56:01
+ closed on:  25 Jul 2024, 14:34:05
 -------------------------------------------------------------------------------

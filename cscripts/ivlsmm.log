@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  27 Jan 2024, 19:55:55
+ opened on:  25 Jul 2024, 14:34:01
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -11,17 +11,17 @@
 -------------------------------------------------------------------BEGIN ivlsmm
 
 -> which ivlsmm, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivlsmm.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivlsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
 . about
 
-Stata/MP 18.0 for Mac (Apple Silicon)
-Revision 20 Dec 2023
+StataNow/MP 18.5 for Mac (Apple Silicon)
+Revision 16 Jul 2024
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 8.01 GB
+Total physical memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
 Serial number: 501809305331
@@ -755,7 +755,7 @@ Causal odds ratio for: x
 . 
 end of do-file
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  27 Jan 2024, 19:55:58
+ closed on:  25 Jul 2024, 14:34:04
 -------------------------------------------------------------------------------
