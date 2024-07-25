@@ -99,7 +99,7 @@ qui gen uppci = `bpar' + 1.96 * `spar'
 local ytitle "Estimated causal `parname'"
 twoway line `bpar' uppci lowci median, sort(median) ///
     lc(gs0 gs10 gs10) lw(medthick medthick medthick) ///
-    legend(rows(1) order(1 "Estimated causal `parname'" 2 "95% CI limits")) ///
+    legend(rows(1) order(1 "Estimated causal `parname'" 2 "95% CI limits") pos(6)) ///
 	ytitle(`ytitle')
 
 tsset, clear
