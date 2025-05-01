@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivmsmm
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  25 Jul 2024, 14:34:04
+ opened on:   1 May 2025, 21:27:23
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -11,19 +11,19 @@
 -------------------------------------------------------------------BEGIN ivmsmm
 
 -> which ivmsmm, usesysdir
-/Users/eptmp/Documents/GitHub/ivonesamplemr/ivmsmm.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivmsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
 . about
 
 StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 16 Jul 2024
+Revision 26 Feb 2025
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 18.00 GB
+Total physical memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
 Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
@@ -291,7 +291,7 @@ Exogenous:  cbd ptn worker weekend pt
 . 
 end of do-file
       name:  ivmsmm
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  25 Jul 2024, 14:34:05
+ closed on:   1 May 2025, 21:27:25
 -------------------------------------------------------------------------------

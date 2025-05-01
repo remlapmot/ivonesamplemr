@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  master
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:  25 Jul 2024, 14:34:00
+ opened on:   1 May 2025, 21:27:20
 
 . 
 . cscript master
@@ -30,9 +30,9 @@
   5. }
 -------------------------------------------------------------------------------
       name:  iv
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  25 Jul 2024, 14:34:00
+ opened on:   1 May 2025, 21:27:20
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -41,19 +41,19 @@
 -----------------------------------------------------------------------BEGIN iv
 
 -> which iv, usesysdir
-/Users/eptmp/Documents/GitHub/ivonesamplemr/iv.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/iv.ado
 *! version 0.1.0 10sep2021 Tom Palmer
 
 . 
 . about
 
 StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 16 Jul 2024
+Revision 26 Feb 2025
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 18.00 GB
+Total physical memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
 Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
@@ -246,15 +246,15 @@ Causal odds ratio for: b2
 . 
 end of do-file
       name:  iv
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  25 Jul 2024, 14:34:01
+ closed on:   1 May 2025, 21:27:21
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  25 Jul 2024, 14:34:01
+ opened on:   1 May 2025, 21:27:21
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -263,19 +263,19 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivlsmm
 
 -> which ivlsmm, usesysdir
-/Users/eptmp/Documents/GitHub/ivonesamplemr/ivlsmm.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivlsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
 . about
 
 StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 16 Jul 2024
+Revision 26 Feb 2025
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 18.00 GB
+Total physical memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
 Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
@@ -1007,15 +1007,15 @@ Causal odds ratio for: x
 . 
 end of do-file
       name:  ivlsmm
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  25 Jul 2024, 14:34:04
+ closed on:   1 May 2025, 21:27:23
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  25 Jul 2024, 14:34:04
+ opened on:   1 May 2025, 21:27:23
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -1024,19 +1024,19 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivmsmm
 
 -> which ivmsmm, usesysdir
-/Users/eptmp/Documents/GitHub/ivonesamplemr/ivmsmm.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivmsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
 . about
 
 StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 16 Jul 2024
+Revision 26 Feb 2025
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 18.00 GB
+Total physical memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
 Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
@@ -1304,15 +1304,15 @@ Exogenous:  cbd ptn worker weekend pt
 . 
 end of do-file
       name:  ivmsmm
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  25 Jul 2024, 14:34:05
+ closed on:   1 May 2025, 21:27:25
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  25 Jul 2024, 14:34:05
+ opened on:   1 May 2025, 21:27:25
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -1321,19 +1321,19 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivtsps
 
 -> which ivtsps, usesysdir
-/Users/eptmp/Documents/GitHub/ivonesamplemr/ivtsps.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivtsps.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
 . about
 
 StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 16 Jul 2024
+Revision 26 Feb 2025
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 18.00 GB
+Total physical memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
 Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
@@ -1376,7 +1376,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . ivregress gmm y (x = z1 z2 z3)
 
-Instrumental variables GMM regression             Number of obs   =      2,500
+Instrumental-variables GMM regression             Number of obs   =      2,500
                                                   Wald chi2(1)    =     207.53
                                                   Prob > chi2     =     0.0000
                                                   R-squared       =     0.3690
@@ -1478,7 +1478,7 @@ pvalue   7.526e-59   1.221e-73   5.431e-83   .21274396   7.189e-47   8.795e-75
 . 
 . ivregress gmm y (x = z1 z2 z3) if _n <= 50
 
-Instrumental variables GMM regression             Number of obs   =         50
+Instrumental-variables GMM regression             Number of obs   =         50
                                                   Wald chi2(1)    =      36.62
                                                   Prob > chi2     =     0.0000
                                                   R-squared       =     0.5501
@@ -1582,7 +1582,7 @@ Causal risk difference for: b1
 . 
 . ivregress gmm y w (x = z1 z2 z3)
 
-Instrumental variables GMM regression             Number of obs   =      2,500
+Instrumental-variables GMM regression             Number of obs   =      2,500
                                                   Wald chi2(2)    =    1628.49
                                                   Prob > chi2     =     0.0000
                                                   R-squared       =     0.4202
@@ -2838,15 +2838,15 @@ Bootstrap replications (250): .........10.........20.........30.........40.....
 . 
 end of do-file
       name:  ivtsps
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  25 Jul 2024, 14:34:09
+ closed on:   1 May 2025, 21:27:28
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  25 Jul 2024, 14:34:09
+ opened on:   1 May 2025, 21:27:28
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -2855,19 +2855,19 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivtsri
 
 -> which ivtsri, usesysdir
-/Users/eptmp/Documents/GitHub/ivonesamplemr/ivtsri.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivtsri.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
 . about
 
 StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 16 Jul 2024
+Revision 26 Feb 2025
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 18.00 GB
+Total physical memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
 Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
@@ -2910,7 +2910,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . ivregress gmm y (x = z1 z2 z3)
 
-Instrumental variables GMM regression             Number of obs   =      2,500
+Instrumental-variables GMM regression             Number of obs   =      2,500
                                                   Wald chi2(1)    =     207.53
                                                   Prob > chi2     =     0.0000
                                                   R-squared       =     0.3690
@@ -3057,7 +3057,7 @@ pvalue   8.795e-75
 . 
 . ivregress gmm y (x = z1 z2 z3) if _n <= 50
 
-Instrumental variables GMM regression             Number of obs   =         50
+Instrumental-variables GMM regression             Number of obs   =         50
                                                   Wald chi2(1)    =      36.62
                                                   Prob > chi2     =     0.0000
                                                   R-squared       =     0.5501
@@ -3183,7 +3183,7 @@ Causal risk difference for: b2
 . 
 . ivregress gmm y w (x = z1 z2 z3)
 
-Instrumental variables GMM regression             Number of obs   =      2,500
+Instrumental-variables GMM regression             Number of obs   =      2,500
                                                   Wald chi2(2)    =    1628.49
                                                   Prob > chi2     =     0.0000
                                                   R-squared       =     0.4202
@@ -4675,15 +4675,15 @@ Bootstrap replications (250): .........10.........20.........30.........40.....
 . 
 end of do-file
       name:  ivtsri
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  25 Jul 2024, 14:34:13
+ closed on:   1 May 2025, 21:27:31
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:  25 Jul 2024, 14:34:14
+ opened on:   1 May 2025, 21:27:31
 
 . // ivmw cscript
 . // 2021-09-12
@@ -4692,19 +4692,19 @@ end of do-file
 ---------------------------------------------------------------------BEGIN ivmw
 
 -> which ivmw, usesysdir
-/Users/eptmp/Documents/GitHub/ivonesamplemr/ivmw.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivmw.ado
 *! version 0.1.0 12sep2021 Tom Palmer
 
 . 
 . about
 
 StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 16 Jul 2024
+Revision 26 Feb 2025
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 18.00 GB
+Total physical memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
 Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
@@ -4749,7 +4749,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4760,7 +4760,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4771,7 +4771,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4784,7 +4784,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4795,7 +4795,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4808,7 +4808,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4819,7 +4819,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4832,7 +4832,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4843,7 +4843,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4884,7 +4884,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4923,7 +4923,7 @@ Time variable: res_order, 1 to 2500
 (running ivmsmm on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -4978,7 +4978,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4989,7 +4989,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5000,7 +5000,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5011,7 +5011,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5022,7 +5022,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5033,7 +5033,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5044,7 +5044,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5056,7 +5056,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5144,7 +5144,7 @@ Time variable: res_order, 1 to 4000
 (running ivlsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivlsmm)
 
@@ -5155,7 +5155,7 @@ Time variable: res_order, 1 to 4000
 (running ivmsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -5166,7 +5166,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5177,7 +5177,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5188,7 +5188,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5199,7 +5199,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5210,7 +5210,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5221,22 +5221,22 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//S_27173.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
     as .dta format
 (rolling: ivtsri)
 
 . 
 end of do-file
       name:  ivmw
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:  25 Jul 2024, 14:35:00
+ closed on:   1 May 2025, 21:28:09
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:  25 Jul 2024, 14:35:00
+ opened on:   1 May 2025, 21:28:09
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -5245,19 +5245,19 @@ end of do-file
 ------------------------------------------------------------------BEGIN ivxtile
 
 -> which ivxtile, usesysdir
-/Users/eptmp/Documents/GitHub/ivonesamplemr/ivxtile.ado
+/Users/tom/Documents/GitHub/ivonesamplemr/ivxtile.ado
 *! version 0.1.0 16sep2021 Tom Palmer
 
 . 
 . about
 
 StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 16 Jul 2024
+Revision 26 Feb 2025
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 18.00 GB
+Total physical memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
 Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
@@ -5720,15 +5720,15 @@ Model did not fit in quantile 3
 . 
 end of do-file
       name:  ivxtile
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:  25 Jul 2024, 14:35:14
+ closed on:   1 May 2025, 21:28:20
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  25 Jul 2024, 14:35:14
+ opened on:   1 May 2025, 21:28:20
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -5736,12 +5736,12 @@ end of do-file
 . about
 
 StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 16 Jul 2024
+Revision 26 Feb 2025
 Copyright 1985-2023 StataCorp LLC
 
-Total physical memory: 18.00 GB
+Total physical memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2025
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
 Serial number: 501809305331
   Licensed to: Tom Palmer
                University of Bristol
@@ -6462,15 +6462,15 @@ INCLUDE help ivonesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  25 Jul 2024, 14:35:14
+ closed on:   1 May 2025, 21:28:20
 -------------------------------------------------------------------------------
 
 . 
 . log close _all
       name:  master
-       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
+       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:  25 Jul 2024, 14:35:14
+ closed on:   1 May 2025, 21:28:20
 -------------------------------------------------------------------------------
