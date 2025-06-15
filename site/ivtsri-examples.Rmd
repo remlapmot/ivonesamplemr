@@ -8,6 +8,7 @@ library(Statamarkdown)
 ```
 
 ```{stata, include=FALSE, collectcode=TRUE}
+set linesize 78
 adopath ++ ..
 cd ../data
 ```
