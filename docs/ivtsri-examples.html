@@ -559,16 +559,9 @@ Causal odds ratio for: b2
 </div>
 <p>Bootstrap standard errors.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">bootstrap</span>, reps(250): ivtsri <span class="fu">y</span> (x = z1 z2 z3), estonly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">bootstrap</span>, reps(250) <span class="kw">nodots</span>: ivtsri <span class="fu">y</span> (x = z1 z2 z3), estonly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>(running ivtsri on estimation sample)
-
-Bootstrap replications (250): .........10.........20.........30.........40.........50.........60.........70.........80........
-&gt; .90.........100.........110.........120.........130.........140.........150.........160.........170.........180.........190.
-&gt; ........200.........210.........220.........230.........240.........250 done
-
-------------------------------------------------------------------------------
-             |   Observed   Bootstrap                         Normal-based
+<pre><code>             |   Observed   Bootstrap                         Normal-based
            y | coefficient  std. err.      z    P&gt;|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
            x |   .1307856   .0064668    20.22   0.000     .1181109    .1434604

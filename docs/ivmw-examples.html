@@ -299,15 +299,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Example moving window fits.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y1 (x = g)</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x) <span class="kw">nodots</span>: ivreg2 y1 (x = g)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-04.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
-(running ivreg2 on estimation sample)
-
-Rolling replications (51): .........10.........20.........30.........40.........50. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_44089.000001 saved as .dta format
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_50323.000001 saved as .dta format
 (rolling: ivreg2)</code></pre>
 </div>
 </div>
@@ -321,15 +318,12 @@ file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_44089.000001 saved as .
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y2 (x = g)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x) <span class="kw">nodots</span>: ivreg2 y2 (x = g)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-05.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
-(running ivreg2 on estimation sample)
-
-Rolling replications (51): .........10.........20.........30.........40.........50. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_44097.000001 saved as .dta format
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_50328.000001 saved as .dta format
 (rolling: ivreg2)</code></pre>
 </div>
 </div>
@@ -343,15 +337,12 @@ file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_44097.000001 saved as .
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y3 (x = g)</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x) <span class="kw">nodots</span>: ivreg2 y3 (x = g)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-06.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
-(running ivreg2 on estimation sample)
-
-Rolling replications (51): .........10.........20.........30.........40.........50. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_44101.000001 saved as .dta format
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_50333.000001 saved as .dta format
 (rolling: ivreg2)</code></pre>
 </div>
 </div>
@@ -365,15 +356,12 @@ file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_44101.000001 saved as .
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y4 (x = g)</span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x) <span class="kw">nodots</span>: ivreg2 y4 (x = g)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-07.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
-(running ivreg2 on estimation sample)
-
-Rolling replications (51): .........10.........20.........30.........40.........50. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_44106.000001 saved as .dta format
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_50337.000001 saved as .dta format
 (rolling: ivreg2)</code></pre>
 </div>
 </div>
@@ -387,15 +375,12 @@ file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_44106.000001 saved as .
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x): ivreg2 y5 (x = g)</span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ivmw, <span class="kw">window</span>(3950) par(x) <span class="kw">nodots</span>: ivreg2 y5 (x = g)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">gr</span> <span class="kw">export</span> ./img/ivmw-plot-08.svg, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time variable: res_order, 1 to 4000
         Delta: 1 unit
-(running ivreg2 on estimation sample)
-
-Rolling replications (51): .........10.........20.........30.........40.........50. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_44110.000001 saved as .dta format
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_50341.000001 saved as .dta format
 (rolling: ivreg2)</code></pre>
 </div>
 </div>
