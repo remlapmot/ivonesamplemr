@@ -49,5 +49,5 @@ ivtsri y (x = z1 z2 z3), link(logit)
 
 Bootstrap standard errors.
 ```{stata}
-bootstrap, reps(250): ivtsri y (x = z1 z2 z3), estonly
+bootstrap, reps(250) nodots: ivtsri y (x = z1 z2 z3), estonly
 ```

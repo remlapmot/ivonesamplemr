@@ -49,7 +49,7 @@ knitr::include_graphics("./img/ivmw-plot-03.svg")
 Example moving window fits.
 
 ```{stata}
-ivmw, window(3950) par(x): ivreg2 y1 (x = g)
+ivmw, window(3950) par(x) nodots: ivreg2 y1 (x = g)
 qui gr export ./img/ivmw-plot-04.svg, replace
 ```
 
@@ -58,7 +58,7 @@ knitr::include_graphics("./img/ivmw-plot-04.svg")
 ```
 
 ```{stata}
-ivmw, window(3950) par(x): ivreg2 y2 (x = g)
+ivmw, window(3950) par(x) nodots: ivreg2 y2 (x = g)
 qui gr export ./img/ivmw-plot-05.svg, replace
 ```
 
@@ -67,7 +67,7 @@ knitr::include_graphics("./img/ivmw-plot-05.svg")
 ```
 
 ```{stata}
-ivmw, window(3950) par(x): ivreg2 y3 (x = g)
+ivmw, window(3950) par(x) nodots: ivreg2 y3 (x = g)
 qui gr export ./img/ivmw-plot-06.svg, replace
 ```
 
@@ -76,7 +76,7 @@ knitr::include_graphics("./img/ivmw-plot-06.svg")
 ```
 
 ```{stata}
-ivmw, window(3950) par(x): ivreg2 y4 (x = g)
+ivmw, window(3950) par(x) nodots: ivreg2 y4 (x = g)
 qui gr export ./img/ivmw-plot-07.svg, replace
 ```
 
@@ -85,7 +85,7 @@ knitr::include_graphics("./img/ivmw-plot-07.svg")
 ```
 
 ```{stata}
-ivmw, window(3950) par(x): ivreg2 y5 (x = g)
+ivmw, window(3950) par(x) nodots: ivreg2 y5 (x = g)
 qui gr export ./img/ivmw-plot-08.svg, replace
 ```
 
