@@ -1,5 +1,7 @@
 dep:
     stata-mp "do dependency"
+render:
+    quarto render site
 
 [working-directory: 'cscripts']
 test:
