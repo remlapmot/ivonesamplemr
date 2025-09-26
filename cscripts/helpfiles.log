@@ -2,21 +2,21 @@
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:   1 May 2025, 21:28:20
+ opened on:  26 Sep 2025, 18:24:27
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -36,6 +36,7 @@ Serial number: 501809305331
   2.         type ../`helpfile'.sthlp
   3. }
 Title
+-----
 
     ivonesamplemr -- commands for one-sample Mendelian randomization (MR) /
         instrumental variable (IV) analyses.
@@ -43,6 +44,7 @@ Title
     https://github.com/remlapmot/ivonesamplemr#readme
 
 Commands
+--------
 
       ivasmm        Is simply a helpfile linking to ivregress and ivreg2,
                       which as linear IV estimators fit the additive
@@ -72,12 +74,14 @@ Commands
                       be called as iv lsmm ....
 
 Description
+-----------
 
     ivonesamplemr is a suite of programs implementing various instrumental
     variable (IV) estimators for individual level (a.k.a. one-sample) data.
     These are useful for Mendelian randomization (MR) analyses.
 
 References
+----------
 
     Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell
         R, Davey Smith G, Didelez V.  Instrumental variable estimation of
@@ -86,13 +90,16 @@ References
         1392-1403.  DOI
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivasmm -- Additive structural mean model
 
 Description
+-----------
 
     ivasmm is not a command. This helpfile is to note that the additive
     structural mean model (ASMM) is simply fit with a linear IV estimator
@@ -101,6 +108,7 @@ Description
 For a binary outcome the ASMM estimates a causal risk difference.
 
 Examples
+--------
 
     Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
@@ -126,6 +134,7 @@ Examples
         . ivreg2 y w (x1 x2 = z1 z2 z3)
 
 References
+----------
 
     Clarke PS, Palmer TM, Windmeijer F.  Estimating structural mean models
         with multiple instrumental variables using the Generalised Method of
@@ -145,13 +154,16 @@ References
         Washington, DC.
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivlsmm -- (double) Logistic structural mean model
 
 Syntax
+------
 
         ivlsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
               [, options]
@@ -174,6 +186,7 @@ Syntax
       gmm_options         Options passed to gmm
 
 Description
+-----------
 
     ivlsmm implements the double logistic structural mean model (LSMM) of
     Vansteelandt and Goetghebeur (2003) which is a generalisation of the LSMM
@@ -182,10 +195,12 @@ Description
     ivlsmm is implemented using a call to gmm.
 
 Options
+-------
 
     level(#); see [R] estimation options.
 
 Examples
+--------
 
     Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
@@ -208,6 +223,7 @@ Examples
         . ivlsmm y w (x1 x2 = z1 z2 z3)
 
 Stored results
+--------------
 
     To see the results ivlsmm stores in e() issue ereturn list after running
     the command.
@@ -219,6 +235,7 @@ Stored results
                             ll, ul, df, crit, eform
 
 References
+----------
 
     Clarke PS, Palmer TM, Windmeijer F.  Estimating structural mean models
         with multiple instrumental variables using the Generalised Method of
@@ -242,13 +259,16 @@ References
         (Series B).  2003, 65, 4, 817-835.  DOI
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivmsmm -- Multiplicative structural mean model
 
 Syntax
+------
 
         ivmsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
               [, log noirr ivpoisson_options]
@@ -267,6 +287,7 @@ Syntax
       ivpoisson_options   ivpoisson##optionstbl
 
 Description
+-----------
 
     ivmsmm implements the multiplicative structural mean model (MSMM) of
     Robins (1989) as a wrapper to ivpoisson with the multiplicative option.
@@ -281,10 +302,12 @@ Description
     (2018).
 
 Options
+-------
 
     Please see ivpoisson##options
 
 Examples
+--------
 
     Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
@@ -321,10 +344,12 @@ Examples
         . ivpois y w, endog(x1 x2) exog(z1 z2 z3) eform(RR)
 
 Stored results
+--------------
 
     Please see ivpoisson##results
 
 References
+----------
 
     Cameron AC, Trivedi PK. Regression analysis of count data. 2nd ed. 2013.
         New York, Cambridge University Press.
@@ -370,13 +395,16 @@ References
         and panel data.  CEMMAP working paper CWP14/02. 2002.  URL
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivtsps -- Two-stage predictor substitution estimators
 
 Syntax
+------
 
         ivtsps depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
               [, link(string) log noirr gmm_options]
@@ -397,6 +425,7 @@ Syntax
       gmm_options         gmm##options
 
 Description
+-----------
 
     ivtsps implements two-stage predictor substitution (TSPS) estimators with
     several link functions for the second stage model (identity,
@@ -405,6 +434,7 @@ Description
     moment condition to the gmm command.
 
 Options
+-------
 
     link(identity | logadd | logmult | logit) specifies the link function for
         the second stage model.  identity means the second stage model is a
@@ -420,6 +450,7 @@ Options
     Please see gmm##options
 
 Examples
+--------
 
     Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
@@ -456,10 +487,12 @@ Examples
         . bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly
 
 Stored results
+--------------
 
     Please see gmm##results
 
 References
+----------
 
     Dukes O, Vansteelandt S.  A note on G-estimation of causal risk ratios.
         American Journal of Epidemiology, 2018, 187, 5, 1079-1084.  DOI
@@ -475,13 +508,16 @@ References
         Journal of Health Economics 27: 531–543.  DOI
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivtsri -- Two-stage residual inclusion estimators
 
 Syntax
+------
 
         ivtsri depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
               [, link(string) log noirr gmm_options]
@@ -502,6 +538,7 @@ Syntax
       gmm_options         gmm##options
 
 Description
+-----------
 
     ivtsri implements two-stage residual inclusion (TSRI) estimators with
     several link functions for the second stage model (identity,
@@ -510,6 +547,7 @@ Description
     moment condition to the gmm command.
 
 Options
+-------
 
     link(identity | logadd | logmult | logit) specifies the link function for
         the second stage model.  identity means the second stage model is a
@@ -525,6 +563,7 @@ Options
     Please see gmm##options
 
 Examples
+--------
 
     Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
@@ -561,10 +600,12 @@ Examples
         . bootstrap, reps(250): ivtsri y (x = z1 z2 z3), estonly
 
 Stored results
+--------------
 
     Please see gmm##results
 
 References
+----------
 
     Bowden J, Vansteelandt S.  Mendelian randomization analysis of
         case-control data using structural mean models.  Statistics in
@@ -589,18 +630,22 @@ References
         Health Economics. 2008, 27, 3, 531–543.  DOI
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      iv -- Instrumental variable (IV) programs useful for one-sample Mendelian
 randomization (MR) analyses
 
 Syntax
+------
 
         iv subcommand ... [aweight] [if] [in] [, options]
 
 Description
+-----------
 
     iv is a simple wrapper to the commands in the ivonesamplemr package.
 
@@ -609,10 +654,12 @@ Description
     ....
 
 Options
+-------
 
     iv takes the options for the specified subcommand.
 
 Examples
+--------
 
         . use
             https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
@@ -629,17 +676,21 @@ Examples
         . iv tsri y (x = z1 z2 z3), link(logit)
 
 Stored results
+--------------
 
     iv returns the results from the specified subcommand.
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivmw -- Moving window prefix command
 
 Syntax
+------
 
         ivmw , window(#) par(string) [saving(filename [, replace])
             rolling_options]: iv_cmd
@@ -657,16 +708,19 @@ Syntax
       rolling_options               rolling##options
 
 Description
+-----------
 
     ivmw implements the moving window (a.k.a. sliding / rolling window)
     approach to the estimator specified after the prefix, as per Burgess et
     al., 2014.  It is implemented as a call to rolling.
 
 Options
+-------
 
     Please see rolling##options
 
 Examples
+--------
 
     Simulate data with different outcome-exposure relationships; y# outcome,
     x exposure, g instrumental variable (genotype).
@@ -717,10 +771,12 @@ Examples
         . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
 
 Stored results
+--------------
 
     Please see rolling##results
 
 References
+----------
 
     Burgess S, Davies N, Thompson SG, EPIC-InterAct Consortium.  Instrumental
         variable analysis with a nonlinear exposure-outcome relationship.
@@ -730,6 +786,7 @@ References
         Rolling-window and recursive estimation. 2016.  URL
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 
@@ -738,5 +795,5 @@ end of do-file
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:   1 May 2025, 21:28:20
+ closed on:  26 Sep 2025, 18:24:27
 -------------------------------------------------------------------------------

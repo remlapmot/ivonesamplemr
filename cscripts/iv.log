@@ -2,7 +2,7 @@
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:   1 May 2025, 21:27:20
+ opened on:  26 Sep 2025, 18:23:27
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -17,14 +17,14 @@
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -64,7 +64,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . iv lsmm y (x = z1)
 
-Final GMM criterion Q(b) =  1.36e-31
+Final GMM criterion Q(b) = 1.36e-31
 
 note: model is exactly identified.
 
@@ -108,7 +108,7 @@ Causal odds ratio for: x
 . 
 . iv msmm y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0004645
+Final GMM criterion Q(b) = .0004645
 
 Exponential mean model with endogenous regressors
 
@@ -131,7 +131,7 @@ Exogenous:  z1 z2 z3
 . 
 . iv tsps y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  7.34e-33
+Final GMM criterion Q(b) = 7.34e-33
 
 note: model is exactly identified.
 
@@ -168,7 +168,7 @@ Causal risk difference for: b1
 . 
 . iv tsri y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  6.85e-33
+Final GMM criterion Q(b) = 6.85e-33
 
 note: model is exactly identified.
 
@@ -218,5 +218,5 @@ end of do-file
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:   1 May 2025, 21:27:21
+ closed on:  26 Sep 2025, 18:23:28
 -------------------------------------------------------------------------------

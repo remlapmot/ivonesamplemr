@@ -2,7 +2,7 @@
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:   1 May 2025, 21:27:25
+ opened on:  26 Sep 2025, 18:23:31
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -17,14 +17,14 @@
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -88,7 +88,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  7.34e-33
+Final GMM criterion Q(b) = 7.34e-33
 
 note: model is exactly identified.
 
@@ -190,7 +190,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3) if _n <= 50
 
-Final GMM criterion Q(b) =  2.31e-33
+Final GMM criterion Q(b) = 2.31e-33
 
 note: model is exactly identified.
 
@@ -231,7 +231,7 @@ Causal risk difference for: b1
 . 
 . ivtsps y (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  7.34e-33
+Final GMM criterion Q(b) = 7.34e-33
 
 note: model is exactly identified.
 
@@ -295,7 +295,7 @@ Exogenous:  w z1 z2 z3
 
 . ivtsps y w (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  1.30e-32
+Final GMM criterion Q(b) = 1.30e-32
 
 note: model is exactly identified.
 
@@ -363,7 +363,7 @@ Causal risk difference for: b1
 . 
 . ivpoisson gmm y (x = z1 z2 z3), add nolog
 
-Final GMM criterion Q(b) =  .0004684
+Final GMM criterion Q(b) = .0004684
 
 Exponential mean model with endogenous regressors
 
@@ -388,7 +388,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  7.54e-33
+Final GMM criterion Q(b) = 7.54e-33
 
 note: model is exactly identified.
 
@@ -468,7 +468,7 @@ pvalue   7.526e-59   1.221e-73   5.431e-83   .21274396   3.405e-46   5.94e-189
 . 
 . ivpoisson gmm y (x = z1 z2 z3) if _n <= 200, add nolog
 
-Final GMM criterion Q(b) =  .0136351
+Final GMM criterion Q(b) = .0136351
 
 Exponential mean model with endogenous regressors
 
@@ -493,7 +493,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3) if _n <= 200, link(logadd)
 
-Final GMM criterion Q(b) =  1.08e-32
+Final GMM criterion Q(b) = 1.08e-32
 
 note: model is exactly identified.
 
@@ -534,7 +534,7 @@ Causal risk ratio for: b1
 . 
 . ivpoisson gmm y w (x = z1 z2 z3), add nolog
 
-Final GMM criterion Q(b) =   .000531
+Final GMM criterion Q(b) =  .000531
 
 Exponential mean model with endogenous regressors
 
@@ -560,7 +560,7 @@ Exogenous:  w z1 z2 z3
 
 . ivtsps y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.85e-32
+Final GMM criterion Q(b) = 1.85e-32
 
 note: model is exactly identified.
 
@@ -680,7 +680,7 @@ Log likelihood   = -615.5005255                   BIC             =  -18652.47
 
 . ivtsps y (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  6.77e-33
+Final GMM criterion Q(b) = 6.77e-33
 
 note: model is exactly identified.
 
@@ -810,7 +810,7 @@ Log likelihood   =  -77.5394559                   BIC             =  -1291.307
 
 . ivtsps y (x = z1 z2 z3) if _n <= 250, link(logmult)
 
-Final GMM criterion Q(b) =  2.06e-32
+Final GMM criterion Q(b) = 2.06e-32
 
 note: model is exactly identified.
 
@@ -902,7 +902,7 @@ Log likelihood   = -230.6801555                   BIC             =  -18246.18
 
 . ivtsps y w (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  1.89e-32
+Final GMM criterion Q(b) = 1.89e-32
 
 note: model is exactly identified.
 
@@ -1013,7 +1013,7 @@ Log likelihood = -1667.8059                             Pseudo R2     = 0.0368
 
 . ivtsps y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  6.99e-33
+Final GMM criterion Q(b) = 6.99e-33
 
 note: model is exactly identified.
 
@@ -1135,7 +1135,7 @@ Log likelihood = -65.239727                             Pseudo R2     = 0.0585
 
 . ivtsps y (x = z1 z2 z3) if _n <= 100, link(logit)
 
-Final GMM criterion Q(b) =  2.67e-32
+Final GMM criterion Q(b) = 2.67e-32
 
 note: model is exactly identified.
 
@@ -1219,7 +1219,7 @@ Log likelihood = -1378.1819                             Pseudo R2     = 0.2040
 
 . ivtsps y w (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  1.57e-32
+Final GMM criterion Q(b) = 1.57e-32
 
 note: model is exactly identified.
 
@@ -1351,7 +1351,7 @@ variable predicted not found
 
 . ivtsps y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  7.34e-33
+Final GMM criterion Q(b) = 7.34e-33
 
 note: model is exactly identified.
 
@@ -1459,7 +1459,7 @@ Causal risk difference for: b1
 
 . ivtsps y (x = z1 z2 z3) in 101/200
 
-Final GMM criterion Q(b) =  1.09e-32
+Final GMM criterion Q(b) = 1.09e-32
 
 note: model is exactly identified.
 
@@ -1530,5 +1530,5 @@ end of do-file
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:   1 May 2025, 21:27:28
+ closed on:  26 Sep 2025, 18:23:35
 -------------------------------------------------------------------------------

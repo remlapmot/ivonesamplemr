@@ -2,7 +2,7 @@
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:   1 May 2025, 21:27:23
+ opened on:  26 Sep 2025, 18:23:30
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -17,14 +17,14 @@
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -64,7 +64,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . ivmsmm y (x = z1)
 
-Final GMM criterion Q(b) =  5.69e-33
+Final GMM criterion Q(b) = 5.69e-33
 
 note: model is exactly identified.
 
@@ -127,7 +127,7 @@ pvalue  1.539e-08  1.680e-28
 . 
 . ivmsmm y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0004645
+Final GMM criterion Q(b) = .0004645
 
 Exponential mean model with endogenous regressors
 
@@ -199,14 +199,14 @@ Exogenous:  z1 z2 z3
 . ivpoisson gmm trips cbd ptn worker weekend (tcost=pt), multiplicative
 
 Step 1:
-Iteration 0:  GMM criterion Q(b) =  .04949852  
-Iteration 1:  GMM criterion Q(b) =  .00011194  
-Iteration 2:  GMM criterion Q(b) =  1.563e-08  
-Iteration 3:  GMM criterion Q(b) =  3.685e-16  
+Iteration 0:  GMM criterion Q(b) = .04949852  
+Iteration 1:  GMM criterion Q(b) = .00011194  
+Iteration 2:  GMM criterion Q(b) = 1.563e-08  
+Iteration 3:  GMM criterion Q(b) = 3.685e-16  
 
 Step 2:
-Iteration 0:  GMM criterion Q(b) =  2.287e-16  
-Iteration 1:  GMM criterion Q(b) =  1.267e-31  
+Iteration 0:  GMM criterion Q(b) = 2.287e-16  
+Iteration 1:  GMM criterion Q(b) = 1.267e-31  
 
 note: model is exactly identified.
 
@@ -260,7 +260,7 @@ Exogenous:  cbd ptn worker weekend pt
 . 
 . ivmsmm trips cbd ptn worker weekend (tcost=pt)
 
-Final GMM criterion Q(b) =  1.27e-31
+Final GMM criterion Q(b) = 1.27e-31
 
 note: model is exactly identified.
 
@@ -293,5 +293,5 @@ end of do-file
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:   1 May 2025, 21:27:25
+ closed on:  26 Sep 2025, 18:23:31
 -------------------------------------------------------------------------------

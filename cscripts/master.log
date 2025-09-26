@@ -2,7 +2,7 @@
       name:  master
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:   1 May 2025, 21:27:20
+ opened on:  26 Sep 2025, 18:23:27
 
 . 
 . cscript master
@@ -32,7 +32,7 @@
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:   1 May 2025, 21:27:20
+ opened on:  26 Sep 2025, 18:23:27
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -47,14 +47,14 @@
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -94,7 +94,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . iv lsmm y (x = z1)
 
-Final GMM criterion Q(b) =  1.36e-31
+Final GMM criterion Q(b) = 1.36e-31
 
 note: model is exactly identified.
 
@@ -138,7 +138,7 @@ Causal odds ratio for: x
 . 
 . iv msmm y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0004645
+Final GMM criterion Q(b) = .0004645
 
 Exponential mean model with endogenous regressors
 
@@ -161,7 +161,7 @@ Exogenous:  z1 z2 z3
 . 
 . iv tsps y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  7.34e-33
+Final GMM criterion Q(b) = 7.34e-33
 
 note: model is exactly identified.
 
@@ -198,7 +198,7 @@ Causal risk difference for: b1
 . 
 . iv tsri y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  6.85e-33
+Final GMM criterion Q(b) = 6.85e-33
 
 note: model is exactly identified.
 
@@ -248,13 +248,13 @@ end of do-file
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:   1 May 2025, 21:27:21
+ closed on:  26 Sep 2025, 18:23:28
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:   1 May 2025, 21:27:21
+ opened on:  26 Sep 2025, 18:23:28
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -269,14 +269,14 @@ end of do-file
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -318,7 +318,7 @@ Number of observations (_N) was 0, now 2,500.
 
 . ivlsmm y w (x = z1)
 
-Final GMM criterion Q(b) =  1.78e-30
+Final GMM criterion Q(b) = 1.78e-30
 
 note: model is exactly identified.
 
@@ -507,7 +507,7 @@ pvalue   1.411e-06
 
 . ivlsmm y w (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0010781
+Final GMM criterion Q(b) = .0010781
 
 GMM estimation 
 
@@ -565,7 +565,7 @@ Causal odds ratio for: w
 
 . ivlsmm y w (x1 x2 = z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0008332
+Final GMM criterion Q(b) = .0008332
 
 GMM estimation 
 
@@ -644,7 +644,7 @@ r1   1   1   1   1   1   1   1   1   1
 
 . ivlsmm y w (x = z1 z2 z3), from(start)
 
-Final GMM criterion Q(b) =  .0010781
+Final GMM criterion Q(b) = .0010781
 
 GMM estimation 
 
@@ -702,7 +702,7 @@ Causal odds ratio for: w
 
 . ivlsmm y (x = z1 z2 z3) if _n <= 100
 
-Final GMM criterion Q(b) =  .0133962
+Final GMM criterion Q(b) = .0133962
 
 GMM estimation 
 
@@ -747,7 +747,7 @@ Causal odds ratio for: x
 
 . ivlsmm y (x = z1 z2 z3) in 1/100
 
-Final GMM criterion Q(b) =  .0133962
+Final GMM criterion Q(b) = .0133962
 
 GMM estimation 
 
@@ -793,7 +793,7 @@ Causal odds ratio for: x
 
 . ivlsmm y (x = z1 z2 z3) if _n <= 100
 
-Final GMM criterion Q(b) =  .0133962
+Final GMM criterion Q(b) = .0133962
 
 GMM estimation 
 
@@ -839,7 +839,7 @@ Causal odds ratio for: x
 
 . ivlsmm y w (x = z1 z2 z3), amxb(x z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0009336
+Final GMM criterion Q(b) = .0009336
 
 GMM estimation 
 
@@ -901,7 +901,7 @@ Causal odds ratio for: w
 
 . ivlsmm y w (x = z1 z2 z3), amxb(x w z1 z2 z3 xz1 xz2 xz3)
 
-Final GMM criterion Q(b) =   .001119
+Final GMM criterion Q(b) =  .001119
 
 GMM estimation 
 
@@ -960,7 +960,7 @@ Causal odds ratio for: w
 . // overid test
 . ivlsmm y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0007528
+Final GMM criterion Q(b) = .0007528
 
 GMM estimation 
 
@@ -1009,13 +1009,13 @@ end of do-file
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:   1 May 2025, 21:27:23
+ closed on:  26 Sep 2025, 18:23:30
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:   1 May 2025, 21:27:23
+ opened on:  26 Sep 2025, 18:23:30
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -1030,14 +1030,14 @@ end of do-file
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -1077,7 +1077,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . ivmsmm y (x = z1)
 
-Final GMM criterion Q(b) =  5.69e-33
+Final GMM criterion Q(b) = 5.69e-33
 
 note: model is exactly identified.
 
@@ -1140,7 +1140,7 @@ pvalue  1.539e-08  1.680e-28
 . 
 . ivmsmm y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0004645
+Final GMM criterion Q(b) = .0004645
 
 Exponential mean model with endogenous regressors
 
@@ -1212,14 +1212,14 @@ Exogenous:  z1 z2 z3
 . ivpoisson gmm trips cbd ptn worker weekend (tcost=pt), multiplicative
 
 Step 1:
-Iteration 0:  GMM criterion Q(b) =  .04949852  
-Iteration 1:  GMM criterion Q(b) =  .00011194  
-Iteration 2:  GMM criterion Q(b) =  1.563e-08  
-Iteration 3:  GMM criterion Q(b) =  3.685e-16  
+Iteration 0:  GMM criterion Q(b) = .04949852  
+Iteration 1:  GMM criterion Q(b) = .00011194  
+Iteration 2:  GMM criterion Q(b) = 1.563e-08  
+Iteration 3:  GMM criterion Q(b) = 3.685e-16  
 
 Step 2:
-Iteration 0:  GMM criterion Q(b) =  2.287e-16  
-Iteration 1:  GMM criterion Q(b) =  1.267e-31  
+Iteration 0:  GMM criterion Q(b) = 2.287e-16  
+Iteration 1:  GMM criterion Q(b) = 1.267e-31  
 
 note: model is exactly identified.
 
@@ -1273,7 +1273,7 @@ Exogenous:  cbd ptn worker weekend pt
 . 
 . ivmsmm trips cbd ptn worker weekend (tcost=pt)
 
-Final GMM criterion Q(b) =  1.27e-31
+Final GMM criterion Q(b) = 1.27e-31
 
 note: model is exactly identified.
 
@@ -1306,13 +1306,13 @@ end of do-file
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:   1 May 2025, 21:27:25
+ closed on:  26 Sep 2025, 18:23:31
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:   1 May 2025, 21:27:25
+ opened on:  26 Sep 2025, 18:23:31
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -1327,14 +1327,14 @@ end of do-file
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -1398,7 +1398,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  7.34e-33
+Final GMM criterion Q(b) = 7.34e-33
 
 note: model is exactly identified.
 
@@ -1500,7 +1500,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3) if _n <= 50
 
-Final GMM criterion Q(b) =  2.31e-33
+Final GMM criterion Q(b) = 2.31e-33
 
 note: model is exactly identified.
 
@@ -1541,7 +1541,7 @@ Causal risk difference for: b1
 . 
 . ivtsps y (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  7.34e-33
+Final GMM criterion Q(b) = 7.34e-33
 
 note: model is exactly identified.
 
@@ -1605,7 +1605,7 @@ Exogenous:  w z1 z2 z3
 
 . ivtsps y w (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  1.30e-32
+Final GMM criterion Q(b) = 1.30e-32
 
 note: model is exactly identified.
 
@@ -1673,7 +1673,7 @@ Causal risk difference for: b1
 . 
 . ivpoisson gmm y (x = z1 z2 z3), add nolog
 
-Final GMM criterion Q(b) =  .0004684
+Final GMM criterion Q(b) = .0004684
 
 Exponential mean model with endogenous regressors
 
@@ -1698,7 +1698,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  7.54e-33
+Final GMM criterion Q(b) = 7.54e-33
 
 note: model is exactly identified.
 
@@ -1778,7 +1778,7 @@ pvalue   7.526e-59   1.221e-73   5.431e-83   .21274396   3.405e-46   5.94e-189
 . 
 . ivpoisson gmm y (x = z1 z2 z3) if _n <= 200, add nolog
 
-Final GMM criterion Q(b) =  .0136351
+Final GMM criterion Q(b) = .0136351
 
 Exponential mean model with endogenous regressors
 
@@ -1803,7 +1803,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsps y (x = z1 z2 z3) if _n <= 200, link(logadd)
 
-Final GMM criterion Q(b) =  1.08e-32
+Final GMM criterion Q(b) = 1.08e-32
 
 note: model is exactly identified.
 
@@ -1844,7 +1844,7 @@ Causal risk ratio for: b1
 . 
 . ivpoisson gmm y w (x = z1 z2 z3), add nolog
 
-Final GMM criterion Q(b) =   .000531
+Final GMM criterion Q(b) =  .000531
 
 Exponential mean model with endogenous regressors
 
@@ -1870,7 +1870,7 @@ Exogenous:  w z1 z2 z3
 
 . ivtsps y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.85e-32
+Final GMM criterion Q(b) = 1.85e-32
 
 note: model is exactly identified.
 
@@ -1990,7 +1990,7 @@ Log likelihood   = -615.5005255                   BIC             =  -18652.47
 
 . ivtsps y (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  6.77e-33
+Final GMM criterion Q(b) = 6.77e-33
 
 note: model is exactly identified.
 
@@ -2120,7 +2120,7 @@ Log likelihood   =  -77.5394559                   BIC             =  -1291.307
 
 . ivtsps y (x = z1 z2 z3) if _n <= 250, link(logmult)
 
-Final GMM criterion Q(b) =  2.06e-32
+Final GMM criterion Q(b) = 2.06e-32
 
 note: model is exactly identified.
 
@@ -2212,7 +2212,7 @@ Log likelihood   = -230.6801555                   BIC             =  -18246.18
 
 . ivtsps y w (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  1.89e-32
+Final GMM criterion Q(b) = 1.89e-32
 
 note: model is exactly identified.
 
@@ -2323,7 +2323,7 @@ Log likelihood = -1667.8059                             Pseudo R2     = 0.0368
 
 . ivtsps y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  6.99e-33
+Final GMM criterion Q(b) = 6.99e-33
 
 note: model is exactly identified.
 
@@ -2445,7 +2445,7 @@ Log likelihood = -65.239727                             Pseudo R2     = 0.0585
 
 . ivtsps y (x = z1 z2 z3) if _n <= 100, link(logit)
 
-Final GMM criterion Q(b) =  2.67e-32
+Final GMM criterion Q(b) = 2.67e-32
 
 note: model is exactly identified.
 
@@ -2529,7 +2529,7 @@ Log likelihood = -1378.1819                             Pseudo R2     = 0.2040
 
 . ivtsps y w (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  1.57e-32
+Final GMM criterion Q(b) = 1.57e-32
 
 note: model is exactly identified.
 
@@ -2661,7 +2661,7 @@ variable predicted not found
 
 . ivtsps y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  7.34e-33
+Final GMM criterion Q(b) = 7.34e-33
 
 note: model is exactly identified.
 
@@ -2769,7 +2769,7 @@ Causal risk difference for: b1
 
 . ivtsps y (x = z1 z2 z3) in 101/200
 
-Final GMM criterion Q(b) =  1.09e-32
+Final GMM criterion Q(b) = 1.09e-32
 
 note: model is exactly identified.
 
@@ -2840,13 +2840,13 @@ end of do-file
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:   1 May 2025, 21:27:28
+ closed on:  26 Sep 2025, 18:23:35
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:   1 May 2025, 21:27:28
+ opened on:  26 Sep 2025, 18:23:35
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -2861,14 +2861,14 @@ end of do-file
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -2941,7 +2941,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  6.99e-33
+Final GMM criterion Q(b) = 6.99e-33
 
 note: model is exactly identified.
 
@@ -3079,7 +3079,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3) if _n <= 50
 
-Final GMM criterion Q(b) =  1.43e-33
+Final GMM criterion Q(b) = 1.43e-33
 
 note: model is exactly identified.
 
@@ -3131,7 +3131,7 @@ Causal risk difference for: b2
 . 
 . ivtsri y (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  6.99e-33
+Final GMM criterion Q(b) = 6.99e-33
 
 note: model is exactly identified.
 
@@ -3206,7 +3206,7 @@ Exogenous:  w z1 z2 z3
 
 . ivtsri y w (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  1.29e-32
+Final GMM criterion Q(b) = 1.29e-32
 
 note: model is exactly identified.
 
@@ -3329,7 +3329,7 @@ Log likelihood = -1810.4754                             Pseudo R2     = 0.1323
 
 . ivtsri y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.10e-32
+Final GMM criterion Q(b) = 1.10e-32
 
 note: model is exactly identified.
 
@@ -3485,7 +3485,7 @@ Log likelihood = -151.21931                             Pseudo R2     = 0.1242
 
 . ivtsri y (x = z1 z2 z3) if _n <= 200, link(logadd)
 
-Final GMM criterion Q(b) =  1.19e-32
+Final GMM criterion Q(b) = 1.19e-32
 
 note: model is exactly identified.
 
@@ -3580,7 +3580,7 @@ Log likelihood = -1804.0989                             Pseudo R2     = 0.1354
 
 . ivtsri y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.66e-32
+Final GMM criterion Q(b) = 1.66e-32
 
 note: model is exactly identified.
 
@@ -3663,7 +3663,7 @@ Causal risk ratio for: b2
 . 
 . ivpoisson cfunction y (x = z1 z2 z3), nolog
 
-Final GMM criterion Q(b) =  4.91e-20
+Final GMM criterion Q(b) = 4.91e-20
 
 note: model is exactly identified.
 
@@ -3699,7 +3699,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  2.70e-32
+Final GMM criterion Q(b) = 2.70e-32
 
 note: model is exactly identified.
 
@@ -3813,7 +3813,7 @@ pvalue   8.245e-68
 . 
 . ivpoisson cfunction y (x = z1 z2 z3) if _n <= 250, nolog
 
-Final GMM criterion Q(b) =  1.57e-21
+Final GMM criterion Q(b) = 1.57e-21
 
 note: model is exactly identified.
 
@@ -3849,7 +3849,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3) if _n <= 250, link(logmult)
 
-Final GMM criterion Q(b) =  8.97e-33
+Final GMM criterion Q(b) = 8.97e-33
 
 note: model is exactly identified.
 
@@ -3901,7 +3901,7 @@ Causal risk ratio for: b2
 . 
 . ivpoisson cfunction y w (x = z1 z2 z3), nolog
 
-Final GMM criterion Q(b) =  6.86e-20
+Final GMM criterion Q(b) = 6.86e-20
 
 note: model is exactly identified.
 
@@ -3939,7 +3939,7 @@ Exogenous:  w z1 z2 z3
 
 . ivtsri y w (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  5.89e-32
+Final GMM criterion Q(b) = 5.89e-32
 
 note: model is exactly identified.
 
@@ -4063,7 +4063,7 @@ Log likelihood = -1000.3111                            Pseudo R2     =  0.4223
 
 . ivtsri y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  6.85e-33
+Final GMM criterion Q(b) = 6.85e-33
 
 note: model is exactly identified.
 
@@ -4219,7 +4219,7 @@ Log likelihood = -31.040038                             Pseudo R2     = 0.5521
 
 . ivtsri y (x = z1 z2 z3) if _n <= 100, link(logit)
 
-Final GMM criterion Q(b) =  2.27e-32
+Final GMM criterion Q(b) = 2.27e-32
 
 note: model is exactly identified.
 
@@ -4314,7 +4314,7 @@ Log likelihood = -969.8676                             Pseudo R2     =  0.4399
 
 . ivtsri y w (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  1.29e-32
+Final GMM criterion Q(b) = 1.29e-32
 
 note: model is exactly identified.
 
@@ -4465,7 +4465,7 @@ variable residuals not found
 
 . ivtsri y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  6.99e-33
+Final GMM criterion Q(b) = 6.99e-33
 
 note: model is exactly identified.
 
@@ -4592,7 +4592,7 @@ Causal risk difference for: b2
 
 . ivtsri y (x = z1 z2 z3) in 101/200
 
-Final GMM criterion Q(b) =  7.73e-33
+Final GMM criterion Q(b) = 7.73e-33
 
 note: model is exactly identified.
 
@@ -4677,13 +4677,13 @@ end of do-file
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:   1 May 2025, 21:27:31
+ closed on:  26 Sep 2025, 18:23:39
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:   1 May 2025, 21:27:31
+ opened on:  26 Sep 2025, 18:23:39
 
 . // ivmw cscript
 . // 2021-09-12
@@ -4698,14 +4698,14 @@ end of do-file
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -4749,7 +4749,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4760,7 +4760,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4771,7 +4771,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4784,7 +4784,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4795,7 +4795,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4808,7 +4808,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4819,7 +4819,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4832,7 +4832,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4843,7 +4843,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4884,7 +4884,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4923,7 +4923,7 @@ Time variable: res_order, 1 to 2500
 (running ivmsmm on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -4978,7 +4978,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4989,7 +4989,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5000,7 +5000,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5011,7 +5011,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5022,7 +5022,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5033,7 +5033,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5044,7 +5044,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5056,7 +5056,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5144,7 +5144,7 @@ Time variable: res_order, 1 to 4000
 (running ivlsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivlsmm)
 
@@ -5155,7 +5155,7 @@ Time variable: res_order, 1 to 4000
 (running ivmsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -5166,7 +5166,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5177,7 +5177,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5188,7 +5188,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5199,7 +5199,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5210,7 +5210,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5221,7 +5221,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//S_83240.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5230,13 +5230,13 @@ end of do-file
       name:  ivmw
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:   1 May 2025, 21:28:09
+ closed on:  26 Sep 2025, 18:24:18
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:   1 May 2025, 21:28:09
+ opened on:  26 Sep 2025, 18:24:18
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -5251,14 +5251,14 @@ end of do-file
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -5313,7 +5313,7 @@ Number of observations (_N) was 0, now 4,000.
 First stage residuals quantile: 1
 
 
-Final GMM criterion Q(b) =  1.72e-34
+Final GMM criterion Q(b) = 1.72e-34
 
 note: model is exactly identified.
 
@@ -5348,7 +5348,7 @@ Causal risk difference for: b1
 First stage residuals quantile: 2
 
 
-Final GMM criterion Q(b) =  2.06e-33
+Final GMM criterion Q(b) = 2.06e-33
 
 note: model is exactly identified.
 
@@ -5383,7 +5383,7 @@ Causal risk difference for: b1
 First stage residuals quantile: 3
 
 
-Final GMM criterion Q(b) =  9.02e-33
+Final GMM criterion Q(b) = 9.02e-33
 
 note: model is exactly identified.
 
@@ -5418,7 +5418,7 @@ Causal risk difference for: b1
 First stage residuals quantile: 4
 
 
-Final GMM criterion Q(b) =  4.07e-31
+Final GMM criterion Q(b) = 4.07e-31
 
 note: model is exactly identified.
 
@@ -5722,27 +5722,27 @@ end of do-file
       name:  ivxtile
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:   1 May 2025, 21:28:20
+ closed on:  26 Sep 2025, 18:24:27
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:   1 May 2025, 21:28:20
+ opened on:  26 Sep 2025, 18:24:27
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -5762,6 +5762,7 @@ Serial number: 501809305331
   2.         type ../`helpfile'.sthlp
   3. }
 Title
+-----
 
     ivonesamplemr -- commands for one-sample Mendelian randomization (MR) /
         instrumental variable (IV) analyses.
@@ -5769,6 +5770,7 @@ Title
     https://github.com/remlapmot/ivonesamplemr#readme
 
 Commands
+--------
 
       ivasmm        Is simply a helpfile linking to ivregress and ivreg2,
                       which as linear IV estimators fit the additive
@@ -5798,12 +5800,14 @@ Commands
                       be called as iv lsmm ....
 
 Description
+-----------
 
     ivonesamplemr is a suite of programs implementing various instrumental
     variable (IV) estimators for individual level (a.k.a. one-sample) data.
     These are useful for Mendelian randomization (MR) analyses.
 
 References
+----------
 
     Palmer TM, Sterne JAC, Harbord RM, Lawlor DA, Sheehan NA, Meng S, Granell
         R, Davey Smith G, Didelez V.  Instrumental variable estimation of
@@ -5812,13 +5816,16 @@ References
         1392-1403.  DOI
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivasmm -- Additive structural mean model
 
 Description
+-----------
 
     ivasmm is not a command. This helpfile is to note that the additive
     structural mean model (ASMM) is simply fit with a linear IV estimator
@@ -5827,6 +5834,7 @@ Description
 For a binary outcome the ASMM estimates a causal risk difference.
 
 Examples
+--------
 
     Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
@@ -5852,6 +5860,7 @@ Examples
         . ivreg2 y w (x1 x2 = z1 z2 z3)
 
 References
+----------
 
     Clarke PS, Palmer TM, Windmeijer F.  Estimating structural mean models
         with multiple instrumental variables using the Generalised Method of
@@ -5871,13 +5880,16 @@ References
         Washington, DC.
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivlsmm -- (double) Logistic structural mean model
 
 Syntax
+------
 
         ivlsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
               [, options]
@@ -5900,6 +5912,7 @@ Syntax
       gmm_options         Options passed to gmm
 
 Description
+-----------
 
     ivlsmm implements the double logistic structural mean model (LSMM) of
     Vansteelandt and Goetghebeur (2003) which is a generalisation of the LSMM
@@ -5908,10 +5921,12 @@ Description
     ivlsmm is implemented using a call to gmm.
 
 Options
+-------
 
     level(#); see [R] estimation options.
 
 Examples
+--------
 
     Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
@@ -5934,6 +5949,7 @@ Examples
         . ivlsmm y w (x1 x2 = z1 z2 z3)
 
 Stored results
+--------------
 
     To see the results ivlsmm stores in e() issue ereturn list after running
     the command.
@@ -5945,6 +5961,7 @@ Stored results
                             ll, ul, df, crit, eform
 
 References
+----------
 
     Clarke PS, Palmer TM, Windmeijer F.  Estimating structural mean models
         with multiple instrumental variables using the Generalised Method of
@@ -5968,13 +5985,16 @@ References
         (Series B).  2003, 65, 4, 817-835.  DOI
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivmsmm -- Multiplicative structural mean model
 
 Syntax
+------
 
         ivmsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
               [, log noirr ivpoisson_options]
@@ -5993,6 +6013,7 @@ Syntax
       ivpoisson_options   ivpoisson##optionstbl
 
 Description
+-----------
 
     ivmsmm implements the multiplicative structural mean model (MSMM) of
     Robins (1989) as a wrapper to ivpoisson with the multiplicative option.
@@ -6007,10 +6028,12 @@ Description
     (2018).
 
 Options
+-------
 
     Please see ivpoisson##options
 
 Examples
+--------
 
     Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
@@ -6047,10 +6070,12 @@ Examples
         . ivpois y w, endog(x1 x2) exog(z1 z2 z3) eform(RR)
 
 Stored results
+--------------
 
     Please see ivpoisson##results
 
 References
+----------
 
     Cameron AC, Trivedi PK. Regression analysis of count data. 2nd ed. 2013.
         New York, Cambridge University Press.
@@ -6096,13 +6121,16 @@ References
         and panel data.  CEMMAP working paper CWP14/02. 2002.  URL
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivtsps -- Two-stage predictor substitution estimators
 
 Syntax
+------
 
         ivtsps depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
               [, link(string) log noirr gmm_options]
@@ -6123,6 +6151,7 @@ Syntax
       gmm_options         gmm##options
 
 Description
+-----------
 
     ivtsps implements two-stage predictor substitution (TSPS) estimators with
     several link functions for the second stage model (identity,
@@ -6131,6 +6160,7 @@ Description
     moment condition to the gmm command.
 
 Options
+-------
 
     link(identity | logadd | logmult | logit) specifies the link function for
         the second stage model.  identity means the second stage model is a
@@ -6146,6 +6176,7 @@ Options
     Please see gmm##options
 
 Examples
+--------
 
     Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
@@ -6182,10 +6213,12 @@ Examples
         . bootstrap, reps(250): ivtsps y (x = z1 z2 z3), estonly
 
 Stored results
+--------------
 
     Please see gmm##results
 
 References
+----------
 
     Dukes O, Vansteelandt S.  A note on G-estimation of causal risk ratios.
         American Journal of Epidemiology, 2018, 187, 5, 1079-1084.  DOI
@@ -6201,13 +6234,16 @@ References
         Journal of Health Economics 27: 531–543.  DOI
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivtsri -- Two-stage residual inclusion estimators
 
 Syntax
+------
 
         ivtsri depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
               [, link(string) log noirr gmm_options]
@@ -6228,6 +6264,7 @@ Syntax
       gmm_options         gmm##options
 
 Description
+-----------
 
     ivtsri implements two-stage residual inclusion (TSRI) estimators with
     several link functions for the second stage model (identity,
@@ -6236,6 +6273,7 @@ Description
     moment condition to the gmm command.
 
 Options
+-------
 
     link(identity | logadd | logmult | logit) specifies the link function for
         the second stage model.  identity means the second stage model is a
@@ -6251,6 +6289,7 @@ Options
     Please see gmm##options
 
 Examples
+--------
 
     Read in binary outcome data; y outcome, x exposure, w covariate, z*
     instrumental variables (genotypes).
@@ -6287,10 +6326,12 @@ Examples
         . bootstrap, reps(250): ivtsri y (x = z1 z2 z3), estonly
 
 Stored results
+--------------
 
     Please see gmm##results
 
 References
+----------
 
     Bowden J, Vansteelandt S.  Mendelian randomization analysis of
         case-control data using structural mean models.  Statistics in
@@ -6315,18 +6356,22 @@ References
         Health Economics. 2008, 27, 3, 531–543.  DOI
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      iv -- Instrumental variable (IV) programs useful for one-sample Mendelian
 randomization (MR) analyses
 
 Syntax
+------
 
         iv subcommand ... [aweight] [if] [in] [, options]
 
 Description
+-----------
 
     iv is a simple wrapper to the commands in the ivonesamplemr package.
 
@@ -6335,10 +6380,12 @@ Description
     ....
 
 Options
+-------
 
     iv takes the options for the specified subcommand.
 
 Examples
+--------
 
         . use
             https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
@@ -6355,17 +6402,21 @@ Examples
         . iv tsri y (x = z1 z2 z3), link(logit)
 
 Stored results
+--------------
 
     iv returns the results from the specified subcommand.
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 Title
+-----
 
      ivmw -- Moving window prefix command
 
 Syntax
+------
 
         ivmw , window(#) par(string) [saving(filename [, replace])
             rolling_options]: iv_cmd
@@ -6383,16 +6434,19 @@ Syntax
       rolling_options               rolling##options
 
 Description
+-----------
 
     ivmw implements the moving window (a.k.a. sliding / rolling window)
     approach to the estimator specified after the prefix, as per Burgess et
     al., 2014.  It is implemented as a call to rolling.
 
 Options
+-------
 
     Please see rolling##options
 
 Examples
+--------
 
     Simulate data with different outcome-exposure relationships; y# outcome,
     x exposure, g instrumental variable (genotype).
@@ -6443,10 +6497,12 @@ Examples
         . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
 
 Stored results
+--------------
 
     Please see rolling##results
 
 References
+----------
 
     Burgess S, Davies N, Thompson SG, EPIC-InterAct Consortium.  Instrumental
         variable analysis with a nonlinear exposure-outcome relationship.
@@ -6456,6 +6512,7 @@ References
         Rolling-window and recursive estimation. 2016.  URL
 
 Author
+------
 
 INCLUDE help ivonesamplemr-author
 
@@ -6464,7 +6521,7 @@ end of do-file
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:   1 May 2025, 21:28:20
+ closed on:  26 Sep 2025, 18:24:27
 -------------------------------------------------------------------------------
 
 . 
@@ -6472,5 +6529,5 @@ end of do-file
       name:  master
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:   1 May 2025, 21:28:20
+ closed on:  26 Sep 2025, 18:24:27
 -------------------------------------------------------------------------------

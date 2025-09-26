@@ -2,7 +2,7 @@
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:   1 May 2025, 21:27:28
+ opened on:  26 Sep 2025, 18:23:35
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -17,14 +17,14 @@
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -97,7 +97,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  6.99e-33
+Final GMM criterion Q(b) = 6.99e-33
 
 note: model is exactly identified.
 
@@ -235,7 +235,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3) if _n <= 50
 
-Final GMM criterion Q(b) =  1.43e-33
+Final GMM criterion Q(b) = 1.43e-33
 
 note: model is exactly identified.
 
@@ -287,7 +287,7 @@ Causal risk difference for: b2
 . 
 . ivtsri y (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  6.99e-33
+Final GMM criterion Q(b) = 6.99e-33
 
 note: model is exactly identified.
 
@@ -362,7 +362,7 @@ Exogenous:  w z1 z2 z3
 
 . ivtsri y w (x = z1 z2 z3), link(identity)
 
-Final GMM criterion Q(b) =  1.29e-32
+Final GMM criterion Q(b) = 1.29e-32
 
 note: model is exactly identified.
 
@@ -485,7 +485,7 @@ Log likelihood = -1810.4754                             Pseudo R2     = 0.1323
 
 . ivtsri y (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.10e-32
+Final GMM criterion Q(b) = 1.10e-32
 
 note: model is exactly identified.
 
@@ -641,7 +641,7 @@ Log likelihood = -151.21931                             Pseudo R2     = 0.1242
 
 . ivtsri y (x = z1 z2 z3) if _n <= 200, link(logadd)
 
-Final GMM criterion Q(b) =  1.19e-32
+Final GMM criterion Q(b) = 1.19e-32
 
 note: model is exactly identified.
 
@@ -736,7 +736,7 @@ Log likelihood = -1804.0989                             Pseudo R2     = 0.1354
 
 . ivtsri y w (x = z1 z2 z3), link(logadd)
 
-Final GMM criterion Q(b) =  1.66e-32
+Final GMM criterion Q(b) = 1.66e-32
 
 note: model is exactly identified.
 
@@ -819,7 +819,7 @@ Causal risk ratio for: b2
 . 
 . ivpoisson cfunction y (x = z1 z2 z3), nolog
 
-Final GMM criterion Q(b) =  4.91e-20
+Final GMM criterion Q(b) = 4.91e-20
 
 note: model is exactly identified.
 
@@ -855,7 +855,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  2.70e-32
+Final GMM criterion Q(b) = 2.70e-32
 
 note: model is exactly identified.
 
@@ -969,7 +969,7 @@ pvalue   8.245e-68
 . 
 . ivpoisson cfunction y (x = z1 z2 z3) if _n <= 250, nolog
 
-Final GMM criterion Q(b) =  1.57e-21
+Final GMM criterion Q(b) = 1.57e-21
 
 note: model is exactly identified.
 
@@ -1005,7 +1005,7 @@ Exogenous:  z1 z2 z3
 
 . ivtsri y (x = z1 z2 z3) if _n <= 250, link(logmult)
 
-Final GMM criterion Q(b) =  8.97e-33
+Final GMM criterion Q(b) = 8.97e-33
 
 note: model is exactly identified.
 
@@ -1057,7 +1057,7 @@ Causal risk ratio for: b2
 . 
 . ivpoisson cfunction y w (x = z1 z2 z3), nolog
 
-Final GMM criterion Q(b) =  6.86e-20
+Final GMM criterion Q(b) = 6.86e-20
 
 note: model is exactly identified.
 
@@ -1095,7 +1095,7 @@ Exogenous:  w z1 z2 z3
 
 . ivtsri y w (x = z1 z2 z3), link(logmult)
 
-Final GMM criterion Q(b) =  5.89e-32
+Final GMM criterion Q(b) = 5.89e-32
 
 note: model is exactly identified.
 
@@ -1219,7 +1219,7 @@ Log likelihood = -1000.3111                            Pseudo R2     =  0.4223
 
 . ivtsri y (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  6.85e-33
+Final GMM criterion Q(b) = 6.85e-33
 
 note: model is exactly identified.
 
@@ -1375,7 +1375,7 @@ Log likelihood = -31.040038                             Pseudo R2     = 0.5521
 
 . ivtsri y (x = z1 z2 z3) if _n <= 100, link(logit)
 
-Final GMM criterion Q(b) =  2.27e-32
+Final GMM criterion Q(b) = 2.27e-32
 
 note: model is exactly identified.
 
@@ -1470,7 +1470,7 @@ Log likelihood = -969.8676                             Pseudo R2     =  0.4399
 
 . ivtsri y w (x = z1 z2 z3), link(logit)
 
-Final GMM criterion Q(b) =  1.29e-32
+Final GMM criterion Q(b) = 1.29e-32
 
 note: model is exactly identified.
 
@@ -1621,7 +1621,7 @@ variable residuals not found
 
 . ivtsri y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  6.99e-33
+Final GMM criterion Q(b) = 6.99e-33
 
 note: model is exactly identified.
 
@@ -1748,7 +1748,7 @@ Causal risk difference for: b2
 
 . ivtsri y (x = z1 z2 z3) in 101/200
 
-Final GMM criterion Q(b) =  7.73e-33
+Final GMM criterion Q(b) = 7.73e-33
 
 note: model is exactly identified.
 
@@ -1833,5 +1833,5 @@ end of do-file
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:   1 May 2025, 21:27:31
+ closed on:  26 Sep 2025, 18:23:39
 -------------------------------------------------------------------------------

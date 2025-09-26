@@ -2,7 +2,7 @@
       name:  ivxtile
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:   1 May 2025, 21:28:09
+ opened on:  26 Sep 2025, 18:24:18
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -17,14 +17,14 @@
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -79,7 +79,7 @@ Number of observations (_N) was 0, now 4,000.
 First stage residuals quantile: 1
 
 
-Final GMM criterion Q(b) =  1.72e-34
+Final GMM criterion Q(b) = 1.72e-34
 
 note: model is exactly identified.
 
@@ -114,7 +114,7 @@ Causal risk difference for: b1
 First stage residuals quantile: 2
 
 
-Final GMM criterion Q(b) =  2.06e-33
+Final GMM criterion Q(b) = 2.06e-33
 
 note: model is exactly identified.
 
@@ -149,7 +149,7 @@ Causal risk difference for: b1
 First stage residuals quantile: 3
 
 
-Final GMM criterion Q(b) =  9.02e-33
+Final GMM criterion Q(b) = 9.02e-33
 
 note: model is exactly identified.
 
@@ -184,7 +184,7 @@ Causal risk difference for: b1
 First stage residuals quantile: 4
 
 
-Final GMM criterion Q(b) =  4.07e-31
+Final GMM criterion Q(b) = 4.07e-31
 
 note: model is exactly identified.
 
@@ -488,5 +488,5 @@ end of do-file
       name:  ivxtile
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:   1 May 2025, 21:28:20
+ closed on:  26 Sep 2025, 18:24:27
 -------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:   1 May 2025, 21:27:21
+ opened on:  26 Sep 2025, 18:23:28
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -17,14 +17,14 @@
 . 
 . about
 
-StataNow/MP 18.5 for Mac (Apple Silicon)
-Revision 26 Feb 2025
-Copyright 1985-2023 StataCorp LLC
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 24 Sep 2025
+Copyright 1985-2025 StataCorp LLC
 
-Total physical memory: 16.00 GB
+Total usable memory: 16.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
-Serial number: 501809305331
+Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
 
@@ -66,7 +66,7 @@ Number of observations (_N) was 0, now 2,500.
 
 . ivlsmm y w (x = z1)
 
-Final GMM criterion Q(b) =  1.78e-30
+Final GMM criterion Q(b) = 1.78e-30
 
 note: model is exactly identified.
 
@@ -255,7 +255,7 @@ pvalue   1.411e-06
 
 . ivlsmm y w (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0010781
+Final GMM criterion Q(b) = .0010781
 
 GMM estimation 
 
@@ -313,7 +313,7 @@ Causal odds ratio for: w
 
 . ivlsmm y w (x1 x2 = z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0008332
+Final GMM criterion Q(b) = .0008332
 
 GMM estimation 
 
@@ -392,7 +392,7 @@ r1   1   1   1   1   1   1   1   1   1
 
 . ivlsmm y w (x = z1 z2 z3), from(start)
 
-Final GMM criterion Q(b) =  .0010781
+Final GMM criterion Q(b) = .0010781
 
 GMM estimation 
 
@@ -450,7 +450,7 @@ Causal odds ratio for: w
 
 . ivlsmm y (x = z1 z2 z3) if _n <= 100
 
-Final GMM criterion Q(b) =  .0133962
+Final GMM criterion Q(b) = .0133962
 
 GMM estimation 
 
@@ -495,7 +495,7 @@ Causal odds ratio for: x
 
 . ivlsmm y (x = z1 z2 z3) in 1/100
 
-Final GMM criterion Q(b) =  .0133962
+Final GMM criterion Q(b) = .0133962
 
 GMM estimation 
 
@@ -541,7 +541,7 @@ Causal odds ratio for: x
 
 . ivlsmm y (x = z1 z2 z3) if _n <= 100
 
-Final GMM criterion Q(b) =  .0133962
+Final GMM criterion Q(b) = .0133962
 
 GMM estimation 
 
@@ -587,7 +587,7 @@ Causal odds ratio for: x
 
 . ivlsmm y w (x = z1 z2 z3), amxb(x z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0009336
+Final GMM criterion Q(b) = .0009336
 
 GMM estimation 
 
@@ -649,7 +649,7 @@ Causal odds ratio for: w
 
 . ivlsmm y w (x = z1 z2 z3), amxb(x w z1 z2 z3 xz1 xz2 xz3)
 
-Final GMM criterion Q(b) =   .001119
+Final GMM criterion Q(b) =  .001119
 
 GMM estimation 
 
@@ -708,7 +708,7 @@ Causal odds ratio for: w
 . // overid test
 . ivlsmm y (x = z1 z2 z3)
 
-Final GMM criterion Q(b) =  .0007528
+Final GMM criterion Q(b) = .0007528
 
 GMM estimation 
 
@@ -757,5 +757,5 @@ end of do-file
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:   1 May 2025, 21:27:23
+ closed on:  26 Sep 2025, 18:23:30
 -------------------------------------------------------------------------------
