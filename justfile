@@ -2,6 +2,8 @@ dep:
     stata-mp "do dependency"
 render:
     quarto render site
+    rm -r docs/*
+    mv site/_site/* docs/
 
 [working-directory: 'cscripts']
 test:
