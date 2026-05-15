@@ -26,7 +26,7 @@
 {cmd:iv} is a simple wrapper to the commands in the {help ivonesamplemr} package.
 
 {pstd}
-The {it:subcommand} is specified as the mrrobust program name without its {cmd:iv} prefix, 
+The {it:subcommand} is specified as the ivonesamplemr program name without its {cmd:iv} prefix, 
 i.e. {cmd:ivlsmm ...} can alternatively be run using the syntax {cmd:iv lsmm ...}.
  
 {marker options}{...}
