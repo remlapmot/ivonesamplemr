@@ -2,7 +2,7 @@
       name:  master
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:  26 Sep 2025, 18:23:27
+ opened on:  15 May 2026, 07:49:17
 
 . 
 . cscript master
@@ -32,7 +32,7 @@
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  26 Sep 2025, 18:23:27
+ opened on:  15 May 2026, 07:49:17
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -48,12 +48,12 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 24 Sep 2025
+Revision 15 Apr 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
@@ -248,13 +248,13 @@ end of do-file
       name:  iv
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  26 Sep 2025, 18:23:28
+ closed on:  15 May 2026, 07:49:17
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  26 Sep 2025, 18:23:28
+ opened on:  15 May 2026, 07:49:17
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -270,12 +270,12 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 24 Sep 2025
+Revision 15 Apr 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
@@ -1009,13 +1009,13 @@ end of do-file
       name:  ivlsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  26 Sep 2025, 18:23:30
+ closed on:  15 May 2026, 07:49:20
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  26 Sep 2025, 18:23:30
+ opened on:  15 May 2026, 07:49:20
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -1031,12 +1031,12 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 24 Sep 2025
+Revision 15 Apr 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
@@ -1306,13 +1306,13 @@ end of do-file
       name:  ivmsmm
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  26 Sep 2025, 18:23:31
+ closed on:  15 May 2026, 07:49:21
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  26 Sep 2025, 18:23:31
+ opened on:  15 May 2026, 07:49:21
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -1328,12 +1328,12 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 24 Sep 2025
+Revision 15 Apr 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
@@ -2840,13 +2840,13 @@ end of do-file
       name:  ivtsps
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  26 Sep 2025, 18:23:35
+ closed on:  15 May 2026, 07:49:23
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  26 Sep 2025, 18:23:35
+ opened on:  15 May 2026, 07:49:23
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -2862,12 +2862,12 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 24 Sep 2025
+Revision 15 Apr 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
@@ -4677,13 +4677,13 @@ end of do-file
       name:  ivtsri
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  26 Sep 2025, 18:23:39
+ closed on:  15 May 2026, 07:49:26
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:  26 Sep 2025, 18:23:39
+ opened on:  15 May 2026, 07:49:26
 
 . // ivmw cscript
 . // 2021-09-12
@@ -4699,12 +4699,12 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 24 Sep 2025
+Revision 15 Apr 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
@@ -4749,7 +4749,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4760,7 +4760,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4771,7 +4771,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4784,7 +4784,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4795,7 +4795,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4808,7 +4808,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4819,7 +4819,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4832,7 +4832,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4843,7 +4843,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4884,7 +4884,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4923,7 +4923,7 @@ Time variable: res_order, 1 to 2500
 (running ivmsmm on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -4978,7 +4978,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4989,7 +4989,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5000,7 +5000,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5011,7 +5011,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5022,7 +5022,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5033,7 +5033,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5044,7 +5044,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5056,7 +5056,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5144,7 +5144,7 @@ Time variable: res_order, 1 to 4000
 (running ivlsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivlsmm)
 
@@ -5155,7 +5155,7 @@ Time variable: res_order, 1 to 4000
 (running ivmsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -5166,7 +5166,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5177,7 +5177,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5188,7 +5188,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5199,7 +5199,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5210,7 +5210,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5221,7 +5221,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St28523.000001 saved
+file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5230,13 +5230,13 @@ end of do-file
       name:  ivmw
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:  26 Sep 2025, 18:24:18
+ closed on:  15 May 2026, 07:49:54
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:  26 Sep 2025, 18:24:18
+ opened on:  15 May 2026, 07:49:54
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -5252,12 +5252,12 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 24 Sep 2025
+Revision 15 Apr 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
@@ -5722,13 +5722,13 @@ end of do-file
       name:  ivxtile
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:  26 Sep 2025, 18:24:27
+ closed on:  15 May 2026, 07:50:01
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  26 Sep 2025, 18:24:27
+ opened on:  15 May 2026, 07:50:01
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -5736,12 +5736,12 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 24 Sep 2025
+Revision 15 Apr 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
@@ -5772,7 +5772,7 @@ Title
 Commands
 --------
 
-      ivasmm        Is simply a helpfile linking to ivregress and ivreg2,
+      ivasmm        is simply a helpfile linking to ivregress and ivreg2,
                       which as linear IV estimators fit the additive
                       structural mean model (ASMM), i.e. estimate a causal
                       risk difference for a binary outcome.
@@ -5785,7 +5785,7 @@ Commands
                       i.e. estimates a causal risk ratio for a binary
                       outcome.
 
-      ivmw          Prefix command which specifies the moving window be
+      ivmw          Prefix command which specifies that the moving window be
                       applied to the command after the prefix, e.g. ivmw,
                       window(100): ivmsmm ....
 
@@ -6375,9 +6375,9 @@ Description
 
     iv is a simple wrapper to the commands in the ivonesamplemr package.
 
-    The subcommand is specified as the mrrobust program name without its iv
-    prefix, i.e. ivlsmm ... can alternatively be run using the syntax iv lsmm
-    ....
+    The subcommand is specified as the ivonesamplemr program name without its
+    iv prefix, i.e. ivlsmm ... can alternatively be run using the syntax iv
+    lsmm ....
 
 Options
 -------
@@ -6521,7 +6521,7 @@ end of do-file
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  26 Sep 2025, 18:24:27
+ closed on:  15 May 2026, 07:50:01
 -------------------------------------------------------------------------------
 
 . 
@@ -6529,5 +6529,5 @@ end of do-file
       name:  master
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:  26 Sep 2025, 18:24:27
+ closed on:  15 May 2026, 07:50:01
 -------------------------------------------------------------------------------

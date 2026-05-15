@@ -2,7 +2,7 @@
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  26 Sep 2025, 18:24:27
+ opened on:  15 May 2026, 07:50:01
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -10,12 +10,12 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 24 Sep 2025
+Revision 15 Apr 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 16.00 GB
 
-Stata license: Unlimited-user 2-core network, expiring 29 Jan 2026
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
   Licensed to: Tom Palmer
                University of Bristol
@@ -46,7 +46,7 @@ Title
 Commands
 --------
 
-      ivasmm        Is simply a helpfile linking to ivregress and ivreg2,
+      ivasmm        is simply a helpfile linking to ivregress and ivreg2,
                       which as linear IV estimators fit the additive
                       structural mean model (ASMM), i.e. estimate a causal
                       risk difference for a binary outcome.
@@ -59,7 +59,7 @@ Commands
                       i.e. estimates a causal risk ratio for a binary
                       outcome.
 
-      ivmw          Prefix command which specifies the moving window be
+      ivmw          Prefix command which specifies that the moving window be
                       applied to the command after the prefix, e.g. ivmw,
                       window(100): ivmsmm ....
 
@@ -649,9 +649,9 @@ Description
 
     iv is a simple wrapper to the commands in the ivonesamplemr package.
 
-    The subcommand is specified as the mrrobust program name without its iv
-    prefix, i.e. ivlsmm ... can alternatively be run using the syntax iv lsmm
-    ....
+    The subcommand is specified as the ivonesamplemr program name without its
+    iv prefix, i.e. ivlsmm ... can alternatively be run using the syntax iv
+    lsmm ....
 
 Options
 -------
@@ -795,5 +795,5 @@ end of do-file
       name:  helpfiles
        log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  26 Sep 2025, 18:24:27
+ closed on:  15 May 2026, 07:50:01
 -------------------------------------------------------------------------------
