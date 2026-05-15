@@ -12,7 +12,7 @@
 {title:Title}
 
 {p 5}
-{bf:ivxtile} {hline 2} Perorm estimation within quantiles of the first stage residuals prefix command
+{bf:ivxtile} {hline 2} Perform estimation within quantiles of the first stage residuals prefix command
 {p_end}
 
 {marker syntax}{...}
