@@ -24,7 +24,7 @@ instrumental variable (IV) analyses.
 {title:Commands}{marker commands}
 
 {synoptset 14 tabbed}{...}
-{synopt :{opt {help ivasmm}:}}Is simply a helpfile linking to {help ivregress} and {help ivreg2}, 
+{synopt :{opt {help ivasmm}:}}is simply a helpfile linking to {help ivregress} and {help ivreg2}, 
 which as linear IV estimators fit the additive structural mean model (ASMM), 
 i.e. estimate a causal risk difference for a binary outcome.
 
@@ -34,7 +34,7 @@ i.e. estimates a causal odds ratio for a binary outcome.
 {synopt :{opt {help ivmsmm}:}}Fits the multiplicative structural mean model (MSMM), 
 i.e. estimates a causal risk ratio for a binary outcome.
 
-{synopt :{opt {help ivmw}:}}Prefix command which specifies the moving window be applied to the command 
+{synopt :{opt {help ivmw}:}}Prefix command which specifies that the moving window be applied to the command 
 after the prefix, e.g. {cmd:ivmw, window(100): ivmsmm ...}.
 
 {synopt :{opt {help ivtsps}:}}Fits two-stage predictor substitution (TSPS) estimators.
