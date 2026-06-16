@@ -5,10 +5,10 @@ render:
     rm -r docs/*
     mv site/_site/* docs/
 
-[working-directory: 'cscripts']
+[working-directory('cscripts')]
 test:
     stata-mp -b "do master"
 
-[working-directory: 'site']
+[working-directory('site')]
 dev:
     stata-mp "do developer"
