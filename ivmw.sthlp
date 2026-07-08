@@ -77,21 +77,23 @@ Please see {help rolling##options}
 
 {phang2}{cmd:.} {stata "ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)"}{p_end}
 
-{pstd}Use different iv commands.{p_end}
+{pstd}Use different iv commands, demonstrated with the binary outcome dataset; y outcome, x exposure, z* instrumental variables (genotypes).{p_end}
 
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivregress 2sls y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivregress liml y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivregress gmm y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivlsmm y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(x): ivmsmm y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logit)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)"}{p_end}
-{phang2}{cmd:.} {stata "ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logit)"}{p_end}
+{phang2}{cmd:.} {stata "use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear"}{p_end}
+
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(x): ivregress 2sls y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(x): ivregress gmm y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(x): ivlsmm y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(x): ivmsmm y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logit)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)"}{p_end}
+{phang2}{cmd:.} {stata "ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logit)"}{p_end}
 
 {marker results}{...}
 {title:Stored results}
