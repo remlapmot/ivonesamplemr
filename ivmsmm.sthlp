@@ -183,7 +183,7 @@ ivpoisson - Poisson model with continuous endogenous covariates. 2013.
 Windmeijer FAG, Santos Silva JMC. Endogeneity in Count Data Models: 
 An Application to Demand for Health Care. 
 Journal of Applied Econometrics. 1997, 12, 3, 281-294. 
-{browse "https://t.ly/3Et7":DOI}
+{browse "https://doi.org/10.1002/(SICI)1099-1255(199705)12:3%3C281::AID-JAE436%3E3.0.CO;2-1":DOI}
 {p_end}
 
 {marker windmeijer-2}{...}
