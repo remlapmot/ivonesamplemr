@@ -16,10 +16,13 @@ if replay() {
         error 190 
     }
     else {
-        Display , lhs(`e(lhs)') endog(`e(endog)') exog(`e(exog)') inst(`e(inst)') replay(`replay')
+        syntax [, Level(cilevel)]
+        Display , level(`level') lhs(`e(lhs)') endog(`e(endog)') exog(`e(exog)') inst(`e(inst)') replay(`replay')
     }
     exit
 }
+
+local cmdline : copy local 0
 
 Estimate `0'
 
@@ -28,11 +31,13 @@ local lhs `s(lhs)'
 local endog `s(endog)'
 local exog `s(exog)'
 local inst `s(inst)'
+local 0 `s(zero)'
+syntax [if] [in] [, Level(cilevel) *]
 
 Display , level(`level') lhs(`lhs') endog(`endog') exog(`exog') inst(`inst')
 
 ereturn local cmd "ivlsmm"
-ereturn local cmdline `"ivlsmm `0'"'
+ereturn local cmdline `"ivlsmm `cmdline'"'
 ereturn local lhs `lhs'
 ereturn local endog `endog'
 ereturn local exog `exog'
@@ -97,7 +102,7 @@ gmm (`lhs' - invlogit({xb:`amxb'} + {b0})) ///
 	deriv(2/cmxb = -1*`d2') ///
 	deriv(2/ey0 = -1) ///
 	nolog ///
-	`options'
+	level(`level') `options'
 
 estat overid
 ereturn scalar J_df = `r(J_df)'
@@ -123,7 +128,7 @@ return add
 
 foreach var of varlist `endog' `exog' {
 	di _n as txt "Causal odds ratio for: `var'"
-	lincom /cmxb_`var', eform
+	lincom /cmxb_`var', level(`level') eform
 }
 
 end

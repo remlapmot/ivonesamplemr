@@ -16,11 +16,14 @@ if replay() {
         error 190 
     }
     else {
-        Display , lhs(`e(lhs)') endog(`e(endog)') exog(`e(exog)') inst(`e(inst)') replay(`replay') ///
+        syntax [, Level(cilevel)]
+        Display , level(`level') lhs(`e(lhs)') endog(`e(endog)') exog(`e(exog)') inst(`e(inst)') replay(`replay') ///
 			link(`e(link)') `e(estonly)'
     }
     exit
 }
+
+local cmdline : copy local 0
 
 Estimate `0'
 local link `e(link)'
@@ -31,11 +34,13 @@ local lhs `s(lhs)'
 local endog `s(endog)'
 local exog `s(exog)'
 local inst `s(inst)'
+local 0 `s(zero)'
+syntax [if] [in] [, Level(cilevel) *]
 
 Display , level(`level') lhs(`lhs') endog(`endog') exog(`exog') inst(`inst') link(`link') `estonly'
 
 ereturn local cmd "ivtsps"
-ereturn local cmdline `"ivtsps `0'"'
+ereturn local cmdline `"ivtsps `cmdline'"'
 ereturn local lhs `lhs'
 ereturn local endog `endog'
 ereturn local exog `exog'
@@ -105,7 +110,7 @@ if "`link'" == "identity" {
 			instruments(2:predicted `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
-			`options' nolog onestep
+			level(`level') `options' nolog onestep
 	}
 }
 
@@ -128,7 +133,7 @@ if "`link'" == "logadd" {
 			instruments(2:predicted `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
-			`options' nolog onestep
+			level(`level') `options' nolog onestep
 	}
 }
 
@@ -150,7 +155,7 @@ if "`link'" == "logmult" {
 			instruments(2:predicted `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
-			`options' nolog onestep
+			level(`level') `options' nolog onestep
 	}
 }
 
@@ -172,7 +177,7 @@ if "`link'" == "logit" {
 			instruments(2:predicted `exog') ///
 			winitial(unadjusted, independent) ///
 			from(`from') ///
-			`options' nolog onestep
+			level(`level') `options' nolog onestep
 	}
 }
 
@@ -201,7 +206,7 @@ else {
 
 return add // to return r(table)
 
-local eformopt ", eform"
+local eformopt "eform"
 
 if "`link'" == "identity" {
 	local parameter "Causal risk difference"
@@ -213,7 +218,7 @@ if "`link'" == "logit" local parameter "Causal odds ratio"
 if "`estonly'" == "" {
 	foreach par in b1 {
 		di _n as txt "`parameter' for: `par'"
-		lincom /`par' `eformopt'
+		lincom /`par', level(`level') `eformopt'
 	}
 }
 
