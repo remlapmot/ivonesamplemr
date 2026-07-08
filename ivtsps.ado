@@ -82,14 +82,16 @@ if `endogcount' != 1 {
 tempname stage1b stage2b from
 qui regress `endog' `inst' `exog' `if'`in'
 mat `stage1b' = e(b)
-cap ds predicted
-if _rc == 0 {
+// set aside any existing variable called predicted; restored below, including on error
+cap confirm new variable predicted
+if _rc != 0 {
 	local predictedreplace 1
-	tempvar predicted
-	qui gen `predicted' = predicted
-	qui drop predicted
+	tempvar origpredicted
+	rename predicted `origpredicted'
 }
 else local predictedreplace 0
+
+cap noi {
 qui predict predicted `if'`in'
 
 if "`link'" == "identity" {
@@ -181,8 +183,11 @@ if "`link'" == "logit" {
 	}
 }
 
-if `predictedreplace' == 1 qui replace predicted = `predicted'
-else qui drop predicted
+}
+local rc = _rc
+cap drop predicted
+if `predictedreplace' == 1 rename `origpredicted' predicted
+if `rc' != 0 exit `rc'
 
 ereturn local link `link'
 ereturn local estonly `estonly'

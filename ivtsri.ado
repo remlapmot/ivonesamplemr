@@ -82,14 +82,16 @@ if `endogcount' != 1 {
 tempname stage1b stage2b from
 qui regress `endog' `inst' `exog' `if'`in'
 mat `stage1b' = e(b)
-cap ds residuals
-if _rc == 0 {
+// set aside any existing variable called residuals; restored below, including on error
+cap confirm new variable residuals
+if _rc != 0 {
 	local residualsreplace 1
-	tempvar residuals
-	qui gen `residuals' = residuals
-	qui drop residuals
+	tempvar origresiduals
+	rename residuals `origresiduals'
 }
 else local residualsreplace 0
+
+cap noi {
 qui predict residuals `if'`in', residuals
 
 if "`link'" == "identity" {
@@ -181,8 +183,11 @@ if "`link'" == "logit" {
 	}
 }
 
-if `residualsreplace' == 1 qui replace residuals = `residuals'
-else qui drop residuals
+}
+local rc = _rc
+cap drop residuals
+if `residualsreplace' == 1 rename `origresiduals' residuals
+if `rc' != 0 exit `rc'
 
 ereturn local link `link'
 ereturn local estonly `estonly'
