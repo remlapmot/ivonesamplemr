@@ -4,7 +4,8 @@
 {vieweralsosee "ivregress" "help ivregress"}{...}
 {vieweralsosee "ivreg2" "help ivreg2"}{...}
 {viewerjumpto "Description" "ivasmm##description"}{...}
-{viewerjumpto "Description" "ivasmm##examples"}{...}
+{viewerjumpto "Examples" "ivasmm##examples"}{...}
+{viewerjumpto "References" "ivasmm##references"}{...}
 {viewerjumpto "Author" "ivasmm##author"}{...}
 {title:Title}
 
@@ -16,11 +17,14 @@
 {title:Description}
 
 {pstd}
-{cmd:ivasmm} is not a command. This helpfile is to note that the additive structural mean model (ASMM) 
-is simply fit with a linear IV estimator available in {help ivregress} or {help ivreg2} 
+{cmd:ivasmm} is not a command. This helpfile is to note that the additive structural mean model (ASMM)
+is simply fit with a linear IV estimator available in {help ivregress} or {help ivreg2}
 or even implemented yourself with {help gmm}.
+{p_end}
 
+{pstd}
 For a binary outcome the ASMM estimates a causal risk difference.
+{p_end}
 
 {marker examples}{...}
 {title:Examples}
