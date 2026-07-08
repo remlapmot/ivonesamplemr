@@ -25,7 +25,7 @@
 {synoptset 30 tabbed}{...}
 {synopthdr}
 {synoptline}
-{synopt:{opt par:(string)}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
+{synopt:{opt par:(string)}}Parameter from the {it:iv_cmd} (ivregress, ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
 {synopt:{opt window:(#)}}number of consecutive data points in each sample{p_end}
 {synopt:{opt sa:ving(filename [, replace])}}Save the moving window output to a dataset. 
 Specify {cmd:replace} to overwrite the dataset if it already exists.{p_end}

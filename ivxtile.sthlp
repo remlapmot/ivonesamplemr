@@ -25,7 +25,7 @@
 {synoptset 30 tabbed}{...}
 {synopthdr}
 {synoptline}
-{synopt:{opt par:(string)}}Parameter from the {it:iv_cmd} (ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
+{synopt:{opt par:(string)}}Parameter from the {it:iv_cmd} (ivregress, ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri) to collect{p_end}
 {synopt:{opt sa:ving(filename [, replace])}}Save the within quantile estimation results to a dataset. 
 Specify {cmd:replace} to overwrite an existing dataset{p_end}
 {synopt:{opt trace}}View the output from the {cmd:iv_cmd} in each quantile{p_end}
