@@ -22,7 +22,7 @@
 {cmd:(}{it:{help varlist:varlist2}} {cmd:=}
         {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
 [{it:{help gmm##weight:weight}}]
-[{cmd:,} {it:link(string)} {it:log} {it:noirr} {it:gmm_options}]
+[{cmd:,} {it:link(string)} {it:estonly} {opt l:evel(#)} {it:gmm_options}]
 
 {phang}
 {it:varlist1} is the list of exogenous variables.{p_end}
@@ -37,9 +37,9 @@
 {synoptset 20 tabbed}{...}
 {synopthdr}
 {synoptline}
-{synopt:{opt noirr:}}Do not display exponentiated estimates{p_end}
 {synopt:{opt link:(string)}}Link function for the second stage model (identity | logadd | logmult | logit){p_end}
-{synopt:{opt log:}}Show the GMM iteration log{p_end}
+{synopt:{opt estonly}}Fit the two-stage regressions without the subsequent GMM estimation{p_end}
+{synopt:{opt l:evel(#)}}set confidence level; default is {cmd:level(95)}{p_end}
 {synopt:{opt gmm_options:}}{help gmm##options}{p_end}
 
 {marker description}{...}
@@ -63,8 +63,15 @@ moment condition to the {help gmm} command.
 {cmd:logmult} means the second stage model is a gamma regression 
 (which for a binary outcome estimates a causal risk ratio, 
 {help ivtsri##dukes:Dukes and Vansteelandt, 2018}). 
-{cmd:logit} means the second stage model is a logistic regression 
-(which for a binary outcome estimates a causal odds ratio). 
+{cmd:logit} means the second stage model is a logistic regression
+(which for a binary outcome estimates a causal odds ratio).
+
+{phang}
+{opt estonly} fits the two-stage regressions without the subsequent GMM estimation.
+This is useful for obtaining bootstrap standard errors, as shown in the example below.
+
+{phang}
+{opt level(#)}; see {helpb estimation options##level():[R] estimation options}.
 
 {phang}
 Please see {help gmm##options}
