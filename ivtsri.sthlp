@@ -21,7 +21,6 @@
 {cmd:ivtsri} {depvar} [{it:{help varlist:varlist1}}]
 {cmd:(}{it:{help varlist:varlist2}} {cmd:=}
         {it:{help varlist:varlist_iv}}{cmd:)} {ifin}
-[{it:{help gmm##weight:weight}}]
 [{cmd:,} {it:link(string)} {it:estonly} {opt l:evel(#)} {it:gmm_options}]
 
 {phang}
