@@ -8,6 +8,8 @@ One-sample Mendelian randomization (MR) / instrumental variable (IV) analyses in
 
 ## Latest updates
 
+* July 2026:
+  - Bug fixes
 * May 2026:
   - Fix some typos
   - Reran certification scripts under StataNow 19.5
