@@ -74,7 +74,7 @@ if "`from'" == "" {
 	// tsri fit for causal model starting initial values
 	tempvar s1res
 	qui regress `endog' `inst' `exog' `if'`in'
-	qui predict `s1res' `if'`in'
+	qui predict `s1res' `if'`in', residuals
 	qui logit `lhs' `endog' `exog' `s1res' `if'`in'
 	tempname s2b
 	mat `s2b' = e(b)
