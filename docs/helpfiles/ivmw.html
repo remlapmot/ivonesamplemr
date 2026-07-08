@@ -25,8 +25,8 @@ BODY{background-color: ffffff;
 <br><br>
     <i>options</i>                         Description
     ----------------------------------------------------------------------------------------------
-      <span class=result>par(</span><i>string</i><span class=result>)</span>                   Parameter from the <i>iv_cmd</i> (ivreg2, ivmsmm, ivlsmm, ivtsps,
-                                      ivtsri) to collect
+      <span class=result>par(</span><i>string</i><span class=result>)</span>                   Parameter from the <i>iv_cmd</i> (ivregress, ivreg2, ivmsmm, ivlsmm,
+                                      ivtsps, ivtsri) to collect
       <span class=result>window(</span><i>#</i><span class=result>)</span>                     number of consecutive data points in each sample
       <span class=result><u>sa</u></span><span class=result>ving(</span><i>filename </i>[<span class=result>,</span><i> replace</i>]<span class=result>)</span>  Save the moving window output to a dataset.  Specify <span class=result>replace</span>
                                       to overwrite the dataset if it already exists.
@@ -74,21 +74,24 @@ BODY{background-color: ffffff;
 <br><br>
         <span class=result>.</span> ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)
 <br><br>
-    Use different iv commands.
+    Use different iv commands, demonstrated with the binary outcome dataset; y outcome, x
+    exposure, z* instrumental variables (genotypes).
 <br><br>
-        <span class=result>.</span> ivmw, window(3950) par(x): ivregress 2sls y (x = z1 z2 z3)
-        <span class=result>.</span> ivmw, window(3950) par(x): ivregress liml y (x = z1 z2 z3)
-        <span class=result>.</span> ivmw, window(3950) par(x): ivregress gmm y (x = z1 z2 z3)
-        <span class=result>.</span> ivmw, window(3950) par(x): ivlsmm y (x = z1 z2 z3)
-        <span class=result>.</span> ivmw, window(3950) par(x): ivmsmm y (x = z1 z2 z3)
-        <span class=result>.</span> ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3)
-        <span class=result>.</span> ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
-        <span class=result>.</span> ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
-        <span class=result>.</span> ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
-        <span class=result>.</span> ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3)
-        <span class=result>.</span> ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
-        <span class=result>.</span> ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
-        <span class=result>.</span> ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
+        <span class=result>.</span> use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear
+<br><br>
+        <span class=result>.</span> ivmw, window(2490) par(x): ivregress 2sls y (x = z1 z2 z3)
+        <span class=result>.</span> ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)
+        <span class=result>.</span> ivmw, window(2490) par(x): ivregress gmm y (x = z1 z2 z3)
+        <span class=result>.</span> ivmw, window(2490) par(x): ivlsmm y (x = z1 z2 z3)
+        <span class=result>.</span> ivmw, window(2490) par(x): ivmsmm y (x = z1 z2 z3)
+        <span class=result>.</span> ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3)
+        <span class=result>.</span> ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+        <span class=result>.</span> ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
+        <span class=result>.</span> ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
+        <span class=result>.</span> ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3)
+        <span class=result>.</span> ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+        <span class=result>.</span> ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
+        <span class=result>.</span> ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
 <br><br>
 <a name="results"></a><span class=result><u>Stored results</u></span>
 <br><br>

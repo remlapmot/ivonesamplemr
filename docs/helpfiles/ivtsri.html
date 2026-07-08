@@ -21,8 +21,8 @@ BODY{background-color: ffffff;
 <br><br>
 <a name="syntax"></a><span class=result><u>Syntax</u></span>
 <br><br>
-        <span class=result>ivtsri</span> <i>depvar</i> [<i>varlist1</i>] <span class=result>(</span><i>varlist2</i> <span class=result>=</span> <i>varlist_iv</i><span class=result>)</span> [<i>if</i>] [<i>in</i>] [<i>weight</i>] [<span class=result>,</span> <i>link(string)</i> <i>log</i>
-              <i>noirr</i> <i>gmm_options</i>]
+        <span class=result>ivtsri</span> <i>depvar</i> [<i>varlist1</i>] <span class=result>(</span><i>varlist2</i> <span class=result>=</span> <i>varlist_iv</i><span class=result>)</span> [<i>if</i>] [<i>in</i>] [<span class=result>,</span> <i>link(string)</i> <i>estonly</i>
+              <span class=result><u>l</u></span><span class=result>evel(</span><i>#</i><span class=result>)</span> <i>gmm_options</i>]
 <br><br>
     <i>varlist1</i> is the list of exogenous variables.
 <br><br>
@@ -32,10 +32,10 @@ BODY{background-color: ffffff;
 <br><br>
     <i>options</i>               Description
     ----------------------------------------------------------------------------------------------
-      <span class=result>noirr</span>               Do not display exponentiated estimates
       <span class=result>link(</span><i>string</i><span class=result>)</span>        Link function for the second stage model (identity | logadd | logmult |
                             logit)
-      <span class=result>log</span>                 Show the GMM iteration log
+      <span class=result>estonly</span>             Fit the two-stage regressions without the subsequent GMM estimation
+      <span class=result><u>l</u></span><span class=result>evel(</span><i>#</i><span class=result>)</span>            set confidence level; default is <span class=result>level(95)</span>
       <span class=result>gmm_options</span>         gmm##options
 <br><br>
 <a name="description"></a><span class=result><u>Description</u></span>
@@ -55,6 +55,11 @@ BODY{background-color: ffffff;
         outcome estimates a causal risk ratio, Dukes and Vansteelandt, 2018).  <span class=result>logit</span> means the
         second stage model is a logistic regression (which for a binary outcome estimates a causal
         odds ratio).
+<br><br>
+    <span class=result>estonly</span> fits the two-stage regressions without the subsequent GMM estimation.  This is useful
+        for obtaining bootstrap standard errors, as shown in the example below.
+<br><br>
+    <span class=result>level(</span><i>#</i><span class=result>)</span>; see <span class=result>[R] estimation options</span>.
 <br><br>
     Please see gmm##options
 <br><br>
