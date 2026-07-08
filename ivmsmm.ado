@@ -15,7 +15,6 @@ if "`irr'" == "" local irr "irr"
 else local irr ""
 
 ivpoisson gmm `cmdline' `comma' multiplicative `nolog' `irr'
-qui ivpoisson gmm `cmdline' `comma' multiplicative `nolog' `irr' // so r(table) not exponentiated
 
 end
 exit
