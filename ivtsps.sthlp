@@ -59,9 +59,9 @@ moment condition to the {help gmm} command.
 (which for a binary outcome estimates a causal risk difference). 
 {cmd:logadd} means the second stage model is a Poisson/log-binomial regression 
 (which for a binary outcome estimates a causal risk ratio).
-{cmd:logmult} means the second stage model is a gamma regression 
-(which for a binary outcome estimates a causal risk ratio, 
-{help ivtsri##dukes:Dukes and Vansteelandt, 2018}). 
+{cmd:logmult} means the second stage model is a gamma regression
+(which for a binary outcome estimates a causal risk ratio,
+{help ivtsps##dukes:Dukes and Vansteelandt, 2018}).
 {cmd:logit} means the second stage model is a logistic regression
 (which for a binary outcome estimates a causal odds ratio).
 
