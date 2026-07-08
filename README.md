@@ -42,7 +42,7 @@ The package includes implementations of:
 * additive structural mean model: see `help ivasmm`
 * logistic structural mean model: see `help ivlsmm`
 * multiplicative structural mean model: see `help ivmsmm`
-* two-stage predictor substitution estimators: see `ivtsps`
+* two-stage predictor substitution estimators: see `help ivtsps`
 * two-stage residual inclusion estimators: see `help ivtsri`
 * moving window (a.k.a. sliding/rolling window) versions of these estimators: see `help ivmw`
 * performing estimation within quantiles of the first stage residuals: see `help ivxtile`
