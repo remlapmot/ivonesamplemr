@@ -49,7 +49,7 @@ Please see {help xtile##options}
 
 {pstd}Simulate data with different outcome-exposure relationships; y# outcome, x exposure, g instrumental variable (genotype).{p_end}
 
-{phang2}{cmd:.} {stata "use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivmwdata, clear"}{p_end}
+{phang2}{cmd:.} {stata "use https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/data/ivmwdata, clear"}{p_end}
 
 {pstd}Plot outcome-exposure relationships{p_end}
 
@@ -64,7 +64,7 @@ Please see {help xtile##options}
 
 {pstd}Some binary outcome examples.{p_end}
 
-{phang2}{cmd:.} {stata "use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear"}{p_end}
+{phang2}{cmd:.} {stata "use https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear"}{p_end}
 
 {phang2}{cmd:.} {stata "ivxtile, nq(5) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)"}{p_end}
 {phang2}{cmd:.} {stata "ivxtile, nq(5) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)"}{p_end}

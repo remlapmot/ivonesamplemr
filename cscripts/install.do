@@ -9,10 +9,10 @@ about
 
 cap noi ado uninstall ivonesamplemr
 
-net desc ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesamplemr/main/")
+net desc ivonesamplemr, from("https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/")
 
-net install ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesamplemr/main/") replace
-do https://raw.github.com/remlapmot/ivonesamplemr/main/dependency.do
+net install ivonesamplemr, from("https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/") replace
+do https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/dependency.do
 
 ** github package
 

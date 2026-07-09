@@ -38,7 +38,7 @@ i.e. {cmd:ivlsmm ...} can alternatively be run using the syntax {cmd:iv lsmm ...
 {marker examples}{...}
 {title:Examples}
 
-{phang2}{cmd:.} {stata "use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear"}{p_end}
+{phang2}{cmd:.} {stata "use https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear"}{p_end}
 
 {pstd}Fit the model with a single instrumental variable.{p_end}
 

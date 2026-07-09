@@ -31,7 +31,7 @@ For a binary outcome the ASMM estimates a causal risk difference.
 
 {pstd}Read in binary outcome data; y outcome, x exposure, w covariate, z* instrumental variables (genotypes).{p_end}
 
-{phang2}{cmd:.} {stata "use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear"}{p_end}
+{phang2}{cmd:.} {stata "use https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear"}{p_end}
 
 {pstd}Fit the model with a single instrumental variable.{p_end}
 

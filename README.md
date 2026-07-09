@@ -63,8 +63,8 @@ github install remlapmot/ivonesamplemr
 
 Or use the following code
 ``` stata
-net install ivonesamplemr, from("https://raw.github.com/remlapmot/ivonesamplemr/main/") replace
-do "https://raw.github.com/remlapmot/ivonesamplemr/main/dependency.do"
+net install ivonesamplemr, from("https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/") replace
+do "https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/dependency.do"
 ```
 
 Launch the main package helpfile with
