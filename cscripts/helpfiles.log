@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  15 May 2026, 07:50:01
+ opened on:   9 Jul 2026, 11:07:10
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -10,10 +10,10 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 15 Apr 2026
+Revision 03 Jun 2026
 Copyright 1985-2025 StataCorp LLC
 
-Total usable memory: 16.00 GB
+Total usable memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
@@ -105,7 +105,7 @@ Description
     structural mean model (ASMM) is simply fit with a linear IV estimator
     available in ivregress or ivreg2 or even implemented yourself with gmm.
 
-For a binary outcome the ASMM estimates a causal risk difference.
+    For a binary outcome the ASMM estimates a causal risk difference.
 
 Examples
 --------
@@ -114,8 +114,8 @@ Examples
     instrumental variables (genotypes).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -165,8 +165,8 @@ Title
 Syntax
 ------
 
-        ivlsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
-              [, options]
+        ivlsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [,
+              options]
 
     varlist1 is the list of exogenous variables.
 
@@ -206,8 +206,8 @@ Examples
     instrumental variables (genotypes).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -313,8 +313,8 @@ Examples
     instrumental variables (genotypes).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -406,8 +406,8 @@ Title
 Syntax
 ------
 
-        ivtsps depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
-              [, link(string) log noirr gmm_options]
+        ivtsps depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [,
+              link(string) estonly level(#) gmm_options]
 
     varlist1 is the list of exogenous variables.
 
@@ -418,10 +418,11 @@ Syntax
 
     options               Description
     -------------------------------------------------------------------------
-      noirr               Do not display exponentiated estimates
       link(string)        Link function for the second stage model (identity
                             | logadd | logmult | logit)
-      log                 Show the GMM iteration log
+      estonly             Fit the two-stage regressions without the
+                            subsequent GMM estimation
+      level(#)            set confidence level; default is level(95)
       gmm_options         gmm##options
 
 Description
@@ -447,6 +448,12 @@ Options
         model is a logistic regression (which for a binary outcome estimates
         a causal odds ratio).
 
+    estonly fits the two-stage regressions without the subsequent GMM
+        estimation.  This is useful for obtaining bootstrap standard errors,
+        as shown in the example below.
+
+    level(#); see [R] estimation options.
+
     Please see gmm##options
 
 Examples
@@ -456,8 +463,8 @@ Examples
     instrumental variables (genotypes).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -519,8 +526,8 @@ Title
 Syntax
 ------
 
-        ivtsri depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
-              [, link(string) log noirr gmm_options]
+        ivtsri depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [,
+              link(string) estonly level(#) gmm_options]
 
     varlist1 is the list of exogenous variables.
 
@@ -531,10 +538,11 @@ Syntax
 
     options               Description
     -------------------------------------------------------------------------
-      noirr               Do not display exponentiated estimates
       link(string)        Link function for the second stage model (identity
                             | logadd | logmult | logit)
-      log                 Show the GMM iteration log
+      estonly             Fit the two-stage regressions without the
+                            subsequent GMM estimation
+      level(#)            set confidence level; default is level(95)
       gmm_options         gmm##options
 
 Description
@@ -560,6 +568,12 @@ Options
         model is a logistic regression (which for a binary outcome estimates
         a causal odds ratio).
 
+    estonly fits the two-stage regressions without the subsequent GMM
+        estimation.  This is useful for obtaining bootstrap standard errors,
+        as shown in the example below.
+
+    level(#); see [R] estimation options.
+
     Please see gmm##options
 
 Examples
@@ -569,8 +583,8 @@ Examples
     instrumental variables (genotypes).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -662,8 +676,8 @@ Examples
 --------
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -697,9 +711,9 @@ Syntax
 
     options                         Description
     -------------------------------------------------------------------------
-      par(string)                   Parameter from the iv_cmd (ivreg2,
-                                      ivmsmm, ivlsmm, ivtsps, ivtsri) to
-                                      collect
+      par(string)                   Parameter from the iv_cmd (ivregress,
+                                      ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri)
+                                      to collect
       window(#)                     number of consecutive data points in each
                                       sample
       saving(filename [, replace])  Save the moving window output to a
@@ -726,8 +740,8 @@ Examples
     x exposure, g instrumental variable (genotype).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivmwdata
-            > , clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivmwdata, clear
 
     Plot outcome-exposure relationships
 
@@ -754,21 +768,26 @@ Examples
 
         . ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)
 
-    Use different iv commands.
+    Use different iv commands, demonstrated with the binary outcome dataset;
+    y outcome, x exposure, z* instrumental variables (genotypes).
 
-        . ivmw, window(3950) par(x): ivregress 2sls y (x = z1 z2 z3)
-        . ivmw, window(3950) par(x): ivregress liml y (x = z1 z2 z3)
-        . ivmw, window(3950) par(x): ivregress gmm y (x = z1 z2 z3)
-        . ivmw, window(3950) par(x): ivlsmm y (x = z1 z2 z3)
-        . ivmw, window(3950) par(x): ivmsmm y (x = z1 z2 z3)
-        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3)
-        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
-        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
-        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
-        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3)
-        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
-        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
-        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
+        . use
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
+
+        . ivmw, window(2490) par(x): ivregress 2sls y (x = z1 z2 z3)
+        . ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)
+        . ivmw, window(2490) par(x): ivregress gmm y (x = z1 z2 z3)
+        . ivmw, window(2490) par(x): ivlsmm y (x = z1 z2 z3)
+        . ivmw, window(2490) par(x): ivmsmm y (x = z1 z2 z3)
+        . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3)
+        . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+        . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
+        . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
+        . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3)
+        . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+        . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
+        . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
 
 Stored results
 --------------
@@ -793,7 +812,7 @@ INCLUDE help ivonesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  15 May 2026, 07:50:01
+ closed on:   9 Jul 2026, 11:07:10
 -------------------------------------------------------------------------------

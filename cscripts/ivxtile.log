@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  ivxtile
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:  15 May 2026, 07:49:54
+ opened on:   9 Jul 2026, 11:06:59
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -11,17 +11,17 @@
 ------------------------------------------------------------------BEGIN ivxtile
 
 -> which ivxtile, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivxtile.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivxtile.ado
 *! version 0.1.0 16sep2021 Tom Palmer
 
 . 
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 15 Apr 2026
+Revision 03 Jun 2026
 Copyright 1985-2025 StataCorp LLC
 
-Total usable memory: 16.00 GB
+Total usable memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
@@ -395,10 +395,10 @@ Number of observations (_N) was 0, now 4,000.
 . ivxtile, nq(4) par(x): ivlsmm y (x = z1 z2 z3)
 
     quantile       beta         se    medendog      lowci      uppci  
-           1      .4447   .1138194   -.3411307   .2216139   .6677861  
-           2   .5042965   .0740131     1.18101   .3592308   .6493623  
-           3   .5729357   .0638491     2.29315   .4477914     .69808  
-           4   11.38396   .2653633    4.021381   10.86385   11.90408  
+           1   .4447008   .1138196   -.3411307   .2216145   .6677872  
+           2   .5042998   .0740134     1.18101   .3592336   .6493661  
+           3   .5729321   .0638486     2.29315   .4477888   .6980754  
+           4   12.30584     .27273    4.021381   11.77129   12.84039  
 
 . 
 . discard
@@ -474,19 +474,17 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . ivxtile, nq(5) par(x): ivlsmm y (x = z1 z2 z3)
 
-Model did not fit in quantile 3
-
     quantile       beta         se    medendog      lowci      uppci  
-           1    1.40609   .1849153   -.5241845   1.043656   1.768524  
+           1   1.406086    .184915   -.5241845   1.043653    1.76852  
            2   1.138831   .1222908    .8047578   .8991413   1.378521  
-           3          .          .    1.851269          .          .  
-           4   25.19511   .9787352    2.627049   23.27678   27.11343  
-           5   10.98158   .2573293    4.113728   10.47721   11.48594  
+           3   1.142395   .1208762    1.851269   .9054776   1.379312  
+           4   1.046432    .162596    2.627049   .7277439    1.36512  
+           5   .9635714   .2032622    4.113728   .5651775   1.361965  
 
 . 
 end of do-file
       name:  ivxtile
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:  15 May 2026, 07:50:01
+ closed on:   9 Jul 2026, 11:07:10
 -------------------------------------------------------------------------------

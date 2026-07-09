@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  iv
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  15 May 2026, 07:49:17
+ opened on:   9 Jul 2026, 11:06:06
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -11,17 +11,17 @@
 -----------------------------------------------------------------------BEGIN iv
 
 -> which iv, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/iv.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/iv.ado
 *! version 0.1.0 10sep2021 Tom Palmer
 
 . 
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 15 Apr 2026
+Revision 03 Jun 2026
 Copyright 1985-2025 StataCorp LLC
 
-Total usable memory: 16.00 GB
+Total usable memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
@@ -64,7 +64,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . iv lsmm y (x = z1)
 
-Final GMM criterion Q(b) = 1.36e-31
+Final GMM criterion Q(b) = 7.61e-30
 
 note: model is exactly identified.
 
@@ -90,7 +90,7 @@ Instruments for equation 2: z1 _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(0) = 3.4e-28 (p =     .)
+  Hansen's J chi2(0) = 1.9e-26 (p =     .)
 
 Note: test cannot be performed because there are no
       overidentifying restrictions.
@@ -216,7 +216,7 @@ Causal odds ratio for: b2
 . 
 end of do-file
       name:  iv
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  15 May 2026, 07:49:17
+ closed on:   9 Jul 2026, 11:06:07
 -------------------------------------------------------------------------------

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  master
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:  15 May 2026, 07:49:17
+ opened on:   9 Jul 2026, 11:06:06
 
 . 
 . cscript master
@@ -30,9 +30,9 @@
   5. }
 -------------------------------------------------------------------------------
       name:  iv
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  15 May 2026, 07:49:17
+ opened on:   9 Jul 2026, 11:06:06
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -41,17 +41,17 @@
 -----------------------------------------------------------------------BEGIN iv
 
 -> which iv, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/iv.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/iv.ado
 *! version 0.1.0 10sep2021 Tom Palmer
 
 . 
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 15 Apr 2026
+Revision 03 Jun 2026
 Copyright 1985-2025 StataCorp LLC
 
-Total usable memory: 16.00 GB
+Total usable memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
@@ -94,7 +94,7 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . iv lsmm y (x = z1)
 
-Final GMM criterion Q(b) = 1.36e-31
+Final GMM criterion Q(b) = 7.61e-30
 
 note: model is exactly identified.
 
@@ -120,7 +120,7 @@ Instruments for equation 2: z1 _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(0) = 3.4e-28 (p =     .)
+  Hansen's J chi2(0) = 1.9e-26 (p =     .)
 
 Note: test cannot be performed because there are no
       overidentifying restrictions.
@@ -246,15 +246,15 @@ Causal odds ratio for: b2
 . 
 end of do-file
       name:  iv
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/iv.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  15 May 2026, 07:49:17
+ closed on:   9 Jul 2026, 11:06:07
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  15 May 2026, 07:49:17
+ opened on:   9 Jul 2026, 11:06:07
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -263,17 +263,17 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivlsmm
 
 -> which ivlsmm, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivlsmm.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivlsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 15 Apr 2026
+Revision 03 Jun 2026
 Copyright 1985-2025 StataCorp LLC
 
-Total usable memory: 16.00 GB
+Total usable memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
@@ -318,7 +318,7 @@ Number of observations (_N) was 0, now 2,500.
 
 . ivlsmm y w (x = z1)
 
-Final GMM criterion Q(b) = 1.78e-30
+Final GMM criterion Q(b) = 6.95e-30
 
 note: model is exactly identified.
 
@@ -346,7 +346,7 @@ Instruments for equation 2: z1 w _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(0) = 4.4e-27 (p =     .)
+  Hansen's J chi2(0) = 1.7e-26 (p =     .)
 
 Note: test cannot be performed because there are no
       overidentifying restrictions.
@@ -415,7 +415,7 @@ Causal odds ratio for: w
 . eret list
 
 scalars:
-                  e(J) =  4.44363770968e-27
+                  e(J) =  1.73797288106e-26
                 e(J_p) =  .
                e(J_df) =  0
          e(k_eq_model) =  0
@@ -429,7 +429,7 @@ scalars:
           e(converged) =  1
                 e(k_2) =  7
                 e(k_1) =  4
-                  e(Q) =  1.77745508387e-30
+                  e(Q) =  6.95189152422e-30
                   e(N) =  2500
                e(rank) =  7
 
@@ -520,22 +520,22 @@ GMM weight matrix:     Robust
              |               Robust
              | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-       /xb_x |   1.299434   .0604193    21.51   0.000     1.181014    1.417854
-      /xb_z1 |  -.4095171   .0757369    -5.41   0.000    -.5579587   -.2610756
-      /xb_z2 |  -.3847453   .0666832    -5.77   0.000    -.5154419   -.2540487
-      /xb_z3 |  -.3958253   .0694519    -5.70   0.000    -.5319485   -.2597022
-       /xb_w |   .5482842   .0729194     7.52   0.000     .4053647    .6912036
+       /xb_x |   1.299434   .0604193    21.51   0.000     1.181015    1.417854
+      /xb_z1 |  -.4095189   .0757368    -5.41   0.000    -.5579603   -.2610775
+      /xb_z2 |  -.3847445   .0666832    -5.77   0.000    -.5154412   -.2540478
+      /xb_z3 |  -.3958253   .0694519    -5.70   0.000    -.5319485   -.2597021
+       /xb_w |   .5482839   .0729194     7.52   0.000     .4053645    .6912033
          /b0 |  -1.806069   .1288229   -14.02   0.000    -2.058557   -1.553581
-     /cmxb_x |   .8858407   .0654348    13.54   0.000     .7575907    1.014091
-     /cmxb_w |   .9554105   .0876054    10.91   0.000      .783707    1.127114
-        /ey0 |   .1581863   .0197955     7.99   0.000     .1193879    .1969848
+     /cmxb_x |   .8858406   .0654348    13.54   0.000     .7575906    1.014091
+     /cmxb_w |   .9554104   .0876054    10.91   0.000     .7837069    1.127114
+        /ey0 |   .1581864   .0197955     7.99   0.000     .1193879    .1969848
 ------------------------------------------------------------------------------
 Instruments for equation 1: x z1 z2 z3 w _cons
 Instruments for equation 2: z1 z2 z3 w _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(2) = 2.69532 (p = 0.2598)
+  Hansen's J chi2(2) = 2.69536 (p = 0.2598)
 
 Causal odds ratio for: x
 
@@ -544,7 +544,7 @@ Causal odds ratio for: x
 ------------------------------------------------------------------------------
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-         (1) |   2.425022    .158681    13.54   0.000     2.133131    2.756855
+         (1) |   2.425022   .1586809    13.54   0.000     2.133131    2.756855
 ------------------------------------------------------------------------------
 
 Causal odds ratio for: w
@@ -554,7 +554,7 @@ Causal odds ratio for: w
 ------------------------------------------------------------------------------
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-         (1) |   2.599738   .2277511    10.91   0.000     2.189574    3.086735
+         (1) |   2.599737   .2277511    10.91   0.000     2.189574    3.086735
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - .89) < 1e-2
@@ -565,7 +565,7 @@ Causal odds ratio for: w
 
 . ivlsmm y w (x1 x2 = z1 z2 z3)
 
-Final GMM criterion Q(b) = .0008332
+Final GMM criterion Q(b) = .0008307
 
 GMM estimation 
 
@@ -578,24 +578,24 @@ GMM weight matrix:     Robust
              |               Robust
              | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-      /xb_x1 |   1.301441   .0607291    21.43   0.000     1.182414    1.420468
-      /xb_x2 |  -.0553908   .0569069    -0.97   0.330    -.1669262    .0561447
-      /xb_z1 |  -.4028659   .0787291    -5.12   0.000    -.5571722   -.2485596
-      /xb_z2 |  -.4199986   .0896648    -4.68   0.000    -.5957384   -.2442588
-      /xb_z3 |  -.3700852   .0886886    -4.17   0.000    -.5439117   -.1962587
-       /xb_w |   .5490761   .0728846     7.53   0.000     .4062249    .6919274
-         /b0 |  -1.809935   .1289064   -14.04   0.000    -2.062587   -1.557284
-    /cmxb_x1 |   .8629792   .0843771    10.23   0.000     .6976032    1.028355
-    /cmxb_x2 |  -.8157772   1.427452    -0.57   0.568    -3.613532    1.981977
-     /cmxb_w |   .9755589    .098335     9.92   0.000     .7828259    1.168292
-        /ey0 |   .1863564   .0900914     2.07   0.039     .0097805    .3629324
+      /xb_x1 |   1.301437   .0607289    21.43   0.000      1.18241    1.420463
+      /xb_x2 |  -.0554073   .0569067    -0.97   0.330    -.1669424    .0561277
+      /xb_z1 |  -.4025164   .0787256    -5.11   0.000    -.5568158   -.2482171
+      /xb_z2 |  -.4200827   .0896555    -4.69   0.000    -.5958043   -.2443612
+      /xb_z3 |  -.3701945   .0886898    -4.17   0.000    -.5440233   -.1963657
+       /xb_w |   .5490845   .0728846     7.53   0.000     .4062334    .6919356
+         /b0 |  -1.809951   .1289054   -14.04   0.000    -2.062601   -1.557301
+    /cmxb_x1 |   .8630331   .0843813    10.23   0.000     .6976488    1.028417
+    /cmxb_x2 |  -.8151068   1.427282    -0.57   0.568    -3.612528    1.982314
+     /cmxb_w |   .9755043   .0983377     9.92   0.000     .7827659    1.168243
+        /ey0 |   .1862996   .0900461     2.07   0.039     .0098124    .3627868
 ------------------------------------------------------------------------------
 Instruments for equation 1: x1 x2 z1 z2 z3 w _cons
 Instruments for equation 2: z1 z2 z3 w _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(1) = 2.08312 (p = 0.1489)
+  Hansen's J chi2(1) = 2.07665 (p = 0.1496)
 
 Causal odds ratio for: x1
 
@@ -604,7 +604,7 @@ Causal odds ratio for: x1
 ------------------------------------------------------------------------------
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-         (1) |   2.370212   .1999915    10.23   0.000     2.008932    2.796463
+         (1) |   2.370339   .2000124    10.23   0.000     2.009024    2.796637
 ------------------------------------------------------------------------------
 
 Causal odds ratio for: x2
@@ -614,7 +614,7 @@ Causal odds ratio for: x2
 ------------------------------------------------------------------------------
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-         (1) |   .4422954   .6313555    -0.57   0.568     .0269565    7.257078
+         (1) |   .4425921   .6317036    -0.57   0.568     .0269836    7.259523
 ------------------------------------------------------------------------------
 
 Causal odds ratio for: w
@@ -624,7 +624,7 @@ Causal odds ratio for: w
 ------------------------------------------------------------------------------
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-         (1) |   2.652649   .2608483     9.92   0.000     2.187646    3.216494
+         (1) |   2.652505   .2608413     9.92   0.000     2.187514    3.216336
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x1] - .86) < 1e-2
@@ -702,7 +702,7 @@ Causal odds ratio for: w
 
 . ivlsmm y (x = z1 z2 z3) if _n <= 100
 
-Final GMM criterion Q(b) = .0133962
+Final GMM criterion Q(b) = .0133991
 
 GMM estimation 
 
@@ -715,20 +715,20 @@ GMM weight matrix:     Robust
              |               Robust
              | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-       /xb_x |   1.763694   .3324165     5.31   0.000      1.11217    2.415218
-      /xb_z1 |  -.4448383   .3623707    -1.23   0.220    -1.155072    .2653952
-      /xb_z2 |  -.8001791   .4165426    -1.92   0.055    -1.616588    .0162294
-      /xb_z3 |  -.4429923   .3975396    -1.11   0.265    -1.222156     .336171
-         /b0 |  -1.863253   .7113749    -2.62   0.009    -3.257522   -.4689836
-     /cmxb_x |   1.206102   .3389122     3.56   0.000     .5418467    1.870358
-        /ey0 |   .1536548   .1011149     1.52   0.129    -.0445268    .3518364
+       /xb_x |   1.763727   .3324321     5.31   0.000     1.112172    2.415282
+      /xb_z1 |  -.4448677   .3623712    -1.23   0.220    -1.155102    .2653667
+      /xb_z2 |    -.80012   .4165531    -1.92   0.055    -1.616549     .016309
+      /xb_z3 |  -.4430777   .3975431    -1.11   0.265    -1.222248    .3360925
+         /b0 |  -1.863271   .7113873    -2.62   0.009    -3.257564    -.468977
+     /cmxb_x |    1.20612   .3389198     3.56   0.000     .5418494    1.870391
+        /ey0 |   .1536516   .1011157     1.52   0.129    -.0445315    .3518348
 ------------------------------------------------------------------------------
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(2) = 1.33962 (p = 0.5118)
+  Hansen's J chi2(2) = 1.33991 (p = 0.5117)
 
 Causal odds ratio for: x
 
@@ -737,7 +737,7 @@ Causal odds ratio for: x
 ------------------------------------------------------------------------------
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-         (1) |    3.34044   1.132116     3.56   0.000     1.719179    6.490621
+         (1) |   3.340498   1.132161     3.56   0.000     1.719183    6.490831
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - 1.21) < 1e-2
@@ -747,7 +747,7 @@ Causal odds ratio for: x
 
 . ivlsmm y (x = z1 z2 z3) in 1/100
 
-Final GMM criterion Q(b) = .0133962
+Final GMM criterion Q(b) = .0133991
 
 GMM estimation 
 
@@ -760,20 +760,20 @@ GMM weight matrix:     Robust
              |               Robust
              | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-       /xb_x |   1.763694   .3324165     5.31   0.000      1.11217    2.415218
-      /xb_z1 |  -.4448383   .3623707    -1.23   0.220    -1.155072    .2653952
-      /xb_z2 |  -.8001791   .4165426    -1.92   0.055    -1.616588    .0162294
-      /xb_z3 |  -.4429923   .3975396    -1.11   0.265    -1.222156     .336171
-         /b0 |  -1.863253   .7113749    -2.62   0.009    -3.257522   -.4689836
-     /cmxb_x |   1.206102   .3389122     3.56   0.000     .5418467    1.870358
-        /ey0 |   .1536548   .1011149     1.52   0.129    -.0445268    .3518364
+       /xb_x |   1.763727   .3324321     5.31   0.000     1.112172    2.415282
+      /xb_z1 |  -.4448677   .3623712    -1.23   0.220    -1.155102    .2653667
+      /xb_z2 |    -.80012   .4165531    -1.92   0.055    -1.616549     .016309
+      /xb_z3 |  -.4430777   .3975431    -1.11   0.265    -1.222248    .3360925
+         /b0 |  -1.863271   .7113873    -2.62   0.009    -3.257564    -.468977
+     /cmxb_x |    1.20612   .3389198     3.56   0.000     .5418494    1.870391
+        /ey0 |   .1536516   .1011157     1.52   0.129    -.0445315    .3518348
 ------------------------------------------------------------------------------
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(2) = 1.33962 (p = 0.5118)
+  Hansen's J chi2(2) = 1.33991 (p = 0.5117)
 
 Causal odds ratio for: x
 
@@ -782,7 +782,7 @@ Causal odds ratio for: x
 ------------------------------------------------------------------------------
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-         (1) |    3.34044   1.132116     3.56   0.000     1.719179    6.490621
+         (1) |   3.340498   1.132161     3.56   0.000     1.719183    6.490831
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - 1.21) < 1e-2
@@ -793,7 +793,7 @@ Causal odds ratio for: x
 
 . ivlsmm y (x = z1 z2 z3) if _n <= 100
 
-Final GMM criterion Q(b) = .0133962
+Final GMM criterion Q(b) = .0133991
 
 GMM estimation 
 
@@ -806,20 +806,20 @@ GMM weight matrix:     Robust
              |               Robust
              | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-       /xb_x |   1.763694   .3324165     5.31   0.000      1.11217    2.415218
-      /xb_z1 |  -.4448383   .3623707    -1.23   0.220    -1.155072    .2653952
-      /xb_z2 |  -.8001791   .4165426    -1.92   0.055    -1.616588    .0162294
-      /xb_z3 |  -.4429923   .3975396    -1.11   0.265    -1.222156     .336171
-         /b0 |  -1.863253   .7113749    -2.62   0.009    -3.257522   -.4689836
-     /cmxb_x |   1.206102   .3389122     3.56   0.000     .5418467    1.870358
-        /ey0 |   .1536548   .1011149     1.52   0.129    -.0445268    .3518364
+       /xb_x |   1.763727   .3324321     5.31   0.000     1.112172    2.415282
+      /xb_z1 |  -.4448677   .3623712    -1.23   0.220    -1.155102    .2653667
+      /xb_z2 |    -.80012   .4165531    -1.92   0.055    -1.616549     .016309
+      /xb_z3 |  -.4430777   .3975431    -1.11   0.265    -1.222248    .3360925
+         /b0 |  -1.863271   .7113873    -2.62   0.009    -3.257564    -.468977
+     /cmxb_x |    1.20612   .3389198     3.56   0.000     .5418494    1.870391
+        /ey0 |   .1536516   .1011157     1.52   0.129    -.0445315    .3518348
 ------------------------------------------------------------------------------
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(2) = 1.33962 (p = 0.5118)
+  Hansen's J chi2(2) = 1.33991 (p = 0.5117)
 
 Causal odds ratio for: x
 
@@ -828,7 +828,7 @@ Causal odds ratio for: x
 ------------------------------------------------------------------------------
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-         (1) |    3.34044   1.132116     3.56   0.000     1.719179    6.490621
+         (1) |   3.340498   1.132161     3.56   0.000     1.719183    6.490831
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - 1.21) < 1e-2
@@ -853,12 +853,12 @@ GMM weight matrix:     Robust
              | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
        /xb_x |   1.423979   .0577045    24.68   0.000     1.310881    1.537078
-      /xb_z1 |  -.5711436   .0740573    -7.71   0.000    -.7162932   -.4259939
-      /xb_z2 |  -.5337384   .0647331    -8.25   0.000     -.660613   -.4068639
-      /xb_z3 |  -.5494056   .0667925    -8.23   0.000    -.6803164   -.4184948
+      /xb_z1 |  -.5711442   .0740573    -7.71   0.000    -.7162938   -.4259945
+      /xb_z2 |  -.5337382   .0647331    -8.25   0.000    -.6606128   -.4068636
+      /xb_z3 |  -.5494056   .0667925    -8.23   0.000    -.6803164   -.4184947
          /b0 |  -1.728888   .1250831   -13.82   0.000    -1.974046   -1.483729
-     /cmxb_x |   .8497166   .0638232    13.31   0.000     .7246254    .9748078
-     /cmxb_w |   .5655056   .0700267     8.08   0.000     .4282559    .7027553
+     /cmxb_x |   .8497166   .0638232    13.31   0.000     .7246254    .9748077
+     /cmxb_w |   .5655056   .0700267     8.08   0.000     .4282559    .7027554
         /ey0 |   .1814932   .0210319     8.63   0.000     .1402713     .222715
 ------------------------------------------------------------------------------
 Instruments for equation 1: x z1 z2 z3 _cons
@@ -866,7 +866,7 @@ Instruments for equation 2: z1 z2 z3 w _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(2) =  2.3341 (p = 0.3113)
+  Hansen's J chi2(2) = 2.33411 (p = 0.3113)
 
 Causal odds ratio for: x
 
@@ -914,25 +914,25 @@ GMM weight matrix:     Robust
              |               Robust
              | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-       /xb_x |   1.352266   .1085224    12.46   0.000     1.139566    1.564966
-       /xb_w |   .5585769   .0733551     7.61   0.000     .4148035    .7023502
-      /xb_z1 |  -.3413226   .2099725    -1.63   0.104    -.7528612    .0702159
-      /xb_z2 |  -.7431018   .1930832    -3.85   0.000    -1.121538   -.3646657
-      /xb_z3 |  -.0862605   .1682969    -0.51   0.608    -.4161165    .2435954
-     /xb_xz1 |  -.0264955   .0747982    -0.35   0.723    -.1730972    .1201063
-     /xb_xz2 |   .1348796   .0731238     1.84   0.065    -.0084403    .2781996
-     /xb_xz3 |  -.1321727   .0698304    -1.89   0.058    -.2690379    .0046924
-         /b0 |  -1.889602   .2086502    -9.06   0.000    -2.298549   -1.480655
-     /cmxb_x |   .8970595   .0718033    12.49   0.000     .7563277    1.037791
-     /cmxb_w |   .9628362   .0932364    10.33   0.000     .7800962    1.145576
-        /ey0 |   .1573063   .0205315     7.66   0.000     .1170652    .1975473
+       /xb_x |   1.352266   .1085225    12.46   0.000     1.139566    1.564966
+       /xb_w |    .558576   .0733551     7.61   0.000     .4148027    .7023493
+      /xb_z1 |  -.3413234   .2099726    -1.63   0.104     -.752862    .0702153
+      /xb_z2 |  -.7431014   .1930832    -3.85   0.000    -1.121537   -.3646653
+      /xb_z3 |  -.0862615    .168297    -0.51   0.608    -.4161176    .2435945
+     /xb_xz1 |  -.0264951   .0747982    -0.35   0.723    -.1730968    .1201066
+     /xb_xz2 |   .1348793   .0731237     1.84   0.065    -.0084406    .2781992
+     /xb_xz3 |  -.1321728   .0698304    -1.89   0.058    -.2690379    .0046924
+         /b0 |  -1.889602   .2086502    -9.06   0.000    -2.298548   -1.480655
+     /cmxb_x |   .8970579   .0718032    12.49   0.000     .7563261     1.03779
+     /cmxb_w |   .9628362   .0932365    10.33   0.000     .7800961    1.145576
+        /ey0 |   .1573066   .0205315     7.66   0.000     .1170655    .1975477
 ------------------------------------------------------------------------------
 Instruments for equation 1: x w z1 z2 z3 xz1 xz2 xz3 _cons
 Instruments for equation 2: z1 z2 z3 w _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(2) = 2.79747 (p = 0.2469)
+  Hansen's J chi2(2) = 2.79746 (p = 0.2469)
 
 Causal odds ratio for: x
 
@@ -941,7 +941,7 @@ Causal odds ratio for: x
 ------------------------------------------------------------------------------
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-         (1) |   2.452381    .176089    12.49   0.000     2.130438    2.822975
+         (1) |   2.452377   .1760886    12.49   0.000     2.130435     2.82297
 ------------------------------------------------------------------------------
 
 Causal odds ratio for: w
@@ -973,20 +973,20 @@ GMM weight matrix:     Robust
              |               Robust
              | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-       /xb_x |   1.424852   .0577536    24.67   0.000     1.311657    1.538047
-      /xb_z1 |  -.5607264   .0743176    -7.55   0.000    -.7063861   -.4150666
-      /xb_z2 |  -.5449099   .0661095    -8.24   0.000    -.6744822   -.4153376
-      /xb_z3 |  -.5506151   .0684751    -8.04   0.000    -.6848238   -.4164063
-         /b0 |  -1.726392   .1251155   -13.80   0.000    -1.971613    -1.48117
-     /cmxb_x |   .8547843   .0660029    12.95   0.000      .725421    .9841475
-        /ey0 |   .1938915    .023668     8.19   0.000      .147503      .24028
+       /xb_x |   1.424852   .0577536    24.67   0.000     1.311657    1.538048
+      /xb_z1 |  -.5607325   .0743175    -7.55   0.000    -.7063922   -.4150729
+      /xb_z2 |  -.5449075   .0661096    -8.24   0.000      -.67448    -.415335
+      /xb_z3 |   -.550615   .0684752    -8.04   0.000    -.6848238   -.4164061
+         /b0 |  -1.726392   .1251155   -13.80   0.000    -1.971614    -1.48117
+     /cmxb_x |   .8547835   .0660028    12.95   0.000     .7254203    .9841467
+        /ey0 |   .1938917   .0236681     8.19   0.000     .1475031    .2402802
 ------------------------------------------------------------------------------
 Instruments for equation 1: x z1 z2 z3 _cons
 Instruments for equation 2: z1 z2 z3 _cons
 
   Test of overidentifying restriction:
 
-  Hansen's J chi2(2) = 1.88188 (p = 0.3903)
+  Hansen's J chi2(2) = 1.88198 (p = 0.3902)
 
 Causal odds ratio for: x
 
@@ -995,7 +995,7 @@ Causal odds ratio for: x
 ------------------------------------------------------------------------------
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-         (1) |   2.350867   .1551639    12.95   0.000     2.065601     2.67553
+         (1) |   2.350865   .1551638    12.95   0.000     2.065599    2.675528
 ------------------------------------------------------------------------------
 
 . assert abs(e(J) - 1.882) < 1e-3
@@ -1007,15 +1007,15 @@ Causal odds ratio for: x
 . 
 end of do-file
       name:  ivlsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  15 May 2026, 07:49:20
+ closed on:   9 Jul 2026, 11:06:13
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  15 May 2026, 07:49:20
+ opened on:   9 Jul 2026, 11:06:13
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -1024,17 +1024,17 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivmsmm
 
 -> which ivmsmm, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivmsmm.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivmsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
 
 . 
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 15 Apr 2026
+Revision 03 Jun 2026
 Copyright 1985-2025 StataCorp LLC
 
-Total usable memory: 16.00 GB
+Total usable memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
@@ -1304,15 +1304,15 @@ Exogenous:  cbd ptn worker weekend pt
 . 
 end of do-file
       name:  ivmsmm
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  15 May 2026, 07:49:21
+ closed on:   9 Jul 2026, 11:06:14
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  15 May 2026, 07:49:21
+ opened on:   9 Jul 2026, 11:06:14
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -1321,17 +1321,17 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivtsps
 
 -> which ivtsps, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivtsps.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivtsps.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 15 Apr 2026
+Revision 03 Jun 2026
 Copyright 1985-2025 StataCorp LLC
 
-Total usable memory: 16.00 GB
+Total usable memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
@@ -2838,15 +2838,15 @@ Bootstrap replications (250): .........10.........20.........30.........40.....
 . 
 end of do-file
       name:  ivtsps
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  15 May 2026, 07:49:23
+ closed on:   9 Jul 2026, 11:06:18
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  15 May 2026, 07:49:23
+ opened on:   9 Jul 2026, 11:06:18
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -2855,17 +2855,17 @@ end of do-file
 -------------------------------------------------------------------BEGIN ivtsri
 
 -> which ivtsri, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivtsri.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivtsri.ado
 *! 1.0.0 Tom Palmer 05sep2021
 
 . 
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 15 Apr 2026
+Revision 03 Jun 2026
 Copyright 1985-2025 StataCorp LLC
 
-Total usable memory: 16.00 GB
+Total usable memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
@@ -4675,15 +4675,15 @@ Bootstrap replications (250): .........10.........20.........30.........40.....
 . 
 end of do-file
       name:  ivtsri
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  15 May 2026, 07:49:26
+ closed on:   9 Jul 2026, 11:06:23
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:  15 May 2026, 07:49:26
+ opened on:   9 Jul 2026, 11:06:23
 
 . // ivmw cscript
 . // 2021-09-12
@@ -4692,17 +4692,17 @@ end of do-file
 ---------------------------------------------------------------------BEGIN ivmw
 
 -> which ivmw, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivmw.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivmw.ado
 *! version 0.1.0 12sep2021 Tom Palmer
 
 . 
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 15 Apr 2026
+Revision 03 Jun 2026
 Copyright 1985-2025 StataCorp LLC
 
-Total usable memory: 16.00 GB
+Total usable memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
@@ -4749,7 +4749,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4760,7 +4760,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4771,7 +4771,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4784,7 +4784,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4795,7 +4795,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4808,7 +4808,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4819,7 +4819,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4832,7 +4832,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4843,7 +4843,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4884,7 +4884,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4923,7 +4923,7 @@ Time variable: res_order, 1 to 2500
 (running ivmsmm on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -4978,7 +4978,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4989,7 +4989,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5000,7 +5000,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5011,7 +5011,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5022,7 +5022,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5033,7 +5033,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5044,7 +5044,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5056,7 +5056,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5144,7 +5144,7 @@ Time variable: res_order, 1 to 4000
 (running ivlsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivlsmm)
 
@@ -5155,7 +5155,7 @@ Time variable: res_order, 1 to 4000
 (running ivmsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -5166,7 +5166,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5177,7 +5177,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5188,7 +5188,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5199,7 +5199,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5210,7 +5210,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5221,22 +5221,22 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/1l/w0qjrymd3hb44s3skrzn4w4w0000gn/T//St47063.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
     as .dta format
 (rolling: ivtsri)
 
 . 
 end of do-file
       name:  ivmw
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:  15 May 2026, 07:49:54
+ closed on:   9 Jul 2026, 11:06:59
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:  15 May 2026, 07:49:54
+ opened on:   9 Jul 2026, 11:06:59
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -5245,17 +5245,17 @@ end of do-file
 ------------------------------------------------------------------BEGIN ivxtile
 
 -> which ivxtile, usesysdir
-/Users/tom/Documents/GitHub/ivonesamplemr/ivxtile.ado
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivxtile.ado
 *! version 0.1.0 16sep2021 Tom Palmer
 
 . 
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 15 Apr 2026
+Revision 03 Jun 2026
 Copyright 1985-2025 StataCorp LLC
 
-Total usable memory: 16.00 GB
+Total usable memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
@@ -5629,10 +5629,10 @@ Number of observations (_N) was 0, now 4,000.
 . ivxtile, nq(4) par(x): ivlsmm y (x = z1 z2 z3)
 
     quantile       beta         se    medendog      lowci      uppci  
-           1      .4447   .1138194   -.3411307   .2216139   .6677861  
-           2   .5042965   .0740131     1.18101   .3592308   .6493623  
-           3   .5729357   .0638491     2.29315   .4477914     .69808  
-           4   11.38396   .2653633    4.021381   10.86385   11.90408  
+           1   .4447008   .1138196   -.3411307   .2216145   .6677872  
+           2   .5042998   .0740134     1.18101   .3592336   .6493661  
+           3   .5729321   .0638486     2.29315   .4477888   .6980754  
+           4   12.30584     .27273    4.021381   11.77129   12.84039  
 
 . 
 . discard
@@ -5708,27 +5708,25 @@ Number of observations (_N) was 0, now 2,500.
 . 
 . ivxtile, nq(5) par(x): ivlsmm y (x = z1 z2 z3)
 
-Model did not fit in quantile 3
-
     quantile       beta         se    medendog      lowci      uppci  
-           1    1.40609   .1849153   -.5241845   1.043656   1.768524  
+           1   1.406086    .184915   -.5241845   1.043653    1.76852  
            2   1.138831   .1222908    .8047578   .8991413   1.378521  
-           3          .          .    1.851269          .          .  
-           4   25.19511   .9787352    2.627049   23.27678   27.11343  
-           5   10.98158   .2573293    4.113728   10.47721   11.48594  
+           3   1.142395   .1208762    1.851269   .9054776   1.379312  
+           4   1.046432    .162596    2.627049   .7277439    1.36512  
+           5   .9635714   .2032622    4.113728   .5651775   1.361965  
 
 . 
 end of do-file
       name:  ivxtile
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:  15 May 2026, 07:50:01
+ closed on:   9 Jul 2026, 11:07:10
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  15 May 2026, 07:50:01
+ opened on:   9 Jul 2026, 11:07:10
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -5736,10 +5734,10 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 15 Apr 2026
+Revision 03 Jun 2026
 Copyright 1985-2025 StataCorp LLC
 
-Total usable memory: 16.00 GB
+Total usable memory: 18.00 GB
 
 Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
 Serial number: 501909307934
@@ -5831,7 +5829,7 @@ Description
     structural mean model (ASMM) is simply fit with a linear IV estimator
     available in ivregress or ivreg2 or even implemented yourself with gmm.
 
-For a binary outcome the ASMM estimates a causal risk difference.
+    For a binary outcome the ASMM estimates a causal risk difference.
 
 Examples
 --------
@@ -5840,8 +5838,8 @@ Examples
     instrumental variables (genotypes).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -5891,8 +5889,8 @@ Title
 Syntax
 ------
 
-        ivlsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
-              [, options]
+        ivlsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [,
+              options]
 
     varlist1 is the list of exogenous variables.
 
@@ -5932,8 +5930,8 @@ Examples
     instrumental variables (genotypes).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -6039,8 +6037,8 @@ Examples
     instrumental variables (genotypes).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -6132,8 +6130,8 @@ Title
 Syntax
 ------
 
-        ivtsps depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
-              [, link(string) log noirr gmm_options]
+        ivtsps depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [,
+              link(string) estonly level(#) gmm_options]
 
     varlist1 is the list of exogenous variables.
 
@@ -6144,10 +6142,11 @@ Syntax
 
     options               Description
     -------------------------------------------------------------------------
-      noirr               Do not display exponentiated estimates
       link(string)        Link function for the second stage model (identity
                             | logadd | logmult | logit)
-      log                 Show the GMM iteration log
+      estonly             Fit the two-stage regressions without the
+                            subsequent GMM estimation
+      level(#)            set confidence level; default is level(95)
       gmm_options         gmm##options
 
 Description
@@ -6173,6 +6172,12 @@ Options
         model is a logistic regression (which for a binary outcome estimates
         a causal odds ratio).
 
+    estonly fits the two-stage regressions without the subsequent GMM
+        estimation.  This is useful for obtaining bootstrap standard errors,
+        as shown in the example below.
+
+    level(#); see [R] estimation options.
+
     Please see gmm##options
 
 Examples
@@ -6182,8 +6187,8 @@ Examples
     instrumental variables (genotypes).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -6245,8 +6250,8 @@ Title
 Syntax
 ------
 
-        ivtsri depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
-              [, link(string) log noirr gmm_options]
+        ivtsri depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [,
+              link(string) estonly level(#) gmm_options]
 
     varlist1 is the list of exogenous variables.
 
@@ -6257,10 +6262,11 @@ Syntax
 
     options               Description
     -------------------------------------------------------------------------
-      noirr               Do not display exponentiated estimates
       link(string)        Link function for the second stage model (identity
                             | logadd | logmult | logit)
-      log                 Show the GMM iteration log
+      estonly             Fit the two-stage regressions without the
+                            subsequent GMM estimation
+      level(#)            set confidence level; default is level(95)
       gmm_options         gmm##options
 
 Description
@@ -6286,6 +6292,12 @@ Options
         model is a logistic regression (which for a binary outcome estimates
         a causal odds ratio).
 
+    estonly fits the two-stage regressions without the subsequent GMM
+        estimation.  This is useful for obtaining bootstrap standard errors,
+        as shown in the example below.
+
+    level(#); see [R] estimation options.
+
     Please see gmm##options
 
 Examples
@@ -6295,8 +6307,8 @@ Examples
     instrumental variables (genotypes).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -6388,8 +6400,8 @@ Examples
 --------
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinout
-            > data, clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
 
     Fit the model with a single instrumental variable.
 
@@ -6423,9 +6435,9 @@ Syntax
 
     options                         Description
     -------------------------------------------------------------------------
-      par(string)                   Parameter from the iv_cmd (ivreg2,
-                                      ivmsmm, ivlsmm, ivtsps, ivtsri) to
-                                      collect
+      par(string)                   Parameter from the iv_cmd (ivregress,
+                                      ivreg2, ivmsmm, ivlsmm, ivtsps, ivtsri)
+                                      to collect
       window(#)                     number of consecutive data points in each
                                       sample
       saving(filename [, replace])  Save the moving window output to a
@@ -6452,8 +6464,8 @@ Examples
     x exposure, g instrumental variable (genotype).
 
         . use
-            https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivmwdata
-            > , clear
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivmwdata, clear
 
     Plot outcome-exposure relationships
 
@@ -6480,21 +6492,26 @@ Examples
 
         . ivmw, window(3950) par(x) saving(ivmw): ivreg2 y2 (x = g)
 
-    Use different iv commands.
+    Use different iv commands, demonstrated with the binary outcome dataset;
+    y outcome, x exposure, z* instrumental variables (genotypes).
 
-        . ivmw, window(3950) par(x): ivregress 2sls y (x = z1 z2 z3)
-        . ivmw, window(3950) par(x): ivregress liml y (x = z1 z2 z3)
-        . ivmw, window(3950) par(x): ivregress gmm y (x = z1 z2 z3)
-        . ivmw, window(3950) par(x): ivlsmm y (x = z1 z2 z3)
-        . ivmw, window(3950) par(x): ivmsmm y (x = z1 z2 z3)
-        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3)
-        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
-        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
-        . ivmw, window(3950) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
-        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3)
-        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
-        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
-        . ivmw, window(3950) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
+        . use
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
+
+        . ivmw, window(2490) par(x): ivregress 2sls y (x = z1 z2 z3)
+        . ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)
+        . ivmw, window(2490) par(x): ivregress gmm y (x = z1 z2 z3)
+        . ivmw, window(2490) par(x): ivlsmm y (x = z1 z2 z3)
+        . ivmw, window(2490) par(x): ivmsmm y (x = z1 z2 z3)
+        . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3)
+        . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
+        . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
+        . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
+        . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3)
+        . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
+        . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
+        . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
 
 Stored results
 --------------
@@ -6519,15 +6536,15 @@ INCLUDE help ivonesamplemr-author
 . 
 end of do-file
       name:  helpfiles
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  15 May 2026, 07:50:01
+ closed on:   9 Jul 2026, 11:07:10
 -------------------------------------------------------------------------------
 
 . 
 . log close _all
       name:  master
-       log:  /Users/tom/Documents/GitHub/ivonesamplemr/cscripts/master.log
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:  15 May 2026, 07:50:01
+ closed on:   9 Jul 2026, 11:07:10
 -------------------------------------------------------------------------------
