@@ -47,7 +47,7 @@ BODY{background-color: ffffff;
     Simulate data with different outcome-exposure relationships; y# outcome, x exposure, g
     instrumental variable (genotype).
 <br><br>
-        <span class=result>.</span> use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivmwdata, clear
+        <span class=result>.</span> use https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/data/ivmwdata, clear
 <br><br>
     Plot outcome-exposure relationships
 <br><br>
@@ -77,7 +77,8 @@ BODY{background-color: ffffff;
     Use different iv commands, demonstrated with the binary outcome dataset; y outcome, x
     exposure, z* instrumental variables (genotypes).
 <br><br>
-        <span class=result>.</span> use https://raw.github.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata, clear
+        <span class=result>.</span> use https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/data/ivbinoutdata,
+            clear
 <br><br>
         <span class=result>.</span> ivmw, window(2490) par(x): ivregress 2sls y (x = z1 z2 z3)
         <span class=result>.</span> ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)
