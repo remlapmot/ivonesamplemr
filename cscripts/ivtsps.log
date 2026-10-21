@@ -2,7 +2,7 @@
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:   9 Jul 2026, 11:06:14
+ opened on:  21 Oct 2026, 11:39:17
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -18,7 +18,7 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -112,7 +112,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -136,7 +136,7 @@ Causal risk difference for: b1
          /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
 ------------------------------------------------------------------------------
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -214,7 +214,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =         50
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -255,7 +255,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -321,7 +321,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: predicted w _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -412,7 +412,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -436,7 +436,7 @@ Causal risk ratio for: b1
          /b0 |  -1.141337   .0389282   -29.32   0.000    -1.217634   -1.065039
 ------------------------------------------------------------------------------
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -517,7 +517,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        200
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -586,7 +586,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: predicted w _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -704,7 +704,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -728,7 +728,7 @@ Causal risk ratio for: b1
          /b0 |  -1.159476   .0439471   -26.38   0.000    -1.245611   -1.073341
 ------------------------------------------------------------------------------
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -834,7 +834,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        250
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -928,7 +928,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: predicted w _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1037,7 +1037,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1061,7 +1061,7 @@ Causal odds ratio for: b1
          /b0 |  -.8868145   .0715273   -12.40   0.000    -1.027006   -.7466235
 ------------------------------------------------------------------------------
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1159,7 +1159,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        100
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1245,7 +1245,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: predicted w _cons
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1375,7 +1375,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1483,7 +1483,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        100
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1530,5 +1530,5 @@ end of do-file
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:   9 Jul 2026, 11:06:18
+ closed on:  21 Oct 2026, 11:39:20
 -------------------------------------------------------------------------------

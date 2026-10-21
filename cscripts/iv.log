@@ -2,7 +2,7 @@
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:   9 Jul 2026, 11:06:06
+ opened on:  21 Oct 2026, 11:39:13
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -18,7 +18,7 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -155,7 +155,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -193,7 +193,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -203,20 +203,10 @@ Causal odds ratio for: b1
          (1) |   2.343924   .1519244    13.14   0.000     2.064296    2.661431
 ------------------------------------------------------------------------------
 
-Causal odds ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.772958    .123134     8.25   0.000     1.547325    2.031493
-------------------------------------------------------------------------------
-
 . 
 end of do-file
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:   9 Jul 2026, 11:06:07
+ closed on:  21 Oct 2026, 11:39:13
 -------------------------------------------------------------------------------

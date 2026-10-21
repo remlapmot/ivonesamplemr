@@ -2,7 +2,7 @@
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:   9 Jul 2026, 11:07:10
+ opened on:  21 Oct 2026, 11:40:05
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -10,7 +10,7 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -79,6 +79,10 @@ Description
     ivonesamplemr is a suite of programs implementing various instrumental
     variable (IV) estimators for individual level (a.k.a. one-sample) data.
     These are useful for Mendelian randomization (MR) analyses.
+
+    ivonesamplemr requires Stata 13 or later (ivmsmm uses ivpoisson, which
+    was introduced in Stata 13; the other commands use gmm, which was
+    introduced in Stata 11).
 
 References
 ----------
@@ -814,5 +818,5 @@ end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:   9 Jul 2026, 11:07:10
+ closed on:  21 Oct 2026, 11:40:06
 -------------------------------------------------------------------------------

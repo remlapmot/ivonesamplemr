@@ -2,7 +2,7 @@
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:   9 Jul 2026, 11:06:59
+ opened on:  21 Oct 2026, 11:39:56
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -18,7 +18,7 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -101,7 +101,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 Instruments for equation 1: g _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -136,7 +136,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 Instruments for equation 1: g _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -171,7 +171,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 Instruments for equation 1: g _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -206,7 +206,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 Instruments for equation 1: g _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -486,5 +486,5 @@ end of do-file
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:   9 Jul 2026, 11:07:10
+ closed on:  21 Oct 2026, 11:40:05
 -------------------------------------------------------------------------------

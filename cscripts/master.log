@@ -2,7 +2,7 @@
       name:  master
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:   9 Jul 2026, 11:06:06
+ opened on:  21 Oct 2026, 11:39:12
 
 . 
 . cscript master
@@ -32,7 +32,7 @@
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:   9 Jul 2026, 11:06:06
+ opened on:  21 Oct 2026, 11:39:13
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -48,7 +48,7 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -185,7 +185,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -223,7 +223,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -233,28 +233,18 @@ Causal odds ratio for: b1
          (1) |   2.343924   .1519244    13.14   0.000     2.064296    2.661431
 ------------------------------------------------------------------------------
 
-Causal odds ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.772958    .123134     8.25   0.000     1.547325    2.031493
-------------------------------------------------------------------------------
-
 . 
 end of do-file
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:   9 Jul 2026, 11:06:07
+ closed on:  21 Oct 2026, 11:39:13
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:   9 Jul 2026, 11:06:07
+ opened on:  21 Oct 2026, 11:39:13
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -270,7 +260,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -361,16 +351,6 @@ Causal odds ratio for: x
          (1) |   2.744321   .3105872     8.92   0.000     2.198369    3.425857
 ------------------------------------------------------------------------------
 
-Causal odds ratio for: w
-
- ( 1)  [cmxb_w]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   2.234659   .2681529     6.70   0.000      1.76632    2.827177
-------------------------------------------------------------------------------
-
 . assert abs(_b[/cmxb_x] - 1) < 1e-2
 
 . 
@@ -398,16 +378,6 @@ Causal odds ratio for: x
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   2.744321   .3105872     8.92   0.000     2.198369    3.425857
-------------------------------------------------------------------------------
-
-Causal odds ratio for: w
-
- ( 1)  [cmxb_w]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   2.234659   .2681529     6.70   0.000      1.76632    2.827177
 ------------------------------------------------------------------------------
 
 . 
@@ -547,16 +517,6 @@ Causal odds ratio for: x
          (1) |   2.425022   .1586809    13.54   0.000     2.133131    2.756855
 ------------------------------------------------------------------------------
 
-Causal odds ratio for: w
-
- ( 1)  [cmxb_w]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   2.599737   .2277511    10.91   0.000     2.189574    3.086735
-------------------------------------------------------------------------------
-
 . assert abs(_b[/cmxb_x] - .89) < 1e-2
 
 . 
@@ -617,16 +577,6 @@ Causal odds ratio for: x2
          (1) |   .4425921   .6317036    -0.57   0.568     .0269836    7.259523
 ------------------------------------------------------------------------------
 
-Causal odds ratio for: w
-
- ( 1)  [cmxb_w]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   2.652505   .2608413     9.92   0.000     2.187514    3.216336
-------------------------------------------------------------------------------
-
 . assert abs(_b[/cmxb_x1] - .86) < 1e-2
 
 . assert abs(_b[/cmxb_x2] - -.82) < 1e-2
@@ -682,16 +632,6 @@ Causal odds ratio for: x
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   2.425022   .1586809    13.54   0.000     2.133131    2.756855
-------------------------------------------------------------------------------
-
-Causal odds ratio for: w
-
- ( 1)  [cmxb_w]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   2.599737   .2277511    10.91   0.000     2.189574    3.086735
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - .89) < 1e-2
@@ -878,16 +818,6 @@ Causal odds ratio for: x
          (1) |   2.338984   .1492814    13.31   0.000     2.063958    2.650658
 ------------------------------------------------------------------------------
 
-Causal odds ratio for: w
-
- ( 1)  [cmxb_w]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.760338   .1232706     8.08   0.000     1.534579    2.019309
-------------------------------------------------------------------------------
-
 . assert abs(_b[/cmxb_x] - .85) < 1e-2
 
 . 
@@ -942,16 +872,6 @@ Causal odds ratio for: x
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   2.452377   .1760886    12.49   0.000     2.130435     2.82297
-------------------------------------------------------------------------------
-
-Causal odds ratio for: w
-
- ( 1)  [cmxb_w]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   2.619114   .2441969    10.33   0.000     2.181682    3.144253
 ------------------------------------------------------------------------------
 
 . assert abs(_b[/cmxb_x] - .90) < 1e-2
@@ -1009,13 +929,13 @@ end of do-file
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:   9 Jul 2026, 11:06:13
+ closed on:  21 Oct 2026, 11:39:16
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:   9 Jul 2026, 11:06:13
+ opened on:  21 Oct 2026, 11:39:16
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -1031,7 +951,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -1306,13 +1226,13 @@ end of do-file
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:   9 Jul 2026, 11:06:14
+ closed on:  21 Oct 2026, 11:39:17
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:   9 Jul 2026, 11:06:14
+ opened on:  21 Oct 2026, 11:39:17
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -1328,7 +1248,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -1422,7 +1342,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1446,7 +1366,7 @@ Causal risk difference for: b1
          /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
 ------------------------------------------------------------------------------
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1524,7 +1444,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =         50
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1565,7 +1485,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1631,7 +1551,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: predicted w _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1722,7 +1642,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1746,7 +1666,7 @@ Causal risk ratio for: b1
          /b0 |  -1.141337   .0389282   -29.32   0.000    -1.217634   -1.065039
 ------------------------------------------------------------------------------
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1827,7 +1747,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        200
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -1896,7 +1816,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: predicted w _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2014,7 +1934,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2038,7 +1958,7 @@ Causal risk ratio for: b1
          /b0 |  -1.159476   .0439471   -26.38   0.000    -1.245611   -1.073341
 ------------------------------------------------------------------------------
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2144,7 +2064,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        250
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2238,7 +2158,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: predicted w _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2347,7 +2267,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2371,7 +2291,7 @@ Causal odds ratio for: b1
          /b0 |  -.8868145   .0715273   -12.40   0.000    -1.027006   -.7466235
 ------------------------------------------------------------------------------
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2469,7 +2389,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        100
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2555,7 +2475,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: predicted w _cons
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2685,7 +2605,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2793,7 +2713,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        100
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2840,13 +2760,13 @@ end of do-file
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:   9 Jul 2026, 11:06:18
+ closed on:  21 Oct 2026, 11:39:20
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:   9 Jul 2026, 11:06:18
+ opened on:  21 Oct 2026, 11:39:20
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -2862,7 +2782,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -2966,7 +2886,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -2974,16 +2894,6 @@ Causal risk difference for: b1
              | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
-------------------------------------------------------------------------------
-
-Causal risk difference for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
 ------------------------------------------------------------------------------
 
 . ivtsri
@@ -3001,7 +2911,7 @@ Causal risk difference for: b2
          /b0 |   .2879917   .0157401    18.30   0.000     .2571416    .3188417
 ------------------------------------------------------------------------------
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3009,16 +2919,6 @@ Causal risk difference for: b1
              | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
-------------------------------------------------------------------------------
-
-Causal risk difference for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
@@ -3104,7 +3004,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =         50
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3112,16 +3012,6 @@ Causal risk difference for: b1
              | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |      .1713   .0290798     5.89   0.000     .1143046    .2282954
-------------------------------------------------------------------------------
-
-Causal risk difference for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   .0036814    .039025     0.09   0.925    -.0728061    .0801689
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(bx2)) < 1e-2
@@ -3156,7 +3046,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3164,16 +3054,6 @@ Causal risk difference for: b1
              | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
-------------------------------------------------------------------------------
-
-Causal risk difference for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(bx1)) < 1e-2
@@ -3233,7 +3113,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: x residuals w _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3241,16 +3121,6 @@ Causal risk difference for: b1
              | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   .1052528   .0073427    14.33   0.000     .0908613    .1196442
-------------------------------------------------------------------------------
-
-Causal risk difference for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   .0545595   .0092853     5.88   0.000     .0363606    .0727584
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(bx3)) < 1e-2
@@ -3354,7 +3224,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3362,16 +3232,6 @@ Causal risk ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |    1.22746   .0205641    12.23   0.000      1.18781    1.268434
-------------------------------------------------------------------------------
-
-Causal risk ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.179569   .0233381     8.35   0.000     1.134703    1.226209
 ------------------------------------------------------------------------------
 
 . ivtsri
@@ -3389,7 +3249,7 @@ Causal risk ratio for: b2
          /b0 |  -1.326536   .0446685   -29.70   0.000    -1.414084   -1.238987
 ------------------------------------------------------------------------------
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3397,16 +3257,6 @@ Causal risk ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |    1.22746   .0205641    12.23   0.000      1.18781    1.268434
-------------------------------------------------------------------------------
-
-Causal risk ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.179569   .0233381     8.35   0.000     1.134703    1.226209
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(larr1)) < 1e-2
@@ -3510,7 +3360,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        200
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3518,16 +3368,6 @@ Causal risk ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   1.251249   .0585157     4.79   0.000      1.14166    1.371359
-------------------------------------------------------------------------------
-
-Causal risk ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.153023   .0622327     2.64   0.008     1.037279    1.281682
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(larr2)) < 1e-2
@@ -3607,7 +3447,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: x residuals w _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3615,16 +3455,6 @@ Causal risk ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   1.222032   .0203794    12.02   0.000     1.182735    1.262635
-------------------------------------------------------------------------------
-
-Causal risk ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.135687    .023228     6.22   0.000     1.091061    1.182137
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(larr3)) < 1e-2
@@ -3724,7 +3554,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3732,16 +3562,6 @@ Causal risk ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   1.512198   .0689871     9.07   0.000     1.382855     1.65364
-------------------------------------------------------------------------------
-
-Causal risk ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.360565   .0619637     6.76   0.000     1.244381    1.487597
 ------------------------------------------------------------------------------
 
 . ivtsri
@@ -3759,7 +3579,7 @@ Causal risk ratio for: b2
          /b0 |  -1.914564   .1100322   -17.40   0.000    -2.130223   -1.698905
 ------------------------------------------------------------------------------
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3767,16 +3587,6 @@ Causal risk ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   1.512198   .0689871     9.07   0.000     1.382855     1.65364
-------------------------------------------------------------------------------
-
-Causal risk ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.360565   .0619637     6.76   0.000     1.244381    1.487597
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(lmrr1)) < 1e-2
@@ -3874,7 +3684,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        250
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3882,16 +3692,6 @@ Causal risk ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   1.521904   .1740122     3.67   0.000      1.21636    1.904199
-------------------------------------------------------------------------------
-
-Causal risk ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.178114   .1435928     1.34   0.179     .9277686    1.496011
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(lmrr2)) < 1e-2
@@ -3966,7 +3766,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: x residuals w _cons
 
-Causal risk ratio for: b1
+Causal risk ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -3974,16 +3774,6 @@ Causal risk ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   1.552655     .07404     9.23   0.000     1.414114    1.704768
-------------------------------------------------------------------------------
-
-Causal risk ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.237573   .0591062     4.46   0.000     1.126984    1.359014
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(lmrr3)) < 1e-2
@@ -4088,7 +3878,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -4096,16 +3886,6 @@ Causal odds ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   2.343924   .1519244    13.14   0.000     2.064296    2.661431
-------------------------------------------------------------------------------
-
-Causal odds ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.772958    .123134     8.25   0.000     1.547325    2.031493
 ------------------------------------------------------------------------------
 
 . ivtsri
@@ -4123,7 +3903,7 @@ Causal odds ratio for: b2
          /b0 |  -1.675875    .133441   -12.56   0.000    -1.937415   -1.414336
 ------------------------------------------------------------------------------
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -4131,16 +3911,6 @@ Causal odds ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   2.343924   .1519244    13.14   0.000     2.064296    2.661431
-------------------------------------------------------------------------------
-
-Causal odds ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.772958    .123134     8.25   0.000     1.547325    2.031493
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(lor1)) < 1e-2
@@ -4244,7 +4014,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        100
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -4252,16 +4022,6 @@ Causal odds ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   2.940954   .9549941     3.32   0.001     1.556266    5.557667
-------------------------------------------------------------------------------
-
-Causal odds ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.862171   .6574564     1.76   0.078     .9321697    3.720009
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(lor2)) < 1e-2
@@ -4341,7 +4101,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 w _cons
 Instruments for equation 2: x residuals w _cons
 
-Causal odds ratio for: b1
+Causal odds ratio for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -4349,16 +4109,6 @@ Causal odds ratio for: b1
              |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   2.414255   .1583572    13.44   0.000     2.123003    2.745463
-------------------------------------------------------------------------------
-
-Causal odds ratio for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   1.520321   .1111488     5.73   0.000     1.317362    1.754549
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(lor3)) < 1e-2
@@ -4490,7 +4240,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      2,500
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -4498,16 +4248,6 @@ Causal risk difference for: b1
              | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   .1070019   .0074424    14.38   0.000      .092415    .1215889
-------------------------------------------------------------------------------
-
-Causal risk difference for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   .0740544    .009023     8.21   0.000     .0563696    .0917393
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
@@ -4617,7 +4357,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =        100
 Instruments for equation 1: z1 z2 z3 _cons
 Instruments for equation 2: x residuals _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -4625,16 +4365,6 @@ Causal risk difference for: b1
              | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
          (1) |   .0871093   .0350839     2.48   0.013     .0183461    .1558725
-------------------------------------------------------------------------------
-
-Causal risk difference for: b2
-
- ( 1)  [b2]_cons = 0
-
-------------------------------------------------------------------------------
-             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-         (1) |   .0885449   .0431796     2.05   0.040     .0039145    .1731753
 ------------------------------------------------------------------------------
 
 . assert abs(_b[b1:_cons] - scalar(bx4)) < 1e-2
@@ -4677,13 +4407,13 @@ end of do-file
       name:  ivtsri
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:   9 Jul 2026, 11:06:23
+ closed on:  21 Oct 2026, 11:39:23
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:   9 Jul 2026, 11:06:23
+ opened on:  21 Oct 2026, 11:39:23
 
 . // ivmw cscript
 . // 2021-09-12
@@ -4699,7 +4429,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -4749,7 +4479,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4760,7 +4490,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4771,7 +4501,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivregress)
 
@@ -4784,7 +4514,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4795,7 +4525,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4808,7 +4538,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4819,7 +4549,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -4832,7 +4562,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4843,7 +4573,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -4884,7 +4614,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4923,7 +4653,7 @@ Time variable: res_order, 1 to 2500
 (running ivmsmm on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -4978,7 +4708,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -4989,7 +4719,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5000,7 +4730,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5011,7 +4741,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5022,7 +4752,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5033,7 +4763,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5044,7 +4774,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5056,7 +4786,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivreg2)
 
@@ -5144,7 +4874,7 @@ Time variable: res_order, 1 to 4000
 (running ivlsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivlsmm)
 
@@ -5155,7 +4885,7 @@ Time variable: res_order, 1 to 4000
 (running ivmsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivmsmm)
 
@@ -5166,7 +4896,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5177,7 +4907,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5188,7 +4918,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivtsps)
 
@@ -5199,7 +4929,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5210,7 +4940,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5221,7 +4951,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St69072.000001 saved
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
     as .dta format
 (rolling: ivtsri)
 
@@ -5230,13 +4960,13 @@ end of do-file
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:   9 Jul 2026, 11:06:59
+ closed on:  21 Oct 2026, 11:39:56
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:   9 Jul 2026, 11:06:59
+ opened on:  21 Oct 2026, 11:39:56
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -5252,7 +4982,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -5335,7 +5065,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 Instruments for equation 1: g _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -5370,7 +5100,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 Instruments for equation 1: g _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -5405,7 +5135,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 Instruments for equation 1: g _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -5440,7 +5170,7 @@ Initial weight matrix: Unadjusted                 Number of obs   =      1,000
 Instruments for equation 1: g _cons
 Instruments for equation 2: predicted _cons
 
-Causal risk difference for: b1
+Causal risk difference for: x
 
  ( 1)  [b1]_cons = 0
 
@@ -5720,13 +5450,13 @@ end of do-file
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:   9 Jul 2026, 11:07:10
+ closed on:  21 Oct 2026, 11:40:05
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:   9 Jul 2026, 11:07:10
+ opened on:  21 Oct 2026, 11:40:05
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -5734,7 +5464,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 03 Jun 2026
+Revision 14 Oct 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -5803,6 +5533,10 @@ Description
     ivonesamplemr is a suite of programs implementing various instrumental
     variable (IV) estimators for individual level (a.k.a. one-sample) data.
     These are useful for Mendelian randomization (MR) analyses.
+
+    ivonesamplemr requires Stata 13 or later (ivmsmm uses ivpoisson, which
+    was introduced in Stata 13; the other commands use gmm, which was
+    introduced in Stata 11).
 
 References
 ----------
@@ -6538,7 +6272,7 @@ end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:   9 Jul 2026, 11:07:10
+ closed on:  21 Oct 2026, 11:40:06
 -------------------------------------------------------------------------------
 
 . 
@@ -6546,5 +6280,5 @@ end of do-file
       name:  master
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:   9 Jul 2026, 11:07:10
+ closed on:  21 Oct 2026, 11:40:06
 -------------------------------------------------------------------------------
