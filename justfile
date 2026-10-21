@@ -17,7 +17,7 @@ uninstall:
     #!/usr/bin/env bash
     # ivonesamplemr may be installed multiple times. `ado uninstall ivonesamplemr` fails with
     # r(111) ("matches more than one package") when there are duplicates, and each
-    # uninstall renumbers the remaining packages, so we re-query `ado dir seqtte`
+    # uninstall renumbers the remaining packages, so we re-query `ado dir ivonesamplemr`
     # and remove one [#] at a time until none remain. The iteration cap is just a
     # safety stop against an unexpected non-terminating loop.
     for _ in $(seq 1 100); do
