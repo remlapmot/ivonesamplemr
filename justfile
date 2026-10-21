@@ -1,6 +1,6 @@
 dep:
     stata-mp "do dependency"
-render:
+render: uninstall
     quarto render site
     rm -r docs/*
     mv site/_site/* docs/
