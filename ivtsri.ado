@@ -220,11 +220,11 @@ if "`link'" == "identity" {
 if inlist("`link'", "logadd", "logmult") local parameter "Causal risk ratio"
 if "`link'" == "logit" local parameter "Causal odds ratio"
 
+// b1 is the causal effect of the exposure; b2, the coefficient of the first
+// stage residuals, is not a causal effect
 if "`estonly'" == "" {
-	foreach par in b1 b2 {
-		di _n as txt "`parameter' for: `par'"
-		lincom /`par', level(`level') `eformopt'
-	}
+	di _n as txt "`parameter' for: `endog'"
+	lincom /b1, level(`level') `eformopt'
 }
 
 end

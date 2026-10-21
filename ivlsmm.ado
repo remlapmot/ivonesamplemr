@@ -126,7 +126,9 @@ else {
 
 return add
 
-foreach var of varlist `endog' `exog' {
+// the causal model also contains the exogenous covariates, but their
+// coefficients are not causal effects
+foreach var of varlist `endog' {
 	di _n as txt "Causal odds ratio for: `var'"
 	lincom /cmxb_`var', level(`level') eform
 }
