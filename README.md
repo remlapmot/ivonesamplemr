@@ -9,6 +9,7 @@ One-sample Mendelian randomization (MR) / instrumental variable (IV) analyses in
 ## Latest updates
 
 * October 2026:
+  - Document that Stata 13 or later is required, and add a `version 13` statement to `ivmsmm`
   - `ivtsps`, `ivtsri`, and `ivlsmm` now only report the exponentiated causal effect estimates for the exposure, labelled with the exposure's variable name. Previously `ivtsri` also reported the coefficient of the first stage residuals (`b2`), and `ivlsmm` the coefficients of any covariates, as causal effect estimates
 * July 2026:
   - Bug fixes
@@ -56,6 +57,8 @@ The `ivtsps` and `ivtsri` commands implement the following link functions for th
 * logit (i.e. logistic regression) - for a binary outcome this estimates a causal odds ratio
 
 ## Installation
+
+**ivonesamplemr** requires Stata 13 or later (`ivmsmm` uses `ivpoisson`, which was introduced in Stata 13; the other commands use `gmm`, which was introduced in Stata 11). The certification scripts are run under Stata 17 and later.
 
 Install the **ivonesamplemr** package within Stata using
 ``` stata
