@@ -8,6 +8,8 @@ One-sample Mendelian randomization (MR) / instrumental variable (IV) analyses in
 
 ## Latest updates
 
+* October 2026:
+  - `ivtsps`, `ivtsri`, and `ivlsmm` now only report the exponentiated causal effect estimates for the exposure, labelled with the exposure's variable name. Previously `ivtsri` also reported the coefficient of the first stage residuals (`b2`), and `ivlsmm` the coefficients of any covariates, as causal effect estimates
 * July 2026:
   - Bug fixes
 * May 2026:
