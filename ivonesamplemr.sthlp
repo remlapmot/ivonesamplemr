@@ -54,6 +54,10 @@ hence {cmd:ivlsmm} can instead be called as {cmd:iv lsmm ...}.
 {cmd:ivonesamplemr} is a suite of programs implementing various instrumental variable (IV) estimators 
 for individual level (a.k.a. one-sample) data. These are useful for Mendelian randomization (MR) analyses.
 
+{pstd}
+{cmd:ivonesamplemr} requires Stata 13 or later ({helpb ivmsmm} uses {helpb ivpoisson}, which was introduced in Stata 13;
+the other commands use {helpb gmm}, which was introduced in Stata 11).
+
 {marker references}{...}
 {title:References}
 

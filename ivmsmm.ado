@@ -1,5 +1,6 @@
 *! 1.0.0 Tom Palmer 01sep2021
 program ivmsmm, eclass
+version 13 // ivpoisson was introduced in Stata 13
 
 local cmdline `0'
 
