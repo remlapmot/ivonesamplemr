@@ -13,3 +13,6 @@ ivmwresults.dta
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
+
+# JSS submission archive
+ivonesamplemr.zip

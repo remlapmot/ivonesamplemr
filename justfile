@@ -30,3 +30,9 @@ uninstall:
 
 install: uninstall
     printf 'net install ivonesamplemr, from("https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/") replace\nado dir ivonesamplemr\n' | stata-mp -q
+
+# Create ivonesamplemr.zip of the package files for the JSS submission ("Other" upload)
+[working-directory('..')]
+zip:
+    rm -f ivonesamplemr/ivonesamplemr.zip
+    zip -X ivonesamplemr/ivonesamplemr.zip ivonesamplemr/*.ado ivonesamplemr/*.sthlp ivonesamplemr/*.ihlp ivonesamplemr/*.pkg ivonesamplemr/stata.toc ivonesamplemr/dependency.do ivonesamplemr/LICENSE
