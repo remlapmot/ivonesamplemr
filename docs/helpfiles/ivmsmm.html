@@ -21,8 +21,8 @@ BODY{background-color: ffffff;
 <br><br>
 <a name="syntax"></a><span class=result><u>Syntax</u></span>
 <br><br>
-        <span class=result>ivmsmm</span> <i>depvar</i> [<i>varlist1</i>] <span class=result>(</span><i>varlist2</i> <span class=result>=</span> <i>varlist_iv</i><span class=result>)</span> [<i>if</i>] [<i>in</i>] [<i>weight</i>] [<span class=result>,</span> <i>log</i> <i>noirr</i>
-              <i>ivpoisson_options</i>]
+        <span class=result>ivmsmm</span> <i>depvar</i> [<i>varlist1</i>] <span class=result>(</span><i>varlist2</i> <span class=result>=</span> <i>varlist_iv</i><span class=result>)</span> [<i>if</i>] [<i>in</i>] [<i>weight</i>] [<span class=result>,</span> <span class=result><u>estm</u></span><span class=result>ethod(</span><i>string</i><span class=result>)</span>
+              <i>log</i> <i>noirr</i> <span class=result><u>l</u></span><span class=result>evel(</span><i>#</i><span class=result>)</span> <i>options</i>]
 <br><br>
     <i>varlist1</i> is the list of exogenous variables.
 <br><br>
@@ -32,15 +32,30 @@ BODY{background-color: ffffff;
 <br><br>
     <i>options</i>               Description
     ----------------------------------------------------------------------------------------------
+      <span class=result><u>estm</u></span><span class=result>ethod(</span><i>string</i><span class=result>)</span>   Estimation method: <span class=result>gmmalt</span> (the default), <span class=result>gmm</span>, <span class=result>tsls</span>, or <span class=result>tslsalt</span>
       <span class=result>noirr</span>               Do not display exponentiated estimates
       <span class=result>log</span>                 Show the GMM iteration log
-      <span class=result>ivpoisson_options</span>   ivpoisson##optionstbl
+      <span class=result><u>l</u></span><span class=result>evel(</span><i>#</i><span class=result>)</span>            Set confidence level; default is <span class=result>level(95)</span>
+      <span class=result>options</span>             Options passed to ivpoisson (<span class=result>gmmalt</span>), gmm (<span class=result>gmm</span>), or ivregress (<span class=result>tsls</span> and
+                            <span class=result>tslsalt</span>)
 <br><br>
 <a name="description"></a><span class=result><u>Description</u></span>
 <br><br>
-    <span class=result>ivmsmm</span> implements the multiplicative structural mean model (MSMM) of Robins (1989) as a
-    wrapper to ivpoisson with the <span class=result>multiplicative</span> option.  <span class=result>ivpoisson</span> performs generalized method of
-    moments (GMM) estimation of the relevant moment condition using gmm.
+    <span class=result>ivmsmm</span> implements the multiplicative structural mean model (MSMM) of Robins (1989), which
+    estimates a causal risk ratio for a binary outcome, using the estimation methods described by
+    Clarke et al. (2015). These are the same methods as provided by the <span class=result>msmm()</span> function in the R
+    package OneSampleMR, and give the same estimates.
+<br><br>
+    With <span class=result>estmethod(gmmalt)</span>, the default, <span class=result>ivmsmm</span> is a wrapper to ivpoisson with the <span class=result>multiplicative</span>
+    option, which performs generalized method of moments (GMM) estimation of the moment conditions
+    E[(1, Z')'{Y exp(-b0 - psi X) - 1}] = 0.  With <span class=result>estmethod(gmm)</span>, <span class=result>ivmsmm</span> uses gmm to fit the
+    moment conditions E[(1, Z')'{Y exp(-psi X) - E[Y(0)]}] = 0, where E[Y(0)] is the mean of the
+    exposure-free potential outcome.  With <span class=result>estmethod(tsls)</span> and <span class=result>estmethod(tslsalt)</span>, which require a
+    binary outcome and a single binary exposure and do not allow covariates, the MSMM is fitted by
+    two-stage least squares, using ivregress, of transformed variables: Y(1 - X) on YX for <span class=result>tsls</span>
+    and YX on Y(1 - X) for <span class=result>tslsalt</span>.  The causal risk ratio is then -1/b and -b respectively, where
+    b is the coefficient of the transformed exposure, and its confidence interval is obtained from
+    the delta method standard error of the log causal risk ratio.
 <br><br>
     The equivalence of the models of Robins (1989) and Mullahy (1997), which was implemented in 
     ivpois, Nichols (2007) and ivpoisson with the <span class=result>mult</span> option, and discussed in detail by
@@ -49,7 +64,18 @@ BODY{background-color: ffffff;
 <br><br>
 <a name="options"></a><span class=result><u>Options</u></span>
 <br><br>
-    Please see ivpoisson##options
+    <span class=result>estmethod(</span><i>string</i><span class=result>)</span> specifies the estimation method, one of <span class=result>gmmalt</span> (the default), <span class=result>gmm</span>, <span class=result>tsls</span>, or
+        <span class=result>tslsalt</span>; see the Description. With <span class=result>gmm</span> the GMM fit uses an identity initial weight matrix
+        and centered moments in the optimal weight matrix (<span class=result>winitial(identity) center</span>), as in the R
+        package OneSampleMR.
+<br><br>
+    <span class=result>noirr</span> specifies that the exponentiated estimates (causal risk ratios) are not displayed.
+<br><br>
+    <span class=result>log</span> shows the GMM iteration log.
+<br><br>
+    <span class=result>level(</span><i>#</i><span class=result>)</span>; see <span class=result>[R] estimation options</span>.
+<br><br>
+    Other options are passed to ivpoisson, gmm, or ivregress depending on <span class=result>estmethod()</span>.
 <br><br>
 <a name="examples"></a><span class=result><u>Examples</u></span>
 <br><br>
@@ -77,6 +103,17 @@ BODY{background-color: ffffff;
         <span class=result>.</span> ivmsmm y w (x1 x2 = z1 z2 z3)
         <span class=result>.</span> estat overid
 <br><br>
+    Fit the moment conditions E[(1, Z')'{Y exp(-psi X) - E[Y(0)]}] = 0.
+<br><br>
+        <span class=result>.</span> ivmsmm y w (x = z1 z2 z3), estmethod(gmm)
+        <span class=result>.</span> estat overid
+<br><br>
+    Two-stage least squares methods for a binary exposure (here a dichotomized version of x).
+<br><br>
+        <span class=result>.</span> gen xbin = x &gt; 0
+        <span class=result>.</span> ivmsmm y (xbin = z1 z2 z3), estmethod(tsls)
+        <span class=result>.</span> ivmsmm y (xbin = z1 z2 z3), estmethod(tslsalt)
+<br><br>
     Comparison with <span class=result>ivpois</span> (specify <span class=result>onestep</span> option to <span class=result>ivmsmm</span>/<span class=result>ivpoisson</span> for equivalence).
 <br><br>
         <span class=result>.</span> ivpois y, endog(x) exog(z1) eform(RR)
@@ -86,7 +123,17 @@ BODY{background-color: ffffff;
 <br><br>
 <a name="results"></a><span class=result><u>Stored results</u></span>
 <br><br>
-    Please see ivpoisson##results
+    With <span class=result>estmethod(gmmalt)</span> please see ivpoisson##results, and with <span class=result>estmethod(gmm)</span> please see 
+    gmm##results. With <span class=result>estmethod(tsls)</span> and <span class=result>estmethod(tslsalt)</span> the results of ivregress are stored
+    in <span class=result>e()</span>, together with:
+<br><br>
+    Scalars        
+      <span class=result>e(crr)</span>              causal risk ratio
+      <span class=result>e(crr_lb)</span>           lower confidence limit of the causal risk ratio
+      <span class=result>e(crr_ub)</span>           upper confidence limit of the causal risk ratio
+      <span class=result>e(logcrr_se)</span>        delta method standard error of the log causal risk ratio
+<br><br>
+    In all cases <span class=result>e(estmethod)</span> contains the estimation method.
 <br><br>
 <a name="references"></a><span class=result><u>References</u></span>
 <br><br>

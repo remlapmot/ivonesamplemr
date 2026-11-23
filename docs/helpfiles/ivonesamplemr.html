@@ -28,11 +28,15 @@ BODY{background-color: ffffff;
                       estimators fit the additive structural mean model (ASMM), i.e. estimate a
                       causal risk difference for a binary outcome.
 <br><br>
+      ivfsw         Postestimation command after ivregress or ivreg2 which calculates the
+                      conditional F-statistics of Sanderson and Windmeijer (2016) for models with
+                      multiple exposures.
+<br><br>
       ivlsmm        Fits the (double) logistic structural mean model (LSMM), i.e. estimates a
                       causal odds ratio for a binary outcome.
 <br><br>
       ivmsmm        Fits the multiplicative structural mean model (MSMM), i.e. estimates a causal
-                      risk ratio for a binary outcome.
+                      risk ratio for a binary outcome, using several estimation methods.
 <br><br>
       ivmw          Prefix command which specifies that the moving window be applied to the
                       command after the prefix, e.g. <span class=result>ivmw, window(100): ivmsmm ...</span>.
