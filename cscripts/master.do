@@ -13,6 +13,7 @@ cap noi ado describe ivonesamplemr
 
 local cscripts ///
     iv ///
+    ivfsw ///
 	ivlsmm ///
 	ivmsmm ///
     ivtsps ///

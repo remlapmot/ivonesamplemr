@@ -6,6 +6,7 @@ about
 local helpfiles ///
 ivonesamplemr ///
 ivasmm ///
+ivfsw ///
 ivlsmm ///
 ivmsmm ///
 ivtsps ///

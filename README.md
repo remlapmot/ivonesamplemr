@@ -8,6 +8,9 @@ One-sample Mendelian randomization (MR) / instrumental variable (IV) analyses in
 
 ## Latest updates
 
+* November 2026:
+  - New `ivfsw` postestimation command, which calculates the Sanderson and Windmeijer (2016) conditional F-statistics after `ivregress` or `ivreg2`
+  - New `estmethod()` option for `ivmsmm`, which adds the `gmm`, `tsls`, and `tslsalt` estimation methods of the multiplicative structural mean model. The default, `estmethod(gmmalt)`, is the previous behaviour, i.e. a wrapper to `ivpoisson`. These are the same methods, giving the same estimates, as the `msmm()` function in the R package [OneSampleMR](https://CRAN.R-project.org/package=OneSampleMR)
 * October 2026:
   - Document that Stata 13 or later is required, and add a `version 13` statement to `ivmsmm`
   - `ivtsps`, `ivtsri`, and `ivlsmm` now only report the exponentiated causal effect estimates for the exposure, labelled with the exposure's variable name. Previously `ivtsri` also reported the coefficient of the first stage residuals (`b2`), and `ivlsmm` the coefficients of any covariates, as causal effect estimates
@@ -44,11 +47,12 @@ The package includes implementations of:
 
 * additive structural mean model: see `help ivasmm`
 * logistic structural mean model: see `help ivlsmm`
-* multiplicative structural mean model: see `help ivmsmm`
+* multiplicative structural mean model, with several estimation methods: see `help ivmsmm`
 * two-stage predictor substitution estimators: see `help ivtsps`
 * two-stage residual inclusion estimators: see `help ivtsri`
 * moving window (a.k.a. sliding/rolling window) versions of these estimators: see `help ivmw`
 * performing estimation within quantiles of the first stage residuals: see `help ivxtile`
+* the Sanderson and Windmeijer (2016) conditional F-statistic for models with multiple exposures: see `help ivfsw`
 
 The `ivtsps` and `ivtsri` commands implement the following link functions for the second stage model: 
 

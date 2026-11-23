@@ -1,6 +1,7 @@
 {smcl}
 {* *! version 0.1.0 Tom Palmer 03sep2021}{...}
 {vieweralsosee "ivasmm" "help ivasmm"}{...}
+{vieweralsosee "ivfsw" "help ivfsw"}{...}
 {vieweralsosee "ivlsmm" "help ivlsmm"}{...}
 {vieweralsosee "ivmsmm" "help ivmsmm"}{...}
 {vieweralsosee "ivmw" "help ivmw"}{...}
@@ -28,11 +29,14 @@ instrumental variable (IV) analyses.
 which as linear IV estimators fit the additive structural mean model (ASMM), 
 i.e. estimate a causal risk difference for a binary outcome.
 
+{synopt :{opt {help ivfsw}:}}Postestimation command after {help ivregress} or {help ivreg2} which 
+calculates the conditional F-statistics of Sanderson and Windmeijer (2016) for models with multiple exposures.
+
 {synopt :{opt {help ivlsmm}:}}Fits the (double) logistic structural mean model (LSMM), 
 i.e. estimates a causal odds ratio for a binary outcome.
 
 {synopt :{opt {help ivmsmm}:}}Fits the multiplicative structural mean model (MSMM), 
-i.e. estimates a causal risk ratio for a binary outcome.
+i.e. estimates a causal risk ratio for a binary outcome, using several estimation methods.
 
 {synopt :{opt {help ivmw}:}}Prefix command which specifies that the moving window be applied to the command 
 after the prefix, e.g. {cmd:ivmw, window(100): ivmsmm ...}.
