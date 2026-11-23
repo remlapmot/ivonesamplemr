@@ -2,7 +2,7 @@
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  21 Oct 2026, 11:40:05
+ opened on:  23 Nov 2026, 12:45:54
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -10,7 +10,7 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -24,6 +24,7 @@ Serial number: 501909307934
 . local helpfiles ///
 > ivonesamplemr ///
 > ivasmm ///
+> ivfsw ///
 > ivlsmm ///
 > ivmsmm ///
 > ivtsps ///
@@ -51,13 +52,18 @@ Commands
                       structural mean model (ASMM), i.e. estimate a causal
                       risk difference for a binary outcome.
 
+      ivfsw         Postestimation command after ivregress or ivreg2 which
+                      calculates the conditional F-statistics of Sanderson
+                      and Windmeijer (2016) for models with multiple
+                      exposures.
+
       ivlsmm        Fits the (double) logistic structural mean model (LSMM),
                       i.e. estimates a causal odds ratio for a binary
                       outcome.
 
       ivmsmm        Fits the multiplicative structural mean model (MSMM),
                       i.e. estimates a causal risk ratio for a binary
-                      outcome.
+                      outcome, using several estimation methods.
 
       ivmw          Prefix command which specifies that the moving window be
                       applied to the command after the prefix, e.g. ivmw,
@@ -156,6 +162,96 @@ References
         Sechrest, H. Freeman and A. Mulley, eds.).  1989. 113–159. US Public
         Health Service, National Center for Health Services Research,
         Washington, DC.
+
+Author
+------
+
+INCLUDE help ivonesamplemr-author
+Title
+-----
+
+     ivfsw -- Conditional F-statistics of Sanderson and Windmeijer (2016)
+
+Syntax
+------
+
+        ivfsw
+
+    ivfsw is a postestimation command for use after ivregress or ivreg2.
+
+Description
+-----------
+
+    ivfsw calculates the conditional F-statistic of Sanderson and Windmeijer
+    (2016) for each endogenous variable (exposure) in the model most recently
+    fitted by ivregress or ivreg2.  The conditional F-statistic for an
+    exposure tests whether it is weakly identified given the other exposures,
+    and is used to assess instrument strength in models with multiple
+    exposures, such as in multivariable Mendelian randomization.
+
+    For each exposure, ivfsw fits the conditional model of the exposure
+    regressed on the other exposures and the exogenous variables, with the
+    other exposures instrumented by the excluded instruments, and then
+    computes the F-statistic of the excluded instruments in the regression of
+    the residuals of the conditional model on the excluded instruments and
+    exogenous variables. The conditional F-statistic is this F-statistic
+    multiplied by L/(L - K + 1), where L is the number of excluded
+    instruments and K the number of exposures, and has L - K + 1 numerator
+    degrees of freedom. With a single exposure it is the usual first stage
+    F-statistic for the excluded instruments.
+
+    The conditional F-statistics can be compared with the Stock and Yogo
+    (2005) critical values for a single exposure with L - K + 1 instruments.
+    They are the same as the conditional F-statistics calculated by the fsw()
+    function in the R package OneSampleMR, and as the Sanderson-Windmeijer
+    F-statistics reported by ivreg2 with the first option.
+
+Examples
+--------
+
+    Read in binary outcome data; y outcome, x1 and x2 exposures, w covariate,
+    z* instrumental variables (genotypes).
+
+        . use
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
+
+    Conditional F-statistics after ivregress.
+
+        . ivregress 2sls y w (x1 x2 = z1 z2 z3)
+        . ivfsw
+
+    Conditional F-statistics after ivreg2.
+
+        . ivreg2 y w (x1 x2 = z1 z2 z3)
+        . ivfsw
+
+Stored results
+--------------
+
+    ivfsw stores the following in r():
+
+    Scalars        
+      r(N)                number of observations
+      r(K)                number of exposures (endogenous variables)
+      r(L)                number of excluded instruments
+
+    Matrices       
+      r(table)            conditional F-statistics, numerator and denominator
+                            degrees of freedom, and p-values, with one row
+                            for each exposure
+
+References
+----------
+
+    Sanderson E, Windmeijer F.  A weak instrument F-test in linear IV models
+        with multiple endogenous variables.  Journal of Econometrics, 2016,
+        190, 2, 212-221.  DOI
+
+    Stock JH, Yogo M.  Testing for weak instruments in linear IV regression.
+        In Andrews DWK, Stock JH (eds.), Identification and Inference for
+        Econometric Models: Essays in Honor of Thomas Rothenberg. 2005.
+        Cambridge University Press, Cambridge. 80-108.
 
 Author
 ------
@@ -275,7 +371,7 @@ Syntax
 ------
 
         ivmsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
-              [, log noirr ivpoisson_options]
+              [, estmethod(string) log noirr level(#) options]
 
     varlist1 is the list of exogenous variables.
 
@@ -286,17 +382,36 @@ Syntax
 
     options               Description
     -------------------------------------------------------------------------
+      estmethod(string)   Estimation method: gmmalt (the default), gmm, tsls,
+                            or tslsalt
       noirr               Do not display exponentiated estimates
       log                 Show the GMM iteration log
-      ivpoisson_options   ivpoisson##optionstbl
+      level(#)            Set confidence level; default is level(95)
+      options             Options passed to ivpoisson (gmmalt), gmm (gmm), or
+                            ivregress (tsls and tslsalt)
 
 Description
 -----------
 
     ivmsmm implements the multiplicative structural mean model (MSMM) of
-    Robins (1989) as a wrapper to ivpoisson with the multiplicative option.
-    ivpoisson performs generalized method of moments (GMM) estimation of the
-    relevant moment condition using gmm.
+    Robins (1989), which estimates a causal risk ratio for a binary outcome,
+    using the estimation methods described by Clarke et al. (2015). These are
+    the same methods as provided by the msmm() function in the R package
+    OneSampleMR, and give the same estimates.
+
+    With estmethod(gmmalt), the default, ivmsmm is a wrapper to ivpoisson
+    with the multiplicative option, which performs generalized method of
+    moments (GMM) estimation of the moment conditions E[(1, Z')'{Y exp(-b0 -
+    psi X) - 1}] = 0.  With estmethod(gmm), ivmsmm uses gmm to fit the moment
+    conditions E[(1, Z')'{Y exp(-psi X) - E[Y(0)]}] = 0, where E[Y(0)] is the
+    mean of the exposure-free potential outcome.  With estmethod(tsls) and
+    estmethod(tslsalt), which require a binary outcome and a single binary
+    exposure and do not allow covariates, the MSMM is fitted by two-stage
+    least squares, using ivregress, of transformed variables: Y(1 - X) on YX
+    for tsls and YX on Y(1 - X) for tslsalt.  The causal risk ratio is then
+    -1/b and -b respectively, where b is the coefficient of the transformed
+    exposure, and its confidence interval is obtained from the delta method
+    standard error of the log causal risk ratio.
 
     The equivalence of the models of Robins (1989) and Mullahy (1997), which
     was implemented in ivpois, Nichols (2007) and ivpoisson with the mult
@@ -308,7 +423,21 @@ Description
 Options
 -------
 
-    Please see ivpoisson##options
+    estmethod(string) specifies the estimation method, one of gmmalt (the
+        default), gmm, tsls, or tslsalt; see the Description. With gmm the
+        GMM fit uses an identity initial weight matrix and centered moments
+        in the optimal weight matrix (winitial(identity) center), as in the R
+        package OneSampleMR.
+
+    noirr specifies that the exponentiated estimates (causal risk ratios) are
+        not displayed.
+
+    log shows the GMM iteration log.
+
+    level(#); see [R] estimation options.
+
+    Other options are passed to ivpoisson, gmm, or ivregress depending on
+        estmethod().
 
 Examples
 --------
@@ -339,6 +468,18 @@ Examples
         . ivmsmm y w (x1 x2 = z1 z2 z3)
         . estat overid
 
+    Fit the moment conditions E[(1, Z')'{Y exp(-psi X) - E[Y(0)]}] = 0.
+
+        . ivmsmm y w (x = z1 z2 z3), estmethod(gmm)
+        . estat overid
+
+    Two-stage least squares methods for a binary exposure (here a
+    dichotomized version of x).
+
+        . gen xbin = x > 0
+        . ivmsmm y (xbin = z1 z2 z3), estmethod(tsls)
+        . ivmsmm y (xbin = z1 z2 z3), estmethod(tslsalt)
+
     Comparison with ivpois (specify onestep option to ivmsmm/ivpoisson for
     equivalence).
 
@@ -350,7 +491,19 @@ Examples
 Stored results
 --------------
 
-    Please see ivpoisson##results
+    With estmethod(gmmalt) please see ivpoisson##results, and with
+    estmethod(gmm) please see gmm##results. With estmethod(tsls) and
+    estmethod(tslsalt) the results of ivregress are stored in e(), together
+    with:
+
+    Scalars        
+      e(crr)              causal risk ratio
+      e(crr_lb)           lower confidence limit of the causal risk ratio
+      e(crr_ub)           upper confidence limit of the causal risk ratio
+      e(logcrr_se)        delta method standard error of the log causal risk
+                            ratio
+
+    In all cases e(estmethod) contains the estimation method.
 
 References
 ----------
@@ -818,5 +971,5 @@ end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  21 Oct 2026, 11:40:06
+ closed on:  23 Nov 2026, 12:45:54
 -------------------------------------------------------------------------------

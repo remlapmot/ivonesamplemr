@@ -2,7 +2,7 @@
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:  21 Oct 2026, 11:39:23
+ opened on:  23 Nov 2026, 12:45:03
 
 . // ivmw cscript
 . // 2021-09-12
@@ -18,7 +18,7 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -68,8 +68,8 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)
@@ -79,8 +79,8 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress gmm y (x = z1 z2 z3)
@@ -90,8 +90,8 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivregress)
 
 . 
@@ -103,8 +103,8 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(90) par(x): ivreg2 y (x = z1 z2 z3) in 1/100
@@ -114,8 +114,8 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -127,8 +127,8 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(identity)
@@ -138,8 +138,8 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsps)
 
 . 
@@ -151,8 +151,8 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(identity)
@@ -162,8 +162,8 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsri)
 
 . 
@@ -203,8 +203,8 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -242,8 +242,8 @@ Time variable: res_order, 1 to 2500
 (running ivmsmm on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivmsmm)
 
 . 
@@ -297,8 +297,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y2 (x = g)
@@ -308,8 +308,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y3 (x = g)
@@ -319,8 +319,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y4 (x = g)
@@ -330,8 +330,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y5 (x = g)
@@ -341,8 +341,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y6 (x = g)
@@ -352,8 +352,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y7 (x = g)
@@ -363,8 +363,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -375,8 +375,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -463,8 +463,8 @@ Time variable: res_order, 1 to 4000
 (running ivlsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivlsmm)
 
 . ivmw, window(3991) par(x): ivmsmm y (x = z1 z2 z3)
@@ -474,8 +474,8 @@ Time variable: res_order, 1 to 4000
 (running ivmsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivmsmm)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
@@ -485,8 +485,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
@@ -496,8 +496,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
@@ -507,8 +507,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
@@ -518,8 +518,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
@@ -529,8 +529,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
@@ -540,8 +540,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsri)
 
 . 
@@ -549,5 +549,5 @@ end of do-file
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:  21 Oct 2026, 11:39:56
+ closed on:  23 Nov 2026, 12:45:41
 -------------------------------------------------------------------------------

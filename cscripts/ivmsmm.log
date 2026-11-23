@@ -2,7 +2,7 @@
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  21 Oct 2026, 11:39:16
+ opened on:  23 Nov 2026, 12:44:54
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -12,13 +12,13 @@
 
 -> which ivmsmm, usesysdir
 /Users/eptmp/Documents/GitHub/ivonesamplemr/ivmsmm.ado
-*! 1.0.0 Tom Palmer 01sep2021
+*! 1.1.0 Tom Palmer 23nov2026
 
 . 
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -289,9 +289,157 @@ Exogenous:  cbd ptn worker weekend pt
 . assert abs(_b[tcost] - .035) < 1e-3
 
 . 
+. // estmethod() option
+. clear
+
+. set obs 1000
+Number of observations (_N) was 0, now 1,000.
+
+. set seed 12345
+
+. gen z = rbinomial(1, .5)
+
+. gen u = runiform()
+
+. gen x = rbinomial(1, .2 + .5*z)
+
+. gen y = rbinomial(1, invlogit(-1 + .5*x + u))
+
+. 
+. // gmmalt is the default and is the same as ivpoisson
+. ivmsmm y (x = z)
+
+Final GMM criterion Q(b) = 8.40e-34
+
+note: model is exactly identified.
+
+Exponential mean model with endogenous regressors
+
+Number of parameters =   2                         Number of obs  =      1,000
+Number of moments    =   2
+Initial weight matrix: Unadjusted
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   1.729284   .2859441     3.31   0.001     1.250595      2.3912
+       _cons |   .3229679   .0254738   -14.33   0.000      .276708    .3769615
+------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
+Endogenous: x
+Exogenous:  z
+
+. local b_default = _b[x]
+
+. ivmsmm y (x = z), estmethod(gmmalt)
+
+Final GMM criterion Q(b) = 8.40e-34
+
+note: model is exactly identified.
+
+Exponential mean model with endogenous regressors
+
+Number of parameters =   2                         Number of obs  =      1,000
+Number of moments    =   2
+Initial weight matrix: Unadjusted
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   1.729284   .2859441     3.31   0.001     1.250595      2.3912
+       _cons |   .3229679   .0254738   -14.33   0.000      .276708    .3769615
+------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
+Endogenous: x
+Exogenous:  z
+
+. assert reldif(_b[x], `b_default') < 1e-8
+
+. assert "`e(estmethod)'" == "gmmalt"
+
+. 
+. // with a single instrument all the methods solve the same estimating equatio
+> n
+. ivmsmm y (x = z), estmethod(gmm)
+
+Final GMM criterion Q(b) = 6.21e-34
+
+note: model is exactly identified.
+
+GMM estimation 
+
+Number of parameters =   2
+Number of moments    =   2
+Initial weight matrix: Identity                   Number of obs   =      1,000
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   .5477072   .1653541     3.31   0.001     .2236192    .8717953
+        /ey0 |   .3229679   .0254738    12.68   0.000     .2730403    .3728956
+------------------------------------------------------------------------------
+Instruments for equation 1: z _cons
+
+Causal risk ratio for: x
+
+ ( 1)  [xb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.729284   .2859441     3.31   0.001     1.250595      2.3912
+------------------------------------------------------------------------------
+
+. assert "`e(estmethod)'" == "gmm"
+
+. assert reldif(_b[/xb_x], `b_default') < 1e-4
+
+. ivmsmm y (x = z), estmethod(tsls)
+
+Multiplicative structural mean model, two-stage least squares method (estmethod
+> (tsls))
+Number of obs = 1000
+
+E[Y(0)]:  .3229679  [95% CI:  .2767116,  .3692242]
+
+Causal risk ratio for: x
+CRR =  1.729284  [95% CI:  1.247475,   2.39718]
+
+. assert reldif(log(e(crr)), `b_default') < 1e-4
+
+. ivmsmm y (x = z), estmethod(tslsalt)
+
+Multiplicative structural mean model, two-stage least squares method (estmethod
+> (tslsalt))
+Number of obs = 1000
+
+Causal risk ratio for: x
+CRR =  1.729284  [95% CI:  1.247475,   2.39718]
+
+. assert reldif(log(e(crr)), `b_default') < 1e-4
+
+. 
+. // error messages
+. rcof "ivmsmm y (x = z), estmethod(foo)" == 198
+
+. gen w = rnormal()
+
+. rcof "ivmsmm y w (x = z), estmethod(tsls)" == 198
+
+. gen xc = rnormal()
+
+. rcof "ivmsmm y (xc = z), estmethod(tsls)" == 450
+
+. 
 end of do-file
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  21 Oct 2026, 11:39:17
+ closed on:  23 Nov 2026, 12:44:55
 -------------------------------------------------------------------------------

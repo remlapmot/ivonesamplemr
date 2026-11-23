@@ -2,7 +2,7 @@
       name:  master
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:  21 Oct 2026, 11:39:12
+ opened on:  23 Nov 2026, 12:44:49
 
 . 
 . cscript master
@@ -14,6 +14,7 @@
 . 
 . local cscripts ///
 >     iv ///
+>     ivfsw ///
 >         ivlsmm ///
 >         ivmsmm ///
 >     ivtsps ///
@@ -32,7 +33,7 @@
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  21 Oct 2026, 11:39:13
+ opened on:  23 Nov 2026, 12:44:49
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -48,7 +49,7 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -238,13 +239,356 @@ end of do-file
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  21 Oct 2026, 11:39:13
+ closed on:  23 Nov 2026, 12:44:50
+-------------------------------------------------------------------------------
+(file /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivfsw.log not
+    found)
+-------------------------------------------------------------------------------
+      name:  ivfsw
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivfsw.log
+  log type:  text
+ opened on:  23 Nov 2026, 12:44:50
+
+. // ivfsw cscript
+. // 2026-11-23
+. 
+. cscript ivfsw adofiles ivfsw
+--------------------------------------------------------------------BEGIN ivfsw
+
+-> which ivfsw, usesysdir
+/Users/eptmp/Documents/GitHub/ivonesamplemr/ivfsw.ado
+*! 1.0.0 Tom Palmer 23nov2026
+
+. 
+. about
+
+StataNow/MP 19.5 for Unix (Apple Silicon)
+Revision 04 Nov 2026
+Copyright 1985-2025 StataCorp LLC
+
+Total usable memory: 18.00 GB
+
+Stata license: Unlimited-user 2-core network, expiring 29 Jan 2027
+Serial number: 501909307934
+  Licensed to: Tom Palmer
+               University of Bristol
+
+. 
+. // simulate data
+. clear
+
+. set obs 4000
+Number of observations (_N) was 0, now 4,000.
+
+. set seed 12345
+
+. gen z1 = rnormal()
+
+. gen z2 = rnormal()
+
+. gen w1 = rnormal()
+
+. gen w2 = rnormal()
+
+. gen u = rnormal()
+
+. gen x1 = z1 + z2 + 0.2*u + 0.1*w1 + rnormal()
+
+. gen x2 = z1 + 0.94*z2 - 0.3*u + 0.1*w2 + rnormal()
+
+. gen y = x1 + x2 + w1 + w2 + u
+
+. 
+. // tests
+. 
+. // the same as the Sanderson-Windmeijer F-statistics reported by ivreg2
+. ivreg2 y w1 w2 (x1 x2 = z1 z2), first
+
+First-stage regressions
+-----------------------
+
+
+First-stage regression of x1:
+
+Statistics consistent for homoskedasticity only
+Number of obs =                   4000
+------------------------------------------------------------------------------
+          x1 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9966591   .0162833    61.21   0.000     .9647348    1.028583
+          z2 |   .9813627   .0162033    60.57   0.000     .9495952     1.01313
+          w1 |    .097542   .0161656     6.03   0.000     .0658484    .1292355
+          w2 |  -.0235798   .0163067    -1.45   0.148      -.05555    .0083905
+       _cons |   .0167552   .0162311     1.03   0.302    -.0150669    .0485772
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  2,  3995) =  3714.71
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  1,  3995) =     1.20
+  Prob > F      =   0.2738
+
+
+First-stage regression of x2:
+
+Statistics consistent for homoskedasticity only
+Number of obs =                   4000
+------------------------------------------------------------------------------
+          x2 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   1.015851   .0165076    61.54   0.000     .9834868    1.048215
+          z2 |   .9634737   .0164265    58.65   0.000     .9312685    .9956789
+          w1 |   .0015182   .0163883     0.09   0.926     -.030612    .0336485
+          w2 |   .1063681   .0165314     6.43   0.000     .0739573    .1387788
+       _cons |  -.0063411   .0164548    -0.39   0.700    -.0386016    .0259194
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  2,  3995) =  3620.83
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  1,  3995) =     1.20
+  Prob > F      =   0.2738
+
+
+
+Summary results for first-stage regressions
+-------------------------------------------
+
+                                           (Underid)            (Weak id)
+Variable     | F(  2,  3995)  P-val | SW Chi-sq(  1) P-val | SW F(  1,  3995)
+x1           |    3714.71    0.0000 |        1.20   0.2734 |        1.20
+x2           |    3620.83    0.0000 |        1.20   0.2734 |        1.20
+
+Stock-Yogo weak ID F test critical values for single endogenous regressor:
+                                   10% maximal IV size             19.93
+                                   15% maximal IV size             11.59
+                                   20% maximal IV size              8.75
+                                   25% maximal IV size              7.25
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Sanderson-Windmeijer F statistic.
+
+Underidentification test
+Ho: matrix of reduced form coefficients has rank=K1-1 (underidentified)
+Ha: matrix has rank=K1 (identified)
+Anderson canon. corr. LM statistic       Chi-sq(1)=1.20     P-val=0.2735
+
+Weak identification test
+Ho: equation is weakly identified
+Cragg-Donald Wald F statistic                                       0.60
+
+Stock-Yogo weak ID test critical values for K1=2 and L1=2:
+                                   10% maximal IV size              7.03
+                                   15% maximal IV size              4.58
+                                   20% maximal IV size              3.95
+                                   25% maximal IV size              3.63
+Source: Stock-Yogo (2005).  Reproduced by permission.
+
+Weak-instrument-robust inference
+Tests of joint significance of endogenous regressors B1 in main equation
+Ho: B1=0 and orthogonality conditions are valid
+Anderson-Rubin Wald test           F(2,3995)=   5509.57     P-val=0.0000
+Anderson-Rubin Wald test           Chi-sq(2)=   11032.93    P-val=0.0000
+Stock-Wright LM S statistic        Chi-sq(2)=   2935.67     P-val=0.0000
+
+Number of observations               N  =       4000
+Number of regressors                 K  =          5
+Number of endogenous regressors      K1 =          2
+Number of instruments                L  =          5
+Number of excluded instruments       L1 =          2
+
+IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics consistent for homoskedasticity only
+
+                                                      Number of obs =     4000
+                                                      F(  4,  3995) =  9305.65
+                                                      Prob > F      =   0.0000
+Total (centered) SS     =  51774.35494                Centered R2   =   0.9158
+Total (uncentered) SS   =  51821.65597                Uncentered R2 =   0.9159
+Residual SS             =  4358.121329                Root MSE      =    1.044
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .9444678   .6315658     1.50   0.135    -.2933783    2.182314
+          x2 |   1.039244   .6310069     1.65   0.100    -.1975073    2.275994
+          w1 |   1.013999    .062735    16.16   0.000     .8910404    1.136957
+          w2 |   .9671245   .0838686    11.53   0.000     .8027451    1.131504
+       _cons |   .0184935   .0220839     0.84   0.402    -.0247902    .0617773
+------------------------------------------------------------------------------
+Underidentification test (Anderson canon. corr. LM statistic):           1.199
+                                                   Chi-sq(1) P-val =    0.2735
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):                0.599
+Stock-Yogo weak ID test critical values: 10% maximal IV size              7.03
+                                         15% maximal IV size              4.58
+                                         20% maximal IV size              3.95
+                                         25% maximal IV size              3.63
+Source: Stock-Yogo (2005).  Reproduced by permission.
+------------------------------------------------------------------------------
+Sargan statistic (overidentification test of all instruments):           0.000
+                                                 (equation exactly identified)
+------------------------------------------------------------------------------
+Instrumented:         x1 x2
+Included instruments: w1 w2
+Excluded instruments: z1 z2
+------------------------------------------------------------------------------
+
+. mat first = e(first)
+
+. ivfsw
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.20       1      3995    0.2738
+x2                   1.20       1      3995    0.2738
+
+. mat table = r(table)
+
+. assert reldif(table[1, 1], first[rownumb(first, "SWF"), 1]) < 1e-6
+
+. assert reldif(table[2, 1], first[rownumb(first, "SWF"), 2]) < 1e-6
+
+. assert table[1, 2] == 1
+
+. assert r(K) == 2
+
+. assert r(L) == 2
+
+. assert r(N) == 4000
+
+. 
+. // the same after ivregress
+. ivregress 2sls y w1 w2 (x1 x2 = z1 z2)
+
+Instrumental-variables 2SLS regression            Number of obs   =      4,000
+                                                  Wald chi2(4)    =   37269.18
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.9158
+                                                  Root MSE        =     1.0438
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .9444678   .6315658     1.50   0.135    -.2933783    2.182314
+          x2 |   1.039244   .6310069     1.65   0.100    -.1975073    2.275994
+          w1 |   1.013999    .062735    16.16   0.000     .8910404    1.136957
+          w2 |   .9671245   .0838686    11.53   0.000     .8027451    1.131504
+       _cons |   .0184935   .0220839     0.84   0.402    -.0247902    .0617773
+------------------------------------------------------------------------------
+Endogenous: x1 x2
+Exogenous:  w1 w2 z1 z2
+
+. ivfsw
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.20       1      3995    0.2738
+x2                   1.20       1      3995    0.2738
+
+. assert mreldif(r(table), table) < 1e-8
+
+. 
+. // with a single exposure this is the usual first stage F-statistic
+. ivregress 2sls y w1 w2 (x1 = z1 z2)
+
+Instrumental-variables 2SLS regression            Number of obs   =      4,000
+                                                  Wald chi2(3)    =   18124.99
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.8269
+                                                  Root MSE        =     1.4967
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |    1.98445   .0169235   117.26   0.000     1.951281     2.01762
+          w1 |   .9143141   .0236589    38.65   0.000     .8679435    .9606848
+          w2 |   1.102523   .0237894    46.35   0.000     1.055897     1.14915
+       _cons |  -.0056505    .023683    -0.24   0.811    -.0520683    .0407673
+------------------------------------------------------------------------------
+Endogenous: x1
+Exogenous:  w1 w2 z1 z2
+
+. ivfsw
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                3714.71       2      3995    0.0000
+
+. mat table1 = r(table)
+
+. regress x1 z1 z2 w1 w2
+
+      Source |       SS           df       MS      Number of obs   =     4,000
+-------------+----------------------------------   F(4, 3995)      =   1870.69
+       Model |  7877.85324         4  1969.46331   Prob > F        =    0.0000
+    Residual |  4205.94122     3,995  1.05280131   R-squared       =    0.6519
+-------------+----------------------------------   Adj R-squared   =    0.6516
+       Total |  12083.7945     3,999  3.02170404   Root MSE        =    1.0261
+
+------------------------------------------------------------------------------
+          x1 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9966591   .0162833    61.21   0.000     .9647348    1.028583
+          z2 |   .9813627   .0162033    60.57   0.000     .9495952     1.01313
+          w1 |    .097542   .0161656     6.03   0.000     .0658484    .1292355
+          w2 |  -.0235798   .0163067    -1.45   0.148      -.05555    .0083905
+       _cons |   .0167552   .0162311     1.03   0.302    -.0150669    .0485772
+------------------------------------------------------------------------------
+
+. test z1 z2
+
+ ( 1)  z1 = 0
+ ( 2)  z2 = 0
+
+       F(  2,  3995) = 3714.71
+            Prob > F =    0.0000
+
+. assert reldif(table1[1, 1], r(F)) < 1e-8
+
+. 
+. // error after another estimation command
+. regress y x1
+
+      Source |       SS           df       MS      Number of obs   =     4,000
+-------------+----------------------------------   F(1, 3998)      =   8622.67
+       Model |  35373.1731         1  35373.1731   Prob > F        =    0.0000
+    Residual |  16401.1818     3,998  4.10234662   R-squared       =    0.6832
+-------------+----------------------------------   Adj R-squared   =    0.6831
+       Total |  51774.3549     3,999  12.9468254   Root MSE        =    2.0254
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   1.710942   .0184253    92.86   0.000     1.674818    1.747066
+       _cons |   .0364112   .0320343     1.14   0.256    -.0263938    .0992162
+------------------------------------------------------------------------------
+
+. rcof "ivfsw" == 301
+
+. 
+end of do-file
+      name:  ivfsw
+       log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivfsw.log
+  log type:  text
+ closed on:  23 Nov 2026, 12:44:50
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  21 Oct 2026, 11:39:13
+ opened on:  23 Nov 2026, 12:44:50
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -260,7 +604,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -929,13 +1273,13 @@ end of do-file
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  21 Oct 2026, 11:39:16
+ closed on:  23 Nov 2026, 12:44:54
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  21 Oct 2026, 11:39:16
+ opened on:  23 Nov 2026, 12:44:54
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -945,13 +1289,13 @@ end of do-file
 
 -> which ivmsmm, usesysdir
 /Users/eptmp/Documents/GitHub/ivonesamplemr/ivmsmm.ado
-*! 1.0.0 Tom Palmer 01sep2021
+*! 1.1.0 Tom Palmer 23nov2026
 
 . 
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -1222,17 +1566,165 @@ Exogenous:  cbd ptn worker weekend pt
 . assert abs(_b[tcost] - .035) < 1e-3
 
 . 
+. // estmethod() option
+. clear
+
+. set obs 1000
+Number of observations (_N) was 0, now 1,000.
+
+. set seed 12345
+
+. gen z = rbinomial(1, .5)
+
+. gen u = runiform()
+
+. gen x = rbinomial(1, .2 + .5*z)
+
+. gen y = rbinomial(1, invlogit(-1 + .5*x + u))
+
+. 
+. // gmmalt is the default and is the same as ivpoisson
+. ivmsmm y (x = z)
+
+Final GMM criterion Q(b) = 8.40e-34
+
+note: model is exactly identified.
+
+Exponential mean model with endogenous regressors
+
+Number of parameters =   2                         Number of obs  =      1,000
+Number of moments    =   2
+Initial weight matrix: Unadjusted
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   1.729284   .2859441     3.31   0.001     1.250595      2.3912
+       _cons |   .3229679   .0254738   -14.33   0.000      .276708    .3769615
+------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
+Endogenous: x
+Exogenous:  z
+
+. local b_default = _b[x]
+
+. ivmsmm y (x = z), estmethod(gmmalt)
+
+Final GMM criterion Q(b) = 8.40e-34
+
+note: model is exactly identified.
+
+Exponential mean model with endogenous regressors
+
+Number of parameters =   2                         Number of obs  =      1,000
+Number of moments    =   2
+Initial weight matrix: Unadjusted
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   1.729284   .2859441     3.31   0.001     1.250595      2.3912
+       _cons |   .3229679   .0254738   -14.33   0.000      .276708    .3769615
+------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
+Endogenous: x
+Exogenous:  z
+
+. assert reldif(_b[x], `b_default') < 1e-8
+
+. assert "`e(estmethod)'" == "gmmalt"
+
+. 
+. // with a single instrument all the methods solve the same estimating equatio
+> n
+. ivmsmm y (x = z), estmethod(gmm)
+
+Final GMM criterion Q(b) = 6.21e-34
+
+note: model is exactly identified.
+
+GMM estimation 
+
+Number of parameters =   2
+Number of moments    =   2
+Initial weight matrix: Identity                   Number of obs   =      1,000
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+             | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       /xb_x |   .5477072   .1653541     3.31   0.001     .2236192    .8717953
+        /ey0 |   .3229679   .0254738    12.68   0.000     .2730403    .3728956
+------------------------------------------------------------------------------
+Instruments for equation 1: z _cons
+
+Causal risk ratio for: x
+
+ ( 1)  [xb_x]_cons = 0
+
+------------------------------------------------------------------------------
+             |     exp(b)   Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.729284   .2859441     3.31   0.001     1.250595      2.3912
+------------------------------------------------------------------------------
+
+. assert "`e(estmethod)'" == "gmm"
+
+. assert reldif(_b[/xb_x], `b_default') < 1e-4
+
+. ivmsmm y (x = z), estmethod(tsls)
+
+Multiplicative structural mean model, two-stage least squares method (estmethod
+> (tsls))
+Number of obs = 1000
+
+E[Y(0)]:  .3229679  [95% CI:  .2767116,  .3692242]
+
+Causal risk ratio for: x
+CRR =  1.729284  [95% CI:  1.247475,   2.39718]
+
+. assert reldif(log(e(crr)), `b_default') < 1e-4
+
+. ivmsmm y (x = z), estmethod(tslsalt)
+
+Multiplicative structural mean model, two-stage least squares method (estmethod
+> (tslsalt))
+Number of obs = 1000
+
+Causal risk ratio for: x
+CRR =  1.729284  [95% CI:  1.247475,   2.39718]
+
+. assert reldif(log(e(crr)), `b_default') < 1e-4
+
+. 
+. // error messages
+. rcof "ivmsmm y (x = z), estmethod(foo)" == 198
+
+. gen w = rnormal()
+
+. rcof "ivmsmm y w (x = z), estmethod(tsls)" == 198
+
+. gen xc = rnormal()
+
+. rcof "ivmsmm y (xc = z), estmethod(tsls)" == 450
+
+. 
 end of do-file
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  21 Oct 2026, 11:39:17
+ closed on:  23 Nov 2026, 12:44:55
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  21 Oct 2026, 11:39:17
+ opened on:  23 Nov 2026, 12:44:55
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -1248,7 +1740,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -2760,13 +3252,13 @@ end of do-file
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  21 Oct 2026, 11:39:20
+ closed on:  23 Nov 2026, 12:44:59
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  21 Oct 2026, 11:39:20
+ opened on:  23 Nov 2026, 12:44:59
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -2782,7 +3274,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -4407,13 +4899,13 @@ end of do-file
       name:  ivtsri
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  21 Oct 2026, 11:39:23
+ closed on:  23 Nov 2026, 12:45:03
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:  21 Oct 2026, 11:39:23
+ opened on:  23 Nov 2026, 12:45:03
 
 . // ivmw cscript
 . // 2021-09-12
@@ -4429,7 +4921,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -4479,8 +4971,8 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress liml y (x = z1 z2 z3)
@@ -4490,8 +4982,8 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivregress)
 
 . ivmw, window(2490) par(x): ivregress gmm y (x = z1 z2 z3)
@@ -4501,8 +4993,8 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivregress)
 
 . 
@@ -4514,8 +5006,8 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(90) par(x): ivreg2 y (x = z1 z2 z3) in 1/100
@@ -4525,8 +5017,8 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -4538,8 +5030,8 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(2490) par(b1): ivtsps y (x = z1 z2 z3), link(identity)
@@ -4549,8 +5041,8 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsps)
 
 . 
@@ -4562,8 +5054,8 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(2490) par(b1): ivtsri y (x = z1 z2 z3), link(identity)
@@ -4573,8 +5065,8 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsri)
 
 . 
@@ -4614,8 +5106,8 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -4653,8 +5145,8 @@ Time variable: res_order, 1 to 2500
 (running ivmsmm on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivmsmm)
 
 . 
@@ -4708,8 +5200,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y2 (x = g)
@@ -4719,8 +5211,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y3 (x = g)
@@ -4730,8 +5222,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y4 (x = g)
@@ -4741,8 +5233,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y5 (x = g)
@@ -4752,8 +5244,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y6 (x = g)
@@ -4763,8 +5255,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . ivmw, window(3976) par(x): ivreg2 y7 (x = g)
@@ -4774,8 +5266,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -4786,8 +5278,8 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivreg2)
 
 . 
@@ -4874,8 +5366,8 @@ Time variable: res_order, 1 to 4000
 (running ivlsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivlsmm)
 
 . ivmw, window(3991) par(x): ivmsmm y (x = z1 z2 z3)
@@ -4885,8 +5377,8 @@ Time variable: res_order, 1 to 4000
 (running ivmsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivmsmm)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logadd)
@@ -4896,8 +5388,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logmult)
@@ -4907,8 +5399,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsps y (x = z1 z2 z3), link(logit)
@@ -4918,8 +5410,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsps)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logadd)
@@ -4929,8 +5421,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logmult)
@@ -4940,8 +5432,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsri)
 
 . ivmw, window(3991) par(b1): ivtsri y (x = z1 z2 z3), link(logit)
@@ -4951,8 +5443,8 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St77180.000001 saved
-    as .dta format
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+    saved as .dta format
 (rolling: ivtsri)
 
 . 
@@ -4960,13 +5452,13 @@ end of do-file
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:  21 Oct 2026, 11:39:56
+ closed on:  23 Nov 2026, 12:45:41
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:  21 Oct 2026, 11:39:56
+ opened on:  23 Nov 2026, 12:45:41
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -4982,7 +5474,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -5450,13 +5942,13 @@ end of do-file
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:  21 Oct 2026, 11:40:05
+ closed on:  23 Nov 2026, 12:45:54
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  21 Oct 2026, 11:40:05
+ opened on:  23 Nov 2026, 12:45:54
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -5464,7 +5956,7 @@ end of do-file
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -5478,6 +5970,7 @@ Serial number: 501909307934
 . local helpfiles ///
 > ivonesamplemr ///
 > ivasmm ///
+> ivfsw ///
 > ivlsmm ///
 > ivmsmm ///
 > ivtsps ///
@@ -5505,13 +5998,18 @@ Commands
                       structural mean model (ASMM), i.e. estimate a causal
                       risk difference for a binary outcome.
 
+      ivfsw         Postestimation command after ivregress or ivreg2 which
+                      calculates the conditional F-statistics of Sanderson
+                      and Windmeijer (2016) for models with multiple
+                      exposures.
+
       ivlsmm        Fits the (double) logistic structural mean model (LSMM),
                       i.e. estimates a causal odds ratio for a binary
                       outcome.
 
       ivmsmm        Fits the multiplicative structural mean model (MSMM),
                       i.e. estimates a causal risk ratio for a binary
-                      outcome.
+                      outcome, using several estimation methods.
 
       ivmw          Prefix command which specifies that the moving window be
                       applied to the command after the prefix, e.g. ivmw,
@@ -5610,6 +6108,96 @@ References
         Sechrest, H. Freeman and A. Mulley, eds.).  1989. 113–159. US Public
         Health Service, National Center for Health Services Research,
         Washington, DC.
+
+Author
+------
+
+INCLUDE help ivonesamplemr-author
+Title
+-----
+
+     ivfsw -- Conditional F-statistics of Sanderson and Windmeijer (2016)
+
+Syntax
+------
+
+        ivfsw
+
+    ivfsw is a postestimation command for use after ivregress or ivreg2.
+
+Description
+-----------
+
+    ivfsw calculates the conditional F-statistic of Sanderson and Windmeijer
+    (2016) for each endogenous variable (exposure) in the model most recently
+    fitted by ivregress or ivreg2.  The conditional F-statistic for an
+    exposure tests whether it is weakly identified given the other exposures,
+    and is used to assess instrument strength in models with multiple
+    exposures, such as in multivariable Mendelian randomization.
+
+    For each exposure, ivfsw fits the conditional model of the exposure
+    regressed on the other exposures and the exogenous variables, with the
+    other exposures instrumented by the excluded instruments, and then
+    computes the F-statistic of the excluded instruments in the regression of
+    the residuals of the conditional model on the excluded instruments and
+    exogenous variables. The conditional F-statistic is this F-statistic
+    multiplied by L/(L - K + 1), where L is the number of excluded
+    instruments and K the number of exposures, and has L - K + 1 numerator
+    degrees of freedom. With a single exposure it is the usual first stage
+    F-statistic for the excluded instruments.
+
+    The conditional F-statistics can be compared with the Stock and Yogo
+    (2005) critical values for a single exposure with L - K + 1 instruments.
+    They are the same as the conditional F-statistics calculated by the fsw()
+    function in the R package OneSampleMR, and as the Sanderson-Windmeijer
+    F-statistics reported by ivreg2 with the first option.
+
+Examples
+--------
+
+    Read in binary outcome data; y outcome, x1 and x2 exposures, w covariate,
+    z* instrumental variables (genotypes).
+
+        . use
+            https://raw.githubusercontent.com/remlapmot/ivonesamplemr/main/da
+            > ta/ivbinoutdata, clear
+
+    Conditional F-statistics after ivregress.
+
+        . ivregress 2sls y w (x1 x2 = z1 z2 z3)
+        . ivfsw
+
+    Conditional F-statistics after ivreg2.
+
+        . ivreg2 y w (x1 x2 = z1 z2 z3)
+        . ivfsw
+
+Stored results
+--------------
+
+    ivfsw stores the following in r():
+
+    Scalars        
+      r(N)                number of observations
+      r(K)                number of exposures (endogenous variables)
+      r(L)                number of excluded instruments
+
+    Matrices       
+      r(table)            conditional F-statistics, numerator and denominator
+                            degrees of freedom, and p-values, with one row
+                            for each exposure
+
+References
+----------
+
+    Sanderson E, Windmeijer F.  A weak instrument F-test in linear IV models
+        with multiple endogenous variables.  Journal of Econometrics, 2016,
+        190, 2, 212-221.  DOI
+
+    Stock JH, Yogo M.  Testing for weak instruments in linear IV regression.
+        In Andrews DWK, Stock JH (eds.), Identification and Inference for
+        Econometric Models: Essays in Honor of Thomas Rothenberg. 2005.
+        Cambridge University Press, Cambridge. 80-108.
 
 Author
 ------
@@ -5729,7 +6317,7 @@ Syntax
 ------
 
         ivmsmm depvar [varlist1] (varlist2 = varlist_iv) [if] [in] [weight]
-              [, log noirr ivpoisson_options]
+              [, estmethod(string) log noirr level(#) options]
 
     varlist1 is the list of exogenous variables.
 
@@ -5740,17 +6328,36 @@ Syntax
 
     options               Description
     -------------------------------------------------------------------------
+      estmethod(string)   Estimation method: gmmalt (the default), gmm, tsls,
+                            or tslsalt
       noirr               Do not display exponentiated estimates
       log                 Show the GMM iteration log
-      ivpoisson_options   ivpoisson##optionstbl
+      level(#)            Set confidence level; default is level(95)
+      options             Options passed to ivpoisson (gmmalt), gmm (gmm), or
+                            ivregress (tsls and tslsalt)
 
 Description
 -----------
 
     ivmsmm implements the multiplicative structural mean model (MSMM) of
-    Robins (1989) as a wrapper to ivpoisson with the multiplicative option.
-    ivpoisson performs generalized method of moments (GMM) estimation of the
-    relevant moment condition using gmm.
+    Robins (1989), which estimates a causal risk ratio for a binary outcome,
+    using the estimation methods described by Clarke et al. (2015). These are
+    the same methods as provided by the msmm() function in the R package
+    OneSampleMR, and give the same estimates.
+
+    With estmethod(gmmalt), the default, ivmsmm is a wrapper to ivpoisson
+    with the multiplicative option, which performs generalized method of
+    moments (GMM) estimation of the moment conditions E[(1, Z')'{Y exp(-b0 -
+    psi X) - 1}] = 0.  With estmethod(gmm), ivmsmm uses gmm to fit the moment
+    conditions E[(1, Z')'{Y exp(-psi X) - E[Y(0)]}] = 0, where E[Y(0)] is the
+    mean of the exposure-free potential outcome.  With estmethod(tsls) and
+    estmethod(tslsalt), which require a binary outcome and a single binary
+    exposure and do not allow covariates, the MSMM is fitted by two-stage
+    least squares, using ivregress, of transformed variables: Y(1 - X) on YX
+    for tsls and YX on Y(1 - X) for tslsalt.  The causal risk ratio is then
+    -1/b and -b respectively, where b is the coefficient of the transformed
+    exposure, and its confidence interval is obtained from the delta method
+    standard error of the log causal risk ratio.
 
     The equivalence of the models of Robins (1989) and Mullahy (1997), which
     was implemented in ivpois, Nichols (2007) and ivpoisson with the mult
@@ -5762,7 +6369,21 @@ Description
 Options
 -------
 
-    Please see ivpoisson##options
+    estmethod(string) specifies the estimation method, one of gmmalt (the
+        default), gmm, tsls, or tslsalt; see the Description. With gmm the
+        GMM fit uses an identity initial weight matrix and centered moments
+        in the optimal weight matrix (winitial(identity) center), as in the R
+        package OneSampleMR.
+
+    noirr specifies that the exponentiated estimates (causal risk ratios) are
+        not displayed.
+
+    log shows the GMM iteration log.
+
+    level(#); see [R] estimation options.
+
+    Other options are passed to ivpoisson, gmm, or ivregress depending on
+        estmethod().
 
 Examples
 --------
@@ -5793,6 +6414,18 @@ Examples
         . ivmsmm y w (x1 x2 = z1 z2 z3)
         . estat overid
 
+    Fit the moment conditions E[(1, Z')'{Y exp(-psi X) - E[Y(0)]}] = 0.
+
+        . ivmsmm y w (x = z1 z2 z3), estmethod(gmm)
+        . estat overid
+
+    Two-stage least squares methods for a binary exposure (here a
+    dichotomized version of x).
+
+        . gen xbin = x > 0
+        . ivmsmm y (xbin = z1 z2 z3), estmethod(tsls)
+        . ivmsmm y (xbin = z1 z2 z3), estmethod(tslsalt)
+
     Comparison with ivpois (specify onestep option to ivmsmm/ivpoisson for
     equivalence).
 
@@ -5804,7 +6437,19 @@ Examples
 Stored results
 --------------
 
-    Please see ivpoisson##results
+    With estmethod(gmmalt) please see ivpoisson##results, and with
+    estmethod(gmm) please see gmm##results. With estmethod(tsls) and
+    estmethod(tslsalt) the results of ivregress are stored in e(), together
+    with:
+
+    Scalars        
+      e(crr)              causal risk ratio
+      e(crr_lb)           lower confidence limit of the causal risk ratio
+      e(crr_ub)           upper confidence limit of the causal risk ratio
+      e(logcrr_se)        delta method standard error of the log causal risk
+                            ratio
+
+    In all cases e(estmethod) contains the estimation method.
 
 References
 ----------
@@ -6272,7 +6917,7 @@ end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  21 Oct 2026, 11:40:06
+ closed on:  23 Nov 2026, 12:45:54
 -------------------------------------------------------------------------------
 
 . 
@@ -6280,5 +6925,5 @@ end of do-file
       name:  master
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:  21 Oct 2026, 11:40:06
+ closed on:  23 Nov 2026, 12:45:54
 -------------------------------------------------------------------------------

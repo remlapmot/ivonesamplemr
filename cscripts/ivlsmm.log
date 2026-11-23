@@ -2,7 +2,7 @@
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  21 Oct 2026, 11:39:13
+ opened on:  23 Nov 2026, 12:44:50
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -18,7 +18,7 @@
 . about
 
 StataNow/MP 19.5 for Unix (Apple Silicon)
-Revision 14 Oct 2026
+Revision 04 Nov 2026
 Copyright 1985-2025 StataCorp LLC
 
 Total usable memory: 18.00 GB
@@ -687,5 +687,5 @@ end of do-file
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  21 Oct 2026, 11:39:16
+ closed on:  23 Nov 2026, 12:44:54
 -------------------------------------------------------------------------------
