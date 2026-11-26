@@ -2,7 +2,7 @@
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  26 Nov 2026, 11:33:06
+ opened on:  26 Nov 2026, 11:47:39
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -295,7 +295,7 @@ References
     Stock JH, Yogo M.  Testing for weak instruments in linear IV regression.
         In Andrews DWK, Stock JH (eds.), Identification and Inference for
         Econometric Models: Essays in Honor of Thomas Rothenberg. 2005.
-        Cambridge University Press, Cambridge. 80-108.
+        Cambridge University Press, Cambridge. 80-108.  DOI
 
 Author
 ------
@@ -577,7 +577,7 @@ References
 ----------
 
     Cameron AC, Trivedi PK. Regression analysis of count data. 2nd ed. 2013.
-        New York, Cambridge University Press.
+        New York, Cambridge University Press.  DOI
 
     Clarke PS, Palmer TM, Windmeijer F.  Estimating structural mean models
         with multiple instrumental variables using the Generalised Method of
@@ -1125,5 +1125,5 @@ end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  26 Nov 2026, 11:33:06
+ closed on:  26 Nov 2026, 11:47:39
 -------------------------------------------------------------------------------
