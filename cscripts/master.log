@@ -2,7 +2,7 @@
       name:  master
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:  26 Nov 2026, 11:00:19
+ opened on:  26 Nov 2026, 11:32:08
 
 . 
 . cscript master
@@ -39,7 +39,7 @@
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  26 Nov 2026, 11:00:19
+ opened on:  26 Nov 2026, 11:32:08
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -364,6 +364,7 @@ Excluded instruments: z1 z2 z3
 
 Sanderson-Windmeijer conditional F-statistics
 Number of obs = 2500
+Variance      = unadjusted
 
 Variable                F      df      df_r       P>F
 ------------------------------------------------------
@@ -394,6 +395,7 @@ Exogenous:  w z1 z2 z3
 
 Sanderson-Windmeijer conditional F-statistics
 Number of obs = 2500
+Variance      = unadjusted
 
 Variable                F      df      df_r       P>F
 ------------------------------------------------------
@@ -409,7 +411,7 @@ Time variable: res_order, 1 to 2500
 
 Rolling replications (101): .........10.........20.........30.........40.......
 > ..50.........60.........70.........80.........90.........100. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivregress)
 
@@ -433,13 +435,13 @@ end of do-file
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  26 Nov 2026, 11:00:22
+ closed on:  26 Nov 2026, 11:32:11
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivfsw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivfsw.log
   log type:  text
- opened on:  26 Nov 2026, 11:00:22
+ opened on:  26 Nov 2026, 11:32:11
 
 . // ivfsw cscript
 . // 2026-11-23
@@ -449,7 +451,7 @@ end of do-file
 
 -> which ivfsw, usesysdir
 /Users/eptmp/Documents/GitHub/ivonesamplemr/ivfsw.ado
-*! 1.0.0 Tom Palmer 23nov2026
+*! 1.1.0 Tom Palmer 26nov2026
 
 . set varabbrev off
 
@@ -636,6 +638,7 @@ Excluded instruments: z1 z2
 
 Sanderson-Windmeijer conditional F-statistics
 Number of obs = 4000
+Variance      = unadjusted
 
 Variable                F      df      df_r       P>F
 ------------------------------------------------------
@@ -682,6 +685,7 @@ Exogenous:  w1 w2 z1 z2
 
 Sanderson-Windmeijer conditional F-statistics
 Number of obs = 4000
+Variance      = unadjusted
 
 Variable                F      df      df_r       P>F
 ------------------------------------------------------
@@ -715,6 +719,7 @@ Exogenous:  w1 w2 z1 z2
 
 Sanderson-Windmeijer conditional F-statistics
 Number of obs = 4000
+Variance      = unadjusted
 
 Variable                F      df      df_r       P>F
 ------------------------------------------------------
@@ -752,21 +757,1476 @@ x1                3714.71       2      3995    0.0000
 . assert reldif(table1[1, 1], r(F)) < 1e-8
 
 . 
+. // the estimation results are left unchanged
+. ivregress 2sls y w1 w2 (x1 x2 = z1 z2)
+
+Instrumental-variables 2SLS regression            Number of obs   =      4,000
+                                                  Wald chi2(4)    =   37269.18
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.9158
+                                                  Root MSE        =     1.0438
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .9444678   .6315658     1.50   0.135    -.2933783    2.182314
+          x2 |   1.039244   .6310069     1.65   0.100    -.1975073    2.275994
+          w1 |   1.013999    .062735    16.16   0.000     .8910404    1.136957
+          w2 |   .9671245   .0838686    11.53   0.000     .8027451    1.131504
+       _cons |   .0184935   .0220839     0.84   0.402    -.0247902    .0617773
+------------------------------------------------------------------------------
+Endogenous: x1 x2
+Exogenous:  w1 w2 z1 z2
+
+. mat b = e(b)
+
+. ivfsw
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = unadjusted
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.20       1      3995    0.2738
+x2                   1.20       1      3995    0.2738
+
+. assert "`e(cmd)'" == "ivregress"
+
+. assert mreldif(e(b), b) == 0
+
+. 
+. // weights and robust and cluster-robust variances: the same as ivreg2 after
+. // both ivreg2 and ivregress
+. gen z3 = rnormal()
+
+. gen wt = 1 + (runiform() > .5) * 3
+
+. gen cl = ceil(_n / 40)
+
+. replace x1 = x1 + rnormal() * abs(z1)
+(4,000 real changes made)
+
+. local specs `"", first" ", robust first" ", cluster(cl) first" " [aw=wt], fir
+> st" " [fw=wt], first" " [pw=wt], first" " [aw=wt], cluster(cl) first""'
+
+. foreach spec of local specs {
+  2.     di _n as txt "ivreg2`spec'"
+  3.     ivreg2 y w1 w2 (x1 x2 = z1 z2 z3) `spec'
+  4.     mat first = e(first)
+  5.     ivfsw
+  6.     mat table = r(table)
+  7.     assert reldif(table[1, 1], first[rownumb(first, "SWF"), 1]) < 1e-6
+  8.     assert reldif(table[2, 1], first[rownumb(first, "SWF"), 2]) < 1e-6
+  9.     assert table[1, 3] == first[rownumb(first, "SWFdf2"), 1]
+ 10.     local ivregspec = subinstr("`spec'", " first", "", 1)
+ 11.     local ivregspec = subinstr("`ivregspec'", "robust", "vce(robust)", 1)
+ 12.     local ivregspec = subinstr("`ivregspec'", "cluster(cl)", "vce(cluster 
+> cl)", 1)
+ 13.     ivregress 2sls y w1 w2 (x1 x2 = z1 z2 z3) `ivregspec'
+ 14.     ivfsw
+ 15.     assert mreldif(r(table), table) < 1e-6
+ 16. }
+
+ivreg2, first
+
+First-stage regressions
+-----------------------
+
+
+First-stage regression of x1:
+
+Statistics consistent for homoskedasticity only
+Number of obs =                   4000
+------------------------------------------------------------------------------
+          x1 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9651348   .0227952    42.34   0.000     .9204434    1.009826
+          z2 |   .9802943    .022676    43.23   0.000     .9358367    1.024752
+          z3 |   .0051255   .0224998     0.23   0.820    -.0389866    .0492377
+          w1 |   .0913223   .0226251     4.04   0.000     .0469644    .1356802
+          w2 |  -.0319144   .0228207    -1.40   0.162    -.0766557    .0128268
+       _cons |   .0162958   .0227145     0.72   0.473    -.0282372    .0608289
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,  3994) =  1223.61
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,  3994) =     1.70
+  Prob > F      =   0.1834
+
+
+First-stage regression of x2:
+
+Statistics consistent for homoskedasticity only
+Number of obs =                   4000
+------------------------------------------------------------------------------
+          x2 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   1.016333   .0165128    61.55   0.000     .9839589    1.048707
+          z2 |   .9635963   .0164264    58.66   0.000     .9313913    .9958012
+          z3 |  -.0182007   .0162987    -1.12   0.264    -.0501553     .013754
+          w1 |   .0012517   .0163896     0.08   0.939     -.030881    .0333843
+          w2 |   .1062522   .0165312     6.43   0.000     .0738418    .1386626
+       _cons |  -.0063116   .0164543    -0.38   0.701    -.0385712    .0259479
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,  3994) =  2414.45
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,  3994) =     1.70
+  Prob > F      =   0.1833
+
+
+
+Summary results for first-stage regressions
+-------------------------------------------
+
+                                           (Underid)            (Weak id)
+Variable     | F(  3,  3994)  P-val | SW Chi-sq(  2) P-val | SW F(  2,  3994)
+x1           |    1223.61    0.0000 |        3.40   0.1828 |        1.70
+x2           |    2414.45    0.0000 |        3.40   0.1827 |        1.70
+
+Stock-Yogo weak ID F test critical values for single endogenous regressor:
+                                    5% maximal IV relative bias    13.91
+                                   10% maximal IV relative bias     9.08
+                                   20% maximal IV relative bias     6.46
+                                   30% maximal IV relative bias     5.39
+                                   10% maximal IV size             22.30
+                                   15% maximal IV size             12.83
+                                   20% maximal IV size              9.54
+                                   25% maximal IV size              7.80
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Sanderson-Windmeijer F statistic.
+
+Underidentification test
+Ho: matrix of reduced form coefficients has rank=K1-1 (underidentified)
+Ha: matrix has rank=K1 (identified)
+Anderson canon. corr. LM statistic       Chi-sq(2)=3.40     P-val=0.1831
+
+Weak identification test
+Ho: equation is weakly identified
+Cragg-Donald Wald F statistic                                       1.13
+
+Stock-Yogo weak ID test critical values for K1=2 and L1=3:
+                                   10% maximal IV size             13.43
+                                   15% maximal IV size              8.18
+                                   20% maximal IV size              6.40
+                                   25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+
+Weak-instrument-robust inference
+Tests of joint significance of endogenous regressors B1 in main equation
+Ho: B1=0 and orthogonality conditions are valid
+Anderson-Rubin Wald test           F(3,3994)=   3672.17     P-val=0.0000
+Anderson-Rubin Wald test           Chi-sq(3)=   11033.07    P-val=0.0000
+Stock-Wright LM S statistic        Chi-sq(3)=   2935.68     P-val=0.0000
+
+Number of observations               N  =       4000
+Number of regressors                 K  =          5
+Number of endogenous regressors      K1 =          2
+Number of instruments                L  =          6
+Number of excluded instruments       L1 =          3
+
+IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics consistent for homoskedasticity only
+
+                                                      Number of obs =     4000
+                                                      F(  4,  3995) =  5236.76
+                                                      Prob > F      =   0.0000
+Total (centered) SS     =  51774.35494                Centered R2   =   0.8504
+Total (uncentered) SS   =  51821.65597                Uncentered R2 =   0.8506
+Residual SS             =  7743.813959                Root MSE      =    1.391
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .7736204   .4201388     1.84   0.066    -.0498364    1.597077
+          x2 |   1.222609   .4128852     2.96   0.003     .4133686    2.031849
+          w1 |   1.035333   .0435116    23.79   0.000     .9500518    1.120614
+          w2 |   .9502075   .0616741    15.41   0.000     .8293285    1.071087
+       _cons |   .0228142   .0239985     0.95   0.342    -.0242219    .0698504
+------------------------------------------------------------------------------
+Underidentification test (Anderson canon. corr. LM statistic):           3.395
+                                                   Chi-sq(2) P-val =    0.1831
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):                1.131
+Stock-Yogo weak ID test critical values: 10% maximal IV size             13.43
+                                         15% maximal IV size              8.18
+                                         20% maximal IV size              6.40
+                                         25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+------------------------------------------------------------------------------
+Sargan statistic (overidentification test of all instruments):           1.423
+                                                   Chi-sq(1) P-val =    0.2329
+------------------------------------------------------------------------------
+Instrumented:         x1 x2
+Included instruments: w1 w2
+Excluded instruments: z1 z2 z3
+------------------------------------------------------------------------------
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = unadjusted
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.70       2      3994    0.1834
+x2                   1.70       2      3994    0.1833
+
+Instrumental-variables 2SLS regression            Number of obs   =      4,000
+                                                  Wald chi2(4)    =   20973.26
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.8504
+                                                  Root MSE        =     1.3914
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .7736204   .4201388     1.84   0.066    -.0498364    1.597077
+          x2 |   1.222609   .4128852     2.96   0.003     .4133686    2.031849
+          w1 |   1.035333   .0435116    23.79   0.000     .9500518    1.120614
+          w2 |   .9502075   .0616741    15.41   0.000     .8293285    1.071087
+       _cons |   .0228142   .0239985     0.95   0.342    -.0242219    .0698504
+------------------------------------------------------------------------------
+Endogenous: x1 x2
+Exogenous:  w1 w2 z1 z2 z3
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = unadjusted
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.70       2      3994    0.1834
+x2                   1.70       2      3994    0.1833
+
+ivreg2, robust first
+
+First-stage regressions
+-----------------------
+
+
+First-stage regression of x1:
+
+Statistics robust to heteroskedasticity
+Number of obs =                   4000
+------------------------------------------------------------------------------
+             |               Robust
+          x1 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9651348    .032841    29.39   0.000     .9007482    1.029521
+          z2 |   .9802943   .0219588    44.64   0.000     .9372428    1.023346
+          z3 |   .0051255   .0227538     0.23   0.822    -.0394847    .0497358
+          w1 |   .0913223   .0222602     4.10   0.000     .0476799    .1349647
+          w2 |  -.0319144   .0229451    -1.39   0.164    -.0768997    .0130708
+       _cons |   .0162958    .022696     0.72   0.473     -.028201    .0607926
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,  3994) =   964.97
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,  3994) =     1.49
+  Prob > F      =   0.2251
+
+
+First-stage regression of x2:
+
+Statistics robust to heteroskedasticity
+Number of obs =                   4000
+------------------------------------------------------------------------------
+             |               Robust
+          x2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   1.016333   .0161952    62.76   0.000     .9845816    1.048085
+          z2 |   .9635963   .0161081    59.82   0.000     .9320154    .9951771
+          z3 |  -.0182007   .0161561    -1.13   0.260    -.0498756    .0134743
+          w1 |   .0012517   .0168544     0.07   0.941    -.0317924    .0342957
+          w2 |   .1062522   .0163447     6.50   0.000     .0742075    .1382969
+       _cons |  -.0063116   .0164623    -0.38   0.701    -.0385869    .0259636
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,  3994) =  2542.37
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,  3994) =     1.47
+  Prob > F      =   0.2303
+
+
+
+Summary results for first-stage regressions
+-------------------------------------------
+
+                                           (Underid)            (Weak id)
+Variable     | F(  3,  3994)  P-val | SW Chi-sq(  2) P-val | SW F(  2,  3994)
+x1           |     964.97    0.0000 |        2.99   0.2245 |        1.49
+x2           |    2542.37    0.0000 |        2.94   0.2297 |        1.47
+
+NB: first-stage test statistics heteroskedasticity-robust
+
+Stock-Yogo weak ID F test critical values for single endogenous regressor:
+                                    5% maximal IV relative bias    13.91
+                                   10% maximal IV relative bias     9.08
+                                   20% maximal IV relative bias     6.46
+                                   30% maximal IV relative bias     5.39
+                                   10% maximal IV size             22.30
+                                   15% maximal IV size             12.83
+                                   20% maximal IV size              9.54
+                                   25% maximal IV size              7.80
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for i.i.d. errors only.
+
+Underidentification test
+Ho: matrix of reduced form coefficients has rank=K1-1 (underidentified)
+Ha: matrix has rank=K1 (identified)
+Kleibergen-Paap rk LM statistic          Chi-sq(2)=2.84     P-val=0.2422
+
+Weak identification test
+Ho: equation is weakly identified
+Cragg-Donald Wald F statistic                                       1.13
+Kleibergen-Paap Wald rk F statistic                                 0.94
+
+Stock-Yogo weak ID test critical values for K1=2 and L1=3:
+                                   10% maximal IV size             13.43
+                                   15% maximal IV size              8.18
+                                   20% maximal IV size              6.40
+                                   25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+
+Weak-instrument-robust inference
+Tests of joint significance of endogenous regressors B1 in main equation
+Ho: B1=0 and orthogonality conditions are valid
+Anderson-Rubin Wald test           F(3,3994)=   3733.29     P-val=0.0000
+Anderson-Rubin Wald test           Chi-sq(3)=   11216.69    P-val=0.0000
+Stock-Wright LM S statistic        Chi-sq(3)=   1181.38     P-val=0.0000
+
+NB: Underidentification, weak identification and weak-identification-robust
+    test statistics heteroskedasticity-robust
+
+Number of observations               N  =       4000
+Number of regressors                 K  =          5
+Number of endogenous regressors      K1 =          2
+Number of instruments                L  =          6
+Number of excluded instruments       L1 =          3
+
+IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics robust to heteroskedasticity
+
+                                                      Number of obs =     4000
+                                                      F(  4,  3995) =  4757.70
+                                                      Prob > F      =   0.0000
+Total (centered) SS     =  51774.35494                Centered R2   =   0.8504
+Total (uncentered) SS   =  51821.65597                Uncentered R2 =   0.8506
+Residual SS             =  7743.813959                Root MSE      =    1.391
+
+------------------------------------------------------------------------------
+             |               Robust
+           y | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .7736204   .4700753     1.65   0.100    -.1477102    1.694951
+          x2 |   1.222609   .4653425     2.63   0.009     .3105542    2.134663
+          w1 |   1.035333   .0472056    21.93   0.000     .9428116    1.127854
+          w2 |   .9502075   .0679418    13.99   0.000      .817044    1.083371
+       _cons |   .0228142   .0246564     0.93   0.355    -.0255114    .0711399
+------------------------------------------------------------------------------
+Underidentification test (Kleibergen-Paap rk LM statistic):              2.836
+                                                   Chi-sq(2) P-val =    0.2422
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):                1.131
+                         (Kleibergen-Paap rk Wald F statistic):          0.944
+Stock-Yogo weak ID test critical values: 10% maximal IV size             13.43
+                                         15% maximal IV size              8.18
+                                         20% maximal IV size              6.40
+                                         25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+------------------------------------------------------------------------------
+Hansen J statistic (overidentification test of all instruments):         1.351
+                                                   Chi-sq(1) P-val =    0.2452
+------------------------------------------------------------------------------
+Instrumented:         x1 x2
+Included instruments: w1 w2
+Excluded instruments: z1 z2 z3
+------------------------------------------------------------------------------
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = robust
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.49       2      3994    0.2251
+x2                   1.47       2      3994    0.2303
+
+Instrumental-variables 2SLS regression            Number of obs   =      4,000
+                                                  Wald chi2(4)    =   19054.60
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.8504
+                                                  Root MSE        =     1.3914
+
+------------------------------------------------------------------------------
+             |               Robust
+           y | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .7736204   .4700753     1.65   0.100    -.1477102    1.694951
+          x2 |   1.222609   .4653425     2.63   0.009     .3105542    2.134663
+          w1 |   1.035333   .0472056    21.93   0.000     .9428116    1.127854
+          w2 |   .9502075   .0679418    13.99   0.000      .817044    1.083371
+       _cons |   .0228142   .0246564     0.93   0.355    -.0255114    .0711399
+------------------------------------------------------------------------------
+Endogenous: x1 x2
+Exogenous:  w1 w2 z1 z2 z3
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = robust
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.49       2      3994    0.2251
+x2                   1.47       2      3994    0.2303
+
+ivreg2, cluster(cl) first
+
+First-stage regressions
+-----------------------
+
+
+First-stage regression of x1:
+
+Statistics robust to heteroskedasticity and clustering on cl
+Number of obs =                   4000
+Number of clusters (cl) =          100
+------------------------------------------------------------------------------
+             |               Robust
+          x1 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9651348   .0283794    34.01   0.000     .9094952    1.020774
+          z2 |   .9802943   .0224397    43.69   0.000     .9363001    1.024289
+          z3 |   .0051255   .0236325     0.22   0.828    -.0412073    .0514584
+          w1 |   .0913223   .0172835     5.28   0.000     .0574369    .1252077
+          w2 |  -.0319144   .0223183    -1.43   0.153    -.0756707    .0118418
+       _cons |   .0162958    .023733     0.69   0.492    -.0302341    .0628257
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,    99) =  1115.59
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,    99) =     1.44
+  Prob > F      =   0.2414
+
+
+First-stage regression of x2:
+
+Statistics robust to heteroskedasticity and clustering on cl
+Number of obs =                   4000
+Number of clusters (cl) =          100
+------------------------------------------------------------------------------
+             |               Robust
+          x2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   1.016333   .0156859    64.79   0.000     .9855801    1.047086
+          z2 |   .9635963   .0145158    66.38   0.000     .9351372    .9920553
+          z3 |  -.0182007   .0159456    -1.14   0.254     -.049463    .0130617
+          w1 |   .0012517   .0186204     0.07   0.946    -.0352547     .037758
+          w2 |   .1062522   .0169517     6.27   0.000     .0730174    .1394871
+       _cons |  -.0063116   .0161088    -0.39   0.695    -.0378939    .0252706
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,    99) =  3474.78
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,    99) =     1.44
+  Prob > F      =   0.2429
+
+
+
+Summary results for first-stage regressions
+-------------------------------------------
+
+                                           (Underid)            (Weak id)
+Variable     | F(  3,    99)  P-val | SW Chi-sq(  2) P-val | SW F(  2,    99)
+x1           |    1115.59    0.0000 |        2.92   0.2326 |        1.44
+x2           |    3474.78    0.0000 |        2.90   0.2341 |        1.44
+
+NB: first-stage test statistics cluster-robust
+
+Stock-Yogo weak ID F test critical values for single endogenous regressor:
+                                    5% maximal IV relative bias    13.91
+                                   10% maximal IV relative bias     9.08
+                                   20% maximal IV relative bias     6.46
+                                   30% maximal IV relative bias     5.39
+                                   10% maximal IV size             22.30
+                                   15% maximal IV size             12.83
+                                   20% maximal IV size              9.54
+                                   25% maximal IV size              7.80
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for i.i.d. errors only.
+
+Underidentification test
+Ho: matrix of reduced form coefficients has rank=K1-1 (underidentified)
+Ha: matrix has rank=K1 (identified)
+Kleibergen-Paap rk LM statistic          Chi-sq(2)=2.84     P-val=0.2411
+
+Weak identification test
+Ho: equation is weakly identified
+Cragg-Donald Wald F statistic                                       1.13
+Kleibergen-Paap Wald rk F statistic                                 0.96
+
+Stock-Yogo weak ID test critical values for K1=2 and L1=3:
+                                   10% maximal IV size             13.43
+                                   15% maximal IV size              8.18
+                                   20% maximal IV size              6.40
+                                   25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+
+Weak-instrument-robust inference
+Tests of joint significance of endogenous regressors B1 in main equation
+Ho: B1=0 and orthogonality conditions are valid
+Anderson-Rubin Wald test           F(3,99)=     4427.08     P-val=0.0000
+Anderson-Rubin Wald test           Chi-sq(3)=   13432.20    P-val=0.0000
+Stock-Wright LM S statistic        Chi-sq(3)=     93.81     P-val=0.0000
+
+NB: Underidentification, weak identification and weak-identification-robust
+    test statistics cluster-robust
+
+Number of clusters             N_clust  =        100
+Number of observations               N  =       4000
+Number of regressors                 K  =          5
+Number of endogenous regressors      K1 =          2
+Number of instruments                L  =          6
+Number of excluded instruments       L1 =          3
+
+IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics robust to heteroskedasticity and clustering on cl
+
+Number of clusters (cl) =          100                Number of obs =     4000
+                                                      F(  4,    99) =  4052.31
+                                                      Prob > F      =   0.0000
+Total (centered) SS     =  51774.35494                Centered R2   =   0.8504
+Total (uncentered) SS   =  51821.65597                Uncentered R2 =   0.8506
+Residual SS             =  7743.813959                Root MSE      =    1.391
+
+------------------------------------------------------------------------------
+             |               Robust
+           y | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .7736204   .5137795     1.51   0.132    -.2333689     1.78061
+          x2 |   1.222609   .5052245     2.42   0.016      .232387    2.212831
+          w1 |   1.035333   .0529023    19.57   0.000     .9316463    1.139019
+          w2 |   .9502075   .0774827    12.26   0.000     .7983442    1.102071
+       _cons |   .0228142   .0288573     0.79   0.429     -.033745    .0793735
+------------------------------------------------------------------------------
+Underidentification test (Kleibergen-Paap rk LM statistic):              2.845
+                                                   Chi-sq(2) P-val =    0.2411
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):                1.131
+                         (Kleibergen-Paap rk Wald F statistic):          0.956
+Stock-Yogo weak ID test critical values: 10% maximal IV size             13.43
+                                         15% maximal IV size              8.18
+                                         20% maximal IV size              6.40
+                                         25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+------------------------------------------------------------------------------
+Hansen J statistic (overidentification test of all instruments):         1.283
+                                                   Chi-sq(1) P-val =    0.2573
+------------------------------------------------------------------------------
+Instrumented:         x1 x2
+Included instruments: w1 w2
+Excluded instruments: z1 z2 z3
+------------------------------------------------------------------------------
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = cluster-robust (cl)
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.44       2        99    0.2414
+x2                   1.44       2        99    0.2429
+
+Instrumental-variables 2SLS regression            Number of obs   =      4,000
+                                                  Wald chi2(4)    =   16389.35
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.8504
+                                                  Root MSE        =     1.3914
+
+                                   (Std. err. adjusted for 100 clusters in cl)
+------------------------------------------------------------------------------
+             |               Robust
+           y | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .7736204   .5137795     1.51   0.132    -.2333689     1.78061
+          x2 |   1.222609   .5052245     2.42   0.016      .232387    2.212831
+          w1 |   1.035333   .0529023    19.57   0.000     .9316463    1.139019
+          w2 |   .9502075   .0774827    12.26   0.000     .7983442    1.102071
+       _cons |   .0228142   .0288573     0.79   0.429     -.033745    .0793735
+------------------------------------------------------------------------------
+Endogenous: x1 x2
+Exogenous:  w1 w2 z1 z2 z3
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = cluster-robust (cl)
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.44       2        99    0.2414
+x2                   1.44       2        99    0.2429
+
+ivreg2 [aw=wt], first
+(sum of wgt is     1.0171e+04)
+
+First-stage regressions
+-----------------------
+
+
+First-stage regression of x1:
+
+Statistics consistent for homoskedasticity only
+Number of obs =                   4000
+------------------------------------------------------------------------------
+          x1 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9739209   .0228563    42.61   0.000     .9291099    1.018732
+          z2 |    .991357   .0228387    43.41   0.000     .9465804    1.036133
+          z3 |   .0129522   .0223852     0.58   0.563    -.0309352    .0568396
+          w1 |   .0891256    .022449     3.97   0.000     .0451131    .1331381
+          w2 |  -.0361077    .023049    -1.57   0.117    -.0812966    .0090813
+       _cons |   .0171852    .022694     0.76   0.449    -.0273077     .061678
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,  3994) =  1234.91
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,  3994) =     2.36
+  Prob > F      =   0.0943
+
+
+First-stage regression of x2:
+
+Statistics consistent for homoskedasticity only
+Number of obs =                   4000
+------------------------------------------------------------------------------
+          x2 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |    1.02536   .0166094    61.73   0.000      .992796    1.057923
+          z2 |   .9679836   .0165966    58.32   0.000      .935445    1.000522
+          z3 |  -.0210903   .0162671    -1.30   0.195    -.0529829    .0108022
+          w1 |  -.0074207   .0163134    -0.45   0.649    -.0394042    .0245627
+          w2 |   .1153831   .0167495     6.89   0.000     .0825448    .1482215
+       _cons |   .0113963   .0164915     0.69   0.490    -.0209362    .0437289
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,  3994) =  2404.01
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,  3994) =     2.36
+  Prob > F      =   0.0941
+
+
+
+Summary results for first-stage regressions
+-------------------------------------------
+
+                                           (Underid)            (Weak id)
+Variable     | F(  3,  3994)  P-val | SW Chi-sq(  2) P-val | SW F(  2,  3994)
+x1           |    1234.91    0.0000 |        4.73   0.0938 |        2.36
+x2           |    2404.01    0.0000 |        4.74   0.0936 |        2.36
+
+Stock-Yogo weak ID F test critical values for single endogenous regressor:
+                                    5% maximal IV relative bias    13.91
+                                   10% maximal IV relative bias     9.08
+                                   20% maximal IV relative bias     6.46
+                                   30% maximal IV relative bias     5.39
+                                   10% maximal IV size             22.30
+                                   15% maximal IV size             12.83
+                                   20% maximal IV size              9.54
+                                   25% maximal IV size              7.80
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Sanderson-Windmeijer F statistic.
+
+Underidentification test
+Ho: matrix of reduced form coefficients has rank=K1-1 (underidentified)
+Ha: matrix has rank=K1 (identified)
+Anderson canon. corr. LM statistic       Chi-sq(2)=4.73     P-val=0.0941
+
+Weak identification test
+Ho: equation is weakly identified
+Cragg-Donald Wald F statistic                                       1.58
+
+Stock-Yogo weak ID test critical values for K1=2 and L1=3:
+                                   10% maximal IV size             13.43
+                                   15% maximal IV size              8.18
+                                   20% maximal IV size              6.40
+                                   25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+
+Weak-instrument-robust inference
+Tests of joint significance of endogenous regressors B1 in main equation
+Ho: B1=0 and orthogonality conditions are valid
+Anderson-Rubin Wald test           F(3,3994)=   3606.03     P-val=0.0000
+Anderson-Rubin Wald test           Chi-sq(3)=   10834.34    P-val=0.0000
+Stock-Wright LM S statistic        Chi-sq(3)=   2921.42     P-val=0.0000
+
+Number of observations               N  =       4000
+Number of regressors                 K  =          5
+Number of endogenous regressors      K1 =          2
+Number of instruments                L  =          6
+Number of excluded instruments       L1 =          3
+
+IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics consistent for homoskedasticity only
+
+                                                      Number of obs =     4000
+                                                      F(  4,  3995) =  5095.31
+                                                      Prob > F      =   0.0000
+Total (centered) SS     =  51511.10002                Centered R2   =   0.8462
+Total (uncentered) SS   =  51568.43178                Uncentered R2 =   0.8464
+Residual SS             =  7921.033949                Root MSE      =    1.407
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .6756614   .3595399     1.88   0.060    -.0290237    1.380347
+          x2 |   1.293172   .3546067     3.65   0.000     .5981557    1.988188
+          w1 |   1.039825   .0411102    25.29   0.000     .9592507      1.1204
+          w2 |   .9506165   .0588895    16.14   0.000     .8351952    1.066038
+       _cons |  -.0096277   .0223839    -0.43   0.667    -.0534993    .0342439
+------------------------------------------------------------------------------
+Underidentification test (Anderson canon. corr. LM statistic):           4.727
+                                                   Chi-sq(2) P-val =    0.0941
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):                1.575
+Stock-Yogo weak ID test critical values: 10% maximal IV size             13.43
+                                         15% maximal IV size              8.18
+                                         20% maximal IV size              6.40
+                                         25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+------------------------------------------------------------------------------
+Sargan statistic (overidentification test of all instruments):           0.012
+                                                   Chi-sq(1) P-val =    0.9113
+------------------------------------------------------------------------------
+Instrumented:         x1 x2
+Included instruments: w1 w2
+Excluded instruments: z1 z2 z3
+------------------------------------------------------------------------------
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = unadjusted
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   2.36       2      3994    0.0943
+x2                   2.36       2      3994    0.0941
+(sum of wgt is   1.0171e+04)
+
+Instrumental-variables 2SLS regression            Number of obs   =      4,000
+                                                  Wald chi2(4)    =   20406.74
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.8462
+                                                  Root MSE        =     1.4072
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .6756614   .3595399     1.88   0.060    -.0290237    1.380347
+          x2 |   1.293172   .3546067     3.65   0.000     .5981557    1.988188
+          w1 |   1.039825   .0411102    25.29   0.000     .9592507      1.1204
+          w2 |   .9506165   .0588895    16.14   0.000     .8351952    1.066038
+       _cons |  -.0096277   .0223839    -0.43   0.667    -.0534993    .0342439
+------------------------------------------------------------------------------
+Endogenous: x1 x2
+Exogenous:  w1 w2 z1 z2 z3
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = unadjusted
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   2.36       2      3994    0.0943
+x2                   2.36       2      3994    0.0941
+
+ivreg2 [fw=wt], first
+(sum of wgt is     1.0171e+04)
+
+First-stage regressions
+-----------------------
+
+
+First-stage regression of x1:
+
+Statistics consistent for homoskedasticity only
+Number of obs =                  10171
+------------------------------------------------------------------------------
+          x1 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9739209    .014327    67.98   0.000     .9458372    1.002005
+          z2 |    .991357    .014316    69.25   0.000     .9632948    1.019419
+          z3 |   .0129522   .0140317     0.92   0.356    -.0145528    .0404571
+          w1 |   .0891256   .0140717     6.33   0.000     .0615423    .1167089
+          w2 |  -.0361077   .0144478    -2.50   0.012    -.0644283   -.0077871
+       _cons |   .0171852   .0142253     1.21   0.227    -.0106992    .0450695
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3, 10165) =  3142.92
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2, 10165) =     6.01
+  Prob > F      =   0.0025
+
+
+First-stage regression of x2:
+
+Statistics consistent for homoskedasticity only
+Number of obs =                  10171
+------------------------------------------------------------------------------
+          x2 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |    1.02536   .0104113    98.49   0.000     1.004952    1.045768
+          z2 |   .9679836   .0104033    93.05   0.000     .9475911    .9883761
+          z3 |  -.0210903   .0101967    -2.07   0.039    -.0410779   -.0011028
+          w1 |  -.0074207   .0102258    -0.73   0.468    -.0274653    .0126238
+          w2 |   .1153831   .0104991    10.99   0.000     .0948028    .1359635
+       _cons |   .0113963   .0103374     1.10   0.270     -.008867    .0316596
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3, 10165) =  6118.36
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2, 10165) =     6.02
+  Prob > F      =   0.0024
+
+
+
+Summary results for first-stage regressions
+-------------------------------------------
+
+                                           (Underid)            (Weak id)
+Variable     | F(  3, 10165)  P-val | SW Chi-sq(  2) P-val | SW F(  2, 10165)
+x1           |    3142.92    0.0000 |       12.04   0.0024 |        6.01
+x2           |    6118.36    0.0000 |       12.04   0.0024 |        6.02
+
+Stock-Yogo weak ID F test critical values for single endogenous regressor:
+                                    5% maximal IV relative bias    13.91
+                                   10% maximal IV relative bias     9.08
+                                   20% maximal IV relative bias     6.46
+                                   30% maximal IV relative bias     5.39
+                                   10% maximal IV size             22.30
+                                   15% maximal IV size             12.83
+                                   20% maximal IV size              9.54
+                                   25% maximal IV size              7.80
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Sanderson-Windmeijer F statistic.
+
+Underidentification test
+Ho: matrix of reduced form coefficients has rank=K1-1 (underidentified)
+Ha: matrix has rank=K1 (identified)
+Anderson canon. corr. LM statistic       Chi-sq(2)=12.02    P-val=0.0025
+
+Weak identification test
+Ho: equation is weakly identified
+Cragg-Donald Wald F statistic                                       4.01
+
+Stock-Yogo weak ID test critical values for K1=2 and L1=3:
+                                   10% maximal IV size             13.43
+                                   15% maximal IV size              8.18
+                                   20% maximal IV size              6.40
+                                   25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+
+Weak-instrument-robust inference
+Tests of joint significance of endogenous regressors B1 in main equation
+Ho: B1=0 and orthogonality conditions are valid
+Anderson-Rubin Wald test           F(3,10165)=  9177.59     P-val=0.0000
+Anderson-Rubin Wald test           Chi-sq(3)=   27549.01    P-val=0.0000
+Stock-Wright LM S statistic        Chi-sq(3)=   7428.44     P-val=0.0000
+
+Number of observations               N  =      10171
+Number of regressors                 K  =          5
+Number of endogenous regressors      K1 =          2
+Number of instruments                L  =          6
+Number of excluded instruments       L1 =          3
+
+IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics consistent for homoskedasticity only
+
+                                                      Number of obs =    10171
+                                                      F(  4, 10166) = 12965.93
+                                                      Prob > F      =   0.0000
+Total (centered) SS     =  130979.8496                Centered R2   =   0.8462
+Total (uncentered) SS   =  131125.6299                Uncentered R2 =   0.8464
+Residual SS             =  20141.20907                Root MSE      =    1.407
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .6756614   .2254734     3.00   0.003     .2337418    1.117581
+          x2 |   1.293172   .2223797     5.82   0.000     .8573159    1.729028
+          w1 |   1.039825   .0257809    40.33   0.000     .9892956    1.090355
+          w2 |   .9506165   .0369306    25.74   0.000     .8782339    1.022999
+       _cons |  -.0096277   .0140373    -0.69   0.493    -.0371403    .0178849
+------------------------------------------------------------------------------
+Underidentification test (Anderson canon. corr. LM statistic):          12.019
+                                                   Chi-sq(2) P-val =    0.0025
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):                4.009
+Stock-Yogo weak ID test critical values: 10% maximal IV size             13.43
+                                         15% maximal IV size              8.18
+                                         20% maximal IV size              6.40
+                                         25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+------------------------------------------------------------------------------
+Sargan statistic (overidentification test of all instruments):           0.032
+                                                   Chi-sq(1) P-val =    0.8591
+------------------------------------------------------------------------------
+Instrumented:         x1 x2
+Included instruments: w1 w2
+Excluded instruments: z1 z2 z3
+------------------------------------------------------------------------------
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 10171
+Variance      = unadjusted
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   6.01       2     10165    0.0025
+x2                   6.02       2     10165    0.0024
+
+Instrumental-variables 2SLS regression            Number of obs   =     10,171
+                                                  Wald chi2(4)    =   51889.24
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.8462
+                                                  Root MSE        =     1.4072
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .6756614   .2254734     3.00   0.003     .2337418    1.117581
+          x2 |   1.293172   .2223797     5.82   0.000     .8573159    1.729028
+          w1 |   1.039825   .0257809    40.33   0.000     .9892956    1.090355
+          w2 |   .9506165   .0369306    25.74   0.000     .8782339    1.022999
+       _cons |  -.0096277   .0140373    -0.69   0.493    -.0371403    .0178849
+------------------------------------------------------------------------------
+Endogenous: x1 x2
+Exogenous:  w1 w2 z1 z2 z3
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 10171
+Variance      = unadjusted
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   6.01       2     10165    0.0025
+x2                   6.02       2     10165    0.0024
+
+ivreg2 [pw=wt], first
+(sum of wgt is     1.0171e+04)
+
+First-stage regressions
+-----------------------
+
+
+First-stage regression of x1:
+
+Statistics robust to heteroskedasticity
+Number of obs =                   4000
+------------------------------------------------------------------------------
+             |               Robust
+          x1 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9739209   .0369709    26.34   0.000     .9014373    1.046405
+          z2 |    .991357   .0262784    37.73   0.000     .9398367    1.042877
+          z3 |   .0129522   .0257402     0.50   0.615    -.0375129    .0634173
+          w1 |   .0891256   .0251626     3.54   0.000     .0397928    .1384584
+          w2 |  -.0361077   .0260225    -1.39   0.165    -.0871263     .014911
+       _cons |   .0171852   .0263008     0.65   0.514     -.034379    .0687493
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,  3994) =   709.12
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,  3994) =     1.58
+  Prob > F      =   0.2068
+
+
+First-stage regression of x2:
+
+Statistics robust to heteroskedasticity
+Number of obs =                   4000
+------------------------------------------------------------------------------
+             |               Robust
+          x2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |    1.02536   .0187701    54.63   0.000     .9885598     1.06216
+          z2 |   .9679836   .0187124    51.73   0.000     .9312969     1.00467
+          z3 |  -.0210903   .0186931    -1.13   0.259    -.0577393    .0155586
+          w1 |  -.0074207   .0195414    -0.38   0.704    -.0457328    .0308914
+          w2 |   .1153831   .0191678     6.02   0.000     .0778036    .1529627
+       _cons |   .0113963    .019165     0.59   0.552    -.0261778    .0489704
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,  3994) =  1991.73
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,  3994) =     1.55
+  Prob > F      =   0.2117
+
+
+
+Summary results for first-stage regressions
+-------------------------------------------
+
+                                           (Underid)            (Weak id)
+Variable     | F(  3,  3994)  P-val | SW Chi-sq(  2) P-val | SW F(  2,  3994)
+x1           |     709.12    0.0000 |        3.16   0.2062 |        1.58
+x2           |    1991.73    0.0000 |        3.11   0.2110 |        1.55
+
+NB: first-stage test statistics heteroskedasticity-robust
+
+Stock-Yogo weak ID F test critical values for single endogenous regressor:
+                                    5% maximal IV relative bias    13.91
+                                   10% maximal IV relative bias     9.08
+                                   20% maximal IV relative bias     6.46
+                                   30% maximal IV relative bias     5.39
+                                   10% maximal IV size             22.30
+                                   15% maximal IV size             12.83
+                                   20% maximal IV size              9.54
+                                   25% maximal IV size              7.80
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for i.i.d. errors only.
+
+Underidentification test
+Ho: matrix of reduced form coefficients has rank=K1-1 (underidentified)
+Ha: matrix has rank=K1 (identified)
+Kleibergen-Paap rk LM statistic          Chi-sq(2)=3.04     P-val=0.2183
+
+Weak identification test
+Ho: equation is weakly identified
+Cragg-Donald Wald F statistic                                       1.58
+Kleibergen-Paap Wald rk F statistic                                 1.01
+
+Stock-Yogo weak ID test critical values for K1=2 and L1=3:
+                                   10% maximal IV size             13.43
+                                   15% maximal IV size              8.18
+                                   20% maximal IV size              6.40
+                                   25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+
+Weak-instrument-robust inference
+Tests of joint significance of endogenous regressors B1 in main equation
+Ho: B1=0 and orthogonality conditions are valid
+Anderson-Rubin Wald test           F(3,3994)=   2701.38     P-val=0.0000
+Anderson-Rubin Wald test           Chi-sq(3)=   8116.30     P-val=0.0000
+Stock-Wright LM S statistic        Chi-sq(3)=    878.01     P-val=0.0000
+
+NB: Underidentification, weak identification and weak-identification-robust
+    test statistics heteroskedasticity-robust
+
+Number of observations               N  =       4000
+Number of regressors                 K  =          5
+Number of endogenous regressors      K1 =          2
+Number of instruments                L  =          6
+Number of excluded instruments       L1 =          3
+
+IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics robust to heteroskedasticity
+
+                                                      Number of obs =     4000
+                                                      F(  4,  3995) =  3447.82
+                                                      Prob > F      =   0.0000
+Total (centered) SS     =  51511.10002                Centered R2   =   0.8462
+Total (uncentered) SS   =  51568.43178                Uncentered R2 =   0.8464
+Residual SS             =  7921.033949                Root MSE      =    1.407
+
+------------------------------------------------------------------------------
+             |               Robust
+           y | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .6756614   .4578537     1.48   0.140    -.2217153    1.573038
+          x2 |   1.293172     .45443     2.85   0.004     .4025057    2.183838
+          w1 |   1.039825   .0514361    20.22   0.000     .9390122    1.140638
+          w2 |   .9506165   .0732111    12.98   0.000     .8071254    1.094108
+       _cons |  -.0096277   .0261347    -0.37   0.713    -.0608509    .0415955
+------------------------------------------------------------------------------
+Underidentification test (Kleibergen-Paap rk LM statistic):              3.044
+                                                   Chi-sq(2) P-val =    0.2183
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):                1.575
+                         (Kleibergen-Paap rk Wald F statistic):          1.012
+Stock-Yogo weak ID test critical values: 10% maximal IV size             13.43
+                                         15% maximal IV size              8.18
+                                         20% maximal IV size              6.40
+                                         25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+------------------------------------------------------------------------------
+Hansen J statistic (overidentification test of all instruments):         0.009
+                                                   Chi-sq(1) P-val =    0.9248
+------------------------------------------------------------------------------
+Instrumented:         x1 x2
+Included instruments: w1 w2
+Excluded instruments: z1 z2 z3
+------------------------------------------------------------------------------
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = robust
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.58       2      3994    0.2068
+x2                   1.55       2      3994    0.2117
+(sum of wgt is   1.0171e+04)
+
+Instrumental-variables 2SLS regression            Number of obs   =      4,000
+                                                  Wald chi2(4)    =   13808.54
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.8462
+                                                  Root MSE        =     1.4072
+
+------------------------------------------------------------------------------
+             |               Robust
+           y | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .6756614   .4578537     1.48   0.140    -.2217153    1.573038
+          x2 |   1.293172     .45443     2.85   0.004     .4025057    2.183838
+          w1 |   1.039825   .0514361    20.22   0.000     .9390122    1.140638
+          w2 |   .9506165   .0732111    12.98   0.000     .8071254    1.094108
+       _cons |  -.0096277   .0261347    -0.37   0.713    -.0608509    .0415955
+------------------------------------------------------------------------------
+Endogenous: x1 x2
+Exogenous:  w1 w2 z1 z2 z3
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = robust
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.58       2      3994    0.2068
+x2                   1.55       2      3994    0.2117
+
+ivreg2 [aw=wt], cluster(cl) first
+(sum of wgt is     1.0171e+04)
+
+First-stage regressions
+-----------------------
+
+
+First-stage regression of x1:
+
+Statistics robust to heteroskedasticity and clustering on cl
+Number of obs =                   4000
+Number of clusters (cl) =          100
+------------------------------------------------------------------------------
+             |               Robust
+          x1 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |   .9739209   .0317759    30.65   0.000     .9116223     1.03622
+          z2 |    .991357   .0259102    38.26   0.000     .9405585    1.042155
+          z3 |   .0129522   .0261054     0.50   0.620     -.038229    .0641334
+          w1 |   .0891256   .0207569     4.29   0.000     .0484305    .1298208
+          w2 |  -.0361077   .0250472    -1.44   0.149    -.0852142    .0129989
+       _cons |   .0171852   .0259267     0.66   0.507    -.0336457     .068016
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,    99) =   795.73
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,    99) =     1.49
+  Prob > F      =   0.2308
+
+
+First-stage regression of x2:
+
+Statistics robust to heteroskedasticity and clustering on cl
+Number of obs =                   4000
+Number of clusters (cl) =          100
+------------------------------------------------------------------------------
+             |               Robust
+          x2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          z1 |    1.02536   .0197398    51.94   0.000     .9866587    1.064061
+          z2 |   .9679836   .0183407    52.78   0.000     .9320256    1.003942
+          z3 |  -.0210903   .0181151    -1.16   0.244     -.056606    .0144253
+          w1 |  -.0074207   .0218049    -0.34   0.734    -.0501705     .035329
+          w2 |   .1153831     .02036     5.67   0.000     .0754661    .1553002
+       _cons |   .0113963   .0200078     0.57   0.569    -.0278301    .0506227
+------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  3,    99) =  1994.99
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  2,    99) =     1.48
+  Prob > F      =   0.2325
+
+
+
+Summary results for first-stage regressions
+-------------------------------------------
+
+                                           (Underid)            (Weak id)
+Variable     | F(  3,    99)  P-val | SW Chi-sq(  2) P-val | SW F(  2,    99)
+x1           |     795.73    0.0000 |        3.01   0.2220 |        1.49
+x2           |    1994.99    0.0000 |        3.00   0.2237 |        1.48
+
+NB: first-stage test statistics cluster-robust
+
+Stock-Yogo weak ID F test critical values for single endogenous regressor:
+                                    5% maximal IV relative bias    13.91
+                                   10% maximal IV relative bias     9.08
+                                   20% maximal IV relative bias     6.46
+                                   30% maximal IV relative bias     5.39
+                                   10% maximal IV size             22.30
+                                   15% maximal IV size             12.83
+                                   20% maximal IV size              9.54
+                                   25% maximal IV size              7.80
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for i.i.d. errors only.
+
+Underidentification test
+Ho: matrix of reduced form coefficients has rank=K1-1 (underidentified)
+Ha: matrix has rank=K1 (identified)
+Kleibergen-Paap rk LM statistic          Chi-sq(2)=2.96     P-val=0.2278
+
+Weak identification test
+Ho: equation is weakly identified
+Cragg-Donald Wald F statistic                                       1.58
+Kleibergen-Paap Wald rk F statistic                                 0.99
+
+Stock-Yogo weak ID test critical values for K1=2 and L1=3:
+                                   10% maximal IV size             13.43
+                                   15% maximal IV size              8.18
+                                   20% maximal IV size              6.40
+                                   25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+
+Weak-instrument-robust inference
+Tests of joint significance of endogenous regressors B1 in main equation
+Ho: B1=0 and orthogonality conditions are valid
+Anderson-Rubin Wald test           F(3,99)=     3301.66     P-val=0.0000
+Anderson-Rubin Wald test           Chi-sq(3)=   10017.55    P-val=0.0000
+Stock-Wright LM S statistic        Chi-sq(3)=     90.60     P-val=0.0000
+
+NB: Underidentification, weak identification and weak-identification-robust
+    test statistics cluster-robust
+
+Number of clusters             N_clust  =        100
+Number of observations               N  =       4000
+Number of regressors                 K  =          5
+Number of endogenous regressors      K1 =          2
+Number of instruments                L  =          6
+Number of excluded instruments       L1 =          3
+
+IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics robust to heteroskedasticity and clustering on cl
+
+Number of clusters (cl) =          100                Number of obs =     4000
+                                                      F(  4,    99) =  3050.00
+                                                      Prob > F      =   0.0000
+Total (centered) SS     =  51511.10002                Centered R2   =   0.8462
+Total (uncentered) SS   =  51568.43178                Uncentered R2 =   0.8464
+Residual SS             =  7921.033949                Root MSE      =    1.407
+
+------------------------------------------------------------------------------
+             |               Robust
+           y | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .6756614    .508238     1.33   0.184    -.3204667     1.67179
+          x2 |   1.293172    .502362     2.57   0.010     .3085606    2.277784
+          w1 |   1.039825   .0575179    18.08   0.000     .9270923    1.152558
+          w2 |   .9506165   .0830043    11.45   0.000     .7879311    1.113302
+       _cons |  -.0096277   .0279223    -0.34   0.730    -.0643545    .0450991
+------------------------------------------------------------------------------
+Underidentification test (Kleibergen-Paap rk LM statistic):              2.959
+                                                   Chi-sq(2) P-val =    0.2278
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):                1.575
+                         (Kleibergen-Paap rk Wald F statistic):          0.986
+Stock-Yogo weak ID test critical values: 10% maximal IV size             13.43
+                                         15% maximal IV size              8.18
+                                         20% maximal IV size              6.40
+                                         25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+------------------------------------------------------------------------------
+Hansen J statistic (overidentification test of all instruments):         0.008
+                                                   Chi-sq(1) P-val =    0.9290
+------------------------------------------------------------------------------
+Instrumented:         x1 x2
+Included instruments: w1 w2
+Excluded instruments: z1 z2 z3
+------------------------------------------------------------------------------
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = cluster-robust (cl)
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.49       2        99    0.2308
+x2                   1.48       2        99    0.2325
+(sum of wgt is   1.0171e+04)
+
+Instrumental-variables 2SLS regression            Number of obs   =      4,000
+                                                  Wald chi2(4)    =   12335.55
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.8462
+                                                  Root MSE        =     1.4072
+
+                                   (Std. err. adjusted for 100 clusters in cl)
+------------------------------------------------------------------------------
+             |               Robust
+           y | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .6756614    .508238     1.33   0.184    -.3204667     1.67179
+          x2 |   1.293172    .502362     2.57   0.010     .3085606    2.277784
+          w1 |   1.039825   .0575179    18.08   0.000     .9270923    1.152558
+          w2 |   .9506165   .0830043    11.45   0.000     .7879311    1.113302
+       _cons |  -.0096277   .0279223    -0.34   0.730    -.0643545    .0450991
+------------------------------------------------------------------------------
+Endogenous: x1 x2
+Exogenous:  w1 w2 z1 z2 z3
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 4000
+Variance      = cluster-robust (cl)
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   1.49       2        99    0.2308
+x2                   1.48       2        99    0.2325
+
+. 
+. // unsupported variance types
+. gen cl2 = mod(_n, 37)
+
+. ivreg2 y w1 w2 (x1 x2 = z1 z2 z3), cluster(cl cl2)
+
+IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics robust to heteroskedasticity and clustering on cl and cl2
+
+Number of clusters (cl) =          100                Number of obs =     4000
+Number of clusters (cl2) =          37                F(  4,    36) =  4118.71
+                                                      Prob > F      =   0.0000
+Total (centered) SS     =  51774.35494                Centered R2   =   0.8504
+Total (uncentered) SS   =  51821.65597                Uncentered R2 =   0.8506
+Residual SS             =  7743.813959                Root MSE      =    1.391
+
+------------------------------------------------------------------------------
+             |               Robust
+           y | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .7736204   .5232393     1.48   0.139    -.2519097    1.799151
+          x2 |   1.222609   .5181127     2.36   0.018     .2071266    2.238091
+          w1 |   1.035333   .0522491    19.82   0.000     .9329266    1.137739
+          w2 |   .9502075   .0777087    12.23   0.000     .7979012    1.102514
+       _cons |   .0228142   .0300157     0.76   0.447    -.0360155     .081644
+------------------------------------------------------------------------------
+Underidentification test (Kleibergen-Paap rk LM statistic):              3.212
+                                                   Chi-sq(2) P-val =    0.2007
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):                1.131
+                         (Kleibergen-Paap rk Wald F statistic):          1.171
+Stock-Yogo weak ID test critical values: 10% maximal IV size             13.43
+                                         15% maximal IV size              8.18
+                                         20% maximal IV size              6.40
+                                         25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+------------------------------------------------------------------------------
+Hansen J statistic (overidentification test of all instruments):         1.409
+                                                   Chi-sq(1) P-val =    0.2353
+------------------------------------------------------------------------------
+Instrumented:         x1 x2
+Included instruments: w1 w2
+Excluded instruments: z1 z2 z3
+------------------------------------------------------------------------------
+
+. rcof "ivfsw" == 498
+
+. gen t = _n
+
+. tsset t
+
+Time variable: t, 1 to 4000
+        Delta: 1 unit
+
+. ivregress 2sls y w1 w2 (x1 x2 = z1 z2 z3), vce(hac nwest 2)
+
+Instrumental-variables 2SLS regression            Number of obs   =      4,000
+                                                  Wald chi2(4)    =   19378.29
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.8504
+                                                  Root MSE        =     1.3914
+
+------------------------------------------------------------------------------
+             |                 HAC
+           y | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .7736204   .4752177     1.63   0.104    -.1577891     1.70503
+          x2 |   1.222609   .4702272     2.60   0.009     .3009804    2.144237
+          w1 |   1.035333   .0478858    21.62   0.000     .9414783    1.129187
+          w2 |   .9502075   .0688098    13.81   0.000     .8153429    1.085072
+       _cons |   .0228142   .0247882     0.92   0.357    -.0257698    .0713983
+------------------------------------------------------------------------------
+Endogenous: x1 x2
+Exogenous:  w1 w2 z1 z2 z3
+HAC VCE:    Bartlett kernel with 2 lags
+
+. rcof "ivfsw" == 498
+
+. tsset, clear
+
+. 
 . // error after another estimation command
 . regress y x1
 
       Source |       SS           df       MS      Number of obs   =     4,000
--------------+----------------------------------   F(1, 3998)      =   8622.67
-       Model |  35373.1731         1  35373.1731   Prob > F        =    0.0000
-    Residual |  16401.1818     3,998  4.10234662   R-squared       =    0.6832
--------------+----------------------------------   Adj R-squared   =    0.6831
-       Total |  51774.3549     3,999  12.9468254   Root MSE        =    2.0254
+-------------+----------------------------------   F(1, 3998)      =   4220.24
+       Model |  26587.2316         1  26587.2316   Prob > F        =    0.0000
+    Residual |  25187.1233     3,998   6.2999308   R-squared       =    0.5135
+-------------+----------------------------------   Adj R-squared   =    0.5134
+       Total |  51774.3549     3,999  12.9468254   Root MSE        =      2.51
 
 ------------------------------------------------------------------------------
            y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-          x1 |   1.710942   .0184253    92.86   0.000     1.674818    1.747066
-       _cons |   .0364112   .0320343     1.14   0.256    -.0263938    .0992162
+          x1 |    1.29492   .0199331    64.96   0.000      1.25584       1.334
+       _cons |   .0553026   .0396946     1.39   0.164    -.0225209    .1331261
 ------------------------------------------------------------------------------
 
 . rcof "ivfsw" == 301
@@ -776,13 +2236,13 @@ end of do-file
       name:  ivfsw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivfsw.log
   log type:  text
- closed on:  26 Nov 2026, 11:00:22
+ closed on:  26 Nov 2026, 11:32:12
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  26 Nov 2026, 11:00:22
+ opened on:  26 Nov 2026, 11:32:12
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -1469,13 +2929,13 @@ end of do-file
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  26 Nov 2026, 11:00:25
+ closed on:  26 Nov 2026, 11:32:15
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  26 Nov 2026, 11:00:25
+ opened on:  26 Nov 2026, 11:32:15
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -1916,13 +3376,13 @@ end of do-file
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  26 Nov 2026, 11:00:26
+ closed on:  26 Nov 2026, 11:32:16
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  26 Nov 2026, 11:00:26
+ opened on:  26 Nov 2026, 11:32:16
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -3452,13 +4912,13 @@ end of do-file
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  26 Nov 2026, 11:00:29
+ closed on:  26 Nov 2026, 11:32:19
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  26 Nov 2026, 11:00:29
+ opened on:  26 Nov 2026, 11:32:19
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -5101,13 +6561,13 @@ end of do-file
       name:  ivtsri
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  26 Nov 2026, 11:00:32
+ closed on:  26 Nov 2026, 11:32:22
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:  26 Nov 2026, 11:00:32
+ opened on:  26 Nov 2026, 11:32:22
 
 . // ivmw cscript
 . // 2021-09-12
@@ -5175,7 +6635,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivregress)
 
@@ -5186,7 +6646,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivregress)
 
@@ -5197,7 +6657,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivregress)
 
@@ -5210,7 +6670,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5221,7 +6681,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5234,7 +6694,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5245,7 +6705,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5258,7 +6718,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5269,7 +6729,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5310,7 +6770,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5349,7 +6809,7 @@ Time variable: res_order, 1 to 2500
 (running ivmsmm on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivmsmm)
 
@@ -5404,7 +6864,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5415,7 +6875,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5426,7 +6886,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5437,7 +6897,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5448,7 +6908,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5459,7 +6919,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5470,7 +6930,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5482,7 +6942,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5570,7 +7030,7 @@ Time variable: res_order, 1 to 4000
 (running ivlsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivlsmm)
 
@@ -5581,7 +7041,7 @@ Time variable: res_order, 1 to 4000
 (running ivmsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivmsmm)
 
@@ -5592,7 +7052,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5603,7 +7063,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5614,7 +7074,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5625,7 +7085,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5636,7 +7096,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5647,7 +7107,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5656,13 +7116,13 @@ end of do-file
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:  26 Nov 2026, 11:01:04
+ closed on:  26 Nov 2026, 11:32:55
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:  26 Nov 2026, 11:01:04
+ opened on:  26 Nov 2026, 11:32:55
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -6148,13 +7608,13 @@ end of do-file
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:  26 Nov 2026, 11:01:13
+ closed on:  26 Nov 2026, 11:33:06
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  26 Nov 2026, 11:01:13
+ opened on:  26 Nov 2026, 11:33:06
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -6382,6 +7842,17 @@ Description
     function in the R package OneSampleMR, and as the Sanderson-Windmeijer
     F-statistics reported by ivreg2 with the first option.
 
+    ivfsw uses the weights and the variance type of the fitted model. After a
+    model fitted with robust or one-way cluster-robust standard errors
+    (including with pweights) the F-statistics are robust versions, and after
+    a model with weights the conditional models and F-tests are weighted, in
+    each case matching ivreg2. With cluster-robust standard errors the
+    denominator degrees of freedom are the number of clusters minus one. Note
+    that the Stock and Yogo (2005) critical values were derived for the
+    non-robust F-statistic. HAC, two-way cluster-robust, bootstrap, and
+    jackknife variances, and the partial(), dofminus(), and sdofminus()
+    options of ivreg2, are not supported.
+
 Examples
 --------
 
@@ -6402,6 +7873,11 @@ Examples
         . ivreg2 y w (x1 x2 = z1 z2 z3)
         . ivfsw
 
+    Robust conditional F-statistics.
+
+        . ivregress 2sls y w (x1 x2 = z1 z2 z3), vce(robust)
+        . ivfsw
+
 Stored results
 --------------
 
@@ -6411,6 +7887,10 @@ Stored results
       r(N)                number of observations
       r(K)                number of exposures (endogenous variables)
       r(L)                number of excluded instruments
+
+    Macros         
+      r(vce)              variance type used: unadjusted, robust, or
+                            cluster-robust (clustvar)
 
     Matrices       
       r(table)            conditional F-statistics, numerator and denominator
@@ -7257,7 +8737,7 @@ end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  26 Nov 2026, 11:01:13
+ closed on:  26 Nov 2026, 11:33:06
 -------------------------------------------------------------------------------
 
 . 
@@ -7265,5 +8745,5 @@ end of do-file
       name:  master
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:  26 Nov 2026, 11:01:13
+ closed on:  26 Nov 2026, 11:33:06
 -------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  26 Nov 2026, 11:00:19
+ opened on:  26 Nov 2026, 11:32:08
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -327,6 +327,7 @@ Excluded instruments: z1 z2 z3
 
 Sanderson-Windmeijer conditional F-statistics
 Number of obs = 2500
+Variance      = unadjusted
 
 Variable                F      df      df_r       P>F
 ------------------------------------------------------
@@ -357,6 +358,7 @@ Exogenous:  w z1 z2 z3
 
 Sanderson-Windmeijer conditional F-statistics
 Number of obs = 2500
+Variance      = unadjusted
 
 Variable                F      df      df_r       P>F
 ------------------------------------------------------
@@ -372,7 +374,7 @@ Time variable: res_order, 1 to 2500
 
 Rolling replications (101): .........10.........20.........30.........40.......
 > ..50.........60.........70.........80.........90.........100. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St44635_6865.000001
     saved as .dta format
 (rolling: ivregress)
 
@@ -396,5 +398,5 @@ end of do-file
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  26 Nov 2026, 11:00:22
+ closed on:  26 Nov 2026, 11:32:11
 -------------------------------------------------------------------------------

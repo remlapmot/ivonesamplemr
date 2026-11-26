@@ -2,7 +2,7 @@
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  26 Nov 2026, 11:01:13
+ opened on:  26 Nov 2026, 11:33:06
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -230,6 +230,17 @@ Description
     function in the R package OneSampleMR, and as the Sanderson-Windmeijer
     F-statistics reported by ivreg2 with the first option.
 
+    ivfsw uses the weights and the variance type of the fitted model. After a
+    model fitted with robust or one-way cluster-robust standard errors
+    (including with pweights) the F-statistics are robust versions, and after
+    a model with weights the conditional models and F-tests are weighted, in
+    each case matching ivreg2. With cluster-robust standard errors the
+    denominator degrees of freedom are the number of clusters minus one. Note
+    that the Stock and Yogo (2005) critical values were derived for the
+    non-robust F-statistic. HAC, two-way cluster-robust, bootstrap, and
+    jackknife variances, and the partial(), dofminus(), and sdofminus()
+    options of ivreg2, are not supported.
+
 Examples
 --------
 
@@ -250,6 +261,11 @@ Examples
         . ivreg2 y w (x1 x2 = z1 z2 z3)
         . ivfsw
 
+    Robust conditional F-statistics.
+
+        . ivregress 2sls y w (x1 x2 = z1 z2 z3), vce(robust)
+        . ivfsw
+
 Stored results
 --------------
 
@@ -259,6 +275,10 @@ Stored results
       r(N)                number of observations
       r(K)                number of exposures (endogenous variables)
       r(L)                number of excluded instruments
+
+    Macros         
+      r(vce)              variance type used: unadjusted, robust, or
+                            cluster-robust (clustvar)
 
     Matrices       
       r(table)            conditional F-statistics, numerator and denominator
@@ -1105,5 +1125,5 @@ end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  26 Nov 2026, 11:01:13
+ closed on:  26 Nov 2026, 11:33:06
 -------------------------------------------------------------------------------
