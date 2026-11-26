@@ -40,6 +40,12 @@ tokenize `"`right'"'
 local ivcmdname `1'
 macro shift
 local rest `*'
+capture which `ivcmdname'
+if _rc {
+	di as error "command {bf:`ivcmdname'} not found"
+	if "`ivcmdname'" == "ivreg2" di as error "install it with {stata ssc install ivreg2}"
+	exit 111
+}
 if "`ivcmdname'" == "ivregress" {
 	local rest = subinstr("`rest'", "2sls", "", .)
 	local rest = subinstr("`rest'", "liml", "", .)
