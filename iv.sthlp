@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 0.1.0  10sep2021 Tom Palmer}{...}
+{* *! version 0.2.0  26nov2026 Tom Palmer}{...}
 {vieweralsosee "ivonesamplemr" "help ivonesamplemr"}{...}
 {viewerjumpto "Syntax" "iv##syntax"}{...}
 {viewerjumpto "Description" "iv##description"}{...}
@@ -17,7 +17,23 @@
 {title:Syntax}
 
 {p 8 16 2}
-{opt iv} {it:subcommand} ... [{it:aweight}] {ifin} [{cmd:,} {it:options}]
+{opt iv} {it:subcommand} {it:...}
+
+{p 4 4 2}
+where {it:subcommand} is one of{p_end}
+
+{synoptset 10}{...}
+{synopt :{cmd:fsw}}{help ivfsw}{p_end}
+{synopt :{cmd:lsmm}}{help ivlsmm}{p_end}
+{synopt :{cmd:msmm}}{help ivmsmm}{p_end}
+{synopt :{cmd:mw}}{help ivmw}{p_end}
+{synopt :{cmd:tsps}}{help ivtsps}{p_end}
+{synopt :{cmd:tsri}}{help ivtsri}{p_end}
+{synopt :{cmd:xtile}}{help ivxtile}{p_end}
+{synoptline}
+
+{p 4 4 2}
+and {it:...} is the syntax of that command, including any weights, {it:if}, {it:in}, and options.{p_end}
 
 {marker description}{...}
 {title:Description}
@@ -28,6 +44,7 @@
 {pstd}
 The {it:subcommand} is specified as the ivonesamplemr program name without its {cmd:iv} prefix, 
 i.e. {cmd:ivlsmm ...} can alternatively be run using the syntax {cmd:iv lsmm ...}.
+Everything after the {it:subcommand} is passed unchanged to that command.
  
 {marker options}{...}
 {title:Options}
@@ -49,6 +66,18 @@ i.e. {cmd:ivlsmm ...} can alternatively be run using the syntax {cmd:iv lsmm ...
 {phang2}{cmd:.} {stata "iv tsps y (x = z1 z2 z3), link(logit)"}{p_end}
 
 {phang2}{cmd:.} {stata "iv tsri y (x = z1 z2 z3), link(logit)"}{p_end}
+
+{pstd}Sanderson-Windmeijer conditional F-statistics after {cmd:ivregress}.{p_end}
+
+{phang2}{cmd:.} {stata "ivregress 2sls y (x1 x2 = z1 z2 z3)"}{p_end}
+
+{phang2}{cmd:.} {stata "iv fsw"}{p_end}
+
+{pstd}Moving window and quantile analyses.{p_end}
+
+{phang2}{cmd:.} {stata "iv mw, window(2400) par(x): ivregress 2sls y (x = z1 z2 z3)"}{p_end}
+
+{phang2}{cmd:.} {stata "iv xtile, nq(4) par(x): ivregress 2sls y (x = z1 z2 z3)"}{p_end}
 
 {marker results}{...}
 {title:Stored results}

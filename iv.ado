@@ -1,25 +1,20 @@
-*! version 0.1.0 10sep2021 Tom Palmer
+*! version 0.2.0 26nov2026 Tom Palmer
 program define iv
 version 9
-syntax anything(everything) [aweight] [if] [in] [, *]
 
-local subcmd "`1'"
-local rest = subinword("`0'", "`subcmd'", "", 1)
+// pass everything after the subcommand through unparsed so the subcommand's
+// own syntax (weights, prefix colon, etc.) applies
+gettoken subcmd rest : 0, parse(" ,")
 
-if "`subcmd'" == "lsmm" {
-    ivlsmm `rest'
+if `"`subcmd'"' == "" {
+    di as err "subcommand required"
+    exit 198
 }
-else if "`subcmd'" == "msmm" {
-    ivmsmm `rest'
-}
-else if "`subcmd'" == "tsps" {
-    ivtsps `rest'
-}
-else if "`subcmd'" == "tsri" {
-    ivtsri `rest'
+if inlist("`subcmd'", "fsw", "lsmm", "msmm", "mw", "tsps", "tsri", "xtile") {
+    iv`subcmd' `rest'
 }
 else {
-    di as err "`subcmd' is not a valid subcommand."
+    di as err `"`subcmd' is not a valid subcommand."'
     exit 198
 }
 
