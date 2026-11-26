@@ -2,7 +2,7 @@
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  26 Nov 2026, 10:55:19
+ opened on:  26 Nov 2026, 11:01:13
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -897,7 +897,21 @@ randomization (MR) analyses
 Syntax
 ------
 
-        iv subcommand ... [aweight] [if] [in] [, options]
+        iv subcommand ...
+
+    where subcommand is one of
+
+    fsw         ivfsw
+    lsmm        ivlsmm
+    msmm        ivmsmm
+    mw          ivmw
+    tsps        ivtsps
+    tsri        ivtsri
+    xtile       ivxtile
+    -------------------------------------------------------------------------
+
+    and ... is the syntax of that command, including any weights, if, in, and
+    options.
 
 Description
 -----------
@@ -906,7 +920,8 @@ Description
 
     The subcommand is specified as the ivonesamplemr program name without its
     iv prefix, i.e. ivlsmm ... can alternatively be run using the syntax iv
-    lsmm ....
+    lsmm ....  Everything after the subcommand is passed unchanged to that
+    command.
 
 Options
 -------
@@ -929,6 +944,18 @@ Examples
         . iv tsps y (x = z1 z2 z3), link(logit)
 
         . iv tsri y (x = z1 z2 z3), link(logit)
+
+    Sanderson-Windmeijer conditional F-statistics after ivregress.
+
+        . ivregress 2sls y (x1 x2 = z1 z2 z3)
+
+        . iv fsw
+
+    Moving window and quantile analyses.
+
+        . iv mw, window(2400) par(x): ivregress 2sls y (x = z1 z2 z3)
+
+        . iv xtile, nq(4) par(x): ivregress 2sls y (x = z1 z2 z3)
 
 Stored results
 --------------
@@ -1078,5 +1105,5 @@ end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  26 Nov 2026, 10:55:19
+ closed on:  26 Nov 2026, 11:01:13
 -------------------------------------------------------------------------------

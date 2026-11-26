@@ -2,7 +2,7 @@
       name:  master
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:  26 Nov 2026, 10:54:26
+ opened on:  26 Nov 2026, 11:00:19
 
 . 
 . cscript master
@@ -39,7 +39,7 @@
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  26 Nov 2026, 10:54:26
+ opened on:  26 Nov 2026, 11:00:19
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -49,7 +49,7 @@
 
 -> which iv, usesysdir
 /Users/eptmp/Documents/GitHub/ivonesamplemr/iv.ado
-*! version 0.1.0 10sep2021 Tom Palmer
+*! version 0.2.0 26nov2026 Tom Palmer
 
 . set varabbrev off
 
@@ -243,17 +243,203 @@ Causal odds ratio for: x
 ------------------------------------------------------------------------------
 
 . 
+. // weights are passed through to the subcommand
+. gen wt = 1 + (z1 > 0)
+
+. iv msmm y (x = z1 z2 z3) [fw=wt]
+
+Final GMM criterion Q(b) = .0002498
+
+Exponential mean model with endogenous regressors
+
+Number of parameters =   2                         Number of obs  =      3,390
+Number of moments    =   4
+Initial weight matrix: Unadjusted
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   1.336081   .0365228    10.60   0.000     1.266382    1.409617
+       _cons |   .2152727    .017482   -18.91   0.000     .1835964    .2524142
+------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
+Endogenous: x
+Exogenous:  z1 z2 z3
+
+. matrix b_iv = e(b)
+
+. ivmsmm y (x = z1 z2 z3) [fw=wt]
+
+Final GMM criterion Q(b) = .0002498
+
+Exponential mean model with endogenous regressors
+
+Number of parameters =   2                         Number of obs  =      3,390
+Number of moments    =   4
+Initial weight matrix: Unadjusted
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   1.336081   .0365228    10.60   0.000     1.266382    1.409617
+       _cons |   .2152727    .017482   -18.91   0.000     .1835964    .2524142
+------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
+Endogenous: x
+Exogenous:  z1 z2 z3
+
+. assert mreldif(b_iv, e(b)) < 1e-12
+
+. 
+. iv msmm y (x = z1 z2 z3) [pw=wt]
+
+Final GMM criterion Q(b) = .0002232
+
+Exponential mean model with endogenous regressors
+
+Number of parameters =   2                         Number of obs  =      2,500
+Number of moments    =   4
+Initial weight matrix: Unadjusted
+GMM weight matrix:     Robust
+
+------------------------------------------------------------------------------
+             |               Robust
+           y |        IRR   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   1.337654   .0418015     9.31   0.000     1.258183    1.422144
+       _cons |   .2137791   .0190861   -17.28   0.000     .1794611    .2546596
+------------------------------------------------------------------------------
+Note: _cons estimates baseline incidence rate.
+Endogenous: x
+Exogenous:  z1 z2 z3
+
+. 
+. // postestimation and prefix subcommands
+. ivreg2 y w (x1 x2 = z1 z2 z3)
+
+IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics consistent for homoskedasticity only
+
+                                                      Number of obs =     2500
+                                                      F(  3,  2496) =   281.22
+                                                      Prob > F      =   0.0000
+Total (centered) SS     =     624.2944                Centered R2   =   0.2780
+Total (uncentered) SS   =         1208                Uncentered R2 =   0.6269
+Residual SS             =  450.7358062                Root MSE      =    .4246
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .1015697   .0094163    10.79   0.000     .0831142    .1200253
+          x2 |  -.1906338   .2317717    -0.82   0.411     -.644898    .2636303
+           w |   .1186961   .0122431     9.69   0.000     .0947001     .142692
+       _cons |   .2926948   .0185305    15.80   0.000     .2563756     .329014
+------------------------------------------------------------------------------
+Underidentification test (Anderson canon. corr. LM statistic):           3.383
+                                                   Chi-sq(2) P-val =    0.1842
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):                1.127
+Stock-Yogo weak ID test critical values: 10% maximal IV size             13.43
+                                         15% maximal IV size              8.18
+                                         20% maximal IV size              6.40
+                                         25% maximal IV size              5.45
+Source: Stock-Yogo (2005).  Reproduced by permission.
+------------------------------------------------------------------------------
+Sargan statistic (overidentification test of all instruments):           1.814
+                                                   Chi-sq(1) P-val =    0.1780
+------------------------------------------------------------------------------
+Instrumented:         x1 x2
+Included instruments: w
+Excluded instruments: z1 z2 z3
+------------------------------------------------------------------------------
+
+. iv fsw
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 2500
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   7.35       2      2495    0.0007
+x2                   1.69       2      2495    0.1846
+
+. 
+. ivregress 2sls y w (x1 x2 = z1 z2 z3)
+
+Instrumental-variables 2SLS regression            Number of obs   =      2,500
+                                                  Wald chi2(3)    =     845.00
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.2780
+                                                  Root MSE        =     .42461
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          x1 |   .1015697   .0094163    10.79   0.000     .0831142    .1200253
+          x2 |  -.1906338   .2317717    -0.82   0.411     -.644898    .2636303
+           w |   .1186961   .0122431     9.69   0.000     .0947001     .142692
+       _cons |   .2926948   .0185305    15.80   0.000     .2563756     .329014
+------------------------------------------------------------------------------
+Endogenous: x1 x2
+Exogenous:  w z1 z2 z3
+
+. iv fsw
+
+Sanderson-Windmeijer conditional F-statistics
+Number of obs = 2500
+
+Variable                F      df      df_r       P>F
+------------------------------------------------------
+x1                   7.35       2      2495    0.0007
+x2                   1.69       2      2495    0.1846
+
+. 
+. iv mw, window(2400) par(x): ivregress 2sls y (x = z1 z2 z3)
+
+Time variable: res_order, 1 to 2500
+        Delta: 1 unit
+(running ivregress on estimation sample)
+
+Rolling replications (101): .........10.........20.........30.........40.......
+> ..50.........60.........70.........80.........90.........100. done
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
+    saved as .dta format
+(rolling: ivregress)
+
+. 
+. iv xtile, nq(4) par(x): ivreg2 y (x = z1 z2 z3)
+
+    quantile       beta         se    medendog      lowci      uppci  
+           1   .0626864   .0098281   -.3089587   .0434234   .0819494  
+           2   .1366785   .0158917    1.156919   .1055309   .1678261  
+           3   .1799865   .0185017    2.268454   .1437231     .21625  
+           4   .0703854    .009819    3.950762   .0511403   .0896306  
+
+. 
+. // invalid and missing subcommands
+. rcof "iv foo y (x = z1)" == 198
+
+. rcof "iv" == 198
+
+. 
 end of do-file
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  26 Nov 2026, 10:54:27
+ closed on:  26 Nov 2026, 11:00:22
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivfsw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivfsw.log
   log type:  text
- opened on:  26 Nov 2026, 10:54:27
+ opened on:  26 Nov 2026, 11:00:22
 
 . // ivfsw cscript
 . // 2026-11-23
@@ -590,13 +776,13 @@ end of do-file
       name:  ivfsw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivfsw.log
   log type:  text
- closed on:  26 Nov 2026, 10:54:27
+ closed on:  26 Nov 2026, 11:00:22
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  26 Nov 2026, 10:54:27
+ opened on:  26 Nov 2026, 11:00:22
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -1283,13 +1469,13 @@ end of do-file
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  26 Nov 2026, 10:54:30
+ closed on:  26 Nov 2026, 11:00:25
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  26 Nov 2026, 10:54:30
+ opened on:  26 Nov 2026, 11:00:25
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -1730,13 +1916,13 @@ end of do-file
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  26 Nov 2026, 10:54:31
+ closed on:  26 Nov 2026, 11:00:26
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  26 Nov 2026, 10:54:31
+ opened on:  26 Nov 2026, 11:00:26
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -3266,13 +3452,13 @@ end of do-file
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  26 Nov 2026, 10:54:34
+ closed on:  26 Nov 2026, 11:00:29
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  26 Nov 2026, 10:54:34
+ opened on:  26 Nov 2026, 11:00:29
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -4915,13 +5101,13 @@ end of do-file
       name:  ivtsri
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  26 Nov 2026, 10:54:37
+ closed on:  26 Nov 2026, 11:00:32
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:  26 Nov 2026, 10:54:37
+ opened on:  26 Nov 2026, 11:00:32
 
 . // ivmw cscript
 . // 2021-09-12
@@ -4989,7 +5175,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivregress)
 
@@ -5000,7 +5186,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivregress)
 
@@ -5011,7 +5197,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivregress)
 
@@ -5024,7 +5210,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5035,7 +5221,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5048,7 +5234,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5059,7 +5245,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5072,7 +5258,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5083,7 +5269,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5124,7 +5310,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5163,7 +5349,7 @@ Time variable: res_order, 1 to 2500
 (running ivmsmm on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivmsmm)
 
@@ -5218,7 +5404,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5229,7 +5415,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5240,7 +5426,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5251,7 +5437,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5262,7 +5448,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5273,7 +5459,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5284,7 +5470,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5296,7 +5482,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5384,7 +5570,7 @@ Time variable: res_order, 1 to 4000
 (running ivlsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivlsmm)
 
@@ -5395,7 +5581,7 @@ Time variable: res_order, 1 to 4000
 (running ivmsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivmsmm)
 
@@ -5406,7 +5592,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5417,7 +5603,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5428,7 +5614,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5439,7 +5625,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5450,7 +5636,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5461,7 +5647,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St37019_qxex.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St38480_0cqt.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5470,13 +5656,13 @@ end of do-file
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:  26 Nov 2026, 10:55:10
+ closed on:  26 Nov 2026, 11:01:04
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:  26 Nov 2026, 10:55:10
+ opened on:  26 Nov 2026, 11:01:04
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -5962,13 +6148,13 @@ end of do-file
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:  26 Nov 2026, 10:55:19
+ closed on:  26 Nov 2026, 11:01:13
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  26 Nov 2026, 10:55:19
+ opened on:  26 Nov 2026, 11:01:13
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -6863,7 +7049,21 @@ randomization (MR) analyses
 Syntax
 ------
 
-        iv subcommand ... [aweight] [if] [in] [, options]
+        iv subcommand ...
+
+    where subcommand is one of
+
+    fsw         ivfsw
+    lsmm        ivlsmm
+    msmm        ivmsmm
+    mw          ivmw
+    tsps        ivtsps
+    tsri        ivtsri
+    xtile       ivxtile
+    -------------------------------------------------------------------------
+
+    and ... is the syntax of that command, including any weights, if, in, and
+    options.
 
 Description
 -----------
@@ -6872,7 +7072,8 @@ Description
 
     The subcommand is specified as the ivonesamplemr program name without its
     iv prefix, i.e. ivlsmm ... can alternatively be run using the syntax iv
-    lsmm ....
+    lsmm ....  Everything after the subcommand is passed unchanged to that
+    command.
 
 Options
 -------
@@ -6895,6 +7096,18 @@ Examples
         . iv tsps y (x = z1 z2 z3), link(logit)
 
         . iv tsri y (x = z1 z2 z3), link(logit)
+
+    Sanderson-Windmeijer conditional F-statistics after ivregress.
+
+        . ivregress 2sls y (x1 x2 = z1 z2 z3)
+
+        . iv fsw
+
+    Moving window and quantile analyses.
+
+        . iv mw, window(2400) par(x): ivregress 2sls y (x = z1 z2 z3)
+
+        . iv xtile, nq(4) par(x): ivregress 2sls y (x = z1 z2 z3)
 
 Stored results
 --------------
@@ -7044,7 +7257,7 @@ end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  26 Nov 2026, 10:55:19
+ closed on:  26 Nov 2026, 11:01:13
 -------------------------------------------------------------------------------
 
 . 
@@ -7052,5 +7265,5 @@ end of do-file
       name:  master
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:  26 Nov 2026, 10:55:19
+ closed on:  26 Nov 2026, 11:01:13
 -------------------------------------------------------------------------------
