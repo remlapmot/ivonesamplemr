@@ -2,7 +2,7 @@
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  26 Nov 2026, 09:33:41
+ opened on:  26 Nov 2026, 10:37:06
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -13,6 +13,8 @@
 -> which iv, usesysdir
 /Users/eptmp/Documents/GitHub/ivonesamplemr/iv.ado
 *! version 0.1.0 10sep2021 Tom Palmer
+
+. set varabbrev off
 
 . 
 . about
@@ -208,5 +210,5 @@ end of do-file
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  26 Nov 2026, 09:33:41
+ closed on:  26 Nov 2026, 10:37:07
 -------------------------------------------------------------------------------

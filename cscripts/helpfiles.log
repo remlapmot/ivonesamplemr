@@ -2,7 +2,7 @@
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  26 Nov 2026, 09:34:34
+ opened on:  26 Nov 2026, 10:37:59
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -102,7 +102,19 @@ References
 Author
 ------
 
-INCLUDE help ivonesamplemr-author
+    Tom Palmer, MRC Integrative Epidemiology Unit and Population Health
+    Sciences, University of Bristol, UK. tom.palmer@bristol.ac.uk.
+
+    Development takes place on GitHub here 
+    https://github.com/remlapmot/ivonesamplemr.
+
+    Please report any bugs or issues you find, either by email or by creating
+    an issue on the GitHub repository here 
+    https://github.com/remlapmot/ivonesamplemr/issues.
+
+    I welcome additions to the code, either by email or pull request on
+    GitHub.
+
 Title
 -----
 
@@ -166,7 +178,19 @@ References
 Author
 ------
 
-INCLUDE help ivonesamplemr-author
+    Tom Palmer, MRC Integrative Epidemiology Unit and Population Health
+    Sciences, University of Bristol, UK. tom.palmer@bristol.ac.uk.
+
+    Development takes place on GitHub here 
+    https://github.com/remlapmot/ivonesamplemr.
+
+    Please report any bugs or issues you find, either by email or by creating
+    an issue on the GitHub repository here 
+    https://github.com/remlapmot/ivonesamplemr/issues.
+
+    I welcome additions to the code, either by email or pull request on
+    GitHub.
+
 Title
 -----
 
@@ -256,7 +280,19 @@ References
 Author
 ------
 
-INCLUDE help ivonesamplemr-author
+    Tom Palmer, MRC Integrative Epidemiology Unit and Population Health
+    Sciences, University of Bristol, UK. tom.palmer@bristol.ac.uk.
+
+    Development takes place on GitHub here 
+    https://github.com/remlapmot/ivonesamplemr.
+
+    Please report any bugs or issues you find, either by email or by creating
+    an issue on the GitHub repository here 
+    https://github.com/remlapmot/ivonesamplemr/issues.
+
+    I welcome additions to the code, either by email or pull request on
+    GitHub.
+
 Title
 -----
 
@@ -361,7 +397,19 @@ References
 Author
 ------
 
-INCLUDE help ivonesamplemr-author
+    Tom Palmer, MRC Integrative Epidemiology Unit and Population Health
+    Sciences, University of Bristol, UK. tom.palmer@bristol.ac.uk.
+
+    Development takes place on GitHub here 
+    https://github.com/remlapmot/ivonesamplemr.
+
+    Please report any bugs or issues you find, either by email or by creating
+    an issue on the GitHub repository here 
+    https://github.com/remlapmot/ivonesamplemr/issues.
+
+    I welcome additions to the code, either by email or pull request on
+    GitHub.
+
 Title
 -----
 
@@ -554,7 +602,19 @@ References
 Author
 ------
 
-INCLUDE help ivonesamplemr-author
+    Tom Palmer, MRC Integrative Epidemiology Unit and Population Health
+    Sciences, University of Bristol, UK. tom.palmer@bristol.ac.uk.
+
+    Development takes place on GitHub here 
+    https://github.com/remlapmot/ivonesamplemr.
+
+    Please report any bugs or issues you find, either by email or by creating
+    an issue on the GitHub repository here 
+    https://github.com/remlapmot/ivonesamplemr/issues.
+
+    I welcome additions to the code, either by email or pull request on
+    GitHub.
+
 Title
 -----
 
@@ -674,7 +734,19 @@ References
 Author
 ------
 
-INCLUDE help ivonesamplemr-author
+    Tom Palmer, MRC Integrative Epidemiology Unit and Population Health
+    Sciences, University of Bristol, UK. tom.palmer@bristol.ac.uk.
+
+    Development takes place on GitHub here 
+    https://github.com/remlapmot/ivonesamplemr.
+
+    Please report any bugs or issues you find, either by email or by creating
+    an issue on the GitHub repository here 
+    https://github.com/remlapmot/ivonesamplemr/issues.
+
+    I welcome additions to the code, either by email or pull request on
+    GitHub.
+
 Title
 -----
 
@@ -803,7 +875,19 @@ References
 Author
 ------
 
-INCLUDE help ivonesamplemr-author
+    Tom Palmer, MRC Integrative Epidemiology Unit and Population Health
+    Sciences, University of Bristol, UK. tom.palmer@bristol.ac.uk.
+
+    Development takes place on GitHub here 
+    https://github.com/remlapmot/ivonesamplemr.
+
+    Please report any bugs or issues you find, either by email or by creating
+    an issue on the GitHub repository here 
+    https://github.com/remlapmot/ivonesamplemr/issues.
+
+    I welcome additions to the code, either by email or pull request on
+    GitHub.
+
 Title
 -----
 
@@ -854,7 +938,19 @@ Stored results
 Author
 ------
 
-INCLUDE help ivonesamplemr-author
+    Tom Palmer, MRC Integrative Epidemiology Unit and Population Health
+    Sciences, University of Bristol, UK. tom.palmer@bristol.ac.uk.
+
+    Development takes place on GitHub here 
+    https://github.com/remlapmot/ivonesamplemr.
+
+    Please report any bugs or issues you find, either by email or by creating
+    an issue on the GitHub repository here 
+    https://github.com/remlapmot/ivonesamplemr/issues.
+
+    I welcome additions to the code, either by email or pull request on
+    GitHub.
+
 Title
 -----
 
@@ -964,12 +1060,23 @@ References
 Author
 ------
 
-INCLUDE help ivonesamplemr-author
+    Tom Palmer, MRC Integrative Epidemiology Unit and Population Health
+    Sciences, University of Bristol, UK. tom.palmer@bristol.ac.uk.
+
+    Development takes place on GitHub here 
+    https://github.com/remlapmot/ivonesamplemr.
+
+    Please report any bugs or issues you find, either by email or by creating
+    an issue on the GitHub repository here 
+    https://github.com/remlapmot/ivonesamplemr/issues.
+
+    I welcome additions to the code, either by email or pull request on
+    GitHub.
 
 . 
 end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  26 Nov 2026, 09:34:34
+ closed on:  26 Nov 2026, 10:37:59
 -------------------------------------------------------------------------------

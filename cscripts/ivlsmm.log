@@ -2,7 +2,7 @@
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  26 Nov 2026, 09:33:42
+ opened on:  26 Nov 2026, 10:37:07
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -13,6 +13,8 @@
 -> which ivlsmm, usesysdir
 /Users/eptmp/Documents/GitHub/ivonesamplemr/ivlsmm.ado
 *! 1.0.0 Tom Palmer 01sep2021
+
+. set varabbrev off
 
 . 
 . about
@@ -687,5 +689,5 @@ end of do-file
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  26 Nov 2026, 09:33:44
+ closed on:  26 Nov 2026, 10:37:10
 -------------------------------------------------------------------------------

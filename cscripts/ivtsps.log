@@ -2,7 +2,7 @@
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  26 Nov 2026, 09:33:46
+ opened on:  26 Nov 2026, 10:37:11
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -13,6 +13,8 @@
 -> which ivtsps, usesysdir
 /Users/eptmp/Documents/GitHub/ivonesamplemr/ivtsps.ado
 *! 1.0.0 Tom Palmer 05sep2021
+
+. set varabbrev off
 
 . 
 . about
@@ -1530,5 +1532,5 @@ end of do-file
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  26 Nov 2026, 09:33:49
+ closed on:  26 Nov 2026, 10:37:14
 -------------------------------------------------------------------------------
