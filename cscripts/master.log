@@ -2,11 +2,17 @@
       name:  master
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- opened on:  23 Nov 2026, 12:44:49
+ opened on:  26 Nov 2026, 09:33:41
 
 . 
 . cscript master
 -------------------------------------------------------------------BEGIN master
+
+. 
+. * SSC requires code to run with variable abbreviation turned off
+. local varabbrev = c(varabbrev)
+
+. set varabbrev off
 
 . 
 . cap noi ado describe ivonesamplemr
@@ -33,7 +39,7 @@
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- opened on:  23 Nov 2026, 12:44:49
+ opened on:  26 Nov 2026, 09:33:41
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -239,15 +245,13 @@ end of do-file
       name:  iv
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/iv.log
   log type:  text
- closed on:  23 Nov 2026, 12:44:50
+ closed on:  26 Nov 2026, 09:33:41
 -------------------------------------------------------------------------------
-(file /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivfsw.log not
-    found)
 -------------------------------------------------------------------------------
       name:  ivfsw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivfsw.log
   log type:  text
- opened on:  23 Nov 2026, 12:44:50
+ opened on:  26 Nov 2026, 09:33:41
 
 . // ivfsw cscript
 . // 2026-11-23
@@ -582,13 +586,13 @@ end of do-file
       name:  ivfsw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivfsw.log
   log type:  text
- closed on:  23 Nov 2026, 12:44:50
+ closed on:  26 Nov 2026, 09:33:42
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- opened on:  23 Nov 2026, 12:44:50
+ opened on:  26 Nov 2026, 09:33:42
 
 . // ivlsmm cscript
 . // 2021-08-27
@@ -1273,13 +1277,13 @@ end of do-file
       name:  ivlsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivlsmm.log
   log type:  text
- closed on:  23 Nov 2026, 12:44:54
+ closed on:  26 Nov 2026, 09:33:44
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- opened on:  23 Nov 2026, 12:44:54
+ opened on:  26 Nov 2026, 09:33:44
 
 . // ivmsmm cscript
 . // 2021-09-01
@@ -1718,13 +1722,13 @@ end of do-file
       name:  ivmsmm
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmsmm.log
   log type:  text
- closed on:  23 Nov 2026, 12:44:55
+ closed on:  26 Nov 2026, 09:33:46
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- opened on:  23 Nov 2026, 12:44:55
+ opened on:  26 Nov 2026, 09:33:46
 
 . // ivtsps cscript
 . // 2021-09-06
@@ -3252,13 +3256,13 @@ end of do-file
       name:  ivtsps
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsps.log
   log type:  text
- closed on:  23 Nov 2026, 12:44:59
+ closed on:  26 Nov 2026, 09:33:49
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivtsri
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- opened on:  23 Nov 2026, 12:44:59
+ opened on:  26 Nov 2026, 09:33:49
 
 . // ivtsri cscript
 . // 2021-09-06
@@ -4899,13 +4903,13 @@ end of do-file
       name:  ivtsri
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivtsri.log
   log type:  text
- closed on:  23 Nov 2026, 12:45:03
+ closed on:  26 Nov 2026, 09:33:52
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- opened on:  23 Nov 2026, 12:45:03
+ opened on:  26 Nov 2026, 09:33:52
 
 . // ivmw cscript
 . // 2021-09-12
@@ -4971,7 +4975,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivregress)
 
@@ -4982,7 +4986,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivregress)
 
@@ -4993,7 +4997,7 @@ Time variable: res_order, 1 to 2500
 (running ivregress on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivregress)
 
@@ -5006,7 +5010,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5017,7 +5021,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5030,7 +5034,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5041,7 +5045,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsps on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5054,7 +5058,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5065,7 +5069,7 @@ Time variable: res_order, 1 to 2500
 (running ivtsri on estimation sample)
 
 Rolling replications (11): .........10. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5106,7 +5110,7 @@ Time variable: res_order, 1 to 2500
 (running ivreg2 on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5145,7 +5149,7 @@ Time variable: res_order, 1 to 2500
 (running ivmsmm on estimation sample)
 
 Rolling replications (21): .........10.........20. done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivmsmm)
 
@@ -5200,7 +5204,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5211,7 +5215,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5222,7 +5226,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5233,7 +5237,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5244,7 +5248,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5255,7 +5259,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5266,7 +5270,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5278,7 +5282,7 @@ Time variable: res_order, 1 to 4000
 (running ivreg2 on estimation sample)
 
 Rolling replications (25): .........10.........20..... done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivreg2)
 
@@ -5366,7 +5370,7 @@ Time variable: res_order, 1 to 4000
 (running ivlsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivlsmm)
 
@@ -5377,7 +5381,7 @@ Time variable: res_order, 1 to 4000
 (running ivmsmm on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivmsmm)
 
@@ -5388,7 +5392,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5399,7 +5403,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5410,7 +5414,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsps on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivtsps)
 
@@ -5421,7 +5425,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5432,7 +5436,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5443,7 +5447,7 @@ Time variable: res_order, 1 to 4000
 (running ivtsri on estimation sample)
 
 Rolling replications (10): .........10 done
-file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St24056_1g68.000001
+file /var/folders/kt/7xskrb1n4_x2jkd9lt0rhybh0000gp/T//St12043_f9vg.000001
     saved as .dta format
 (rolling: ivtsri)
 
@@ -5452,13 +5456,13 @@ end of do-file
       name:  ivmw
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivmw.log
   log type:  text
- closed on:  23 Nov 2026, 12:45:41
+ closed on:  26 Nov 2026, 09:34:24
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- opened on:  23 Nov 2026, 12:45:41
+ opened on:  26 Nov 2026, 09:34:24
 
 . // ivxtile cscript
 . // 2021-09-16
@@ -5942,13 +5946,13 @@ end of do-file
       name:  ivxtile
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/ivxtile.log
   log type:  text
- closed on:  23 Nov 2026, 12:45:54
+ closed on:  26 Nov 2026, 09:34:34
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  23 Nov 2026, 12:45:54
+ opened on:  26 Nov 2026, 09:34:34
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -6917,7 +6921,7 @@ end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  23 Nov 2026, 12:45:54
+ closed on:  26 Nov 2026, 09:34:34
 -------------------------------------------------------------------------------
 
 . 
@@ -6925,5 +6929,5 @@ end of do-file
       name:  master
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/master.log
   log type:  text
- closed on:  23 Nov 2026, 12:45:54
+ closed on:  26 Nov 2026, 09:34:34
 -------------------------------------------------------------------------------

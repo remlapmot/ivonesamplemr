@@ -2,7 +2,7 @@
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- opened on:  23 Nov 2026, 12:45:54
+ opened on:  26 Nov 2026, 09:34:34
 
 . // render the helpfiles in the Results window, to check they are approx ok
 . // 2021-09-06
@@ -971,5 +971,5 @@ end of do-file
       name:  helpfiles
        log:  /Users/eptmp/Documents/GitHub/ivonesamplemr/cscripts/helpfiles.log
   log type:  text
- closed on:  23 Nov 2026, 12:45:54
+ closed on:  26 Nov 2026, 09:34:34
 -------------------------------------------------------------------------------
