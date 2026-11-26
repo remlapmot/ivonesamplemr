@@ -163,4 +163,14 @@ Journal of Health Economics. 2008, 27, 3, 531–543.
 {marker author}{...}
 {title:Author}
 
-INCLUDE help ivonesamplemr-author
+{pstd}
+Tom Palmer, MRC Integrative Epidemiology Unit and Population Health Sciences, University of Bristol, UK. {browse "mailto:tom.palmer@bristol.ac.uk":tom.palmer@bristol.ac.uk}. 
+
+{pstd}
+Development takes place on GitHub here {browse "https://github.com/remlapmot/ivonesamplemr"}.
+
+{pstd}
+Please report any bugs or issues you find, either by email or by creating an issue on the GitHub repository here {browse "https://github.com/remlapmot/ivonesamplemr/issues"}.
+
+{pstd}
+I welcome additions to the code, either by email or pull request on GitHub.
