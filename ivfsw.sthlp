@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 1.0.0  23nov2026 Tom Palmer}{...}
+{* *! version 1.1.0  26nov2026 Tom Palmer}{...}
 {vieweralsosee "ivonesamplemr" "help ivonesamplemr"}{...}
 {vieweralsosee "ivregress" "help ivregress"}{...}
 {vieweralsosee "ivreg2" "help ivreg2"}{...}
@@ -50,6 +50,15 @@ calculated by the {cmd:fsw()} function in the R package
 {browse "https://CRAN.R-project.org/package=OneSampleMR":OneSampleMR}, and as the Sanderson-Windmeijer
 F-statistics reported by {help ivreg2} with the {cmd:first} option.
 
+{pstd}
+{cmd:ivfsw} uses the weights and the variance type of the fitted model. After a model fitted with robust or
+one-way cluster-robust standard errors (including with {it:pweight}s) the F-statistics are robust
+versions, and after a model with weights the conditional models and F-tests are weighted, in each case
+matching {help ivreg2}. With cluster-robust standard errors the denominator degrees of freedom are the
+number of clusters minus one. Note that the Stock and Yogo (2005) critical values were derived for the
+non-robust F-statistic. HAC, two-way cluster-robust, bootstrap, and jackknife variances, and the
+{cmd:partial()}, {cmd:dofminus()}, and {cmd:sdofminus()} options of {cmd:ivreg2}, are not supported.
+
 {marker examples}{...}
 {title:Examples}
 
@@ -67,6 +76,11 @@ F-statistics reported by {help ivreg2} with the {cmd:first} option.
 {phang2}{cmd:.} {stata "ivreg2 y w (x1 x2 = z1 z2 z3)"}{p_end}
 {phang2}{cmd:.} {stata "ivfsw"}{p_end}
 
+{pstd}Robust conditional F-statistics.{p_end}
+
+{phang2}{cmd:.} {stata "ivregress 2sls y w (x1 x2 = z1 z2 z3), vce(robust)"}{p_end}
+{phang2}{cmd:.} {stata "ivfsw"}{p_end}
+
 {marker results}{...}
 {title:Stored results}
 
@@ -78,6 +92,9 @@ F-statistics reported by {help ivreg2} with the {cmd:first} option.
 {synopt:{cmd:r(N)}}number of observations{p_end}
 {synopt:{cmd:r(K)}}number of exposures (endogenous variables){p_end}
 {synopt:{cmd:r(L)}}number of excluded instruments{p_end}
+
+{p2col 5 20 24 2: Macros}{p_end}
+{synopt:{cmd:r(vce)}}variance type used: {cmd:unadjusted}, {cmd:robust}, or {cmd:cluster-robust (}{it:clustvar}{cmd:)}{p_end}
 
 {p2col 5 20 24 2: Matrices}{p_end}
 {synopt:{cmd:r(table)}}conditional F-statistics, numerator and denominator degrees of freedom, and

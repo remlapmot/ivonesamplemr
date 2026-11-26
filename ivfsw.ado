@@ -1,4 +1,4 @@
-*! 1.0.0 Tom Palmer 23nov2026
+*! 1.1.0 Tom Palmer 26nov2026
 program ivfsw, rclass
 version 11
 
@@ -23,6 +23,31 @@ else {
     local inst `e(exexog)'
 }
 
+// weights and variance type of the fitted model, which are used in the
+// conditional models and the F-tests
+local wgt
+if "`e(wtype)'" != "" local wgt [`e(wtype)'`e(wexp)']
+local nclust : word count `e(clustvar)'
+if !inlist("`e(vcetype)'", "", "Robust") | `nclust' > 1 | "`e(kernel)'" != "" {
+    di as error "ivfsw supports unadjusted, robust, and one-way cluster-robust variances only"
+    exit 498
+}
+if "`e(cmd)'" == "ivreg2" {
+    if "`e(partial)'" != "" | 0`e(dofminus)' != 0 | 0`e(sdofminus)' != 0 {
+        di as error "ivfsw does not support the {cmd:partial()}, {cmd:dofminus()}, or {cmd:sdofminus()} options of {cmd:ivreg2}"
+        exit 498
+    }
+}
+if `nclust' == 1 {
+    local vce vce(cluster `e(clustvar)')
+    local vcetitle "cluster-robust (`e(clustvar)')"
+}
+else if "`e(vcetype)'" == "Robust" {
+    local vce vce(robust)
+    local vcetitle "robust"
+}
+else local vcetitle "unadjusted"
+
 local K : word count `endog'
 local L : word count `inst'
 if `L' < `K' {
@@ -32,12 +57,14 @@ if `L' < `K' {
 
 tempvar touse condres
 qui gen byte `touse' = e(sample)
-tempname table
+local N = e(N)
+tempname table ivest
 mat `table' = J(`K', 4, .)
 mat rownames `table' = `endog'
 mat colnames `table' = F df df_r p
 
-preserve
+// keep the user's estimation results
+_estimates hold `ivest', restore
 local i = 0
 foreach x of local endog {
     local ++i
@@ -46,15 +73,15 @@ foreach x of local endog {
     // endogenous variables and the exogenous variables, with the other
     // endogenous variables instrumented by the excluded instruments
     if "`others'" == "" {
-        qui regress `x' `exog' if `touse'
+        qui regress `x' `exog' `wgt' if `touse'
     }
     else {
-        qui ivregress 2sls `x' `exog' (`others' = `inst') if `touse'
+        qui ivregress 2sls `x' `exog' (`others' = `inst') `wgt' if `touse'
     }
     qui predict double `condres' if `touse', residuals
     // F-test of the excluded instruments in the regression of the
     // conditional model residuals on the instruments and exogenous variables
-    qui regress `condres' `inst' `exog' if `touse'
+    qui regress `condres' `inst' `exog' `wgt' if `touse', `vce'
     qui test `inst'
     // Sanderson-Windmeijer conditional F-statistic
     local df = r(df) - (`K' - 1)
@@ -65,10 +92,11 @@ foreach x of local endog {
     mat `table'[`i', 4] = Ftail(`df', r(df_r), `fsw')
     drop `condres'
 }
-restore
+_estimates unhold `ivest'
 
 di _n as txt "Sanderson-Windmeijer conditional F-statistics"
-di as txt "Number of obs = " as res e(N)
+di as txt "Number of obs = " as res `N'
+di as txt "Variance      = " as res "`vcetitle'"
 di _n as txt %-14s "Variable" _col(16) %10s "F" %8s "df" %10s "df_r" %10s "P>F"
 di as txt "{hline 54}"
 local i = 0
@@ -79,7 +107,8 @@ foreach x of local endog {
 }
 
 return matrix table = `table'
-return scalar N = e(N)
+return scalar N = `N'
+return local vce "`vcetitle'"
 return scalar K = `K'
 return scalar L = `L'
 end
