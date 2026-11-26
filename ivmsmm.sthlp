@@ -167,6 +167,7 @@ In all cases {cmd:e(estmethod)} contains the estimation method.{p_end}
 {marker cameron}{...}
 {phang}
 Cameron AC, Trivedi PK. Regression analysis of count data. 2nd ed. 2013. New York, Cambridge University Press.
+{browse "https://doi.org/10.1017/CBO9781139013567":DOI}
 {p_end}
 
 {marker clarke}{...}

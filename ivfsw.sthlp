@@ -117,6 +117,7 @@ Stock JH, Yogo M.
 Testing for weak instruments in linear IV regression.
 In Andrews DWK, Stock JH (eds.), Identification and Inference for Econometric Models: Essays in Honor of
 Thomas Rothenberg. 2005. Cambridge University Press, Cambridge. 80-108.
+{browse "https://doi.org/10.1017/CBO9780511614491.006":DOI}
 {p_end}
 
 {marker author}{...}
