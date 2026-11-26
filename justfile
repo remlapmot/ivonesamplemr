@@ -4,6 +4,9 @@ render: uninstall
     quarto render site
     rm -r docs/*
     mv site/_site/* docs/
+    # log2html drops SMCL links, so make the URLs and email addresses in the helpfiles clickable
+    # (skipping the dataset URLs in "use" commands, which only resolve from within Stata)
+    perl -pi -e 's{(?<![">])(?<!use )(https?://[^\s<>"]*[^\s<>".,;:)])}{<a href="$1">$1</a>}g; s{(?<![:>\w.])([\w.]+@[\w-]+(?:\.[\w-]+)*\.\w+)}{<a href="mailto:$1">$1</a>}g' docs/helpfiles/*.html
 
 [working-directory('cscripts')]
 test: uninstall
