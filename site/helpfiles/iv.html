@@ -22,14 +22,28 @@ analyses
 <br><br>
 <a name="syntax"></a><span class=result><u>Syntax</u></span>
 <br><br>
-        <span class=result>iv</span> <i>subcommand</i> ... [<i>aweight</i>] [<i>if</i>] [<i>in</i>] [<span class=result>,</span> <i>options</i>]
+        <span class=result>iv</span> <i>subcommand</i> <i>...</i>
+<br><br>
+    where <i>subcommand</i> is one of
+<br><br>
+    <span class=result>fsw</span>         ivfsw
+    <span class=result>lsmm</span>        ivlsmm
+    <span class=result>msmm</span>        ivmsmm
+    <span class=result>mw</span>          ivmw
+    <span class=result>tsps</span>        ivtsps
+    <span class=result>tsri</span>        ivtsri
+    <span class=result>xtile</span>       ivxtile
+    ----------------------------------------------------------------------------------------------
+<br><br>
+    and <i>...</i> is the syntax of that command, including any weights, <i>if</i>, <i>in</i>, and options.
 <br><br>
 <a name="description"></a><span class=result><u>Description</u></span>
 <br><br>
     <span class=result>iv</span> is a simple wrapper to the commands in the ivonesamplemr package.
 <br><br>
     The <i>subcommand</i> is specified as the ivonesamplemr program name without its <span class=result>iv</span> prefix, i.e.
-    <span class=result>ivlsmm ...</span> can alternatively be run using the syntax <span class=result>iv lsmm ...</span>.
+    <span class=result>ivlsmm ...</span> can alternatively be run using the syntax <span class=result>iv lsmm ...</span>.  Everything after the
+    <i>subcommand</i> is passed unchanged to that command.
 <br><br>
 <a name="options"></a><span class=result><u>Options</u></span>
 <br><br>
@@ -49,6 +63,18 @@ analyses
         <span class=result>.</span> iv tsps y (x = z1 z2 z3), link(logit)
 <br><br>
         <span class=result>.</span> iv tsri y (x = z1 z2 z3), link(logit)
+<br><br>
+    Sanderson-Windmeijer conditional F-statistics after <span class=result>ivregress</span>.
+<br><br>
+        <span class=result>.</span> ivregress 2sls y (x1 x2 = z1 z2 z3)
+<br><br>
+        <span class=result>.</span> iv fsw
+<br><br>
+    Moving window and quantile analyses.
+<br><br>
+        <span class=result>.</span> iv mw, window(2400) par(x): ivregress 2sls y (x = z1 z2 z3)
+<br><br>
+        <span class=result>.</span> iv xtile, nq(4) par(x): ivregress 2sls y (x = z1 z2 z3)
 <br><br>
 <a name="results"></a><span class=result><u>Stored results</u></span>
 <br><br>
