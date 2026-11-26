@@ -2,6 +2,7 @@
 // 2021-09-06
 
 cscript ivtsri adofiles ivtsri
+set varabbrev off
 
 about
 

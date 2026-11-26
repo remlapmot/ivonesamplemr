@@ -2,6 +2,7 @@
 // 2021-09-06
 
 cscript ivtsps adofiles ivtsps
+set varabbrev off
 
 about
 

@@ -2,6 +2,7 @@
 // 2021-09-16
 
 cscript ivxtile adofiles ivxtile
+set varabbrev off
 
 about
 

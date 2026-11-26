@@ -2,6 +2,7 @@
 // 2021-09-01
 
 cscript ivmsmm adofiles ivmsmm
+set varabbrev off
 
 about
 

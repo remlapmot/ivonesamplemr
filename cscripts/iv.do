@@ -2,6 +2,7 @@
 // 2021-08-27
 
 cscript iv adofiles iv
+set varabbrev off
 
 about
 

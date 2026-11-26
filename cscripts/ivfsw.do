@@ -2,6 +2,7 @@
 // 2026-11-23
 
 cscript ivfsw adofiles ivfsw
+set varabbrev off
 
 about
 
