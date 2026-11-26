@@ -35,4 +35,4 @@ install: uninstall
 [working-directory('..')]
 zip:
     rm -f ivonesamplemr/ivonesamplemr.zip
-    zip -X ivonesamplemr/ivonesamplemr.zip ivonesamplemr/*.ado ivonesamplemr/*.sthlp ivonesamplemr/*.pkg ivonesamplemr/stata.toc ivonesamplemr/dependency.do ivonesamplemr/LICENSE
+    zip -X ivonesamplemr/ivonesamplemr.zip ivonesamplemr/*.ado ivonesamplemr/*.sthlp
